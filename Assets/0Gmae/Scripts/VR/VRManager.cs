@@ -12,10 +12,12 @@ public class VRManager : NetworkBehaviour
 
     [Header("Scenario")]
     public GameObject boardUI;
+    public Button startBtn;
     [SerializeField] private ScenarioConfig[] scenarioConfigs;
 
     private void Awake()
     {
+        startBtn.onClick.AddListener(() => { });
         InitializeScenarioButtons();
     }
     private void InitializeScenarioButtons()
