@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class PPEInspectionState : State
 {
-    // [Space(20)]
+    [Space(20)]
+    public float delayChangeState = 2;
+    public PPESelector pPESelector;
 
     public override void Awake()
     {
         base.Awake();
+        pPESelector.OnSelectionValidated += OnValidated;
     }
 
     public override void StateEnter()
@@ -24,5 +27,19 @@ public class PPEInspectionState : State
     public override void StateExit()
     {
         base.StateExit();
+    }
+
+    void OnValidated(bool isCorrect)
+    {
+        print($"OnValidated:{isCorrect}");
+        if (isCorrect)
+        {
+            isPass = true;
+            controller.NextState(delayChangeState);
+        }
+        else
+        {
+            testFirstTime = false;
+        }
     }
 }
