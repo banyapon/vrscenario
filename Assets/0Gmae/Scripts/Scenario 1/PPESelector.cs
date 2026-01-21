@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,13 +23,21 @@ namespace Boy
 
         [Header("Runtime Data")]
         public List<PPEOption> selectedOptions = new();
+        public List<GameObject> selectedUI = new();
 
         public Action<bool> OnSelectionValidated;
+        NetworkOwnershipContext context;
 
         private void Awake()
         {
             ResetSelection();
+            context = GetComponentInParent<NetworkOwnershipContext>();
             confirmSelectionButton.onClick.AddListener(ValidateSelection);
+        }
+
+        private void Update()
+        {
+            UpdateSelectionCountUIOnServer();
         }
 
         public void ToggleOptionSelection(PPEOption option)
@@ -89,6 +98,20 @@ namespace Boy
         {
             selectionCountText.text =
                 $"{selectedOptions.Count}/{maxSelectionCount}";
+        }
+
+        public void UpdateSelectionCountUIOnServer()
+        {
+            if (context == null || context.IsOwner) return;
+            if (!context.IsServer) return;
+
+            int count = 0;
+            foreach (var s in selectedUI)
+            {
+                if (!s.activeInHierarchy) continue;
+                count++;
+            }
+            selectionCountText.text = $"{count}/{maxSelectionCount}";
         }
 
         public bool CanSelectMore()
