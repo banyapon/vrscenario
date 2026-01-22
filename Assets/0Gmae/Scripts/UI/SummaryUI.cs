@@ -7,6 +7,12 @@ public class SummaryUI : MonoBehaviour
 {
     public TMP_Text ratingText;
     public TMP_Text scoreText;
+
+    [Space(10)]
+    public GameObject pass;
+    public GameObject fail;
+
+    [Space(10)]
     public Image[] starFills;
     public StateUI[] stateUIs;
 
@@ -15,6 +21,8 @@ public class SummaryUI : MonoBehaviour
     public void SetupUI(List<bool> _resultList)
     {
         resultList = _resultList ?? new List<bool>();
+        pass.SetActive(false);
+        fail.SetActive(true);
 
         if (stateUIs == null || stateUIs.Length == 0) return;
 
@@ -25,6 +33,9 @@ public class SummaryUI : MonoBehaviour
         UpdateRatingUI(percent);
         UpdateStars(percent);
         UpdateStateIcons();
+
+        pass.SetActive(percent >= 0.5f);
+        fail.SetActive(percent < 0.5f);
     }
 
     void UpdateRatingUI(float percent)
