@@ -10,9 +10,15 @@ public class Player : MonoBehaviour
         else Instance = this;
     }
 
+    public void Teleport(Transform transform)
+    {
+        if (transform == null) return;
+        Teleport(transform.localPosition, transform.localEulerAngles);
+    }
+
     public void Teleport(Vector3 position, Vector3 rotate)
     {
         transform.position = position;
-        transform.eulerAngles = Vector3.zero;
+        transform.eulerAngles = rotate;
     }
 }
