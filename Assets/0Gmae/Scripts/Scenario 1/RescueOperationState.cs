@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RescueOperationState : State
 {
-    // [Space(20)]
+    //[Space(20)]
 
     public override void Awake()
     {

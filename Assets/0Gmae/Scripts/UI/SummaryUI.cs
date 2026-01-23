@@ -18,7 +18,7 @@ public class SummaryUI : MonoBehaviour
 
     private List<bool> resultList;
 
-    public void SetupUI(List<bool> _resultList)
+    public void ShowSummary(List<bool> _resultList, bool usePercentResult = true)
     {
         resultList = _resultList ?? new List<bool>();
         pass.SetActive(false);
@@ -34,9 +34,12 @@ public class SummaryUI : MonoBehaviour
         UpdateStars(percent);
         UpdateStateIcons();
 
-        pass.SetActive(percent >= 0.5f);
-        fail.SetActive(percent < 0.5f);
+        bool isPass = usePercentResult && percent >= 0.5f;
+
+        pass.SetActive(isPass);
+        fail.SetActive(!isPass);
     }
+
 
     void UpdateRatingUI(float percent)
     {

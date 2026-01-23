@@ -23,7 +23,7 @@ public class ScenarioFiveSummaryState : State
             resultList.Add(state.IsPass);
         }
 
-        if (summaryUI) summaryUI.SetupUI(resultList);
+        summaryUI?.ShowSummary(resultList);
     }
 
     public override void StateUpdate()
