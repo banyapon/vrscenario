@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GasLevelInspectionState : State
 {
-    // [Space(20)]
+    [Space(20)]
+    public Timer timer;
 
     public override void Awake()
     {
@@ -14,6 +15,7 @@ public class GasLevelInspectionState : State
     public override void StateEnter()
     {
         base.StateEnter();
+        timer.StartCount();
     }
 
     public override void StateUpdate()

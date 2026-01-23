@@ -6,7 +6,7 @@ namespace Boy
     public class State : MonoBehaviour
     {
         [SerializeField] protected bool isPass;
-        protected bool testFirstTime;
+        [SerializeField] protected bool testFirstTime = true;
         public bool IsPass {
             get {
 
