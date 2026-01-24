@@ -5495,7 +5495,7 @@ PrefabInstance:
     - target: {fileID: 8151954492914599796, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 1546522257
+      value: 1396470887
       objectReference: {fileID: 0}
     - target: {fileID: 8151954492914599796, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
@@ -10862,6 +10862,11 @@ PrefabInstance:
       propertyPath: 'stateUIs.Array.data[6]'
       value: 
       objectReference: {fileID: 7105781416837258083}
+    - target: {fileID: 8200348932809743011, guid: 746b3d83a78304749a1ba17903d2303b,
+        type: 3}
+      propertyPath: m_text
+      value: You have earned 3 of 7 points
+      objectReference: {fileID: 0}
     - target: {fileID: 8480500142899712084, guid: 746b3d83a78304749a1ba17903d2303b,
         type: 3}
       propertyPath: m_Pivot.x
@@ -10961,6 +10966,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8519965513489095269, guid: 746b3d83a78304749a1ba17903d2303b,
+        type: 3}
+      propertyPath: m_text
+      value: Scenario 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8787641526493986664, guid: 746b3d83a78304749a1ba17903d2303b,
+        type: 3}
+      propertyPath: m_text
+      value: "\u0E2A\u0E16\u0E32\u0E19\u0E01\u0E32\u0E23\u0E13\u0E4C\u0E2D\u0E31\u0E19\u0E15\u0E23\u0E32\u0E22\u0E08\u0E32\u0E01\u0E01\u0E32\u0E23\u0E17\u0E33\u0E07\u0E32\u0E19\u0E2A\u0E16\u0E32\u0E19\u0E17\u0E35\u0E48\u0E2D\u0E31\u0E1A\u0E2D\u0E32\u0E01\u0E32\u0E28\n\u0E41\u0E25\u0E30\u0E21\u0E32\u0E15\u0E23\u0E32\u0E01\u0E32\u0E23\u0E04\u0E27\u0E32\u0E21\u0E1B\u0E25\u0E2D\u0E14\u0E20\u0E31\u0E22"
       objectReference: {fileID: 0}
     - target: {fileID: 8905166276206475642, guid: 746b3d83a78304749a1ba17903d2303b,
         type: 3}
