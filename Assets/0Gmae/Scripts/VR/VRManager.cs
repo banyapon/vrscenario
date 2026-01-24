@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.UI;
+using static UnityEngine.Rendering.STP;
 
 public class VRManager : NetworkBehaviour
 {
@@ -15,26 +18,48 @@ public class VRManager : NetworkBehaviour
     public Button startBtn;
     [SerializeField] private ScenarioConfig[] scenarioConfigs;
 
-    private void Awake()
+    [SerializeField] private ScenarioConfig currentConfig;
+    public ScenarioConfig CurrentConfig { get => currentConfig;
+        set
+        {
+            currentConfig?.scenarioBtn?.SetSelect(false);
+            if (currentConfig == value)
+            {
+                currentConfig = null;
+            }
+            else
+            {
+                currentConfig = value;
+            }
+            currentConfig?.scenarioBtn?.SetSelect(true);
+            startBtn.interactable = currentConfig != null;
+        }
+    }
+
+    private void Start()
     {
-        startBtn.onClick.AddListener(() => { });
         InitializeScenarioButtons();
     }
     private void InitializeScenarioButtons()
     {
         for (int i = 0; i < scenarioConfigs.Length; i++)
         {
-            Button button = scenarioConfigs[i].scenarioBtn;
-            if (button == null) continue;
+            ScenarioConfig config = scenarioConfigs[i];
+            if (config.scenarioBtn == null) continue;
 
-            int index = i;
-            button.onClick.AddListener(() =>
+            config.scenarioBtn.button.onClick.AddListener(() =>
             {
                 if (!IsOwner) return;
-                boardUI.SetActive(false);
-                SpawnScenarioServerRpc(index);
+                CurrentConfig = config;
             });
         }
+
+        startBtn.onClick.AddListener(() => {
+            if (currentConfig == null) return;
+            boardUI.SetActive(false);
+            int index = scenarioConfigs.ToList().IndexOf(currentConfig);
+            SpawnScenarioServerRpc(index);
+        });
     }
 
     [ServerRpc]
@@ -58,7 +83,7 @@ public class VRManager : NetworkBehaviour
         Debug.Log($"[VRManager] Spawn | IsOwner={IsOwner}");
 
         SetAllCamerasEnabled(false);
-        boardUI.SetActive(true);
+        OpenBoardUI();
 
         if (IsOwner) return;
 
@@ -116,6 +141,12 @@ public class VRManager : NetworkBehaviour
         }
     }
 
+    public void OpenBoardUI()
+    {
+        boardUI.SetActive(true);
+        CurrentConfig = null;
+    }
+
     #region XR Control
 
     private void DisableObjects()
@@ -143,6 +174,6 @@ public class VRManager : NetworkBehaviour
 [System.Serializable]
 public class ScenarioConfig
 {
-    public Button scenarioBtn;
+    public ScenarioButton scenarioBtn;
     public GameObject scenarioPrefab;
 }
