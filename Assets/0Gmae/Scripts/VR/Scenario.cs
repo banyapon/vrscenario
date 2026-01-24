@@ -63,7 +63,7 @@ public class Scenario : NetworkBehaviour
     {
         //print("OnDespawn");
         ClearGrabObject();
-        GetVRManager()?.boardUI.SetActive(true);
+        GetVRManager()?.OpenBoardUI();
         CCTVController cctv = CCTVController.Instance;
         if ((IsServer || IsHost) && cctv != null)
         {

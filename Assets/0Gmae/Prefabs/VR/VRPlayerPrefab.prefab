@@ -6081,7 +6081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3107011912
+  GlobalObjectIdHash: 1462079674
   InScenePlacedSourceGlobalObjectIdHash: 887644319
   DeferredDespawnTick: 0
   Ownership: 1
@@ -6113,18 +6113,21 @@ MonoBehaviour:
   boardUI: {fileID: 7854619892190634570}
   startBtn: {fileID: 4721085512698885604}
   scenarioConfigs:
-  - scenarioBtn: {fileID: 8436247279615865201}
+  - scenarioBtn: {fileID: 5823429646019425540}
     scenarioPrefab: {fileID: 8873530353989227592, guid: 124621d33e8a06347b5746626bbc2c75,
       type: 3}
-  - scenarioBtn: {fileID: 497211832387451247}
+  - scenarioBtn: {fileID: 2532460988922314010}
     scenarioPrefab: {fileID: 0}
-  - scenarioBtn: {fileID: 1699661215509651183}
+  - scenarioBtn: {fileID: 3626805634057018010}
     scenarioPrefab: {fileID: 0}
-  - scenarioBtn: {fileID: 15176219067007220}
+  - scenarioBtn: {fileID: 2735517774757053569}
     scenarioPrefab: {fileID: 0}
-  - scenarioBtn: {fileID: 5299076731543443478}
+  - scenarioBtn: {fileID: 7802893632452942947}
     scenarioPrefab: {fileID: 8873530353989227592, guid: 05810d6b0e8873e4a8be8e2c6b4717ef,
       type: 3}
+  currentConfig:
+    scenarioBtn: {fileID: 0}
+    scenarioPrefab: {fileID: 0}
 --- !u!114 &8006729873694763654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6364,6 +6367,7 @@ RectTransform:
   m_Children:
   - {fileID: 7488386216666795882}
   - {fileID: 6654014970751234940}
+  - {fileID: 1788451316411111510}
   m_Father: {fileID: 1971352928496915077}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -7420,6 +7424,16 @@ PrefabInstance:
       propertyPath: m_text
       value: Scenario 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4609886188129146484, guid: 32418e9b6384b974b80f5062e11e4b56,
+        type: 3}
+      propertyPath: id
+      value: SelectBg_-132810
+      objectReference: {fileID: 0}
+    - target: {fileID: 6281514277617335506, guid: 32418e9b6384b974b80f5062e11e4b56,
+        type: 3}
+      propertyPath: id
+      value: UnselectBg_-132808
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7431,16 +7445,16 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1847418101649475948}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5299076731543443478 stripped
+--- !u!114 &7802893632452942947 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5776221456478163322, guid: 32418e9b6384b974b80f5062e11e4b56,
+  m_CorrespondingSourceObject: {fileID: 8496650459899122959, guid: 32418e9b6384b974b80f5062e11e4b56,
     type: 3}
   m_PrefabInstance: {fileID: 1847418101649475948}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 030f6b0e8ae0ecb499ce6ac2e14bd34a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &2682686307653984267
@@ -7561,6 +7575,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScenarioButton 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4609886188129146484, guid: 32418e9b6384b974b80f5062e11e4b56,
+        type: 3}
+      propertyPath: id
+      value: SelectBg_-132798
+      objectReference: {fileID: 0}
+    - target: {fileID: 6281514277617335506, guid: 32418e9b6384b974b80f5062e11e4b56,
+        type: 3}
+      propertyPath: id
+      value: UnselectBg_-132796
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646094592432926513, guid: 32418e9b6384b974b80f5062e11e4b56,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7572,16 +7601,16 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2682686307653984267}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8436247279615865201 stripped
+--- !u!114 &5823429646019425540 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5776221456478163322, guid: 32418e9b6384b974b80f5062e11e4b56,
+  m_CorrespondingSourceObject: {fileID: 8496650459899122959, guid: 32418e9b6384b974b80f5062e11e4b56,
     type: 3}
   m_PrefabInstance: {fileID: 2682686307653984267}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 030f6b0e8ae0ecb499ce6ac2e14bd34a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &5089780590640200841
@@ -7725,10 +7754,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1215807572385478052}
-    - targetCorrespondingSourceObject: {fileID: 1942537044895682549, guid: 6ab44936bcd22af4a912aa06327330b1,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1788451316411111510}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ab44936bcd22af4a912aa06327330b1, type: 3}
 --- !u!224 &6654014970751234940 stripped
@@ -7860,21 +7885,31 @@ PrefabInstance:
       propertyPath: m_text
       value: Scenario 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4609886188129146484, guid: 32418e9b6384b974b80f5062e11e4b56,
+        type: 3}
+      propertyPath: id
+      value: SelectBg_-132806
+      objectReference: {fileID: 0}
+    - target: {fileID: 6281514277617335506, guid: 32418e9b6384b974b80f5062e11e4b56,
+        type: 3}
+      propertyPath: id
+      value: UnselectBg_-132804
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32418e9b6384b974b80f5062e11e4b56, type: 3}
---- !u!114 &1699661215509651183 stripped
+--- !u!114 &3626805634057018010 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5776221456478163322, guid: 32418e9b6384b974b80f5062e11e4b56,
+  m_CorrespondingSourceObject: {fileID: 8496650459899122959, guid: 32418e9b6384b974b80f5062e11e4b56,
     type: 3}
   m_PrefabInstance: {fileID: 5169897151184555925}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 030f6b0e8ae0ecb499ce6ac2e14bd34a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &5675406770015400797 stripped
@@ -8006,21 +8041,31 @@ PrefabInstance:
       propertyPath: m_text
       value: Scenario 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4609886188129146484, guid: 32418e9b6384b974b80f5062e11e4b56,
+        type: 3}
+      propertyPath: id
+      value: SelectBg_-132794
+      objectReference: {fileID: 0}
+    - target: {fileID: 6281514277617335506, guid: 32418e9b6384b974b80f5062e11e4b56,
+        type: 3}
+      propertyPath: id
+      value: UnselectBg_-132792
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32418e9b6384b974b80f5062e11e4b56, type: 3}
---- !u!114 &15176219067007220 stripped
+--- !u!114 &2735517774757053569 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5776221456478163322, guid: 32418e9b6384b974b80f5062e11e4b56,
+  m_CorrespondingSourceObject: {fileID: 8496650459899122959, guid: 32418e9b6384b974b80f5062e11e4b56,
     type: 3}
   m_PrefabInstance: {fileID: 5772674086934876558}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 030f6b0e8ae0ecb499ce6ac2e14bd34a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &6440316849189989702 stripped
@@ -8152,21 +8197,31 @@ PrefabInstance:
       propertyPath: m_text
       value: Scenario 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4609886188129146484, guid: 32418e9b6384b974b80f5062e11e4b56,
+        type: 3}
+      propertyPath: id
+      value: SelectBg_-132802
+      objectReference: {fileID: 0}
+    - target: {fileID: 6281514277617335506, guid: 32418e9b6384b974b80f5062e11e4b56,
+        type: 3}
+      propertyPath: id
+      value: UnselectBg_-132800
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32418e9b6384b974b80f5062e11e4b56, type: 3}
---- !u!114 &497211832387451247 stripped
+--- !u!114 &2532460988922314010 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5776221456478163322, guid: 32418e9b6384b974b80f5062e11e4b56,
+  m_CorrespondingSourceObject: {fileID: 8496650459899122959, guid: 32418e9b6384b974b80f5062e11e4b56,
     type: 3}
   m_PrefabInstance: {fileID: 6255272598902269973}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 030f6b0e8ae0ecb499ce6ac2e14bd34a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &6895859008418632925 stripped
@@ -8181,7 +8236,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 6654014970751234940}
+    m_TransformParent: {fileID: 549312417855827350}
     m_Modifications:
     - target: {fileID: 3214097706675555038, guid: d66f38f033df54741a9e187829282ceb,
         type: 3}
@@ -8308,7 +8363,7 @@ PrefabInstance:
     - target: {fileID: 8347775817851818447, guid: d66f38f033df54741a9e187829282ceb,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -202.7
+      value: 36.799988
       objectReference: {fileID: 0}
     - target: {fileID: 8347775817851818447, guid: d66f38f033df54741a9e187829282ceb,
         type: 3}
