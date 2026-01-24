@@ -1,7 +1,6 @@
 using DG.Tweening;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +9,8 @@ namespace Boy
 {
     public class PPESelector : MonoBehaviour
     {
+        public Transform pPEGroup;
+
         [Header("Settings")]
         public int maxSelectionCount = 7;
 
@@ -33,6 +34,12 @@ namespace Boy
             ResetSelection();
             context = GetComponentInParent<NetworkOwnershipContext>();
             confirmSelectionButton.onClick.AddListener(ValidateSelection);
+        }
+
+        private void OnEnable()
+        {
+            ResetSelection();
+            //if (pPEGroup) Utility.ShuffleChildren(pPEGroup);
         }
 
         private void Update()

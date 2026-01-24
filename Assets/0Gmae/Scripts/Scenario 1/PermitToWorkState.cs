@@ -88,6 +88,7 @@ public class PermitToWorkState : State
     public void OpenHud(GameObject HUD)
     {
         delayHide?.Kill();
+        HideHud();
         HUD.SetActive(true);
         delayHide = DOVirtual.DelayedCall(delayHideDuration, HideHud);
     }

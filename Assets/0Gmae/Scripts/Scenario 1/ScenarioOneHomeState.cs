@@ -10,16 +10,37 @@ public class ScenarioOneHomeState : State
     [Header("Reference")]
     public GameObject popup1;
     public GameObject popup2;
+    [Space(10)]
+    public GameObject radio;
+    public GameObject gasDetector;
+    [Space(10)]
+    public GameObject liftingSling;
+    public GameObject ordinaryRope;
+    public GameObject harness;
 
     Tween delay;
+    ResetToDefault radioResetter;
+    ResetToDefault gasDetectorResetter;
     public override void Awake()
     {
         base.Awake();
+        radioResetter = radio.GetComponent<ResetToDefault>();
+        gasDetectorResetter = gasDetector.GetComponent<ResetToDefault>();
     }
 
     public override void StateEnter()
     {
         base.StateEnter();
+
+        radio.SetActive(false);
+        gasDetector.SetActive(false);
+
+        liftingSling.SetActive(false);
+        ordinaryRope.SetActive(false);
+        harness.SetActive(false);
+
+        radioResetter.ResetTransform();
+        gasDetectorResetter.ResetTransform();
 
         delay?.Kill();
         popup1.SetActive(true);
