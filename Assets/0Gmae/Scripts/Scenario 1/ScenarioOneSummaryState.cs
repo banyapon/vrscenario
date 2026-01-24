@@ -66,6 +66,7 @@ public class ScenarioOneSummaryState : State
             {
                 resultList.Add(state.IsPass);
             }
+            resultList.Add(hasTimeLeft);
 
             summaryUI?.ShowSummary(resultList, hasTimeLeft);
 
