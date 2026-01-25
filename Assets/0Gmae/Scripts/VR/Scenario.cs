@@ -10,6 +10,7 @@ public class Scenario : NetworkBehaviour
     [SerializeField] private Button destroyBtn;
     [SerializeField] private List<Camera> allCamera = new List<Camera>();
     List<GameObject> grabObjects = new List<GameObject>();
+    Player player;
 
     private void Awake()
     {
@@ -43,8 +44,10 @@ public class Scenario : NetworkBehaviour
 
         if (IsOwner || IsHost)
         {
-            Player player = Player.Instance;
-            if (player) player.Teleport(Vector3.zero, Vector3.zero);
+            player = Player.Instance;
+            player?.Teleport(Vector3.zero, Vector3.zero);
+            player?.SetJump(false);
+            //player?.SetTeleportation(false);
         }
 
         if ((IsServer || IsHost) && CCTVController.Instance != null)
@@ -61,9 +64,10 @@ public class Scenario : NetworkBehaviour
 
     void OnDespawn()
     {
-        //print("OnDespawn");
         ClearGrabObject();
         GetVRManager()?.OpenBoardUI();
+        player?.SetJump(true);
+        //player?.SetTeleportation(true);
         CCTVController cctv = CCTVController.Instance;
         if ((IsServer || IsHost) && cctv != null)
         {
