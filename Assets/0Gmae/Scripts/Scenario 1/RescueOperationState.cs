@@ -52,9 +52,9 @@ public class RescueOperationState : State
         base.StateEnter();
         HideHUD();
 
-        liftingSlingResetter.ResetTransform();
-        ordinaryRopeResetter.ResetTransform();
-        harnessResetter.ResetTransform();
+        liftingSlingResetter?.ResetTransform();
+        ordinaryRopeResetter?.ResetTransform();
+        harnessResetter?.ResetTransform();
 
         liftingSling.gameObject.SetActive(true);
         ordinaryRope.gameObject.SetActive(true);

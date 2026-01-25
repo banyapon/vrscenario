@@ -92,6 +92,7 @@ public class RunNumberRoller : MonoBehaviour
 
     void UpdateUI()
     {
+        if (tmp == null) return;
         if (decimalPlaces <= 0)
             tmp.text = prefix + Mathf.RoundToInt(currentValue).ToString() + suffix;
         else

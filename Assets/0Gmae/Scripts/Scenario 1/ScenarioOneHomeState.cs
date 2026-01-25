@@ -39,8 +39,8 @@ public class ScenarioOneHomeState : State
         ordinaryRope.SetActive(false);
         harness.SetActive(false);
 
-        radioResetter.ResetTransform();
-        gasDetectorResetter.ResetTransform();
+        radioResetter?.ResetTransform();
+        gasDetectorResetter?.ResetTransform();
 
         delay?.Kill();
         popup1.SetActive(true);
