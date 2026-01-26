@@ -1,5 +1,6 @@
 using Boy;
 using DG.Tweening;
+using NUnit.Framework.Interfaces;
 using UnityEngine;
 
 public class SiloEntryState : State
@@ -19,10 +20,12 @@ public class SiloEntryState : State
     public GameObject riskyHUD;
 
     Player player;
+    HUDState hUDState;
     public override void Awake()
     {
         base.Awake();
         player = Player.Instance;
+        hUDState = GetComponent<HUDState>();
 
         climbChecker.OnEnter = () => {
             lid.SetActive(true);
@@ -34,7 +37,14 @@ public class SiloEntryState : State
             player?.StopClimbDownSilo();
             floorChecker.enabled = false;
             isPass = true;
-            ShowHUD(startMissionHUD);
+            if (testFirstTime)
+            {
+                hUDState.OpenHud(startMissionHUD);
+            }
+            else
+            {
+                hUDState.OpenHud(riskyHUD);
+            }
             print("Play animetion here");
             controller.NextState(delayChecngeState);
         };
@@ -50,7 +60,6 @@ public class SiloEntryState : State
         floorChecker.enabled = true;
 
         testFirstTime = false;
-        HideHUD();
     }
 
     public override void StateUpdate()
@@ -62,20 +71,5 @@ public class SiloEntryState : State
     {
         base.StateExit();
         lid.SetActive(true);
-    }
-    Tween hudTween = null;
-    void ShowHUD(GameObject hud)
-    {
-        hudTween?.Kill();
-        HideHUD();
-        hud.SetActive(true);
-        hudTween = DOVirtual.DelayedCall(hudDuration, HideHUD).SetLink(gameObject);
-    }
-
-    void HideHUD()
-    {
-        lifelineHUD.SetActive(false);
-        startMissionHUD.SetActive(false);
-        riskyHUD.SetActive(false);
     }
 }

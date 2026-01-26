@@ -1,5 +1,4 @@
 using Boy;
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +6,6 @@ public class PermitToWorkState : State
 {
     [Space(20)]
     public bool isCheckWorkPermit;
-    public float delayHideDuration = 2;
     public float delayChangState = 2;
     public Transform teleportTarget;
 
@@ -25,15 +23,17 @@ public class PermitToWorkState : State
     public GameObject tankHUD;
 
     Player player = null;
+    HUDState hUDState;
     public override void Awake()
     {
         base.Awake();
         player = Player.Instance;
+        hUDState = GetComponent<HUDState>();
         workPermitBtn.onClick.AddListener(() =>
         {
             workPermitBtn.interactable = false;
             isCheckWorkPermit = true;
-            OpenHud(workPermitHUD);
+            hUDState.OpenHud(workPermitHUD);
         });
 
         gasDetectorBtn.onClick.AddListener(() =>
@@ -41,7 +41,7 @@ public class PermitToWorkState : State
             if (isCheckWorkPermit)
             {
                 isPass = true;
-                OpenHud(gasHUD);
+                hUDState.OpenHud(gasHUD);
                 gasDetectorBtn.interactable = false;
                 controller.NextState(delayChangState);
                 print("Play NPC Animation here");
@@ -49,23 +49,20 @@ public class PermitToWorkState : State
             else
             {
                 testFirstTime = false;
-                OpenHud(warningGasHUD);
+                hUDState.OpenHud(warningGasHUD);
             }
         });
 
         tankEntrance.OnEnter += () =>
         {
             testFirstTime = false;
-            OpenHud(tankHUD);
+            hUDState.OpenHud(tankHUD);
         };
     }
 
     public override void StateEnter()
     {
         base.StateEnter();
-
-        HideHud();
-        delayHide?.Kill();
         player?.Teleport(teleportTarget);
 
         isCheckWorkPermit = false;
@@ -81,23 +78,5 @@ public class PermitToWorkState : State
     public override void StateExit()
     {
         base.StateExit();
-        delayHide?.Kill();
-    }
-
-    Tween delayHide = null;
-    public void OpenHud(GameObject HUD)
-    {
-        delayHide?.Kill();
-        HideHud();
-        HUD.SetActive(true);
-        delayHide = DOVirtual.DelayedCall(delayHideDuration, HideHud);
-    }
-
-    public void HideHud()
-    {
-        gasHUD.SetActive(false);
-        tankHUD.SetActive(false);
-        warningGasHUD.SetActive(false);
-        workPermitHUD.SetActive(false);
     }
 }

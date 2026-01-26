@@ -17,32 +17,35 @@ public class RescueOperationState : State
     public GameObject notDesignedHUD;
     public GameObject liftingThingsHUD;
 
-    ResetToDefault liftingSlingResetter;
-    ResetToDefault ordinaryRopeResetter;
-    ResetToDefault harnessResetter;
+    Rigidbody liftingSlingRb;
+    Rigidbody ordinaryRopeRb;
+    Rigidbody harnessRb;
 
+    HUDState hUDState;
     public override void Awake()
     {
         base.Awake();
+        hUDState = GetComponent<HUDState>();
 
-        liftingSlingResetter = liftingSling.GetComponent<ResetToDefault>();
-        ordinaryRopeResetter = ordinaryRope.GetComponent<ResetToDefault>();
-        harnessResetter = harness.GetComponent<ResetToDefault>();
+        liftingSlingRb = liftingSling.GetComponent<Rigidbody>();
+        ordinaryRopeRb = ordinaryRope.GetComponent<Rigidbody>();
+        harnessRb = harness.GetComponent<Rigidbody>();
 
         liftingSling.OnEnter += () => {
-            ShowHUD(liftingThingsHUD);
+            hUDState.OpenHud(liftingThingsHUD);
             testFirstTime = false;
         };
 
         ordinaryRope.OnEnter += () => {
-            ShowHUD(notDesignedHUD);
+            hUDState.OpenHud(notDesignedHUD);
             testFirstTime = false;
         };
 
         harness.OnEnter += () => {
             isPass = true;
+            harness.gameObject.SetActive(false);
             print("Play animation here");
-            ShowHUD(reachedTopHUD);
+            hUDState.OpenHud(reachedTopHUD);
             controller.NextState(hudDuration);
         };
     }
@@ -50,11 +53,13 @@ public class RescueOperationState : State
     public override void StateEnter()
     {
         base.StateEnter();
-        HideHUD();
 
-        liftingSlingResetter?.ResetTransform();
-        ordinaryRopeResetter?.ResetTransform();
-        harnessResetter?.ResetTransform();
+        DOVirtual.DelayedCall(1, () =>
+        {
+            if (liftingSlingRb) liftingSlingRb.isKinematic = true;
+            if (ordinaryRopeRb) ordinaryRopeRb.isKinematic = true;
+            if (harnessRb) harnessRb.isKinematic = true;
+        });
 
         liftingSling.gameObject.SetActive(true);
         ordinaryRope.gameObject.SetActive(true);
@@ -69,21 +74,5 @@ public class RescueOperationState : State
     public override void StateExit()
     {
         base.StateExit();
-    }
-
-    Tween hudTween = null;
-    void ShowHUD(GameObject hud)
-    {
-        hudTween?.Kill();
-        HideHUD();
-        hud.SetActive(true);
-        hudTween = DOVirtual.DelayedCall(hudDuration, HideHUD).SetLink(gameObject);
-    }
-
-    void HideHUD()
-    {
-        reachedTopHUD.SetActive(false);
-        notDesignedHUD.SetActive(false);
-        liftingThingsHUD.SetActive(false);
     }
 }

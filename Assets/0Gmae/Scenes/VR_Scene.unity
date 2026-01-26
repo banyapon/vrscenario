@@ -2816,11 +2816,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: VRNetworkManager
       objectReference: {fileID: 0}
-    - target: {fileID: 7437385574953989164, guid: 27f6887b08037ca4297bc472b404d215,
-        type: 3}
-      propertyPath: ConnectionData.Address
-      value: 10.97.121.154
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

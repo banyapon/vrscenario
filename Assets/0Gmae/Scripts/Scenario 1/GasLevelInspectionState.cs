@@ -14,16 +14,18 @@ public class GasLevelInspectionState : State
     [Header("HUD")]
     public GameObject emergencyHUD;
     public GameObject checkGasHUD;
+    HUDState hUDState;
 
     public override void Awake()
     {
         base.Awake();
+        hUDState = GetComponent<HUDState>();
     }
 
     public override void StateEnter()
     {
         base.StateEnter();
-        timer.StartCount();
+        timer.ReStart();
 
         emergencyHUD.SetActive(true);
         checkGasHUD.SetActive(false);
@@ -46,7 +48,7 @@ public class GasLevelInspectionState : State
         {
             emergencyHUD.SetActive(false);
             testFirstTime = false;
-            ShowHUD(checkGasHUD);
+            hUDState.OpenHud(checkGasHUD);
         };
     }
 
@@ -58,18 +60,5 @@ public class GasLevelInspectionState : State
     public override void StateExit()
     {
         base.StateExit();
-    }
-
-    Tween hudTween = null;
-    void ShowHUD(GameObject hud)
-    {
-        hudTween?.Kill();
-        HideHUD();
-        hud.SetActive(true);
-        hudTween = DOVirtual.DelayedCall(hudDuration, HideHUD).SetLink(gameObject);
-    }
-    void HideHUD()
-    {
-        checkGasHUD.SetActive(false);
     }
 }

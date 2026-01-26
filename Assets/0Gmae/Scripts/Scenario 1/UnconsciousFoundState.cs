@@ -21,19 +21,21 @@ public class UnconsciousFoundState : State
 
     [Space(10)]
     public RunNumberRoller[] runNumberRollers;
+    HUDState hUDState;
     public override void Awake()
     {
         base.Awake();
+        hUDState = GetComponent<HUDState>();
 
         safeBtn.onClick.AddListener(() => {
-            ShowHUD(radioReportHUD);
+            hUDState.OpenHud(radioReportHUD);
             radio.gameObject.SetActive(true);
             radio.enabled = false;
             DOVirtual.DelayedCall(hudDuration, () => { radio.enabled = true; }).SetLink(gameObject);
         });
 
         notSafeBtn.onClick.AddListener(() => {
-            ShowHUD(valueIsSafeHUD);
+            hUDState.OpenHud(valueIsSafeHUD);
             testFirstTime = false;
         });
     }
@@ -41,8 +43,6 @@ public class UnconsciousFoundState : State
     public override void StateEnter()
     {
         base.StateEnter();
-
-        HideHUD();
         SetButtonInteractable(false);
 
         foreach (var r in runNumberRollers)
@@ -56,7 +56,7 @@ public class UnconsciousFoundState : State
         }).SetLink(gameObject);
 
         radio.OnEnter = () => {
-            ShowHUD(installHUD);
+            hUDState.OpenHud(installHUD);
             radio.enabled = false;
             isPass = true;
             controller.NextState(hudDuration);
@@ -77,21 +77,5 @@ public class UnconsciousFoundState : State
     {
         safeBtn.interactable = value;
         notSafeBtn.interactable = value;
-    }
-
-    Tween hudTween = null;
-    void ShowHUD(GameObject hud)
-    {
-        hudTween?.Kill();
-        HideHUD();
-        hud.SetActive(true);
-        hudTween = DOVirtual.DelayedCall(hudDuration, HideHUD).SetLink(gameObject);
-    }
-
-    void HideHUD()
-    {
-        installHUD.SetActive(false);
-        radioReportHUD.SetActive(false);
-        valueIsSafeHUD.SetActive(false);
     }
 }

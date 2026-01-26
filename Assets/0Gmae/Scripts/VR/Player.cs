@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     {
         climbProvider.enableGravityOnClimbEnd = false;
 
-        SetTurn(false);
+        //SetTurn(false);
         SetMove(false);
         SetGravity(false);
     }
@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
     {
         climbProvider.enableGravityOnClimbEnd = defaultEnableGravityOnClimbEnd;
 
-        SetTurn(true);
+        //SetTurn(true);
         SetMove(true);
         SetGravity(true);
     }

@@ -7,7 +7,6 @@ public class PPEInspectionState : State
     [Space(20)]
     public float delayChangeState = 2;
     public PPESelector pPESelector;
-
     public override void Awake()
     {
         base.Awake();
@@ -31,7 +30,6 @@ public class PPEInspectionState : State
 
     void OnValidated(bool isCorrect)
     {
-        print($"OnValidated:{isCorrect}");
         if (isCorrect)
         {
             isPass = true;

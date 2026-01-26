@@ -20,7 +20,6 @@ namespace Boy
         public Button nextButton;
         public State nextState;
         protected StateController controller;
-        protected StateSync sync;
 
         public Action onEnter, onUpdate, onExit;
 
@@ -29,7 +28,6 @@ namespace Boy
             if (stateCanvas == null) stateCanvas = gameObject;
             stateCanvas.SetActive(false);
             controller = GetComponentInParent<StateController>();
-            sync = GetComponent<StateSync>();
         }
 
         public virtual void StateEnter()

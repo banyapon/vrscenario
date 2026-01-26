@@ -14,7 +14,6 @@ public class ScenarioOneSummaryState : State
     public Transform teleportTarget;
 
     [Header("UI")]
-    public GameObject buttonGroup;
     public GameObject passHUD;
     public GameObject failHUD;
     public SummaryUI summaryUI;
@@ -52,36 +51,25 @@ public class ScenarioOneSummaryState : State
         summaryUI.gameObject.SetActive(false);
         passHUD.SetActive(false);
         failHUD.SetActive(false);
-        buttonGroup.SetActive(false);
 
         timer.StopCount();
         bool hasTimeLeft = timer.timeLeft > TIME_EPSILON;
         passHUD.SetActive(hasTimeLeft);
         failHUD.SetActive(!hasTimeLeft);
 
-        if (hasTimeLeft)
+        List<bool> resultList = new();
+        foreach (var state in stateList)
         {
-            List<bool> resultList = new();
-            foreach (var state in stateList)
-            {
-                resultList.Add(state.IsPass);
-            }
-            resultList.Add(hasTimeLeft);
-
-            summaryUI?.ShowSummary(resultList, hasTimeLeft);
-
-            DOVirtual.DelayedCall(delayShowUI, () =>
-            {
-                summaryUI.gameObject.SetActive(true);
-            });
+            resultList.Add(state.IsPass);
         }
-        else
+        resultList.Add(hasTimeLeft);
+
+        summaryUI?.ShowSummary(resultList, hasTimeLeft);
+
+        DOVirtual.DelayedCall(delayShowUI, () =>
         {
-            DOVirtual.DelayedCall(delayShowUI, () =>
-            {
-                buttonGroup.SetActive(true);
-            });
-        }
+            summaryUI.gameObject.SetActive(true);
+        });
     }
 
     public override void StateUpdate()
