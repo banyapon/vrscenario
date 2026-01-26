@@ -6203,7 +6203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1268295584
+  GlobalObjectIdHash: 887644319
   InScenePlacedSourceGlobalObjectIdHash: 887644319
   DeferredDespawnTick: 0
   Ownership: 1
@@ -6239,11 +6239,14 @@ MonoBehaviour:
     scenarioPrefab: {fileID: 8873530353989227592, guid: 124621d33e8a06347b5746626bbc2c75,
       type: 3}
   - scenarioBtn: {fileID: 2532460988922314010}
-    scenarioPrefab: {fileID: 0}
+    scenarioPrefab: {fileID: 4504585982904447517, guid: 429809a681e0b2744912432a1ff334e8,
+      type: 3}
   - scenarioBtn: {fileID: 3626805634057018010}
-    scenarioPrefab: {fileID: 0}
+    scenarioPrefab: {fileID: 4504585982904447517, guid: a416b1980f046e849b9e8295b54054c7,
+      type: 3}
   - scenarioBtn: {fileID: 2735517774757053569}
-    scenarioPrefab: {fileID: 0}
+    scenarioPrefab: {fileID: 4504585982904447517, guid: 23affe99d35848a4cb8ee4b08fee84d6,
+      type: 3}
   - scenarioBtn: {fileID: 7802893632452942947}
     scenarioPrefab: {fileID: 8873530353989227592, guid: 05810d6b0e8873e4a8be8e2c6b4717ef,
       type: 3}
