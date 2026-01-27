@@ -517,7 +517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Key_190084
+  id: Key_190364
 --- !u!1 &1024312144517619082
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,14 +566,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPass: 0
+  testFirstTime: 1
   stateCanvas: {fileID: 0}
   nextButton: {fileID: 0}
   nextState: {fileID: 0}
   delayChangeState: 2
   correctBtn: {fileID: 4253950189310929633}
   wrongBtn: {fileID: 3532977628833571088}
-  correctHud: {fileID: 8045673386397190192}
-  wrongHud: {fileID: 112351984083296771}
 --- !u!1 &1040842042164967647
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,6 +622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPass: 0
+  testFirstTime: 1
   stateCanvas: {fileID: 0}
   nextButton: {fileID: 0}
   nextState: {fileID: 0}
@@ -694,6 +694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPass: 0
+  testFirstTime: 1
   stateCanvas: {fileID: 0}
   nextButton: {fileID: 0}
   nextState: {fileID: 0}
@@ -703,8 +704,6 @@ MonoBehaviour:
   quizHud: {fileID: 1502006804299104551}
   correctBtn: {fileID: 578397165523405440}
   wrongBtn: {fileID: 146464224440090993}
-  correctHud: {fileID: 884791714362003952}
-  wrongHud: {fileID: 4480922665193958729}
 --- !u!1 &1574249607071509150
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,6 +750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPass: 0
+  testFirstTime: 1
   stateCanvas: {fileID: 0}
   nextButton: {fileID: 5876602082992534728}
   nextState: {fileID: 0}
@@ -760,61 +760,6 @@ MonoBehaviour:
   - {fileID: 781580778502494579}
   - {fileID: 8470691528464848181}
   - {fileID: 8089916887648889517}
---- !u!1 &1641248781504049717
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6783316248958661821}
-  - component: {fileID: 8912432995833708812}
-  m_Layer: 0
-  m_Name: Collision
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &6783316248958661821
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1641248781504049717}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2575577089707048024}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &8912432995833708812
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1641248781504049717}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.02
-  m_Height: 0.375
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1966655767994307123
 GameObject:
   m_ObjectHideFlags: 0
@@ -1680,6 +1625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPass: 0
+  testFirstTime: 1
   stateCanvas: {fileID: 0}
   nextButton: {fileID: 0}
   nextState: {fileID: 0}
@@ -1691,6 +1637,7 @@ MonoBehaviour:
   mainSwitchTrans: {fileID: 8093603376284962887}
   lockoutTagoutModel: {fileID: 995752645218657919}
   lockoutTagoutGrab: {fileID: 2575577089707048024}
+  explainHud: {fileID: 2203713224047378627}
   correctHud: {fileID: 6366491688982152448}
   wrongHud: {fileID: 30532276097192463}
 --- !u!114 &1169717668604873005
@@ -1988,7 +1935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Key Target_190260
+  id: Key Target_190384
 --- !u!1 &5449931196257003634
 GameObject:
   m_ObjectHideFlags: 0
@@ -2128,7 +2075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Key Target_190260
+  id: Key Target_190638
 --- !u!114 &4460594784706236731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2379,11 +2326,10 @@ Transform:
   m_GameObject: {fileID: 8041128385349440689}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0.242, y: 1.083, z: 1.13}
+  m_LocalPosition: {x: 0.242, y: 1.0187, z: 1.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6783316248958661821}
   - {fileID: 7648318084702441327}
   - {fileID: 6161349121674045001}
   m_Father: {fileID: 1284586082918565358}
@@ -2583,7 +2529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Key Grab_190206
+  id: Key Grab_190556
 --- !u!136 &2080963653435912036
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2825,6 +2771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPass: 0
+  testFirstTime: 1
   stateCanvas: {fileID: 0}
   nextButton: {fileID: 0}
   nextState: {fileID: 0}
@@ -3117,7 +3064,7 @@ PrefabInstance:
     - target: {fileID: 8151954492914599796, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 2352797718
+      value: 3560211405
       objectReference: {fileID: 0}
     - target: {fileID: 8151954492914599796, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
@@ -3259,7 +3206,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Explain HUD_-142808
+      value: Explain HUD_-216574
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -3810,7 +3757,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Warning HUD Wrong_-144006
+      value: Wrong HUD_-215874
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -3907,7 +3854,7 @@ PrefabInstance:
     - target: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.211
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -3927,7 +3874,7 @@ PrefabInstance:
     - target: {fileID: 4954467283065357889, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_Name
-      value: Warning HUD Wrong
+      value: Wrong HUD
       objectReference: {fileID: 0}
     - target: {fileID: 4954467283065357889, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -3962,7 +3909,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Warning HUD Correct_-143674
+      value: Correct HUD_-216000
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -4057,7 +4004,7 @@ PrefabInstance:
     - target: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.298
+      value: 1.401
       objectReference: {fileID: 0}
     - target: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -4083,7 +4030,7 @@ PrefabInstance:
     - target: {fileID: 4954467283065357889, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_Name
-      value: Warning HUD Correct
+      value: Correct HUD
       objectReference: {fileID: 0}
     - target: {fileID: 4954467283065357889, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -4120,6 +4067,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4977891319956718435}
     m_Modifications:
+    - target: {fileID: 3820922898261741640, guid: 3dfe46526c581194fbfe34cacb20ce0a,
+        type: 3}
+      propertyPath: id
+      value: HighlightObject_-215534
+      objectReference: {fileID: 0}
     - target: {fileID: 5593281840876868023, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4203,7 +4155,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Warning HUD_-143296
+      value: Explain HUD_-216108
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -4330,7 +4282,7 @@ PrefabInstance:
     - target: {fileID: 4954467283065357889, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_Name
-      value: Warning HUD
+      value: Explain HUD
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4354,7 +4306,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Warning HUD Correct_-143770
+      value: Correct HUD_-216032
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -4444,7 +4396,7 @@ PrefabInstance:
     - target: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.252
+      value: 1.498
       objectReference: {fileID: 0}
     - target: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -4470,7 +4422,7 @@ PrefabInstance:
     - target: {fileID: 4954467283065357889, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_Name
-      value: Warning HUD Correct
+      value: Correct HUD
       objectReference: {fileID: 0}
     - target: {fileID: 4954467283065357889, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -4510,7 +4462,7 @@ PrefabInstance:
     - target: {fileID: 3820922898261741640, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
       propertyPath: id
-      value: HighlightObject_-60994
+      value: HighlightObject_-215524
       objectReference: {fileID: 0}
     - target: {fileID: 5593281840876868023, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
@@ -4600,7 +4552,7 @@ PrefabInstance:
     - target: {fileID: 3820922898261741640, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
       propertyPath: id
-      value: HighlightObject_-151484
+      value: HighlightObject_-215986
       objectReference: {fileID: 0}
     - target: {fileID: 5593281840876868023, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
@@ -4690,7 +4642,7 @@ PrefabInstance:
     - target: {fileID: 3820922898261741640, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
       propertyPath: id
-      value: HighlightObject_-60914
+      value: HighlightObject_-216092
       objectReference: {fileID: 0}
     - target: {fileID: 5593281840876868023, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
@@ -4780,7 +4732,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Warning HUD Wrong_-143642
+      value: Warning HUD Wrong_-215916
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -4963,7 +4915,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Warning HUD Wrong_-143974
+      value: Wrong HUD_-216064
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -5058,7 +5010,7 @@ PrefabInstance:
     - target: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.298
+      value: 1.4572
       objectReference: {fileID: 0}
     - target: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -5078,7 +5030,7 @@ PrefabInstance:
     - target: {fileID: 4954467283065357889, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_Name
-      value: Warning HUD Wrong
+      value: Wrong HUD
       objectReference: {fileID: 0}
     - target: {fileID: 4954467283065357889, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -5117,12 +5069,17 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Warning HUD Wrong_-143228
+      value: Wrong HUD_-215958
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
       value: Warning HUD Wrong_-143226
+      objectReference: {fileID: 0}
+    - target: {fileID: 272798048078493460, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 704497060421761420, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -5168,7 +5125,7 @@ PrefabInstance:
     - target: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -5213,7 +5170,7 @@ PrefabInstance:
     - target: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.252
+      value: 1.498
       objectReference: {fileID: 0}
     - target: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -5233,7 +5190,7 @@ PrefabInstance:
     - target: {fileID: 4954467283065357889, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_Name
-      value: Warning HUD Wrong
+      value: Wrong HUD
       objectReference: {fileID: 0}
     - target: {fileID: 4954467283065357889, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -5268,7 +5225,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Warning HUD Correct_-143942
+      value: Warning HUD Correct_-216638
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -5369,7 +5326,7 @@ PrefabInstance:
     - target: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.252
+      value: 1.498
       objectReference: {fileID: 0}
     - target: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -5435,7 +5392,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Warning HUD Correct_-143706
+      value: Correct HUD_-216818
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -5531,7 +5488,7 @@ PrefabInstance:
     - target: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.211
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -5557,7 +5514,7 @@ PrefabInstance:
     - target: {fileID: 4954467283065357889, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_Name
-      value: Warning HUD Correct
+      value: Correct HUD
       objectReference: {fileID: 0}
     - target: {fileID: 4954467283065357889, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -5628,6 +5585,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.000011444092
+      objectReference: {fileID: 0}
+    - target: {fileID: 1331153923586568210, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+        type: 3}
+      propertyPath: id
+      value: Quiz UI_-216670
       objectReference: {fileID: 0}
     - target: {fileID: 1911858061382050677, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
@@ -5814,6 +5776,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7502468295876903717, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+        type: 3}
+      propertyPath: id
+      value: UI_-216680
+      objectReference: {fileID: 0}
     - target: {fileID: 7666383293679931059, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
       propertyPath: m_IsActive
@@ -5824,6 +5791,16 @@ PrefabInstance:
       propertyPath: id
       value: Quiz UI_-143502
       objectReference: {fileID: 0}
+    - target: {fileID: 8485672627890779124, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+        type: 3}
+      propertyPath: quizButtons.Array.data[0].hudPanel
+      value: 
+      objectReference: {fileID: 4480922665193958729}
+    - target: {fileID: 8485672627890779124, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+        type: 3}
+      propertyPath: quizButtons.Array.data[1].hudPanel
+      value: 
+      objectReference: {fileID: 884791714362003952}
     - target: {fileID: 8718924573335199945, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -5918,7 +5895,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Warning HUD_-143262
+      value: Explain HUD_-216140
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -6045,13 +6022,19 @@ PrefabInstance:
     - target: {fileID: 4954467283065357889, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_Name
-      value: Warning HUD
+      value: Explain HUD
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 498fc9b29cd70204dab3af42a6dbc5c9, type: 3}
+--- !u!1 &2203713224047378627 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4954467283065357889, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 6509078316803884674}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &9093960623944928788 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
@@ -6069,7 +6052,7 @@ PrefabInstance:
     - target: {fileID: 3820922898261741640, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
       propertyPath: id
-      value: HighlightObject_-56586
+      value: HighlightObject_-215902
       objectReference: {fileID: 0}
     - target: {fileID: 5593281840876868023, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
@@ -6174,7 +6157,7 @@ PrefabInstance:
     - target: {fileID: 3820922898261741640, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
       propertyPath: id
-      value: HighlightObject_-60960
+      value: HighlightObject_-215944
       objectReference: {fileID: 0}
     - target: {fileID: 5593281840876868023, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
@@ -6281,6 +6264,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 94.9
       objectReference: {fileID: 0}
+    - target: {fileID: 1331153923586568210, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+        type: 3}
+      propertyPath: id
+      value: Quiz UI_-215726
+      objectReference: {fileID: 0}
     - target: {fileID: 1911858061382050677, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -6305,7 +6293,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: "\u0E40\u0E14\u0E34\u0E19\u0E40\u0E02\u0E49\u0E32\u0E44\u0E1B\u0E14\u0E39\u0E43\u0E01\u0E25\u0E49\u0E46
-        \u0E40\u0E1E\u0E37\u0E48\u0E2D\u0E2B\u0E32\u0E08\u0E38\u0E14\u0E17\u0E35\u0E48\u0E19\u0E4D\u0E49\u0E32\u0E21\u0E31\u0E19\u0E23\u0E31\u0E48\u0E27"
+        \u0E40\u0E1E\u0E37\u0E48\u0E2D\u0E2B\u0E32\u0E08\u0E38\u0E14\u0E17\u0E35\u0E48\u0E19\u0E49\u0E33\u0E21\u0E31\u0E19\u0E23\u0E31\u0E48\u0E27"
       objectReference: {fileID: 0}
     - target: {fileID: 3879818965816247042, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
@@ -6428,11 +6416,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Quiz UI
       objectReference: {fileID: 0}
+    - target: {fileID: 7502468295876903717, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+        type: 3}
+      propertyPath: id
+      value: UI_-215736
+      objectReference: {fileID: 0}
     - target: {fileID: 8309902865433484020, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
       propertyPath: id
       value: Quiz UI_-143802
       objectReference: {fileID: 0}
+    - target: {fileID: 8485672627890779124, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+        type: 3}
+      propertyPath: quizButtons.Array.data[0].hudPanel
+      value: 
+      objectReference: {fileID: 112351984083296771}
+    - target: {fileID: 8485672627890779124, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+        type: 3}
+      propertyPath: quizButtons.Array.data[1].hudPanel
+      value: 
+      objectReference: {fileID: 8045673386397190192}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6479,7 +6482,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Warning HUD Wrong_-143738
+      value: Warning HUD Wrong_-216606
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -6580,7 +6583,7 @@ PrefabInstance:
     - target: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.252
+      value: 1.498
       objectReference: {fileID: 0}
     - target: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}

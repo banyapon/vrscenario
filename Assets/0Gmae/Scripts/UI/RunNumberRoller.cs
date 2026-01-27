@@ -28,13 +28,13 @@ public class RunNumberRoller : MonoBehaviour
 
     void OnEnable()
     {
-        ResetDisplay();
+        //ResetDisplay();
         if (activeOnEnable) StartNumber();
     }
 
     void OnDisable()
     {
-        ResetDisplay();
+        //ResetDisplay();
     }
 
     public void ResetDisplay()

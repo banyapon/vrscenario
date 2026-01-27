@@ -25,6 +25,7 @@ public class LOTOState : State
     public GameObject lockoutTagoutModel;
     public Transform lockoutTagoutGrab;
     [Space(10)]
+    public GameObject explainHud;
     public GameObject correctHud;
     public GameObject wrongHud;
 
@@ -36,8 +37,8 @@ public class LOTOState : State
     public override void Awake()
     {
         base.Awake();
-        lockoutTagoutPos = lockoutTagoutGrab.localPosition;
-        lockoutTagoutRotate = lockoutTagoutGrab.localEulerAngles;
+        lockoutTagoutPos = lockoutTagoutGrab.position;
+        lockoutTagoutRotate = lockoutTagoutGrab.eulerAngles;
         activateStateEvent = GetComponent<ActivateStateEvent>();
         //stopBtn.OnEnter += OnStopBtn;
         //mainSwitch.OnEnter += OnMainSwitch;
@@ -54,6 +55,7 @@ public class LOTOState : State
 
         ResetSequence();
 
+        explainHud.SetActive(true);
         correctHud.SetActive(false);
         wrongHud.SetActive(false);
     }
@@ -80,6 +82,10 @@ public class LOTOState : State
         mainSwitch.enabled = true;
         stopBtn.enabled = true;
         lockoutTagout.enabled = true;
+
+        explainHud.SetActive(true);
+        correctHud.SetActive(false);
+        wrongHud.SetActive(false);
 
         lockoutTagout.gameObject.SetActive(true);
         lockoutTagoutModel.SetActive(false);
@@ -128,6 +134,7 @@ public class LOTOState : State
             }
         }
 
+        explainHud.SetActive(false);
         correctHud.SetActive(isCorrect);
         wrongHud.SetActive(!isCorrect);
 

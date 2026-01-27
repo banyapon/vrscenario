@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System;
+using System.Buffers.Text;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -15,9 +16,11 @@ namespace Boy
         public int maxSelectionCount = 7;
 
         [Header("UI References")]
+        public GameObject baseUI;
         public TMP_Text selectionCountText;
         public Button confirmSelectionButton;
 
+        [Space(10)]
         public GameObject selectionWarningPanel;
         public GameObject incorrectSelectionPanel;
         public GameObject correctSelectionPanel;
@@ -38,6 +41,7 @@ namespace Boy
 
         private void OnEnable()
         {
+            baseUI.SetActive(true);
             ResetSelection();
             //if (pPEGroup) Utility.ShuffleChildren(pPEGroup);
         }
@@ -73,17 +77,17 @@ namespace Boy
 
             delay = DOVirtual.DelayedCall(2, () =>
             {
-                confirmSelectionButton.interactable = true;
+                baseUI.SetActive(true);
                 HideAllFeedbackPanels();
             });
+
+            baseUI.SetActive(false);
 
             if (selectedOptions.Count < maxSelectionCount)
             {
                 selectionWarningPanel.SetActive(true);
                 return;
             }
-
-            confirmSelectionButton.interactable = false;
 
             bool isSelectionCorrect = true;
             foreach (var option in selectedOptions)
@@ -97,6 +101,8 @@ namespace Boy
 
             incorrectSelectionPanel.SetActive(!isSelectionCorrect);
             correctSelectionPanel.SetActive(isSelectionCorrect);
+
+            if (isSelectionCorrect) delay?.Kill();
 
             OnSelectionValidated?.Invoke(isSelectionCorrect);
         }

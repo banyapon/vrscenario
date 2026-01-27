@@ -15,38 +15,31 @@ public class HarmPreventionState : State
     [Space(10)]
     public Button correctBtn;
     public Button wrongBtn;
-    [Space(10)]
-    public GameObject correctHud;
-    public GameObject wrongHud;
 
+    QuizUI quizUI;
     public override void Awake()
     {
         base.Awake();
+        quizUI = quizHud.GetComponent<QuizUI>();
+
         correctBtn.onClick.AddListener(() =>
         {
-            SetEnableButton(false);
-            correctHud.SetActive(true);
             isPass = true;
-
             controller.NextState(delayChangeState);
         });
 
         wrongBtn.onClick.AddListener(() =>
         {
-            SetEnableButton(false);
-            wrongHud.SetActive(true);
             testFirstTime = false;
-
-            DOVirtual.DelayedCall(delayChangeState, CloseHud);
         });
     }
 
     public override void StateEnter()
     {
         base.StateEnter();
-        CloseHud();
         explainHud.SetActive(true);
         quizHud.SetActive(false);
+        quizUI.HideAllHuds();
 
         DOVirtual.DelayedCall(waitNpcDuration, () =>
         {
@@ -63,17 +56,5 @@ public class HarmPreventionState : State
     public override void StateExit()
     {
         base.StateExit();
-    }
-    void SetEnableButton(bool value)
-    {
-        correctBtn.interactable = value;
-        wrongBtn.interactable = value;
-    }
-
-    void CloseHud()
-    {
-        correctHud.SetActive(false);
-        wrongHud.SetActive(false);
-        SetEnableButton(true);
     }
 }

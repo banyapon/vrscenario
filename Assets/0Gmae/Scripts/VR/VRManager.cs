@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.UI;
-using static UnityEngine.Rendering.STP;
 
 public class VRManager : NetworkBehaviour
 {
@@ -16,6 +15,7 @@ public class VRManager : NetworkBehaviour
     [Header("Scenario")]
     public GameObject boardUI;
     public Button startBtn;
+    public Button disconnectBtn;
     [SerializeField] private ScenarioConfig[] scenarioConfigs;
 
     [SerializeField] private ScenarioConfig currentConfig;
@@ -59,6 +59,12 @@ public class VRManager : NetworkBehaviour
             boardUI.SetActive(false);
             int index = scenarioConfigs.ToList().IndexOf(currentConfig);
             SpawnScenarioServerRpc(index);
+        });
+
+        disconnectBtn.onClick.AddListener(() =>
+        {
+            if (VRNetworkController.Instance == null) return;
+            VRNetworkController.Instance.Disconnect();
         });
     }
 

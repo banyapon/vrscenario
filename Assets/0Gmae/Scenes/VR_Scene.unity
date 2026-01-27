@@ -865,7 +865,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &427951846
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2791,6 +2791,11 @@ PrefabInstance:
       propertyPath: disconnectButton
       value: 
       objectReference: {fileID: 1071634616}
+    - target: {fileID: 5565900776138302504, guid: 27f6887b08037ca4297bc472b404d215,
+        type: 3}
+      propertyPath: connectedObjects.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5565900776138302504, guid: 27f6887b08037ca4297bc472b404d215,
         type: 3}
       propertyPath: 'connectedObjects.Array.data[0]'

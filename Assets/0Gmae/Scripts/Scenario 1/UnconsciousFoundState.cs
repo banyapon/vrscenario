@@ -7,7 +7,6 @@ public class UnconsciousFoundState : State
 {
     [Header("Setting")]
     public float waitDuration = 3;
-    public float hudDuration = 2;
 
     [Header("Button")]
     public Button safeBtn;
@@ -18,6 +17,7 @@ public class UnconsciousFoundState : State
     public GameObject radioReportHUD;
     public GameObject installHUD;
     public GameObject valueIsSafeHUD;
+    public GameObject quizUI;
 
     [Space(10)]
     public RunNumberRoller[] runNumberRollers;
@@ -31,12 +31,19 @@ public class UnconsciousFoundState : State
             hUDState.OpenHud(radioReportHUD);
             radio.gameObject.SetActive(true);
             radio.enabled = false;
-            DOVirtual.DelayedCall(hudDuration, () => { radio.enabled = true; }).SetLink(gameObject);
+            quizUI.gameObject.SetActive(false);
+            DOVirtual.DelayedCall(hUDState.hudDuration, () => {
+                radio.enabled = true;
+            }).SetLink(gameObject);
         });
 
         notSafeBtn.onClick.AddListener(() => {
             hUDState.OpenHud(valueIsSafeHUD);
             testFirstTime = false;
+            quizUI.gameObject.SetActive(false);
+            DOVirtual.DelayedCall(hUDState.hudDuration, () => {
+                quizUI.gameObject.SetActive(true);
+            }).SetLink(gameObject);
         });
     }
 
@@ -47,6 +54,7 @@ public class UnconsciousFoundState : State
 
         foreach (var r in runNumberRollers)
         {
+            r.ResetDisplay();
             r.StartNumberWithDuration(waitDuration);
         }
 
@@ -59,7 +67,7 @@ public class UnconsciousFoundState : State
             hUDState.OpenHud(installHUD);
             radio.enabled = false;
             isPass = true;
-            controller.NextState(hudDuration);
+            controller.NextState(hUDState.hudDuration);
         };
     }
 

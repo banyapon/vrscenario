@@ -177,12 +177,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 309772009677372570}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3483254495983522198}
+  m_Father: {fileID: 5237822079830443642}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -972,12 +972,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1427348435223138406}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3483254495983522198}
+  m_Father: {fileID: 5237822079830443642}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1676,7 +1676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: lifting Sling Grab_302414
+  id: lifting Sling Grab_193394
 --- !u!136 &1260861141533016115
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2248,7 +2248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Harness Grab_302550
+  id: Harness Grab_193634
 --- !u!135 &4741980538531758305
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2642,7 +2642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Ordinary Rope Grab_302724
+  id: Ordinary Rope Grab_193966
 --- !u!65 &3383822728700944661
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3741,7 +3741,7 @@ Transform:
   m_GameObject: {fileID: 2865691679493543111}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.847, y: 1.273, z: 1.13}
+  m_LocalPosition: {x: -1.847, y: 1.201, z: 1.13}
   m_LocalScale: {x: 0.099999994, y: 0.1, z: 0.025}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3819,7 +3819,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1259467076168787888
 MonoBehaviour:
@@ -3833,7 +3833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Gas Detector_302328
+  id: Gas Detector_193230
 --- !u!114 &447736144390987193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4495,7 +4495,7 @@ Transform:
   m_GameObject: {fileID: 4465463989143882351}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.6, y: 1.273, z: 1.13}
+  m_LocalPosition: {x: -1.6, y: 1.201, z: 1.13}
   m_LocalScale: {x: 0.099999994, y: 0.19999999, z: 0.049999997}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4587,7 +4587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Radio_302772
+  id: Radio_194046
 --- !u!114 &8798099242299988416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5336,12 +5336,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5222299876915752570}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3483254495983522198}
+  m_Father: {fileID: 5237822079830443642}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7491,13 +7491,13 @@ MonoBehaviour:
   nextButton: {fileID: 0}
   nextState: {fileID: 0}
   waitDuration: 3
-  hudDuration: 2
   safeBtn: {fileID: 5054866547665067799}
   notSafeBtn: {fileID: 5487855017761658086}
   radio: {fileID: 8520634253500480854}
   radioReportHUD: {fileID: 4149405811728658429}
   installHUD: {fileID: 8778035469404114524}
   valueIsSafeHUD: {fileID: 7973456519876410747}
+  quizUI: {fileID: 5833873471056977729}
   runNumberRollers:
   - {fileID: 8836202304926216568}
   - {fileID: 5624451782407755556}
@@ -8378,12 +8378,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8630157158864006730}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3483254495983522198}
+  m_Father: {fileID: 5237822079830443642}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9419,46 +9419,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2733104579764301432}
     m_Modifications:
-    - target: {fileID: 377931407399068718, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: select_-566966
-      objectReference: {fileID: 0}
-    - target: {fileID: 605055112731749196, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: unselect_-566620
-      objectReference: {fileID: 0}
-    - target: {fileID: 620742581990167281, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: unselect_-566716
-      objectReference: {fileID: 0}
-    - target: {fileID: 1074864551877969875, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: Warning HUD_-567144
-      objectReference: {fileID: 0}
-    - target: {fileID: 1141516015585500858, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: select_-567014
-      objectReference: {fileID: 0}
-    - target: {fileID: 1260477151028271327, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: unselect_-567004
-      objectReference: {fileID: 0}
-    - target: {fileID: 1599962695322719380, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: select_-566726
-      objectReference: {fileID: 0}
-    - target: {fileID: 1642953932399783209, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: select_-566630
-      objectReference: {fileID: 0}
     - target: {fileID: 1674915636823981696, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -9579,11 +9539,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1988278839982285387, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: unselect_-566956
-      objectReference: {fileID: 0}
     - target: {fileID: 2424530390892772752, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -9613,11 +9568,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2534632103690398142, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: Warning HUD_-567180
       objectReference: {fileID: 0}
     - target: {fileID: 3034728519288705308, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
@@ -9779,11 +9729,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4337265177765575249, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: Warning HUD_-567214
-      objectReference: {fileID: 0}
     - target: {fileID: 4399095369362434627, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -9814,10 +9759,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4838990659516261128, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+    - target: {fileID: 4997994663229153500, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
-      propertyPath: id
-      value: unselect_-566812
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5001229735100728663, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
@@ -9849,21 +9794,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5494248775587846885, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: unselect_-566524
-      objectReference: {fileID: 0}
-    - target: {fileID: 5617315314971134402, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: unselect_-566668
-      objectReference: {fileID: 0}
-    - target: {fileID: 5654437110916744143, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: unselect_-566908
-      objectReference: {fileID: 0}
     - target: {fileID: 5732584977989926851, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -9893,21 +9823,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5823716266545202602, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: select_-566918
-      objectReference: {fileID: 0}
-    - target: {fileID: 5950972167303994496, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: select_-566534
-      objectReference: {fileID: 0}
-    - target: {fileID: 6007187321560666023, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: select_-566678
       objectReference: {fileID: 0}
     - target: {fileID: 6664312408110888644, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
@@ -9968,76 +9883,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6741584984345912685, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: select_-566822
-      objectReference: {fileID: 0}
-    - target: {fileID: 6763989387120275998, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: Warning HUD_-567142
-      objectReference: {fileID: 0}
-    - target: {fileID: 7280703372036346336, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: select_-566774
-      objectReference: {fileID: 0}
-    - target: {fileID: 7572041183341082571, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: unselect_-566572
-      objectReference: {fileID: 0}
-    - target: {fileID: 7716140321547298429, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: select_-566870
-      objectReference: {fileID: 0}
-    - target: {fileID: 7893544146147174946, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: unselect_-567052
-      objectReference: {fileID: 0}
-    - target: {fileID: 7999840637852258204, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: Warning HUD_-567216
-      objectReference: {fileID: 0}
-    - target: {fileID: 8077480156749110387, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: Warning HUD_-567178
-      objectReference: {fileID: 0}
-    - target: {fileID: 8296447564658158663, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: select_-567062
-      objectReference: {fileID: 0}
-    - target: {fileID: 8483756074036944920, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: unselect_-566860
       objectReference: {fileID: 0}
     - target: {fileID: 8598299354233847853, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
       propertyPath: m_Name
       value: PPE Selector
-      objectReference: {fileID: 0}
-    - target: {fileID: 8627820295467676078, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: select_-566582
-      objectReference: {fileID: 0}
-    - target: {fileID: 8640132135093361060, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: PPE Selector_-566466
-      objectReference: {fileID: 0}
-    - target: {fileID: 8909007002036524933, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
-        type: 3}
-      propertyPath: id
-      value: unselect_-566764
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10323,7 +10173,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Check Work Permit HUD_-567248
+      value: Check Work Permit HUD_-233358
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -10484,7 +10334,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Fail HUD_-568236
+      value: Fail HUD_-233058
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -10653,7 +10503,7 @@ PrefabInstance:
     - target: {fileID: 1331153923586568210, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
       propertyPath: id
-      value: Quiz UI_-568462
+      value: Quiz UI_-231180
       objectReference: {fileID: 0}
     - target: {fileID: 2706496743492578046, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
@@ -10785,27 +10635,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Quiz UI
       objectReference: {fileID: 0}
+    - target: {fileID: 7502468295876903717, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+        type: 3}
+      propertyPath: id
+      value: UI_-231188
+      objectReference: {fileID: 0}
     - target: {fileID: 8309902865433484020, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
       propertyPath: id
       value: Quiz UI_-568464
       objectReference: {fileID: 0}
+    - target: {fileID: 8485672627890779124, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+        type: 3}
+      propertyPath: quizButtons.Array.data[0].hudPanel
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485672627890779124, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+        type: 3}
+      propertyPath: quizButtons.Array.data[1].hudPanel
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 4585507646494837687, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+    - targetCorrespondingSourceObject: {fileID: 5135656105748536411, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 9112741442640251592}
-    - targetCorrespondingSourceObject: {fileID: 4585507646494837687, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+    - targetCorrespondingSourceObject: {fileID: 5135656105748536411, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8067493949523199786}
-    - targetCorrespondingSourceObject: {fileID: 4585507646494837687, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+    - targetCorrespondingSourceObject: {fileID: 5135656105748536411, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8143524188530889293}
-    - targetCorrespondingSourceObject: {fileID: 4585507646494837687, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+    - targetCorrespondingSourceObject: {fileID: 5135656105748536411, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4496755070916350132}
@@ -10829,6 +10694,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &5237822079830443642 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5135656105748536411, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1150106113266997793}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5487855017761658086 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4890126869444136647, guid: 0fcaae2dfa87dd247b49be6d166b863a,
@@ -10841,6 +10712,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &5833873471056977729 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6846573598944380256, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1150106113266997793}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1333756601254080866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10852,7 +10729,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Check Gas HUD_-567280
+      value: Check Gas HUD_-231566
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -11014,7 +10891,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Check gas HUD_-568354
+      value: Check gas HUD_-232898
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -11176,7 +11053,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Pass HUD_-567334
+      value: Pass HUD_-233026
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -11339,7 +11216,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Reached the top HUD_-568604
+      value: Reached the top HUD_-232812
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -11495,7 +11372,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Value is safe HUD_-567532
+      value: Value is safe HUD_-232866
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -11606,7 +11483,7 @@ PrefabInstance:
     - target: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.336
+      value: 1.659744
       objectReference: {fileID: 0}
     - target: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -11656,7 +11533,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Emergency HUD_-566336
+      value: Emergency HUD_-233218
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -11817,7 +11694,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Install HUD_-568300
+      value: Install HUD_-232962
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -11927,7 +11804,7 @@ PrefabInstance:
     - target: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.336
+      value: 1.659744
       objectReference: {fileID: 0}
     - target: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -11983,7 +11860,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Warning HUD_-566434
+      value: Warning HUD_-233186
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -12302,7 +12179,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: PPE HUD_-568268
+      value: PPE HUD_-233154
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -12458,7 +12335,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Mission HUD_-567564
+      value: Mission HUD_-231598
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -12614,7 +12491,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Gas Detector HUD_-567596
+      value: Gas Detector HUD_-233250
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -12904,7 +12781,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Lifeline HUD_-566370
+      value: Lifeline HUD_-233282
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -13055,7 +12932,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Start Mission HUD_-567368
+      value: Start Mission HUD_-232930
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -13675,7 +13552,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Work Permit HUD_-567628
+      value: Work Permit HUD_-233122
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -14132,7 +14009,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Warning Work Permit HUD_-567478
+      value: Warning Work Permit HUD_-233090
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -14294,7 +14171,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Lifting things HUD_-566402
+      value: Lifting things HUD_-232994
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -14455,7 +14332,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Risky HUD_-567446
+      value: Risky HUD_-231326
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -14607,7 +14484,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Not designed HUD_-568636
+      value: Not designed HUD_-233390
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -14768,7 +14645,7 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Radio report HUD_-568386
+      value: Radio report HUD_-231358
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -14879,7 +14756,7 @@ PrefabInstance:
     - target: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.336
+      value: 1.659744
       objectReference: {fileID: 0}
     - target: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}

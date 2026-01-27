@@ -11,9 +11,6 @@ public class RiskAssessmentState : State
     [Header("Reference")]
     public Button correctBtn;
     public Button wrongBtn;
-    [Space(10)]
-    public GameObject correctHud;
-    public GameObject wrongHud;
 
     public override void Awake()
     {
@@ -21,8 +18,6 @@ public class RiskAssessmentState : State
 
         correctBtn.onClick.AddListener(() =>
         {
-            SetEnableButton(false);
-            correctHud.SetActive(true);
             isPass = true;
 
             controller.NextState(delayChangeState);
@@ -30,18 +25,13 @@ public class RiskAssessmentState : State
 
         wrongBtn.onClick.AddListener(() =>
         {
-            SetEnableButton(false);
-            wrongHud.SetActive(true);
             testFirstTime = false;
-
-            DOVirtual.DelayedCall(delayChangeState, CloseHud);
         });
     }
 
     public override void StateEnter()
     {
         base.StateEnter();
-        CloseHud();
     }
 
     public override void StateUpdate()
@@ -52,18 +42,5 @@ public class RiskAssessmentState : State
     public override void StateExit()
     {
         base.StateExit();
-    }
-
-    void SetEnableButton(bool value)
-    {
-        correctBtn.interactable = value;
-        wrongBtn.interactable = value;
-    }
-
-    void CloseHud()
-    {
-        correctHud.SetActive(false);
-        wrongHud.SetActive(false);
-        SetEnableButton(true);
     }
 }
