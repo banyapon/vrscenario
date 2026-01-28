@@ -29,6 +29,12 @@ namespace PGroup
         [Header("CheckPoint 3")]
         [SerializeField] private GameObject[] uiCheckpoint3;
         [SerializeField] private GameObject[] hlCheckpoint3;
+        [SerializeField] private TriggerChecker startPoint3;
+        [SerializeField] private PlaceObject slingTop1;
+        [SerializeField] private PlaceObject slingTop2;
+        [SerializeField] private PlaceObject slingTop3;
+        [SerializeField] private PlaceObject slingTop4;
+        private PlaceObject processTrigger;
         [Header("CheckPoint 4")]
         [SerializeField] private GameObject[] uiCheckpoint4;
         [SerializeField] private GameObject[] hlCheckpoint4;
@@ -46,8 +52,10 @@ namespace PGroup
         private Tween delay = null;
         private void Awake()
         {
+            player = Camera.main.transform;
             pPESelector.OnSelectionValidated += OnValidated;
             point1.OnEnter += () => Checkpoint2Start();
+            startPoint3.OnEnter += () => Checkpoint3Start();
             hookLeft.OnEnter += () => SetHookOn("Left", true);
             hookLeft.OnExit += () => SetHookOn("Left", false);
             hookRight.OnEnter += () => SetHookOn("Right", true);
@@ -56,14 +64,17 @@ namespace PGroup
             {
                 item.OnEnter += () => OnTryClimb();
             }
-            player = Camera.main.transform;
+
+            //Checkpoint 3
+            slingTop1.OnEnter += GetTrigger;
+            slingTop2.OnEnter += GetTrigger;
+            slingTop3.OnEnter += GetTrigger;
+            slingTop4.OnEnter += GetTrigger;
         }
 
         private void Start()
         {
             Checkpoint1Start();
-
-            ladders[currentLadderHook].transform.GetChild(0).gameObject.SetActive(true);
         }
         #region Checkpoint 1
         private void Checkpoint1Start()
@@ -91,11 +102,12 @@ namespace PGroup
             uiCheckpoint1[2].SetActive(false);
             uiCheckpoint1[3].SetActive(true);
             uiCheckpoint1[4].SetActive(true);
-            hlCheckpoint1[0].SetActive(true);
+            //hlCheckpoint1[0].SetActive(true);
         }
         public void Checkpoint1Success()
         {
-            hlCheckpoint1[0].SetActive(false);
+            Debug.Log("Checkpoint 1 Success");
+            //hlCheckpoint1[0].SetActive(false);
             uiCheckpoint1[3].SetActive(false);
             uiCheckpoint1[4].SetActive(false);
             uiCheckpoint1[5].SetActive(true);
@@ -110,11 +122,13 @@ namespace PGroup
         #region Checkpoint 2
         private void Checkpoint2Start()
         {
+            ladders[currentLadderHook].transform.GetChild(0).gameObject.SetActive(true);
             uiCheckpoint2[0].SetActive(false);
             uiCheckpoint2[1].SetActive(true);
         }
         private void OnTryClimb()
         {
+            Debug.Log("Check : " + IsHookOn());
             if (!IsHookOn())
             {
                 uiCheckpoint2[2].transform.position = new Vector3(uiCheckpoint2[2].transform.position.x, player.position.y, uiCheckpoint2[2].transform.position.z);
@@ -124,6 +138,11 @@ namespace PGroup
                 {
                     uiCheckpoint2[2].SetActive(false);
                 });
+            }
+            else
+            {
+                uiCheckpoint2[1].SetActive(false);
+                uiCheckpoint2[2].SetActive(false);
             }
         }
         private bool IsHookOn()
@@ -162,13 +181,45 @@ namespace PGroup
             hookSide.transform.position = ladders[currentLadderHook].transform.GetChild(0).position;
             hookSide.transform.rotation = ladders[currentLadderHook].transform.GetChild(0).rotation;
             ladders[currentLadderHook].transform.GetChild(0).gameObject.SetActive(false);
-            currentLadderHook++;
-            ladders[currentLadderHook].transform.GetChild(0).gameObject.SetActive(true);
-            blockUp.position = new Vector3(blockUp.position.x, hookSide.hitObject.transform.position.y + 1, blockUp.position.z);
-
+            if (currentLadderHook < ladders.Length - 2)
+            {
+                currentLadderHook++;
+                ladders[currentLadderHook].transform.GetChild(0).gameObject.SetActive(true);
+                blockUp.position = new Vector3(blockUp.position.x, hookSide.hitObject.transform.position.y + 2, blockUp.position.z);
+                blockDown.position = new Vector3(blockDown.position.x, hookSide.hitObject.transform.position.y - 2, blockDown.position.z);
+            }
+            else
+            {
+                hookRight.GetComponent<XRGrabInteractable>().enabled = true;
+                hookLeft.GetComponent<XRGrabInteractable>().enabled = true;
+                blockDown.position = new Vector3(blockDown.position.x, hookSide.hitObject.transform.position.y - 2, blockDown.position.z);
+            }
         }
         #endregion
         #region Checkpoint 3
+        private void Checkpoint3Start()
+        {
+            uiCheckpoint3[0].SetActive(true);
+        }
+        private void GetTrigger(PlaceObject receiver,GameObject trigger)
+        {
+            SlingHookTop(trigger, receiver.transform.GetChild(0));
+        }
+        private void SlingHookTop(GameObject hook,Transform pos)
+        {
+            if (hook == hookLeft.gameObject)
+            {
+                hookLeft.GetComponent<XRGrabInteractable>().enabled = false;
+                hookRight.GetComponent<XRGrabInteractable>().enabled = true;
+            }
+            else
+            {
+                hookRight.GetComponent<XRGrabInteractable>().enabled = false;
+                hookLeft.GetComponent<XRGrabInteractable>().enabled = true;
+            }
+            hook.transform.position = pos.GetChild(0).position;
+            hook.transform.rotation = pos.GetChild(0).rotation;
+        }
         #endregion
         #region Checkpoint 4
         #endregion

@@ -1,21 +1,41 @@
+using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace PGroup
 {
     public class PlaceObject : MonoBehaviour
     {
-        [SerializeField] private string processTag;
-        [SerializeField] private UnityEvent OnSuccess;
-        
+        public string triggerTag = "Hand";
+        public GameObject triggerTarget;
+
+        public Action<PlaceObject, GameObject> OnEnter;
+        public Action<PlaceObject, GameObject> OnExit;
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag(processTag))
+            if (!enabled) return;
+            if (IsValidTarget(other)) OnEnter?.Invoke(this,other.gameObject);
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (!enabled) return;
+            if (IsValidTarget(other)) OnExit?.Invoke(this, other.gameObject);
+        }
+
+        private bool IsValidTarget(Collider other)
+        {
+            if (triggerTarget != null)
             {
-                transform.GetChild(0).gameObject.SetActive(false);
-                OnSuccess?.Invoke();
+                return other.gameObject == triggerTarget;
             }
+
+            if (!string.IsNullOrEmpty(triggerTag))
+            {
+                return other.CompareTag(triggerTag);
+            }
+
+            return true;
         }
     }
 }
