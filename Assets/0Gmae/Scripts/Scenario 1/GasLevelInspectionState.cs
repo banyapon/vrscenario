@@ -39,9 +39,10 @@ public class GasLevelInspectionState : State
 
         gasDetector.OnEnter = () =>
         {
+            if (isPass) return;
             isPass = true;
             controller.NextState();
-            gasDetector.OnEnter = null;
+            //gasDetector.OnEnter = null;
         };
 
         radio.OnEnter = () =>

@@ -6149,7 +6149,9 @@ MonoBehaviour:
   nextState: {fileID: 0}
   delayChecngeState: 3
   hudDuration: 2
+  thresholdAngle: 60
   lid: {fileID: 5957168558376589443}
+  ladder: {fileID: 772280358665625987}
   climbChecker: {fileID: 1707091663267118391}
   floorChecker: {fileID: 1874549871919385086}
   lifelineHUD: {fileID: 1112666182002502392}
@@ -9988,7 +9990,7 @@ PrefabInstance:
     - target: {fileID: 8151954492914599796, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 1396470887
+      value: 95822256
       objectReference: {fileID: 0}
     - target: {fileID: 8151954492914599796, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
@@ -13056,6 +13058,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Start Mission HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 7452267920749269977, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: m_PositionFollowMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14455,6 +14462,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Risky HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 7452267920749269977, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: m_PositionFollowMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

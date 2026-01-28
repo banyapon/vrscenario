@@ -44,6 +44,7 @@ public class PermitToWorkState : State
                 hUDState.OpenHud(gasHUD);
                 gasDetectorBtn.interactable = false;
                 controller.NextState(delayChangState);
+                tankEntrance.enabled = false;
                 print("Play NPC Animation here");
             }
             else
@@ -65,6 +66,7 @@ public class PermitToWorkState : State
         base.StateEnter();
         player?.Teleport(teleportTarget);
 
+        tankEntrance.enabled = true;
         isCheckWorkPermit = false;
         workPermitBtn.interactable = true;
         gasDetectorBtn.interactable = true;

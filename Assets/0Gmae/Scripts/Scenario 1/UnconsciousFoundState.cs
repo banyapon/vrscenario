@@ -51,6 +51,7 @@ public class UnconsciousFoundState : State
     {
         base.StateEnter();
         SetButtonInteractable(false);
+        quizUI.gameObject.SetActive(true);
 
         foreach (var r in runNumberRollers)
         {

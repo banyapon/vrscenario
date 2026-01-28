@@ -69,6 +69,8 @@ public class ScenarioOneSummaryState : State
         DOVirtual.DelayedCall(delayShowUI, () =>
         {
             summaryUI.gameObject.SetActive(true);
+            passHUD.SetActive(false);
+            failHUD.SetActive(false);
         });
     }
 
