@@ -53,6 +53,7 @@ public class SiloEntryState : State
         climbChecker.enabled = true;
         floorChecker.enabled = true;
 
+        isGrounded = false;
         testFirstTime = false;
         isTrigger = false;
     }
@@ -88,7 +89,6 @@ public class SiloEntryState : State
         Vector3 ladderForward = -ladder.forward;
 
         float angle = Vector3.Angle(headForward, ladderForward);
-        print(angle);
 
         return angle > thresholdAngle;
     }
