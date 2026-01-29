@@ -1651,7 +1651,7 @@ GameObject:
   - component: {fileID: 1491481435470002912}
   m_Layer: 0
   m_Name: lifting Sling Grab
-  m_TagString: Destroyer
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2223,7 +2223,7 @@ GameObject:
   - component: {fileID: 8679943634001408548}
   m_Layer: 0
   m_Name: Harness Grab
-  m_TagString: Destroyer
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2617,7 +2617,7 @@ GameObject:
   - component: {fileID: 7641466681411871805}
   m_Layer: 0
   m_Name: Ordinary Rope Grab
-  m_TagString: Destroyer
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

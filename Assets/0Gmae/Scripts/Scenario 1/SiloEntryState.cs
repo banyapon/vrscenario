@@ -56,6 +56,8 @@ public class SiloEntryState : State
         isGrounded = false;
         testFirstTime = false;
         isTrigger = false;
+
+        player?.ShowHook();
     }
 
     public override void StateUpdate()
@@ -82,6 +84,7 @@ public class SiloEntryState : State
     {
         base.StateExit();
         lid.SetActive(true);
+        player?.HideHook();
     }
     bool IsFacingAwayFromLadder()
     {

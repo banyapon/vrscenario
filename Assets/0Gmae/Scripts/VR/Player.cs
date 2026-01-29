@@ -1,9 +1,14 @@
+using Boy;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Locomotion.Climbing;
 
 public class Player : MonoBehaviour
 {
     public static Player Instance { get; private set; }
+
+    [Header("Hook")]
+    public GameObject groupHook;
+    public Hook[] hooks;
 
     [Header("Locomotion")]
     public GameObject turn;
@@ -14,6 +19,7 @@ public class Player : MonoBehaviour
     public GameObject jump;
     
     bool defaultEnableGravityOnClimbEnd;
+    [HideInInspector] public VRInput vRInput;
 
     private void Awake()
     {
@@ -23,7 +29,9 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        vRInput = GetComponent<VRInput>();
         defaultEnableGravityOnClimbEnd = climbProvider.enableGravityOnClimbEnd;
+        HideHook();
     }
 
     public void Teleport(Transform transform)
@@ -38,9 +46,19 @@ public class Player : MonoBehaviour
         transform.eulerAngles = rotate;
     }
 
+    public void ShowHook() {
+        groupHook.SetActive(true);
+        foreach (var h in hooks)
+        {
+            h.ResetTransform();
+        }
+    }
+
+    public void HideHook() { groupHook.SetActive(false); }
+
     public void StartClimbDownSilo()
     {
-        climbProvider.enableGravityOnClimbEnd = false;
+        SetGravityOnClimbEnd(false);
 
         //SetTurn(false);
         SetMove(false);
@@ -49,11 +67,21 @@ public class Player : MonoBehaviour
 
     public void StopClimbDownSilo()
     {
-        climbProvider.enableGravityOnClimbEnd = defaultEnableGravityOnClimbEnd;
+        ResetGravityOnClimbEnd();
 
         //SetTurn(true);
         SetMove(true);
         SetGravity(true);
+    }
+
+    public void SetGravityOnClimbEnd(bool enable)
+    {
+        climbProvider.enableGravityOnClimbEnd = enable;
+    }
+
+    public void ResetGravityOnClimbEnd()
+    {
+        climbProvider.enableGravityOnClimbEnd = defaultEnableGravityOnClimbEnd;
     }
 
     #region Set Locomotion
