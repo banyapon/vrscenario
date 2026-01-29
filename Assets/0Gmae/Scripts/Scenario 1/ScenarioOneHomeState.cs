@@ -6,6 +6,7 @@ public class ScenarioOneHomeState : State
 {
     [Header("Setting")]
     public float delayDuration = 2;
+    public Transform teleportTarget;
 
     [Header("Reference")]
     public GameObject popup1;
@@ -31,6 +32,9 @@ public class ScenarioOneHomeState : State
     public override void StateEnter()
     {
         base.StateEnter();
+        Player player = Player.Instance;
+        if (player && teleportTarget)
+            player.Teleport(teleportTarget.localPosition, teleportTarget.localEulerAngles);
 
         radio.SetActive(false);
         gasDetector.SetActive(false);

@@ -3,10 +3,10 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
-using Boy;
 
 public class Scenario : NetworkBehaviour
 {
+    [SerializeField] private bool resetPlayerTransform = true;
     [SerializeField] private Button destroyBtn;
     [SerializeField] private List<Camera> allCamera = new List<Camera>();
     List<GameObject> grabObjects = new List<GameObject>();
@@ -45,9 +45,9 @@ public class Scenario : NetworkBehaviour
         if (IsOwner || IsHost)
         {
             player = Player.Instance;
-            player?.Teleport(Vector3.zero, Vector3.zero);
             player?.SetJump(false);
             //player?.SetTeleportation(false);
+            if (resetPlayerTransform) player?.Teleport(Vector3.zero, Vector3.zero);
         }
 
         if ((IsServer || IsHost) && CCTVController.Instance != null)

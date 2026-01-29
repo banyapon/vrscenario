@@ -18,9 +18,9 @@ public class ScenarioFiveHomeState : State
     public override void StateEnter()
     {
         base.StateEnter();
-        //Player player = Player.Instance;
-        //if (player && teleportTarget)
-        //    player.Teleport(teleportTarget.localPosition, teleportTarget.localEulerAngles);
+        Player player = Player.Instance;
+        if (player && teleportTarget)
+            player.Teleport(teleportTarget.localPosition, teleportTarget.localEulerAngles);
 
         emergencyStopBtn.OnEnter += OnEmergencyStop;
         lOTOState.ResetSequence();
