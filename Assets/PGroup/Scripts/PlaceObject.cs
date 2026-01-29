@@ -14,13 +14,13 @@ namespace PGroup
         private void OnTriggerEnter(Collider other)
         {
             if (!enabled) return;
-            if (IsValidTarget(other)) OnEnter?.Invoke(this,other.gameObject);
+            //if (IsValidTarget(other)) OnEnter?.Invoke(this,other.gameObject);
         }
 
         private void OnTriggerExit(Collider other)
         {
             if (!enabled) return;
-            if (IsValidTarget(other)) OnExit?.Invoke(this, other.gameObject);
+            //if (IsValidTarget(other)) OnExit?.Invoke(this, other.gameObject);
         }
 
         private bool IsValidTarget(Collider other)

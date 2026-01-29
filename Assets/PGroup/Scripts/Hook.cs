@@ -10,7 +10,7 @@ namespace PGroup
         public bool isHit;
         public Transform player;
         public Vector3 isFollowPlayer;
-        public Action OnEnter;
+        public Action<GameObject,GameObject> OnEnter;
         public Action OnExit;
         public GameObject hitObject;
         public float smoothTime = 0.2f;
@@ -59,6 +59,11 @@ namespace PGroup
                 isHit = true;
                 hitObject = other.gameObject;
             }
+            else if (other.GetComponent<PlaceObject>())
+            {
+                isHit = true;
+                hitObject = other.gameObject;
+            }
         }
 
         private void OnTriggerExit(Collider other)
@@ -86,7 +91,7 @@ namespace PGroup
             if (isHit)
             {
                 isHit = false;
-                OnEnter?.Invoke();
+                OnEnter?.Invoke(gameObject,hitObject);
             }
             else
             {
