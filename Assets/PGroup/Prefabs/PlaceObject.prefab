@@ -130,6 +130,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8781724344078705050}
   - component: {fileID: 6969074743924355621}
+  - component: {fileID: 8302749288014153391}
+  - component: {fileID: 8327071113276561770}
   m_Layer: 0
   m_Name: PlaceObject
   m_TagString: Ladder
@@ -174,6 +176,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8302749288014153391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5722454921326255604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: PlaceObject_-30314
+--- !u!114 &8327071113276561770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5722454921326255604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca6626bce1deabd4fa3c815870322a4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTag: Hook
+  triggerTarget: {fileID: 0}
 --- !u!1 &6164562099939004366
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,7 +418,7 @@ PrefabInstance:
     - target: {fileID: 3820922898261741640, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
       propertyPath: id
-      value: HighlightObject_-1018900
+      value: HighlightObject_-26794
       objectReference: {fileID: 0}
     - target: {fileID: 5593281840876868023, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}

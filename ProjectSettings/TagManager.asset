@@ -11,6 +11,8 @@ TagManager:
   - Destroyer
   - ResetArea
   - Hand
+  - Ladder
+  - Hook
   layers:
   - Default
   - TransparentFX
