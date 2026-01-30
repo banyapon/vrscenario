@@ -7,7 +7,6 @@ namespace PGroup
         [SerializeField] private HighGroundGameplay gameplay;
         Renderer rend;
         Camera cam;
-        bool isDone;
 
         void Start()
         {
@@ -18,9 +17,8 @@ namespace PGroup
         void Update()
         {
             bool visible = IsVisibleFromMainCamera();
-            if (visible && !isDone)
+            if (visible)
             {
-                isDone = true;
                 gameplay.LookAtAccident();
             }
         }
