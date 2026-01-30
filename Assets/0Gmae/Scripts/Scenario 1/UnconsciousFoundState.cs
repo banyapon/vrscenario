@@ -28,22 +28,16 @@ public class UnconsciousFoundState : State
         hUDState = GetComponent<HUDState>();
 
         safeBtn.onClick.AddListener(() => {
-            hUDState.OpenHud(radioReportHUD);
+            hUDState.OpenHud(radioReportHUD, () => { radio.enabled = true; });
             radio.gameObject.SetActive(true);
             radio.enabled = false;
             quizUI.gameObject.SetActive(false);
-            DOVirtual.DelayedCall(hUDState.hudDuration, () => {
-                radio.enabled = true;
-            }).SetLink(gameObject);
         });
 
         notSafeBtn.onClick.AddListener(() => {
-            hUDState.OpenHud(valueIsSafeHUD);
+            hUDState.OpenHud(valueIsSafeHUD, () => { quizUI.gameObject.SetActive(true); });
             testFirstTime = false;
             quizUI.gameObject.SetActive(false);
-            DOVirtual.DelayedCall(hUDState.hudDuration, () => {
-                quizUI.gameObject.SetActive(true);
-            }).SetLink(gameObject);
         });
     }
 

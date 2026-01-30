@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     public GameObject jump;
     
     bool defaultEnableGravityOnClimbEnd;
+    float defaultSlopeLimit;
+    CharacterController characterController;
     [HideInInspector] public VRInput vRInput;
 
     private void Awake()
@@ -30,6 +32,8 @@ public class Player : MonoBehaviour
     private void Start()
     {
         vRInput = GetComponent<VRInput>();
+        characterController = GetComponent<CharacterController>();
+        defaultSlopeLimit = characterController.slopeLimit;
         defaultEnableGravityOnClimbEnd = climbProvider.enableGravityOnClimbEnd;
         HideHook();
     }
@@ -54,7 +58,14 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void HideHook() { groupHook.SetActive(false); }
+    public void HideHook()
+    {
+        foreach (var h in hooks)
+        {
+            h.transform.SetParent(groupHook.transform);
+        }
+        groupHook.SetActive(false);
+    }
 
     public void StartClimbDownSilo()
     {
@@ -82,6 +93,15 @@ public class Player : MonoBehaviour
     public void ResetGravityOnClimbEnd()
     {
         climbProvider.enableGravityOnClimbEnd = defaultEnableGravityOnClimbEnd;
+    }
+
+    public void SetSlopeLimit(float value)
+    {
+        characterController.slopeLimit = value;
+    }
+    public void ResetSlopeLimit()
+    {
+        characterController.slopeLimit = defaultSlopeLimit;
     }
 
     #region Set Locomotion

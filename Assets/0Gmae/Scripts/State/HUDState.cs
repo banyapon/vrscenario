@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using UnityEngine;
 
 namespace Boy
@@ -37,12 +38,13 @@ namespace Boy
         }
 
         Tween hudTween = null;
-        public void OpenHud(GameObject hud)
+        public void OpenHud(GameObject hud, Action onHide = null)
         {
             hudTween?.Kill();
             HideHUD();
             hud.SetActive(true);
-            hudTween = DOVirtual.DelayedCall(hudDuration, HideHUD).SetLink(gameObject);
+            hudTween = DOVirtual.DelayedCall(hudDuration, HideHUD)
+                .SetLink(gameObject).OnComplete(() => { onHide?.Invoke(); });
         }
         public void HideHUD()
         {

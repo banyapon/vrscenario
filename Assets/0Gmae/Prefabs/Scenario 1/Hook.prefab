@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3202399835760029670}
   - component: {fileID: 569994858929364304}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: box collider (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1786486583595741396}
   - component: {fileID: 4882843878033185781}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: box collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 577715070255212383}
   - component: {fileID: 528912915638660560}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: box collider (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,7 +268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5140315027926700836}
   - component: {fileID: 7256590446712093461}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: box collider (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,7 +321,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5388482152911518400}
   - component: {fileID: 2309097464521062942}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: box collider (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 274924325456436683}
   - component: {fileID: 6980437691809238912}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: box collider (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -428,7 +428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4308554290821269832}
   - component: {fileID: 6685330803854418220}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: box collider (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -481,7 +481,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8072020615423948788}
   - component: {fileID: 5683792232667921858}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: box collider (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1231,7 +1231,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4125517892771459055}
   - component: {fileID: 5516791684015182232}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: box collider (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

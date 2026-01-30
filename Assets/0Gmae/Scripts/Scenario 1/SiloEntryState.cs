@@ -7,6 +7,7 @@ public class SiloEntryState : State
     public float delayChecngeState = 3;
     public float hudDuration = 2;
     public float thresholdAngle = 75f;
+    public float slopeLimit = 70;
 
     [Header("Reference")]
     public GameObject lid;
@@ -60,6 +61,7 @@ public class SiloEntryState : State
         isTrigger = false;
 
         player?.ShowHook();
+        player?.SetSlopeLimit(slopeLimit);
     }
 
     public override void StateUpdate()
@@ -87,6 +89,7 @@ public class SiloEntryState : State
         base.StateExit();
         lid.SetActive(true);
         player?.HideHook();
+        player?.ResetSlopeLimit();
     }
     bool IsFacingAwayFromLadder()
     {
