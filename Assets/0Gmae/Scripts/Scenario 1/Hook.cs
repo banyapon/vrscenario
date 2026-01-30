@@ -1,12 +1,15 @@
 using DG.Tweening;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 namespace Boy
 {
     public class Hook : MonoBehaviour
     {
         public bool isLeftSide = true;
+        public TriggerChecker checker;
 
         [Header("Transform Setting")]
         public float holdDuration = 2;
@@ -21,6 +24,7 @@ namespace Boy
         Tween lockTween;
         Rigidbody rb;
         VRInput vRInput;
+        XRGrabInteractable grab;
 
         HashSet<Collider> handColliders = new HashSet<Collider>();
         HashSet<Collider> ladderColliders = new HashSet<Collider>();
@@ -32,17 +36,24 @@ namespace Boy
         {
             rb = GetComponent<Rigidbody>();
             vRInput = Player.Instance.vRInput;
+
+            grab = GetComponent<XRGrabInteractable>();
+            grab.selectEntered.AddListener(OnGrab);
+            grab.selectExited.AddListener(OnRelease);
         }
 
         private void Update()
         {
-            if (vRInput == null) return;
-
-            if ((vRInput.primaryLeft && isLeftSide) ||
-                (vRInput.primaryRight && !isLeftSide))
+            if (vRInput == null)
             {
-                ResetTransform();
+                vRInput = Player.Instance.vRInput;
+                return;
             }
+
+            bool left = vRInput.primaryLeft && isLeftSide;
+            bool right = vRInput.primaryRight && !isLeftSide;
+
+            if (left || right) ResetTransform();
         }
 
         public void ResetTransform()
@@ -51,15 +62,17 @@ namespace Boy
 
             SetGravity(false);
             resetTween?.Kill();
-            resetTween = DOVirtual.DelayedCall(holdDuration, () =>
-            {
-                SetGravity(true);
-            });
+            //resetTween = DOVirtual.DelayedCall(holdDuration, () =>
+            //{
+            //    SetGravity(true);
+            //});
 
             if (target)
             {
+                transform.SetParent(target.parent);
                 transform.localPosition = target.localPosition;
                 transform.localEulerAngles = target.localEulerAngles;
+                transform.SetParent(null);
             }
             else
             {
@@ -75,7 +88,7 @@ namespace Boy
                 resetTween?.Kill();
                 handColliders.Add(other);
 
-                SetLockRotate(true);
+                //SetLockRotate(true);
                 UpdateGravity();
             }
             else if (other.CompareTag("Ladder"))
@@ -92,7 +105,7 @@ namespace Boy
             {
                 handColliders.Remove(other);
 
-                if (!IsInsideHand) SetLockRotate(false);
+                //if (!IsInsideHand) SetLockRotate(false);
 
                 UpdateGravity();
             }
@@ -106,13 +119,21 @@ namespace Boy
         void UpdateGravity()
         {
             bool shouldEnableGravity = !IsInsideHand && !IsInsideLadder;
-            SetGravity(shouldEnableGravity);
+            //SetGravity(shouldEnableGravity);
         }
 
         void SetGravity(bool value)
         {
             rb.useGravity = value;
             rb.isKinematic = !value;
+        }
+        void OnGrab(SelectEnterEventArgs args)
+        {
+            SetLockRotate(true);
+        }
+        void OnRelease(SelectExitEventArgs args)
+        {
+            SetLockRotate(false);
         }
 
         public void SetLockRotate(bool open)

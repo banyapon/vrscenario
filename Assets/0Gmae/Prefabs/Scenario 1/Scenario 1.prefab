@@ -756,7 +756,7 @@ GameObject:
   - component: {fileID: 6221661275629642553}
   m_Layer: 0
   m_Name: Rung
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 123
@@ -771,7 +771,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.70710677, w: 0.70710677}
   m_LocalPosition: {x: 0.03299996, y: 7.3300014, z: 0.058000214}
-  m_LocalScale: {x: 0.25, y: 0.95, z: 0.25}
+  m_LocalScale: {x: 0.15, y: 0.95, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4600165109882814883}
@@ -1041,7 +1041,7 @@ GameObject:
   - component: {fileID: 3080236290302350957}
   m_Layer: 0
   m_Name: Rung
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 123
@@ -1056,7 +1056,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.70710677, w: 0.70710677}
   m_LocalPosition: {x: 0.03299996, y: 1.3300012, z: 0.058000214}
-  m_LocalScale: {x: 0.25, y: 0.95, z: 0.25}
+  m_LocalScale: {x: 0.15, y: 0.95, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1434888808722910634}
@@ -1536,7 +1536,7 @@ GameObject:
   - component: {fileID: 3982054950886714998}
   m_Layer: 0
   m_Name: Rung
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 123
@@ -1551,7 +1551,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.70710677, w: 0.70710677}
   m_LocalPosition: {x: 0.03299996, y: 10.330001, z: 0.058000214}
-  m_LocalScale: {x: 0.25, y: 0.95, z: 0.25}
+  m_LocalScale: {x: 0.15, y: 0.95, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6530007318847453620}
@@ -3023,7 +3023,7 @@ GameObject:
   - component: {fileID: 2736772553522219292}
   m_Layer: 0
   m_Name: Rung
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 123
@@ -3038,7 +3038,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.70710677, w: 0.70710677}
   m_LocalPosition: {x: 0.03299996, y: 22.83, z: 0.058000214}
-  m_LocalScale: {x: 0.25, y: 0.95, z: 0.25}
+  m_LocalScale: {x: 0.15, y: 0.95, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6510875668561745746}
@@ -3331,7 +3331,7 @@ GameObject:
   - component: {fileID: 5209143692390966461}
   m_Layer: 0
   m_Name: Rung
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 123
@@ -3346,7 +3346,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.70710677, w: 0.70710677}
   m_LocalPosition: {x: 0.03299996, y: 14.830003, z: 0.058000214}
-  m_LocalScale: {x: 0.25, y: 0.95, z: 0.25}
+  m_LocalScale: {x: 0.15, y: 0.95, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2691147856557564781}
@@ -3442,7 +3442,7 @@ GameObject:
   - component: {fileID: 2436328248159640273}
   m_Layer: 0
   m_Name: Rung
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 123
@@ -3457,7 +3457,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.70710677, w: 0.70710677}
   m_LocalPosition: {x: 0.03299996, y: 16.83, z: 0.058000214}
-  m_LocalScale: {x: 0.25, y: 0.95, z: 0.25}
+  m_LocalScale: {x: 0.15, y: 0.95, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3234637615342821914}
@@ -3592,7 +3592,7 @@ GameObject:
   - component: {fileID: 3474336245836598003}
   m_Layer: 0
   m_Name: Rung
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 123
@@ -3607,7 +3607,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.70710677, w: 0.70710677}
   m_LocalPosition: {x: 0.032999936, y: 11.83, z: 0.057999987}
-  m_LocalScale: {x: 0.25, y: 0.95, z: 0.25}
+  m_LocalScale: {x: 0.15, y: 0.95, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7059275072368789209}
@@ -4485,7 +4485,7 @@ GameObject:
   - component: {fileID: 5401563510421573010}
   m_Layer: 0
   m_Name: Rung
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 123
@@ -4500,7 +4500,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.70710677, w: 0.70710677}
   m_LocalPosition: {x: 0.03299996, y: 18.83, z: 0.058000214}
-  m_LocalScale: {x: 0.25, y: 0.95, z: 0.25}
+  m_LocalScale: {x: 0.15, y: 0.95, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3607352300227573571}
@@ -5635,7 +5635,7 @@ GameObject:
   - component: {fileID: 1494348382877096134}
   m_Layer: 0
   m_Name: Rung
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 123
@@ -5650,7 +5650,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.70710677, w: 0.70710677}
   m_LocalPosition: {x: 0.03299996, y: 4.3300014, z: 0.058000214}
-  m_LocalScale: {x: 0.25, y: 0.95, z: 0.25}
+  m_LocalScale: {x: 0.15, y: 0.95, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6978062151627341306}
@@ -6526,7 +6526,7 @@ GameObject:
   - component: {fileID: 842703487382961841}
   m_Layer: 0
   m_Name: Rung
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 123
@@ -6541,7 +6541,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.70710677, w: 0.70710677}
   m_LocalPosition: {x: 0.03299996, y: -0.16999876, z: 0.058000214}
-  m_LocalScale: {x: 0.25, y: 0.95, z: 0.25}
+  m_LocalScale: {x: 0.15, y: 0.95, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1718996761759103502}
@@ -7085,7 +7085,7 @@ GameObject:
   - component: {fileID: 3731889382281577700}
   m_Layer: 0
   m_Name: Rung
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 123
@@ -7100,7 +7100,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.70710677, w: 0.70710677}
   m_LocalPosition: {x: 0.03299996, y: 24.83, z: 0.058000214}
-  m_LocalScale: {x: 0.25, y: 0.95, z: 0.25}
+  m_LocalScale: {x: 0.15, y: 0.95, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3245250053776315867}
@@ -7422,7 +7422,7 @@ GameObject:
   - component: {fileID: 2505043044304810252}
   m_Layer: 0
   m_Name: Rung
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 123
@@ -7437,7 +7437,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.70710677, w: 0.70710677}
   m_LocalPosition: {x: 0.03299996, y: 2.8300033, z: 0.058000214}
-  m_LocalScale: {x: 0.25, y: 0.95, z: 0.25}
+  m_LocalScale: {x: 0.15, y: 0.95, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 424961493916259355}
@@ -8097,7 +8097,7 @@ GameObject:
   - component: {fileID: 6030857614575188381}
   m_Layer: 0
   m_Name: Rung
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 123
@@ -8112,7 +8112,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.70710677, w: 0.70710677}
   m_LocalPosition: {x: 0.03299996, y: 13.330001, z: 0.058000214}
-  m_LocalScale: {x: 0.25, y: 0.95, z: 0.25}
+  m_LocalScale: {x: 0.15, y: 0.95, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6098154205665615784}
@@ -8488,7 +8488,7 @@ GameObject:
   - component: {fileID: 9131313026786011315}
   m_Layer: 0
   m_Name: Rung
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 123
@@ -8503,7 +8503,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.70710677, w: 0.70710677}
   m_LocalPosition: {x: 0.03299996, y: 20.83, z: 0.058000214}
-  m_LocalScale: {x: 0.25, y: 0.95, z: 0.25}
+  m_LocalScale: {x: 0.15, y: 0.95, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2848591479134794025}
@@ -8599,7 +8599,7 @@ GameObject:
   - component: {fileID: 6535550548220881937}
   m_Layer: 0
   m_Name: Rung
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 123
@@ -8614,7 +8614,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.70710677, w: 0.70710677}
   m_LocalPosition: {x: 0.03299996, y: 8.830003, z: 0.058000214}
-  m_LocalScale: {x: 0.25, y: 0.95, z: 0.25}
+  m_LocalScale: {x: 0.15, y: 0.95, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7251706318200779992}
@@ -9305,7 +9305,7 @@ GameObject:
   - component: {fileID: 4236677179522053642}
   m_Layer: 0
   m_Name: Rung
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 123
@@ -9320,7 +9320,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.70710677, w: 0.70710677}
   m_LocalPosition: {x: 0.03299996, y: 5.8300033, z: 0.058000214}
-  m_LocalScale: {x: 0.25, y: 0.95, z: 0.25}
+  m_LocalScale: {x: 0.15, y: 0.95, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5917825611497255266}

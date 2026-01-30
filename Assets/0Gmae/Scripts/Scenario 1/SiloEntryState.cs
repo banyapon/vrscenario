@@ -39,11 +39,14 @@ public class SiloEntryState : State
         floorChecker.OnEnter = () => {
             player?.StopClimbDownSilo();
             floorChecker.enabled = false;
-            isPass = true;
             isGrounded = true;
         };
 
         lid.SetActive(true);
+        foreach (var h in player.hooks)
+        {
+            h.checker.OnEnter += () => { isPass = true; };
+        }
     }
 
     public override void StateEnter()
@@ -54,7 +57,6 @@ public class SiloEntryState : State
         floorChecker.enabled = true;
 
         isGrounded = false;
-        testFirstTime = false;
         isTrigger = false;
 
         player?.ShowHook();
@@ -67,7 +69,7 @@ public class SiloEntryState : State
         {
             if (!IsFacingAwayFromLadder()) return;
             isTrigger = true;
-            if (testFirstTime)
+            if (isPass)
             {
                 hUDState.OpenHud(startMissionHUD);
             }
