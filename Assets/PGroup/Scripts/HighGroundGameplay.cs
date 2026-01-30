@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
@@ -10,6 +11,9 @@ namespace PGroup
         [SerializeField] private Transform player;
         [SerializeField] private Transform positionHookLeft;
         [SerializeField] private Transform positionHookRight;
+        [SerializeField] private Transform positionEndgame;
+        [SerializeField] private SummaryUI summaryUI;
+        private List<bool> scoreList;
         private int score;
 
         [Header("CheckPoint 1")]
@@ -83,6 +87,7 @@ namespace PGroup
                 item.OnEnter += () => OnTryClimb();
             }
 
+            scoreList = new List<bool>();
             //Checkpoint 3
             /*slingTop1.OnEnter += GetTrigger;
             slingTop2.OnEnter += GetTrigger;
@@ -116,7 +121,13 @@ namespace PGroup
         }
         private void ShowResult()
         {
-
+            scoreList.Add(true);
+            scoreList.Add(true);
+            scoreList.Add(true);
+            scoreList.Add(true);
+            player.parent.position = positionEndgame.position;
+            summaryUI.gameObject.SetActive(true);
+            summaryUI.ShowSummary(scoreList);
         }
         private void PlayAnimation(Animation animation, string clip, bool reversed)
         {
@@ -317,8 +328,8 @@ namespace PGroup
             hook.transform.position = pos.position;
             hook.transform.rotation = pos.rotation;
 
-            Debug.Log(isHookOnL);
-            Debug.Log(isHookOnR);
+            //Debug.Log(isHookOnL);
+            //Debug.Log(isHookOnR);
 
             if (isHookOnL && isHookOnR)
             {
@@ -391,11 +402,14 @@ namespace PGroup
         }
         private void CheckPoint3Success()
         {
+            hookLeft.isFollowPlayer = new Vector3(0, 0, 0);
+            hookRight.isFollowPlayer = new Vector3(0, 0, 0);
             startPoint3_4.gameObject.SetActive(false);
             slingTop5.gameObject.SetActive(true);
             slingTop6.gameObject.SetActive(true);
             hookRight.GetComponent<XRGrabInteractable>().enabled = true;
             hookLeft.GetComponent<XRGrabInteractable>().enabled = true;
+            blockDown.position += new Vector3(0, .7f, 0);
         }
         #endregion
         #region Checkpoint 4
@@ -416,19 +430,33 @@ namespace PGroup
         }
         private void Accident()
         {
+            movePoint4_2.gameObject.SetActive(false);
+            for (int i = 0; i < ladders.Length; i++)
+            {
+                if (ladders[i].transform.childCount != 0)
+                    ladders[i].transform.GetChild(0).gameObject.SetActive(false);
+            }
+            hookRight.GetComponent<XRGrabInteractable>().enabled = false;
+            hookLeft.GetComponent<XRGrabInteractable>().enabled = false;
+
+            blockDown.position += Vector3.up;
+
             PlayAnimation(npcAnim, "NPCDrop", false);
             uiCheckpoint4[0].SetActive(true);
             delay?.Kill();
-            delay = DOVirtual.DelayedCall(2, () =>
+            delay = DOVirtual.DelayedCall(3, () =>
             {
                 uiCheckpoint4[0].SetActive(false);
+                uiCheckpoint4[1].SetActive(true);
+                uiCheckpoint4[2].SetActive(true);
             });
-            uiCheckpoint4[1].SetActive(true);
         }
         public void LookAtAccident()
         {
+            Debug.Log("Get Look");
             if (!uiCheckpoint4[1].activeSelf) return;
             uiCheckpoint4[1].SetActive(false);
+            uiCheckpoint4[2].SetActive(false);
             Checkpoint5Start();
         }
         #endregion
@@ -441,11 +469,10 @@ namespace PGroup
         {
             if (num == 0)
             {
-                PlayAnimation(npcAnim, "NPCDown", false);
                 uiCheckpoint5[2].SetActive(false);
                 uiCheckpoint5[3].SetActive(true);
                 delay?.Kill();
-                delay = DOVirtual.DelayedCall(5, () =>
+                delay = DOVirtual.DelayedCall(2, () =>
                 {
                     uiCheckpoint5[3].SetActive(false);
                     Checkpoint6Start();
@@ -467,9 +494,10 @@ namespace PGroup
         #region Checkpoint 6
         private void Checkpoint6Start()
         {
+            PlayAnimation(npcAnim, "NPCDown", false);
             uiCheckpoint6[0].SetActive(true);
             delay?.Kill();
-            delay = DOVirtual.DelayedCall(2, () =>
+            delay = DOVirtual.DelayedCall(5, () =>
             {
                 uiCheckpoint6[0].SetActive(false);
                 Checkpoint7Start();
@@ -481,13 +509,20 @@ namespace PGroup
         {
             uiCheckpoint7[0].SetActive(true);
         }
-        public void Checkpoint7Quiz()
+        public void Checkpoint7Quiz(int num)
         {
-
+            uiCheckpoint7[0].SetActive(false);
+            Checkpoint7EndGame();
         }
         private void Checkpoint7EndGame()
         {
-
+            uiCheckpoint7[1].SetActive(true);
+            delay?.Kill();
+            delay = DOVirtual.DelayedCall(2, () =>
+            {
+                uiCheckpoint7[1].SetActive(false);
+                ShowResult();
+            });
         }
         private void Checkpoint7Continue()
         {
