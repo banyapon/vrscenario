@@ -10,6 +10,7 @@ public class GasLevelInspectionState : State
     public Timer timer;
     public TriggerChecker gasDetector;
     public TriggerChecker radio;
+    public Victims victims;
 
     [Header("HUD")]
     public GameObject emergencyHUD;
@@ -25,17 +26,6 @@ public class GasLevelInspectionState : State
     public override void StateEnter()
     {
         base.StateEnter();
-        timer.ReStart();
-
-        emergencyHUD.SetActive(true);
-        checkGasHUD.SetActive(false);
-
-        gasDetector.gameObject.SetActive(true);
-        radio.gameObject.SetActive(true);
-
-        DOVirtual.DelayedCall(hudDuration, () => {
-            emergencyHUD.SetActive(false);
-        }).SetLink(gameObject);
 
         gasDetector.OnEnter = () =>
         {
@@ -50,6 +40,14 @@ public class GasLevelInspectionState : State
             testFirstTime = false;
             hUDState.OpenHud(checkGasHUD);
         };
+
+        victims.Unconscious(() =>
+        {
+            timer.ReStart();
+            gasDetector.gameObject.SetActive(true);
+            radio.gameObject.SetActive(true);
+            hUDState.OpenHud(emergencyHUD);
+        });
     }
 
     public override void StateUpdate()

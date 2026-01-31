@@ -6,6 +6,7 @@ public class RescueOperationState : State
 {
     [Header("Setting")]
     public float hudDuration = 2;
+    public Victims victims;
 
     [Header("Trigger Checker")]
     public TriggerChecker liftingSling;
@@ -44,9 +45,10 @@ public class RescueOperationState : State
         harness.OnEnter += () => {
             isPass = true;
             harness.gameObject.SetActive(false);
-            print("Play animation here");
-            hUDState.OpenHud(reachedTopHUD);
-            controller.NextState(hudDuration);
+            victims.Pullup(() => {
+                hUDState.OpenHud(reachedTopHUD);
+                controller.NextState();
+            });
         };
     }
 

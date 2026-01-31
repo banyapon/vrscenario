@@ -12,6 +12,7 @@ public class ScenarioOneHomeState : State
     public GameObject popup1;
     public GameObject popup2;
     [Space(10)]
+    public Victims victims;
     public GameObject radio;
     public GameObject gasDetector;
     [Space(10)]
@@ -35,16 +36,8 @@ public class ScenarioOneHomeState : State
         Player player = Player.Instance;
         if (player && teleportTarget)
             player.Teleport(teleportTarget.localPosition, teleportTarget.localEulerAngles);
-
-        radio.SetActive(false);
-        gasDetector.SetActive(false);
-
-        liftingSling.SetActive(false);
-        ordinaryRope.SetActive(false);
-        harness.SetActive(false);
-
-        radioResetter?.ResetTransform();
-        gasDetectorResetter?.ResetTransform();
+        
+        ResetScenario();
 
         delay?.Kill();
         popup1.SetActive(true);
@@ -77,5 +70,20 @@ public class ScenarioOneHomeState : State
     {
         base.StateExit();
         delay?.Kill();
+    }
+
+    void ResetScenario()
+    {
+        victims.ResetAnimation();
+
+        radio.SetActive(false);
+        gasDetector.SetActive(false);
+
+        liftingSling.SetActive(false);
+        ordinaryRope.SetActive(false);
+        harness.SetActive(false);
+
+        radioResetter?.ResetTransform();
+        gasDetectorResetter?.ResetTransform();
     }
 }

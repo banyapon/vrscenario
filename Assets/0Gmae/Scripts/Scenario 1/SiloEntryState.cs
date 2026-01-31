@@ -79,7 +79,6 @@ public class SiloEntryState : State
             {
                 hUDState.OpenHud(riskyHUD);
             }
-            print("Play animetion here");
             controller.NextState(delayChecngeState);
         }
     }
