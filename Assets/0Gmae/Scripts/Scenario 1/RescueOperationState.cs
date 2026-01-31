@@ -45,6 +45,11 @@ public class RescueOperationState : State
         harness.OnEnter += () => {
             isPass = true;
             harness.gameObject.SetActive(false);
+
+            liftingSling.enabled = false;
+            ordinaryRope.enabled = false;
+            harness.enabled = false;
+
             victims.Pullup(() => {
                 hUDState.OpenHud(reachedTopHUD);
                 controller.NextState();
@@ -66,6 +71,10 @@ public class RescueOperationState : State
         liftingSling.gameObject.SetActive(true);
         ordinaryRope.gameObject.SetActive(true);
         harness.gameObject.SetActive(true);
+
+        liftingSling.enabled = true;
+        ordinaryRope.enabled = true;
+        harness.enabled = true;
     }
 
     public override void StateUpdate()

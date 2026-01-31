@@ -115,12 +115,12 @@ PrefabInstance:
     - target: {fileID: 3580440598173431586, guid: 56abe6670b4e29e4d81acf3390d55165,
         type: 3}
       propertyPath: id
-      value: Hook Right_-185954
+      value: Hook Right_-434114
       objectReference: {fileID: 0}
     - target: {fileID: 3580440598173431586, guid: 56abe6670b4e29e4d81acf3390d55165,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4976648931873142758, guid: 56abe6670b4e29e4d81acf3390d55165,
         type: 3}
@@ -177,15 +177,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hook Right
       objectReference: {fileID: 0}
+    - target: {fileID: 8541297306840967591, guid: 56abe6670b4e29e4d81acf3390d55165,
+        type: 3}
+      propertyPath: id
+      value: pasted__Lock_-581116
+      objectReference: {fileID: 0}
     - target: {fileID: 8997353199254795167, guid: 56abe6670b4e29e4d81acf3390d55165,
         type: 3}
       propertyPath: id
-      value: Hook Right_-185952
+      value: Hook Right_-434116
       objectReference: {fileID: 0}
     - target: {fileID: 8997353199254795167, guid: 56abe6670b4e29e4d81acf3390d55165,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -242,12 +247,12 @@ PrefabInstance:
     - target: {fileID: 3580440598173431586, guid: 56abe6670b4e29e4d81acf3390d55165,
         type: 3}
       propertyPath: id
-      value: Hook Left_-185692
+      value: Hook Left_-434244
       objectReference: {fileID: 0}
     - target: {fileID: 3580440598173431586, guid: 56abe6670b4e29e4d81acf3390d55165,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4976648931873142758, guid: 56abe6670b4e29e4d81acf3390d55165,
         type: 3}
@@ -304,15 +309,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hook Left
       objectReference: {fileID: 0}
+    - target: {fileID: 8541297306840967591, guid: 56abe6670b4e29e4d81acf3390d55165,
+        type: 3}
+      propertyPath: id
+      value: pasted__Lock_-581248
+      objectReference: {fileID: 0}
     - target: {fileID: 8997353199254795167, guid: 56abe6670b4e29e4d81acf3390d55165,
         type: 3}
       propertyPath: id
-      value: Hook Left_-185694
+      value: Hook Left_-434246
       objectReference: {fileID: 0}
     - target: {fileID: 8997353199254795167, guid: 56abe6670b4e29e4d81acf3390d55165,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

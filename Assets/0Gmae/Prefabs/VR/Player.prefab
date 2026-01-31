@@ -818,10 +818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc132f266c9c9554cb0460741179eea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groupHook: {fileID: 7566740746335866425}
-  hooks:
-  - {fileID: 7041096639782115046}
-  - {fileID: 5797105590071010214}
+  camera: {fileID: 2304908456071080614}
   turn: {fileID: 3423207074487114669}
   move: {fileID: 5726045818766835821}
   teleportation: {fileID: 5228053483669249452}
@@ -9597,18 +9594,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4775117487391244037}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7041096639782115046 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2590590238692551139, guid: 56abe6670b4e29e4d81acf3390d55165,
-    type: 3}
-  m_PrefabInstance: {fileID: 4775117487391244037}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a608eee0b944394797c98eb18339b9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &4841099681188888190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11895,18 +11880,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8322886072916773445}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5797105590071010214 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2590590238692551139, guid: 56abe6670b4e29e4d81acf3390d55165,
-    type: 3}
-  m_PrefabInstance: {fileID: 8322886072916773445}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a608eee0b944394797c98eb18339b9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &8361710335374441478
 PrefabInstance:
   m_ObjectHideFlags: 0

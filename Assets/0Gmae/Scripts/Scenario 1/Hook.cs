@@ -40,9 +40,16 @@ namespace Boy
             grab.selectExited.AddListener(OnRelease);
         }
 
+        Tween delay;
         private void OnEnable()
         {
-            ResetTransform();
+            delay?.Kill();
+            delay = DOVirtual.DelayedCall(0.5f, ResetTransform);
+        }
+
+        private void OnDisable()
+        {
+            delay?.Kill();
         }
 
         bool wasPressed = false;
@@ -66,6 +73,7 @@ namespace Boy
 
         public void ResetTransform()
         {
+            delay?.Kill();
             if (!rb) rb = GetComponent<Rigidbody>();
 
             SetGravity(false);

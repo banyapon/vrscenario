@@ -2822,7 +2822,7 @@ Transform:
   m_GameObject: {fileID: 1684445799784760551}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2.182, y: 6.468, z: 9.946}
+  m_LocalPosition: {x: 2.182, y: 6.618, z: 9.946}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3714,7 +3714,7 @@ Transform:
   m_GameObject: {fileID: 1952238454162861125}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 2.182, y: 6.468, z: 10.61}
+  m_LocalPosition: {x: 2.182, y: 6.618, z: 10.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3985,7 +3985,7 @@ Transform:
   m_GameObject: {fileID: 2023325733563630285}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2.182, y: 6.468, z: 10.22}
+  m_LocalPosition: {x: 2.182, y: 6.618, z: 10.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8220,6 +8220,7 @@ GameObject:
   - component: {fileID: 6053616040487234575}
   - component: {fileID: 3412572871846270512}
   - component: {fileID: 7177270941812689890}
+  - component: {fileID: 5002083561561762561}
   m_Layer: 0
   m_Name: Victims
   m_TagString: Untagged
@@ -8325,6 +8326,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5002083561561762561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4584771639964866920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1fcbb83794c883408b8a14492fb2d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Victims_-599730
 --- !u!1 &4616550272667000936
 GameObject:
   m_ObjectHideFlags: 0
@@ -22276,6 +22290,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hook Controller
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219106796342472315, guid: f8fb7b8411272384ab2c82a75d79fbe6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
