@@ -21,6 +21,7 @@ namespace Boy
 
         Tween lockTween;
         Rigidbody rb;
+        Player player;
         VRInput vRInput;
         XRGrabInteractable grab;
 
@@ -33,7 +34,8 @@ namespace Boy
         private void Start()
         {
             rb = GetComponent<Rigidbody>();
-            vRInput = Player.Instance.vRInput;
+            player = Player.Instance;
+            vRInput = player.vRInput;
 
             grab = GetComponent<XRGrabInteractable>();
             grab.selectEntered.AddListener(OnGrab);
@@ -55,6 +57,12 @@ namespace Boy
         bool wasPressed = false;
         private void Update()
         {
+            if (player == null)
+            {
+                player = Player.Instance;
+                return;
+            }
+
             if (vRInput == null)
             {
                 vRInput = Player.Instance.vRInput;
