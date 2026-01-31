@@ -12,15 +12,13 @@ namespace Boy
         public TriggerChecker checker;
 
         [Header("Transform Setting")]
-        public float holdDuration = 2;
-        public Transform target;
+        public Vector3 offset;
 
         [Header("Lock Setting")]
         public float lockDuration = 0.25f;
         public Transform lockModel;
         public Transform lockTarget;
 
-        Tween resetTween;
         Tween lockTween;
         Rigidbody rb;
         VRInput vRInput;
@@ -42,6 +40,7 @@ namespace Boy
             grab.selectExited.AddListener(OnRelease);
         }
 
+        bool wasPressed = false;
         private void Update()
         {
             if (vRInput == null)
@@ -53,7 +52,11 @@ namespace Boy
             bool left = vRInput.primaryLeft && isLeftSide;
             bool right = vRInput.primaryRight && !isLeftSide;
 
-            if (left || right) ResetTransform();
+            bool isPressed = left || right;
+
+            if (isPressed && !wasPressed) ResetTransform();
+
+            wasPressed = isPressed;
         }
 
         public void ResetTransform()
@@ -61,31 +64,18 @@ namespace Boy
             if (!rb) rb = GetComponent<Rigidbody>();
 
             SetGravity(false);
-            resetTween?.Kill();
-            //resetTween = DOVirtual.DelayedCall(holdDuration, () =>
-            //{
-            //    SetGravity(true);
-            //});
 
-            if (target)
-            {
-                transform.SetParent(target.parent);
-                transform.localPosition = target.localPosition;
-                transform.localEulerAngles = target.localEulerAngles;
-                transform.SetParent(null);
-            }
-            else
-            {
-                transform.localPosition = Vector3.zero;
-                transform.localEulerAngles = Vector3.zero;
-            }
+            transform.SetParent(null);
+
+            Transform camera = Camera.main.transform;
+            transform.localPosition = camera.position + camera.rotation * offset;
+            transform.localEulerAngles = camera.eulerAngles;
         }
 
         void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Hand"))
             {
-                resetTween?.Kill();
                 handColliders.Add(other);
 
                 //SetLockRotate(true);
@@ -93,7 +83,6 @@ namespace Boy
             }
             else if (other.CompareTag("Ladder"))
             {
-                resetTween?.Kill();
                 ladderColliders.Add(other);
                 UpdateGravity();
             }
