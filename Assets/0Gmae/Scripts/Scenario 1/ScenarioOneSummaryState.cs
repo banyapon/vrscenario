@@ -13,6 +13,7 @@ public class ScenarioOneSummaryState : State
     public Timer timer;
     public Transform teleportTarget;
     public GameObject ambulance;
+    public GameObject npc;
 
     [Header("UI")]
     public GameObject passHUD;
@@ -49,6 +50,7 @@ public class ScenarioOneSummaryState : State
     {
         base.StateEnter();
         ambulance.SetActive(true);
+        npc.SetActive(false);
         player?.Teleport(teleportTarget);
 
         summaryUI.gameObject.SetActive(false);
@@ -85,6 +87,7 @@ public class ScenarioOneSummaryState : State
     public override void StateExit()
     {
         base.StateExit();
+        npc.SetActive(true);
         ambulance.SetActive(false);
     }
 }

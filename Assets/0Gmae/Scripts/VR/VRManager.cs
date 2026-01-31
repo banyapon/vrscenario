@@ -14,6 +14,7 @@ public class VRManager : NetworkBehaviour
 
     [Header("Scenario")]
     public GameObject boardUI;
+    public GameObject environment;
     public Button startBtn;
     public Button disconnectBtn;
     [SerializeField] private ScenarioConfig[] scenarioConfigs;
@@ -57,6 +58,7 @@ public class VRManager : NetworkBehaviour
         startBtn.onClick.AddListener(() => {
             if (currentConfig == null) return;
             boardUI.SetActive(false);
+            environment.SetActive(false);
             int index = scenarioConfigs.ToList().IndexOf(currentConfig);
             SpawnScenarioServerRpc(index);
         });
@@ -82,6 +84,7 @@ public class VRManager : NetworkBehaviour
         netObj.SpawnAsPlayerObject(OwnerClientId, true);
 
         boardUI.SetActive(false);
+        environment.SetActive(false);
     }
 
     public override void OnNetworkSpawn()
@@ -150,6 +153,7 @@ public class VRManager : NetworkBehaviour
     public void OpenBoardUI()
     {
         boardUI.SetActive(true);
+        environment.SetActive(true);
         CurrentConfig = null;
     }
 

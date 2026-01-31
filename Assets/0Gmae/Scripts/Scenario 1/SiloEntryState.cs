@@ -5,7 +5,6 @@ public class SiloEntryState : State
 {
     [Header("Setting")]
     public float delayChecngeState = 3;
-    public float hudDuration = 2;
     public float thresholdAngle = 75f;
     public float slopeLimit = 70;
 

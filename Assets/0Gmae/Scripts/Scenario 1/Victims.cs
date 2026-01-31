@@ -2,46 +2,47 @@ using DG.Tweening;
 using System;
 using UnityEngine;
 
-public class Victims : MonoBehaviour
+namespace Boy
 {
-    [SerializeField] private AnimationClip unconsciousClip;
-    [SerializeField] private AnimationClip pullupClip;
-
-    Tween animationTween;
-    Animator animator;
-    private void Awake()
+    public class Victims : MonoBehaviour
     {
-        animator = GetComponent<Animator>();
-    }
+        [SerializeField] private AnimationClip unconsciousClip;
+        [SerializeField] private AnimationClip pullupClip;
 
-    public void Unconscious(Action callback = null)
-    {
-        PlayAnimation("unconscious", unconsciousClip.length, callback);
-    }
+        Tween animationTween;
+        Animator animator;
+        private void Awake()
+        {
+            animator = GetComponent<Animator>();
+        }
 
-    public void Pullup(Action callback = null)
-    {
-        PlayAnimation("pull up", pullupClip.length, callback);
-    }
+        public void Unconscious(Action callback = null)
+        {
+            PlayAnimation("unconscious", unconsciousClip.length, callback);
+        }
 
-    public void PlayAnimation(string trigger, float duration = 0, Action callback = null)
-    {
-        print($"trigger: {trigger}");
+        public void Pullup(Action callback = null)
+        {
+            PlayAnimation("pull up", pullupClip.length, callback);
+        }
 
-        animator.SetBool("reset", false);
-        animator.SetBool("unconscious", false);
-        animator.SetBool("pull up", false);
+        public void PlayAnimation(string trigger, float duration = 0, Action callback = null)
+        {
+            animator.SetBool("reset", false);
+            animator.SetBool("unconscious", false);
+            animator.SetBool("pull up", false);
 
-        animator.SetBool(trigger, true);
+            animator.SetBool(trigger, true);
 
-        animationTween?.Kill();
-        animationTween = DOVirtual.DelayedCall(duration, () => {
-            callback?.Invoke();
-        });
-    }
+            animationTween?.Kill();
+            animationTween = DOVirtual.DelayedCall(duration, () => {
+                callback?.Invoke();
+            });
+        }
 
-    public void ResetAnimation()
-    {
-        PlayAnimation("reset");
+        public void ResetAnimation()
+        {
+            PlayAnimation("reset");
+        }
     }
 }

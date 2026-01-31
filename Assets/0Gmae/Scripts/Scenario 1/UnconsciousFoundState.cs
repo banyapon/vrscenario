@@ -7,6 +7,7 @@ public class UnconsciousFoundState : State
 {
     [Header("Setting")]
     public float waitDuration = 3;
+    public GameObject gasDetector;
 
     [Header("Button")]
     public Button safeBtn;
@@ -74,6 +75,8 @@ public class UnconsciousFoundState : State
     public override void StateExit()
     {
         base.StateExit();
+        gasDetector.SetActive(false);
+        radio.gameObject.SetActive(false);
     }
 
     void SetButtonInteractable(bool value)

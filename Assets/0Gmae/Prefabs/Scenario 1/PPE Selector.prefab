@@ -454,9 +454,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pPEGroup: {fileID: 1837180637443049515}
   maxSelectionCount: 7
+  baseUI: {fileID: 4997994663229153500}
   selectionCountText: {fileID: 5877308527731688877}
   confirmSelectionButton: {fileID: 3694270276358631410}
-  baseUI: {fileID: 4997994663229153500}
   selectionWarningPanel: {fileID: 5555265216442171544}
   incorrectSelectionPanel: {fileID: 3240286578226825431}
   correctSelectionPanel: {fileID: 6980079889131138805}
@@ -519,8 +519,8 @@ MonoBehaviour:
   m_MovementSpeedVariancePercentage: 0.25
   m_SnapOnEnable: 1
   m_PositionFollowMode: 0
-  m_MinDistanceAllowed: 0.01
-  m_MaxDistanceAllowed: 0.3
+  m_MinDistanceAllowed: 0.2
+  m_MaxDistanceAllowed: 0.5
   m_TimeUntilThresholdReachesMaxDistance: 3
   m_RotationFollowMode: 2
   m_MinAngleAllowed: 0.1

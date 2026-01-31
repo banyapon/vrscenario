@@ -76,5 +76,7 @@ public class RescueOperationState : State
     public override void StateExit()
     {
         base.StateExit();
+        victims.ResetAnimation();
+        victims.gameObject.SetActive(false);
     }
 }
