@@ -40,6 +40,11 @@ namespace Boy
             grab.selectExited.AddListener(OnRelease);
         }
 
+        private void OnEnable()
+        {
+            ResetTransform();
+        }
+
         bool wasPressed = false;
         private void Update()
         {
@@ -67,7 +72,7 @@ namespace Boy
 
             transform.SetParent(null);
 
-            Transform camera = Camera.main.transform;
+            Transform camera = Player.Instance.camera.transform;
             transform.localPosition = camera.position + camera.rotation * offset;
             transform.localEulerAngles = camera.eulerAngles;
         }

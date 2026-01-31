@@ -6,9 +6,7 @@ public class Player : MonoBehaviour
 {
     public static Player Instance { get; private set; }
 
-    [Header("Hook")]
-    public GameObject groupHook;
-    public Hook[] hooks;
+    public Camera camera;
 
     [Header("Locomotion")]
     public GameObject turn;
@@ -35,7 +33,6 @@ public class Player : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         defaultSlopeLimit = characterController.slopeLimit;
         defaultEnableGravityOnClimbEnd = climbProvider.enableGravityOnClimbEnd;
-        HideHook();
     }
 
     public void Teleport(Transform transform)
@@ -48,23 +45,6 @@ public class Player : MonoBehaviour
     {
         transform.position = position;
         transform.eulerAngles = rotate;
-    }
-
-    public void ShowHook() {
-        groupHook.SetActive(true);
-        foreach (var h in hooks)
-        {
-            h.ResetTransform();
-        }
-    }
-
-    public void HideHook()
-    {
-        foreach (var h in hooks)
-        {
-            h.transform.SetParent(groupHook.transform);
-        }
-        groupHook.SetActive(false);
     }
 
     public void StartClimbDownSilo()

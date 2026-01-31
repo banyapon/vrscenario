@@ -10968,6 +10968,7 @@ MonoBehaviour:
   ladder: {fileID: 772280358665625987}
   climbChecker: {fileID: 1707091663267118391}
   floorChecker: {fileID: 1874549871919385086}
+  hookController: {fileID: 4652655855094574282}
   lifelineHUD: {fileID: 1112666182002502392}
   startMissionHUD: {fileID: 1827316151093137879}
   riskyHUD: {fileID: 3662712306017666339}
@@ -16618,37 +16619,37 @@ PrefabInstance:
     - target: {fileID: 8592179861658787997, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.5491593
+      value: 18.695204
       objectReference: {fileID: 0}
     - target: {fileID: 8592179861658787997, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5666995
+      value: 1.5578567
       objectReference: {fileID: 0}
     - target: {fileID: 8592179861658787997, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.0955373
+      value: -3.4256902
       objectReference: {fileID: 0}
     - target: {fileID: 8592179861658787997, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9643104
+      value: 0.80985004
       objectReference: {fileID: 0}
     - target: {fileID: 8592179861658787997, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.044873863
+      value: 0.03646841
       objectReference: {fileID: 0}
     - target: {fileID: 8592179861658787997, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.26066226
+      value: 0.5849097
       objectReference: {fileID: 0}
     - target: {fileID: 8592179861658787997, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.012124956
+      value: -0.026338384
       objectReference: {fileID: 0}
     - target: {fileID: 8686919214326522056, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
@@ -16727,6 +16728,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2024588689297221278}
+    - targetCorrespondingSourceObject: {fileID: 3868836894235808373, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7018857047478946064}
     - targetCorrespondingSourceObject: {fileID: 1099178017871212072, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
       insertIndex: -1
@@ -22059,6 +22064,92 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
     type: 3}
   m_PrefabInstance: {fileID: 8788459231683261563}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8951623453299041489
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3898957840169559797}
+    m_Modifications:
+    - target: {fileID: 2115974215097855425, guid: f8fb7b8411272384ab2c82a75d79fbe6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2115974215097855425, guid: f8fb7b8411272384ab2c82a75d79fbe6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2115974215097855425, guid: f8fb7b8411272384ab2c82a75d79fbe6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2115974215097855425, guid: f8fb7b8411272384ab2c82a75d79fbe6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2115974215097855425, guid: f8fb7b8411272384ab2c82a75d79fbe6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2115974215097855425, guid: f8fb7b8411272384ab2c82a75d79fbe6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2115974215097855425, guid: f8fb7b8411272384ab2c82a75d79fbe6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2115974215097855425, guid: f8fb7b8411272384ab2c82a75d79fbe6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2115974215097855425, guid: f8fb7b8411272384ab2c82a75d79fbe6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2115974215097855425, guid: f8fb7b8411272384ab2c82a75d79fbe6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219106796342472315, guid: f8fb7b8411272384ab2c82a75d79fbe6,
+        type: 3}
+      propertyPath: m_Name
+      value: Hook Controller
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f8fb7b8411272384ab2c82a75d79fbe6, type: 3}
+--- !u!114 &4652655855094574282 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4371591999648450587, guid: f8fb7b8411272384ab2c82a75d79fbe6,
+    type: 3}
+  m_PrefabInstance: {fileID: 8951623453299041489}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b5933bd7cd6d774d845c8606053143e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &7018857047478946064 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2115974215097855425, guid: f8fb7b8411272384ab2c82a75d79fbe6,
+    type: 3}
+  m_PrefabInstance: {fileID: 8951623453299041489}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9030960970572294588
 PrefabInstance:

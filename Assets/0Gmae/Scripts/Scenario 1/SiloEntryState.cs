@@ -13,6 +13,7 @@ public class SiloEntryState : State
     public Transform ladder;
     public TriggerChecker climbChecker;
     public TriggerChecker floorChecker;
+    public HookController hookController;
 
     [Header("HUD")]
     public GameObject lifelineHUD;
@@ -43,10 +44,7 @@ public class SiloEntryState : State
         };
 
         lid.SetActive(true);
-        foreach (var h in player.hooks)
-        {
-            h.checker.OnEnter += () => { isPass = true; };
-        }
+        hookController.SetHookEvent(() => { isPass = true; });
     }
 
     public override void StateEnter()
@@ -59,7 +57,7 @@ public class SiloEntryState : State
         isGrounded = false;
         isTrigger = false;
 
-        player?.ShowHook();
+        hookController.gameObject.SetActive(true);
         player?.SetSlopeLimit(slopeLimit);
     }
 
@@ -86,7 +84,7 @@ public class SiloEntryState : State
     {
         base.StateExit();
         lid.SetActive(true);
-        player?.HideHook();
+        hookController.gameObject.SetActive(false);
         player?.ResetSlopeLimit();
     }
     bool IsFacingAwayFromLadder()
