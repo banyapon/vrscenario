@@ -5695,7 +5695,7 @@ MonoBehaviour:
   stateCanvas: {fileID: 0}
   nextButton: {fileID: 0}
   nextState: {fileID: 0}
-  delayDuration: 2
+  delayDuration: 3
   teleportTarget: {fileID: 4302023970279299125}
   popup1: {fileID: 164645897692255654}
   popup2: {fileID: 93191716822708087}
@@ -9462,7 +9462,7 @@ MonoBehaviour:
   stateCanvas: {fileID: 0}
   nextButton: {fileID: 0}
   nextState: {fileID: 0}
-  hudDuration: 2
+  hudDuration: 3
   victims: {fileID: 7445418312301702111}
   liftingSling: {fileID: 1491481435470002912}
   ordinaryRope: {fileID: 7641466681411871805}
@@ -9482,7 +9482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b7842ad865396847b6f5fa309b727f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hudDuration: 2
+  hudDuration: 3
   hudArray:
   - {fileID: 7087183519352032045}
   - {fileID: 4411043450856436282}
@@ -9587,7 +9587,7 @@ MonoBehaviour:
   stateCanvas: {fileID: 0}
   nextButton: {fileID: 0}
   nextState: {fileID: 0}
-  hudDuration: 2
+  hudDuration: 3
   timer: {fileID: 552152884185605645}
   gasDetector: {fileID: 7641994481056551211}
   radio: {fileID: 8520634253500480854}
@@ -9606,7 +9606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b7842ad865396847b6f5fa309b727f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hudDuration: 2
+  hudDuration: 3
   hudArray:
   - {fileID: 7653760943494884470}
   - {fileID: 6029743740185695314}
@@ -10944,7 +10944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b7842ad865396847b6f5fa309b727f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hudDuration: 2
+  hudDuration: 3
   hudArray:
   - {fileID: 1112666182002502392}
   - {fileID: 1827316151093137879}
@@ -12733,7 +12733,7 @@ MonoBehaviour:
   stateCanvas: {fileID: 0}
   nextButton: {fileID: 0}
   nextState: {fileID: 0}
-  delayChangeState: 2
+  delayChangeState: 3
   pPESelector: {fileID: 1783069682107988675}
 --- !u!1 &7276184237775413952
 GameObject:
@@ -13152,7 +13152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b7842ad865396847b6f5fa309b727f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hudDuration: 2
+  hudDuration: 3
   hudArray:
   - {fileID: 4149405811728658429}
   - {fileID: 8778035469404114524}
@@ -13435,7 +13435,7 @@ MonoBehaviour:
   nextButton: {fileID: 0}
   nextState: {fileID: 0}
   isCheckWorkPermit: 0
-  delayChangState: 2
+  delayChangState: 2.9
   teleportTarget: {fileID: 5747080479607406646}
   buttonGroup: {fileID: 8353921159087746930}
   workPermitBtn: {fileID: 8854729984137911042}
@@ -13457,7 +13457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b7842ad865396847b6f5fa309b727f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hudDuration: 2
+  hudDuration: 3
   hudArray:
   - {fileID: 4632087030502616546}
   - {fileID: 6216015533103593251}
@@ -14444,7 +14444,7 @@ MonoBehaviour:
   stateCanvas: {fileID: 0}
   nextButton: {fileID: 0}
   nextState: {fileID: 0}
-  delayShowUI: 2
+  delayShowUI: 3
   timer: {fileID: 552152884185605645}
   teleportTarget: {fileID: 1986019730910356654}
   ambulance: {fileID: 1650517467567704892}
@@ -16569,7 +16569,7 @@ PrefabInstance:
     - target: {fileID: 8151954492914599796, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 1396470887
+      value: 2476517650
       objectReference: {fileID: 0}
     - target: {fileID: 8151954492914599796, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
@@ -18417,6 +18417,16 @@ PrefabInstance:
     - target: {fileID: 4954467283065357889, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7452267920749269977, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: m_PositionFollowMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7452267920749269977, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: m_RotationFollowMode
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -21819,6 +21829,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7452267920749269977, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: m_PositionFollowMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7452267920749269977, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: m_RotationFollowMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22209,6 +22229,16 @@ PrefabInstance:
     - target: {fileID: 4954467283065357889, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7452267920749269977, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: m_PositionFollowMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7452267920749269977, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: m_RotationFollowMode
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

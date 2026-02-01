@@ -75,7 +75,7 @@ namespace Boy
             delay?.Kill();
             HideAllFeedbackPanels();
 
-            delay = DOVirtual.DelayedCall(2, () =>
+            delay = DOVirtual.DelayedCall(3, () =>
             {
                 baseUI.SetActive(true);
                 HideAllFeedbackPanels();

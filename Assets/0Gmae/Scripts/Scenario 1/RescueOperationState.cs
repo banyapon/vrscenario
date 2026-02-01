@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class RescueOperationState : State
 {
-    [Header("Setting")]
-    public float hudDuration = 2;
+    [Space(20)]
     public Victims victims;
 
     [Header("Trigger Checker")]
@@ -46,9 +45,12 @@ public class RescueOperationState : State
             isPass = true;
             harness.gameObject.SetActive(false);
 
-            liftingSling.enabled = false;
-            ordinaryRope.enabled = false;
-            harness.enabled = false;
+            //liftingSling.enabled = false;
+            //ordinaryRope.enabled = false;
+            //harness.enabled = false;
+            liftingSling.gameObject.SetActive(false);
+            ordinaryRope.gameObject.SetActive(false);
+            harness.gameObject.SetActive(false);
 
             victims.Pullup(() => {
                 hUDState.OpenHud(reachedTopHUD);
