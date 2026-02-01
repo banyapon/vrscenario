@@ -13,6 +13,7 @@ public class SiloEntryState : State
     public Transform ladder;
     public TriggerChecker climbChecker;
     public TriggerChecker floorChecker;
+    public TriggerChecker checker;
     public HookController hookController;
 
     [Header("HUD")]
@@ -43,6 +44,12 @@ public class SiloEntryState : State
             isGrounded = true;
         };
 
+        checker.OnExit = () =>
+        {
+            if (!isGrounded) return;
+            Trigger();
+        };
+
         lid.SetActive(true);
         hookController.SetHookEvent(() => { isPass = true; });
     }
@@ -53,6 +60,7 @@ public class SiloEntryState : State
         lid.SetActive(false);
         climbChecker.enabled = true;
         floorChecker.enabled = true;
+        checker.enabled = true;
 
         isGrounded = false;
         isTrigger = false;
@@ -67,16 +75,7 @@ public class SiloEntryState : State
         if (!isTrigger && isGrounded)
         {
             if (!IsFacingAwayFromLadder()) return;
-            isTrigger = true;
-            if (isPass)
-            {
-                hUDState.OpenHud(startMissionHUD);
-            }
-            else
-            {
-                hUDState.OpenHud(riskyHUD);
-            }
-            controller.NextState(delayChecngeState);
+            Trigger();
         }
     }
 
@@ -86,7 +85,24 @@ public class SiloEntryState : State
         lid.SetActive(true);
         hookController.gameObject.SetActive(false);
         player?.ResetSlopeLimit();
+        checker.enabled = false;
     }
+
+    public void Trigger()
+    {
+        if (isTrigger) return;
+        isTrigger = true;
+        if (isPass)
+        {
+            hUDState.OpenHud(startMissionHUD);
+        }
+        else
+        {
+            hUDState.OpenHud(riskyHUD);
+        }
+        controller.NextState(delayChecngeState);
+    }
+
     bool IsFacingAwayFromLadder()
     {
         Vector3 headForward = Camera.main.transform.forward;

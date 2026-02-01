@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
-public class GrabChecker : MonoBehaviour
+public class XRGrabChecker : MonoBehaviour
 {
     public Action OnGrab;
     public Action OnRelease;

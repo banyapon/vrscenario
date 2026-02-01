@@ -12,7 +12,7 @@ public class UnconsciousFoundState : State
     [Header("Button")]
     public Button safeBtn;
     public Button notSafeBtn;
-    public GrabChecker radio;
+    public XRGrabChecker radio;
 
     [Header("HUD")]
     public GameObject radioReportHUD;

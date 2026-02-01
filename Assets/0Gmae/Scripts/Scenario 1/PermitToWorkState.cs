@@ -46,12 +46,11 @@ public class PermitToWorkState : State
             if (isCheckWorkPermit)
             {
                 isPass = true;
-                buttonGroup.SetActive(false);
-                hUDState.OpenHud(gasHUD);
-                gasDetectorBtn.interactable = false;
-                controller.NextState(delayChangState);
-                tankEntrance.enabled = false;
-                print("Play NPC Animation here");
+                controller.NextState();
+                //buttonGroup.SetActive(false);
+                //hUDState.OpenHud(gasHUD);
+                //gasDetectorBtn.interactable = false;
+                //tankEntrance.enabled = false;
             }
             else
             {

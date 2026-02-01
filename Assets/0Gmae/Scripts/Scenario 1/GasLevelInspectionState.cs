@@ -7,8 +7,8 @@ public class GasLevelInspectionState : State
 
     [Space(20)]
     public Timer timer;
-    public GrabChecker gasDetector;
-    public GrabChecker radio;
+    public XRGrabChecker gasDetector;
+    public XRGrabChecker radio;
     public Victims victims;
 
     [Header("HUD")]
