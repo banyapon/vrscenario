@@ -16622,7 +16622,7 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 913803078148694200, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
-      insertIndex: 4
+      insertIndex: 0
       addedObject: {fileID: 4926685015330485942}
     - targetCorrespondingSourceObject: {fileID: 7517564914022015284, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
