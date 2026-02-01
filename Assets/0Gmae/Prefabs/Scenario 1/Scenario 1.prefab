@@ -19530,12 +19530,12 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Work Permit Paper_-314026
+      value: Gas Detector Screen_-27820
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Work Permit Paper_-314024
+      value: Gas Detector Screen_-27822
       objectReference: {fileID: 0}
     - target: {fileID: 272798048078493460, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
