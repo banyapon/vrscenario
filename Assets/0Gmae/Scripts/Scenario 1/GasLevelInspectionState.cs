@@ -1,5 +1,4 @@
 using Boy;
-using DG.Tweening;
 using UnityEngine;
 
 public class GasLevelInspectionState : State
@@ -8,8 +7,8 @@ public class GasLevelInspectionState : State
 
     [Space(20)]
     public Timer timer;
-    public TriggerChecker gasDetector;
-    public TriggerChecker radio;
+    public GrabChecker gasDetector;
+    public GrabChecker radio;
     public Victims victims;
 
     [Header("HUD")]
@@ -26,15 +25,16 @@ public class GasLevelInspectionState : State
     public override void StateEnter()
     {
         base.StateEnter();
+        radio.enabled = true;
+        gasDetector.enabled = true;
 
-        gasDetector.OnEnter = () =>
+        gasDetector.OnGrab = () =>
         {
             if (isPass) return;
             isPass = true;
             controller.NextState();
         };
-
-        radio.OnEnter = () =>
+        radio.OnGrab = () =>
         {
             emergencyHUD.SetActive(false);
             testFirstTime = false;

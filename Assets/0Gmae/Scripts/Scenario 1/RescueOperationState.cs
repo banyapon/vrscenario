@@ -53,8 +53,11 @@ public class RescueOperationState : State
             harness.gameObject.SetActive(false);
 
             victims.Pullup(() => {
-                hUDState.OpenHud(reachedTopHUD);
-                controller.NextState();
+                victims.gameObject.SetActive(false);
+                hUDState.OpenHud(reachedTopHUD, () =>
+                {
+                    controller.NextState();
+                });
             });
         };
     }
@@ -63,12 +66,15 @@ public class RescueOperationState : State
     {
         base.StateEnter();
 
-        DOVirtual.DelayedCall(1, () =>
-        {
-            if (liftingSlingRb) liftingSlingRb.isKinematic = true;
-            if (ordinaryRopeRb) ordinaryRopeRb.isKinematic = true;
-            if (harnessRb) harnessRb.isKinematic = true;
-        });
+        //DOVirtual.DelayedCall(1, () =>
+        //{
+        //    if (liftingSlingRb) liftingSlingRb.isKinematic = true;
+        //    if (ordinaryRopeRb) ordinaryRopeRb.isKinematic = true;
+        //    if (harnessRb) harnessRb.isKinematic = true;
+
+        //    print($"harnessRb: {harnessRb}");
+        //    print($"isKinematic: {harnessRb.isKinematic}");
+        //});
 
         liftingSling.gameObject.SetActive(true);
         ordinaryRope.gameObject.SetActive(true);

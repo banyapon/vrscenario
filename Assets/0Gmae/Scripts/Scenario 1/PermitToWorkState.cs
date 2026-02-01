@@ -13,6 +13,8 @@ public class PermitToWorkState : State
     [Header("Work Permit Case")]
     public Button workPermitBtn;
     public GameObject workPermitHUD;
+    public GameObject workPermitPaper;
+    public Button paperBtn;
 
     [Header("Gas Detector Case")]
     public Button gasDetectorBtn;
@@ -35,7 +37,8 @@ public class PermitToWorkState : State
             workPermitBtn.interactable = false;
             isCheckWorkPermit = true;
             buttonGroup.SetActive(false);
-            hUDState.OpenHud(workPermitHUD, ShowButtonGroup);
+            workPermitPaper.SetActive(true);
+            //hUDState.OpenHud(workPermitHUD, ShowButtonGroup);
         });
 
         gasDetectorBtn.onClick.AddListener(() =>
@@ -44,7 +47,7 @@ public class PermitToWorkState : State
             {
                 isPass = true;
                 buttonGroup.SetActive(false);
-                hUDState.OpenHud(gasHUD, ShowButtonGroup);
+                hUDState.OpenHud(gasHUD);
                 gasDetectorBtn.interactable = false;
                 controller.NextState(delayChangState);
                 tankEntrance.enabled = false;
@@ -64,12 +67,20 @@ public class PermitToWorkState : State
             buttonGroup.SetActive(false);
             hUDState.OpenHud(tankHUD, ShowButtonGroup);
         };
+
+        paperBtn.onClick.AddListener(() =>
+        {
+            workPermitPaper.SetActive(false);
+            ShowButtonGroup();
+        });
     }
 
     public override void StateEnter()
     {
         base.StateEnter();
         player?.Teleport(teleportTarget);
+        workPermitPaper.SetActive(false);
+        ShowButtonGroup();
 
         tankEntrance.enabled = true;
         isCheckWorkPermit = false;

@@ -74,6 +74,7 @@ public class ScenarioOneHomeState : State
 
     void ResetScenario()
     {
+        victims.gameObject.SetActive(true);
         victims.ResetAnimation();
 
         radio.SetActive(false);

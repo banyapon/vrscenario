@@ -1,5 +1,4 @@
 using Boy;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PPEInspectionState : State
@@ -16,6 +15,7 @@ public class PPEInspectionState : State
     public override void StateEnter()
     {
         base.StateEnter();
+        pPESelector.ResetSelection();
     }
 
     public override void StateUpdate()

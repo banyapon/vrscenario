@@ -12,7 +12,7 @@ public class UnconsciousFoundState : State
     [Header("Button")]
     public Button safeBtn;
     public Button notSafeBtn;
-    public TriggerChecker radio;
+    public GrabChecker radio;
 
     [Header("HUD")]
     public GameObject radioReportHUD;
@@ -29,10 +29,9 @@ public class UnconsciousFoundState : State
         hUDState = GetComponent<HUDState>();
 
         safeBtn.onClick.AddListener(() => {
-            hUDState.OpenHud(radioReportHUD, () => { radio.enabled = true; });
-            radio.gameObject.SetActive(true);
-            radio.enabled = false;
+            hUDState.OpenHud(radioReportHUD);
             quizUI.gameObject.SetActive(false);
+            radio.enabled = true;
         });
 
         notSafeBtn.onClick.AddListener(() => {
@@ -59,12 +58,13 @@ public class UnconsciousFoundState : State
             SetButtonInteractable(true);
         }).SetLink(gameObject);
 
-        radio.OnEnter = () => {
+        radio.OnGrab = () => {
             hUDState.OpenHud(installHUD);
             radio.enabled = false;
             isPass = true;
             controller.NextState(hUDState.hudDuration);
         };
+        radio.enabled = false;
     }
 
     public override void StateUpdate()
