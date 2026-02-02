@@ -13,6 +13,7 @@ namespace PGroup
         [SerializeField] private Transform positionHookRight;
         [SerializeField] private Transform positionEndgame;
         [SerializeField] private SummaryUI summaryUI;
+        [SerializeField] private Transform endRope;
         private List<bool> scoreList;
         private int score;
 
@@ -70,6 +71,7 @@ namespace PGroup
         private void Awake()
         {
             player = Camera.main.transform;
+            endRope.parent = player.parent;
             pPESelector.OnSelectionValidated += OnValidated;
             point1.OnEnter += () => Checkpoint2Start();
             startPoint3.OnEnter += () => Checkpoint3Start();
