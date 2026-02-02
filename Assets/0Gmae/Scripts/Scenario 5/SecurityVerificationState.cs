@@ -9,25 +9,24 @@ public class SecurityVerificationState : State
 
     [Header("Reference")]
     public TriggerChecker startBtn;
-    public TriggerChecker cover;
-    public Transform coverTrans;
+    public TriggerChecker door;
     [Space(10)]
     public GameObject correctHud;
     public GameObject wrongHud;
+    [Space(10)]
+    public MachineDoor machineDoor;
 
     public override void Awake()
     {
         base.Awake();
         startBtn.OnEnter += OnStartBtn;
-        cover.OnEnter += OnCover;
+        door.OnEnter += OnDoorOpen;
     }
 
     public override void StateEnter()
     {
         base.StateEnter();
         CloseHud();
-        //startBtn.OnHandEnter += OnStartBtn;
-        //cover.OnHandEnter += OnCover;
     }
 
     public override void StateUpdate()
@@ -38,33 +37,20 @@ public class SecurityVerificationState : State
     public override void StateExit()
     {
         base.StateExit();
-        //startBtn.OnHandEnter -= OnStartBtn;
-        //cover.OnHandEnter -= OnCover;
-
+        machineDoor.Close();
         SetEnableHandTrigger(false);
     }
     void SetEnableHandTrigger(bool value)
     {
         startBtn.enabled = value;
-        cover.enabled = value;
+        door.enabled = value;
     }
 
     void CloseHud()
     {
         correctHud.SetActive(false);
         wrongHud.SetActive(false);
-        RotateCover(Vector3.zero);
         SetEnableHandTrigger(true);
-    }
-    void RotateCover(Vector3 endValue)
-    {
-        float duration = 0.5f;
-        Ease ease = Ease.Linear;
-        DOTween.Kill(coverTrans);
-
-        coverTrans.DOLocalRotate(endValue, duration)
-            .SetEase(ease)
-            .SetLink(coverTrans.gameObject);
     }
 
     void OnStartBtn()
@@ -75,11 +61,10 @@ public class SecurityVerificationState : State
         controller.NextState(delayChangeState);
     }
 
-    void OnCover()
+    void OnDoorOpen()
     {
         SetEnableHandTrigger(false);
         wrongHud.SetActive(true);
-        RotateCover(Vector3.right * 80);
         testFirstTime = false;
         DOVirtual.DelayedCall(delayChangeState, CloseHud);
     }

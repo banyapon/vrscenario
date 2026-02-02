@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class ScenarioFiveSummaryState : State
 {
-    [Space(20)]
+    [Header("Setting")]
+    public Transform teleportTarget;
+
+    [Header("Reference")]
     public SummaryUI summaryUI;
     [SerializeField] private List<State> stateList = new();
 
@@ -16,6 +19,7 @@ public class ScenarioFiveSummaryState : State
     public override void StateEnter()
     {
         base.StateEnter();
+        Player.Instance?.Teleport(teleportTarget);
 
         List<bool> resultList = new();
         foreach (var state in stateList)

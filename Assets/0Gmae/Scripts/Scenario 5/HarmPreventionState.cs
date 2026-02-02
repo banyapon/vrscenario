@@ -6,7 +6,6 @@ using DG.Tweening;
 public class HarmPreventionState : State
 {
     [Header("Setting")]
-    public float waitNpcDuration = 3;
     public float delayChangeState = 2;
 
     [Header("Reference")]
@@ -15,6 +14,10 @@ public class HarmPreventionState : State
     [Space(10)]
     public Button correctBtn;
     public Button wrongBtn;
+    [Space(10)]
+    public Animator npcAnimator;
+    public AnimationClip npcClip;
+    public MachineDoor machineDoor;
 
     QuizUI quizUI;
     public override void Awake()
@@ -40,9 +43,11 @@ public class HarmPreventionState : State
         explainHud.SetActive(true);
         quizHud.SetActive(false);
         quizUI.HideAllHuds();
+        npcAnimator.SetBool("move", true);
 
-        DOVirtual.DelayedCall(waitNpcDuration, () =>
+        DOVirtual.DelayedCall(npcClip.length, () =>
         {
+            machineDoor.Open();
             explainHud.SetActive(false);
             quizHud.SetActive(true);
         });

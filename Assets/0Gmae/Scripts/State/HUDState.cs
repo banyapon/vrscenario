@@ -6,7 +6,7 @@ namespace Boy
 {
     public class HUDState : MonoBehaviour
     {
-        public float hudDuration = 2;
+        public float hudDuration = 3;
         public GameObject[] hudArray;
 
         State state;

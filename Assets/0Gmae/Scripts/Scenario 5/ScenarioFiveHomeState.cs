@@ -1,5 +1,6 @@
 using UnityEngine;
 using Boy;
+using NUnit.Framework.Interfaces;
 
 public class ScenarioFiveHomeState : State
 {
@@ -7,23 +8,32 @@ public class ScenarioFiveHomeState : State
     public Transform teleportTarget;
 
     [Header("Reference")]
-    public TriggerChecker emergencyStopBtn;
+    public TriggerChecker area;
+    public GameObject explainHUD;
     public LOTOState lOTOState;
+    public MachineDoor machineDoor;
+    public Animator npcAnimator;
+
+    HUDState hUDState;
 
     public override void Awake()
     {
         base.Awake();
+        hUDState = GetComponent<HUDState>();
+        area.OnExit = () =>
+        {
+            controller.NextState();
+        };
     }
 
     public override void StateEnter()
     {
         base.StateEnter();
-        Player player = Player.Instance;
-        if (player && teleportTarget)
-            player.Teleport(teleportTarget.localPosition, teleportTarget.localEulerAngles);
-
-        emergencyStopBtn.OnEnter += OnEmergencyStop;
+        Player.Instance?.Teleport(teleportTarget);
+        hUDState.OpenHud(explainHUD);
         lOTOState.ResetSequence();
+        machineDoor.Close();
+        npcAnimator.SetBool("move", false);
     }
 
     public override void StateUpdate()
@@ -34,10 +44,5 @@ public class ScenarioFiveHomeState : State
     public override void StateExit()
     {
         base.StateExit();
-        emergencyStopBtn.OnEnter -= OnEmergencyStop;
-    }
-    private void OnEmergencyStop()
-    {
-        controller.NextState();
     }
 }

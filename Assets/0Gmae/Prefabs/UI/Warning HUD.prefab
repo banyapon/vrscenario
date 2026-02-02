@@ -238,8 +238,8 @@ MonoBehaviour:
   m_MovementSpeedVariancePercentage: 0.25
   m_SnapOnEnable: 1
   m_PositionFollowMode: 0
-  m_MinDistanceAllowed: 0.2
-  m_MaxDistanceAllowed: 0.5
+  m_MinDistanceAllowed: 0.5
+  m_MaxDistanceAllowed: 0.7
   m_TimeUntilThresholdReachesMaxDistance: 3
   m_RotationFollowMode: 2
   m_MinAngleAllowed: 0.1
