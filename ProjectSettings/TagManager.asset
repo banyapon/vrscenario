@@ -13,6 +13,7 @@ TagManager:
   - Hand
   - Ladder
   - Hook
+  - Key
   layers:
   - Default
   - TransparentFX

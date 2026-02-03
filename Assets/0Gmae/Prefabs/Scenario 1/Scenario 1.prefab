@@ -1195,8 +1195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fb2f50ae7c61e44db74db40b3dc1c43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPass: 0
-  testFirstTime: 1
   stateCanvas: {fileID: 0}
   nextButton: {fileID: 0}
   nextState: {fileID: 0}
@@ -6131,8 +6129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1613aafa5d16c40bfff997fec041a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPass: 0
-  testFirstTime: 1
   stateCanvas: {fileID: 0}
   nextButton: {fileID: 0}
   nextState: {fileID: 0}
@@ -10604,8 +10600,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf61f9e12671cf43984d4a931be8106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPass: 0
-  testFirstTime: 1
   stateCanvas: {fileID: 0}
   nextButton: {fileID: 0}
   nextState: {fileID: 0}
@@ -10728,8 +10722,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0deb0da7c08a9e429b484cdf3421636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPass: 0
-  testFirstTime: 1
   stateCanvas: {fileID: 0}
   nextButton: {fileID: 0}
   nextState: {fileID: 0}
@@ -12378,8 +12370,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e1e68fabe764f945b8036b951dbab0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPass: 0
-  testFirstTime: 1
   stateCanvas: {fileID: 0}
   nextButton: {fileID: 0}
   nextState: {fileID: 0}
@@ -14222,8 +14212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1040e7fbe9f6a4b83679769f714ed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPass: 0
-  testFirstTime: 1
   stateCanvas: {fileID: 0}
   nextButton: {fileID: 0}
   nextState: {fileID: 0}
@@ -14615,8 +14603,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d686b9030bdded4dbbcc4bd48aa26c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPass: 0
-  testFirstTime: 1
   stateCanvas: {fileID: 0}
   nextButton: {fileID: 0}
   nextState: {fileID: 0}
@@ -14701,8 +14687,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa99bbe39242404286e66fe3dc14eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPass: 0
-  testFirstTime: 1
   stateCanvas: {fileID: 0}
   nextButton: {fileID: 0}
   nextState: {fileID: 0}
@@ -15006,8 +14990,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81f77573341b1424a95b5c5d855f4377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPass: 0
-  testFirstTime: 1
   stateCanvas: {fileID: 0}
   nextButton: {fileID: 0}
   nextState: {fileID: 0}
@@ -16018,8 +16000,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37dc742abf691943b968aabb83f35dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPass: 0
-  testFirstTime: 1
   stateCanvas: {fileID: 0}
   nextButton: {fileID: 0}
   nextState: {fileID: 0}

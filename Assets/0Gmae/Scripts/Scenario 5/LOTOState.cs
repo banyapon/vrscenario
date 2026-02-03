@@ -3,46 +3,51 @@ using Boy;
 using DG.Tweening;
 using System.Collections.Generic;
 
-public enum LOTOStep { StopButton, MainSwitchOff, LockoutTagout }
+public enum LOTOStep { StopButton, MainSwitchOff, LockoutTagout, LockoutTagout2 }
 public class LOTOState : State
 {
     [Header("Setting")]
-    public float delayChangeState = 2;
+    public float delayChangeState = 3;
     [SerializeField]
     private LOTOStep[] correctSequence =
     {
         LOTOStep.StopButton,
         LOTOStep.MainSwitchOff,
-        LOTOStep.LockoutTagout
+        LOTOStep.LockoutTagout,
+        LOTOStep.LockoutTagout2
     };
 
     [Header("Reference")]
+    public Transform mainSwitchTrans;
+    [Space(10)]
     public TriggerChecker stopBtn;
     public TriggerChecker mainSwitch;
     public TriggerChecker lockoutTagout;
+    public TriggerChecker lockoutTagout2;
     [Space(10)]
-    public Transform mainSwitchTrans;
     public GameObject lockoutTagoutModel;
-    public Transform lockoutTagoutGrab;
+    public GameObject lockoutTagoutGrab;
+    TransformResetter lockoutTagoutResetter;
+    [Space(10)]
+    public GameObject lockoutTagoutModel2;
+    public GameObject lockoutTagoutGrab2;
+    TransformResetter lockoutTagoutResetter2;
     [Space(10)]
     public GameObject explainHud;
     public GameObject correctHud;
     public GameObject wrongHud;
 
     ActivateStateEvent activateStateEvent;
-    Vector3 lockoutTagoutPos;
-    Vector3 lockoutTagoutRotate;
+    HUDState hUDState;
     private List<LOTOStep> pressedSequence = new();
     private HashSet<LOTOStep> pressedSteps = new();
     public override void Awake()
     {
         base.Awake();
-        lockoutTagoutPos = lockoutTagoutGrab.position;
-        lockoutTagoutRotate = lockoutTagoutGrab.eulerAngles;
+        lockoutTagoutResetter = lockoutTagoutGrab.GetComponent<TransformResetter>();
+        lockoutTagoutResetter2 = lockoutTagoutGrab2.GetComponent<TransformResetter>();
         activateStateEvent = GetComponent<ActivateStateEvent>();
-        //stopBtn.OnEnter += OnStopBtn;
-        //mainSwitch.OnEnter += OnMainSwitch;
-        //lockoutTagout.OnEnter += OnLockoutTagout;
+        hUDState = GetComponent<HUDState>();
     }
 
     public override void StateEnter()
@@ -52,12 +57,11 @@ public class LOTOState : State
         stopBtn.OnEnter += OnStopBtn;
         mainSwitch.OnEnter += OnMainSwitch;
         lockoutTagout.OnEnter += OnLockoutTagout;
+        lockoutTagout2.OnEnter += OnLockoutTagout2;
 
         ResetSequence();
 
-        explainHud.SetActive(true);
-        correctHud.SetActive(false);
-        wrongHud.SetActive(false);
+        hUDState.OpenHud(explainHud);
     }
 
     public override void StateUpdate()
@@ -72,6 +76,7 @@ public class LOTOState : State
         stopBtn.OnEnter -= OnStopBtn;
         mainSwitch.OnEnter -= OnMainSwitch;
         lockoutTagout.OnEnter -= OnLockoutTagout;
+        lockoutTagout2.OnEnter -= OnLockoutTagout2;
     }
 
     public void ResetSequence()
@@ -82,16 +87,21 @@ public class LOTOState : State
         mainSwitch.enabled = true;
         stopBtn.enabled = true;
         lockoutTagout.enabled = true;
+        lockoutTagout2.enabled = true;
 
-        explainHud.SetActive(true);
-        correctHud.SetActive(false);
-        wrongHud.SetActive(false);
+        //if (hUDState) hUDState.OpenHud(explainHud);
 
+        if (lockoutTagoutResetter) lockoutTagoutResetter.ResetTransform();
         lockoutTagout.gameObject.SetActive(true);
         lockoutTagoutModel.SetActive(false);
-        lockoutTagoutGrab.localPosition =  lockoutTagoutPos;
-        lockoutTagoutGrab.localEulerAngles = lockoutTagoutRotate;
-        lockoutTagoutGrab.gameObject.SetActive(true);
+        lockoutTagoutGrab.transform.SetParent(transform);
+        lockoutTagoutGrab.SetActive(true);
+
+        if (lockoutTagoutResetter2) lockoutTagoutResetter2.ResetTransform();
+        lockoutTagout2.gameObject.SetActive(true);
+        lockoutTagoutModel2.SetActive(false);
+        lockoutTagoutGrab2.transform.SetParent(transform);
+        lockoutTagoutGrab2.SetActive(true);
 
         if (activateStateEvent) activateStateEvent.SetTargetActive();
         RotateMainSwitch(Vector3.zero);
@@ -134,9 +144,7 @@ public class LOTOState : State
             }
         }
 
-        explainHud.SetActive(false);
-        correctHud.SetActive(isCorrect);
-        wrongHud.SetActive(!isCorrect);
+        hUDState.OpenHud(isCorrect? correctHud : wrongHud);
 
         DOVirtual.DelayedCall(delayChangeState, () =>
         {
@@ -161,7 +169,7 @@ public class LOTOState : State
     void OnMainSwitch()
     {
         mainSwitch.enabled = false;
-        RotateMainSwitch(Vector3.right * 80);
+        RotateMainSwitch(Vector3.right * 180);
         PressStep(LOTOStep.MainSwitchOff);
     }
 
@@ -170,7 +178,15 @@ public class LOTOState : State
         lockoutTagout.enabled = false;
         lockoutTagout.gameObject.SetActive(false);
         lockoutTagoutModel.SetActive(true);
-        lockoutTagoutGrab.gameObject.SetActive(false);
+        //lockoutTagoutGrab.SetActive(false);
         PressStep(LOTOStep.LockoutTagout);
+    }
+    void OnLockoutTagout2()
+    {
+        lockoutTagout2.enabled = false;
+        lockoutTagout2.gameObject.SetActive(false);
+        lockoutTagoutModel2.SetActive(true);
+        //lockoutTagoutGrab2.SetActive(false);
+        PressStep(LOTOStep.LockoutTagout2);
     }
 }
