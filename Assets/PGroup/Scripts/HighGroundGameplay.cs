@@ -28,6 +28,7 @@ namespace PGroup
         [SerializeField] private TriggerChecker point1;
         [SerializeField] private Hook hookLeft;
         [SerializeField] private Hook hookRight;
+        [SerializeField] private GameObject rope;
         [SerializeField] private TriggerChecker[] ladders;
         [SerializeField] private Transform blockUp;
         [SerializeField] private Transform blockDown;
@@ -66,6 +67,13 @@ namespace PGroup
         [SerializeField] private GameObject[] uiCheckpoint7;
         [SerializeField] private GameObject[] hlCheckpoint7;
 
+        [Header("Thermalscan")]
+        [SerializeField] private GameObject[] scanArea;
+        [SerializeField] private GameObject[] scanCompleted;
+        [SerializeField] private GameObject[] thermalscanProcess;
+        [SerializeField] private Thermalscan thermalscan;
+        private int scanPoint;
+
 
         private Tween delay = null;
         private void Awake()
@@ -76,7 +84,7 @@ namespace PGroup
             point1.OnEnter += () => Checkpoint2Start();
             startPoint3.OnEnter += () => Checkpoint3Start();
             startPoint3_2.OnEnter += () => ChangeSling();
-            startPoint3_3.OnEnter += () => CheckPoint3Back();
+            startPoint3_3.OnEnter += () => Thermalscan();
             startPoint3_4.OnEnter += () => CheckPoint3Success();
             movePoint4.OnEnter += () => Checkpoint4Start();
             movePoint4_2.OnEnter += () => Accident();
@@ -84,6 +92,7 @@ namespace PGroup
             //hookLeft.OnExit += () => SetHookOn("Left", false);
             hookRight.OnEnter += OnHookHit;
             //hookRight.OnExit += () => SetHookOn("Right", false);
+            thermalscan.OnEnter += OnThermalscanEnter;
             foreach (var item in ladders)
             {
                 item.OnEnter += () => OnTryClimb();
@@ -97,6 +106,30 @@ namespace PGroup
             slingTop4.OnEnter += GetTrigger;
             slingTop5.OnEnter += GetTrigger;
             slingTop6.OnEnter += GetTrigger;*/
+        }
+
+        private void OnThermalscanEnter(GameObject thermal, GameObject hit)
+        {
+            for (int i = 0; i < scanArea.Length; i++)
+            {
+                if (hit == scanArea[i])
+                {
+                    if (hit.activeSelf)
+                    {
+                        scanPoint++;
+                        hit.gameObject.SetActive(false);
+                        scanCompleted[i].SetActive(true);
+                    }
+                }
+            }
+            if(scanPoint >= 3)
+            {
+                for(int i = 0;i < thermalscanProcess.Length; i++)
+                {
+                    thermalscanProcess[i].gameObject.SetActive(false);
+                }
+                CheckPoint3Back();
+            }
         }
 
         private void Start()
@@ -176,6 +209,7 @@ namespace PGroup
             hookLeft.transform.position = player.parent.position + positionHookLeft.position;
             hookRight.transform.position = player.parent.position + positionHookRight.position;
 
+            rope.gameObject.SetActive(true);
             hookLeft.gameObject.SetActive(true);
             hookRight.gameObject.SetActive(true);
             //hookLeft.GetComponent<Rigidbody>().isKinematic = true;
@@ -284,8 +318,8 @@ namespace PGroup
             {
                 onCheckClimbing = false;
                 uiCheckpoint3[0].SetActive(true);
-                hookRight.GetComponent<XRGrabInteractable>().enabled = true;
-                hookLeft.GetComponent<XRGrabInteractable>().enabled = true;
+                //hookRight.GetComponent<XRGrabInteractable>().enabled = true;
+                //hookLeft.GetComponent<XRGrabInteractable>().enabled = true;
                 blockDown.position = new Vector3(blockDown.position.x, hookSide.hitObject.transform.position.y - 2, blockDown.position.z);
             }
         }
@@ -302,13 +336,13 @@ namespace PGroup
             });
             uiCheckpoint3[2].SetActive(true);
             slingTop1.gameObject.SetActive(true);
-            slingTop2.gameObject.SetActive(true);
+            //slingTop2.gameObject.SetActive(true);
             isHookOnR = false;
             isHookOnL = false;
-            hookLeft.transform.position = player.parent.position + positionHookLeft.position;
-            hookRight.transform.position = player.parent.position + positionHookRight.position;
-            hookRight.GetComponent<XRGrabInteractable>().enabled = true;
-            hookLeft.GetComponent<XRGrabInteractable>().enabled = true;
+            //hookLeft.transform.position = player.parent.position + positionHookLeft.position;
+            //hookRight.transform.position = player.parent.position + positionHookRight.position;
+            //hookRight.GetComponent<XRGrabInteractable>().enabled = true;
+            //hookLeft.GetComponent<XRGrabInteractable>().enabled = true;
             blockUp.gameObject.SetActive(false);
         }
         private void GetTrigger(PlaceObject receiver,GameObject trigger)
@@ -367,14 +401,43 @@ namespace PGroup
                 {
                     movePoint4.gameObject.SetActive(true);
                     isClimbDown = true;
-                    ladders[16].transform.GetChild(0).gameObject.SetActive(true);
-                    ladders[15].transform.GetChild(0).gameObject.SetActive(true);
+                    //ladders[15].transform.GetChild(0).gameObject.SetActive(true);
                     slingTop5.gameObject.SetActive(false);
                     slingTop6.gameObject.SetActive(false);
                     hookLeft.isFollowPlayer = new Vector3(1, 0, 0);
                     hookRight.isFollowPlayer = new Vector3(1, 0, 0);
                     isHookOnR = false;
                     isHookOnL = false;
+                }
+            }
+            else
+            {
+                if (slingTop1.gameObject.activeSelf)
+                {
+                    slingTop1.gameObject.SetActive(false);
+                    slingTop2.gameObject.SetActive(true);
+                }
+                else if (slingTop3.gameObject.activeSelf)
+                {
+                    slingTop3.gameObject.SetActive(false);
+                    slingTop4.gameObject.SetActive(true);
+                }
+                else if (slingTop5.gameObject.activeSelf)
+                {
+                    slingTop5.gameObject.SetActive(false);
+                    slingTop6.gameObject.SetActive(true);
+                }
+                if (hook == hookLeft.gameObject)
+                {
+                    hookLeft.GetComponent<XRGrabInteractable>().enabled = false;
+                    hookRight.GetComponent<XRGrabInteractable>().enabled = true;
+                    isHookOnL = true;
+                }
+                else
+                {
+                    hookRight.GetComponent<XRGrabInteractable>().enabled = false;
+                    hookLeft.GetComponent<XRGrabInteractable>().enabled = true;
+                    isHookOnR = true;
                 }
             }
 
@@ -386,10 +449,17 @@ namespace PGroup
             uiCheckpoint3[2].SetActive(true);
             hookLeft.isFollowPlayer = Vector3.zero;
             hookRight.isFollowPlayer = Vector3.zero;
-            hookRight.GetComponent<XRGrabInteractable>().enabled = true;
+            //hookRight.GetComponent<XRGrabInteractable>().enabled = true;
             hookLeft.GetComponent<XRGrabInteractable>().enabled = true;
             slingTop3.gameObject.SetActive(true);
-            slingTop4.gameObject.SetActive(true);
+            //slingTop4.gameObject.SetActive(true);
+        }
+        private void Thermalscan()
+        {
+            for (int i = 0; i < thermalscanProcess.Length; i++)
+            {
+                thermalscanProcess[i].gameObject.SetActive(true);
+            }
         }
         private void CheckPoint3Back()
         {
@@ -408,8 +478,8 @@ namespace PGroup
             hookRight.isFollowPlayer = new Vector3(0, 0, 0);
             startPoint3_4.gameObject.SetActive(false);
             slingTop5.gameObject.SetActive(true);
-            slingTop6.gameObject.SetActive(true);
-            hookRight.GetComponent<XRGrabInteractable>().enabled = true;
+            //slingTop6.gameObject.SetActive(true);
+            //hookRight.GetComponent<XRGrabInteractable>().enabled = true;
             hookLeft.GetComponent<XRGrabInteractable>().enabled = true;
             blockDown.position += new Vector3(0, .7f, 0);
         }
@@ -418,10 +488,11 @@ namespace PGroup
         private void Checkpoint4Start()
         {
             movePoint4.gameObject.SetActive(false);
+            ladders[16].transform.GetChild(0).gameObject.SetActive(true);
             hookLeft.isFollowPlayer = new Vector3(0, 0, 0);
             hookRight.isFollowPlayer = new Vector3(0, 0, 0);
-            hookLeft.transform.position = player.parent.position + positionHookLeft.position;
-            hookRight.transform.position = player.parent.position + positionHookRight.position;
+            //hookLeft.transform.position = player.parent.position + positionHookLeft.position;
+            //hookRight.transform.position = player.parent.position + positionHookRight.position;
             hookRight.GetComponent<XRGrabInteractable>().enabled = true;
             hookLeft.GetComponent<XRGrabInteractable>().enabled = true;
             isHookOnR = false;

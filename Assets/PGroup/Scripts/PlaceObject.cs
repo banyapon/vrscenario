@@ -35,7 +35,7 @@ namespace PGroup
                 return other.CompareTag(triggerTag);
             }
 
-            return true;
+            return false;
         }
     }
 }
