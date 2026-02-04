@@ -30,7 +30,7 @@ public class ScenarioFiveHomeState : State
     {
         base.StateEnter();
         Player.Instance?.Teleport(teleportTarget);
-        hUDState.OpenHud(explainHUD);
+        hUDState?.OpenHud(explainHUD);
         lOTOState.ResetSequence();
         machineDoor.Close();
         npcAnimator.SetBool("move", false);

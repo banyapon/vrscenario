@@ -42,7 +42,7 @@ public class HarmPreventionState : State
         base.StateEnter();
         explainHud.SetActive(true);
         quizHud.SetActive(false);
-        quizUI.HideAllHuds();
+        quizUI?.HideAllHuds();
         npcAnimator.SetBool("move", true);
 
         DOVirtual.DelayedCall(npcClip.length, () =>

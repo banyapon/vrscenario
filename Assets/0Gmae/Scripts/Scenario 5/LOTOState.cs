@@ -61,7 +61,7 @@ public class LOTOState : State
 
         ResetSequence();
 
-        hUDState.OpenHud(explainHud);
+        hUDState?.OpenHud(explainHud);
     }
 
     public override void StateUpdate()
