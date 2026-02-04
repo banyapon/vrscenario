@@ -35,7 +35,7 @@ namespace Boy
         {
             rb = GetComponent<Rigidbody>();
             player = Player.Instance;
-            vRInput = player.vRInput;
+            if (player) vRInput = player.vRInput;
 
             grab = GetComponent<XRGrabInteractable>();
             grab.selectEntered.AddListener(OnGrab);
@@ -63,7 +63,7 @@ namespace Boy
                 return;
             }
 
-            if (vRInput == null)
+            if (vRInput == null && player)
             {
                 vRInput = Player.Instance.vRInput;
                 return;

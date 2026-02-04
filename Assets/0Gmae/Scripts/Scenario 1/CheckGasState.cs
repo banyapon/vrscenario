@@ -34,7 +34,7 @@ public class CheckGasState : State
     {
         base.StateEnter();
         print("Play NPC Animation here");
-        hUDState.HideHUD();
+        hUDState?.HideHUD();
 
         o2.StartNumber(o2Fake, duration);
         h2s.StartNumber(h2sFake, duration);

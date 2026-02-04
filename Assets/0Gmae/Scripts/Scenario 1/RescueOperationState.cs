@@ -1,5 +1,4 @@
 using Boy;
-using DG.Tweening;
 using UnityEngine;
 
 public class RescueOperationState : State
@@ -17,19 +16,13 @@ public class RescueOperationState : State
     public GameObject notDesignedHUD;
     public GameObject liftingThingsHUD;
 
-    Rigidbody liftingSlingRb;
-    Rigidbody ordinaryRopeRb;
-    Rigidbody harnessRb;
-
     HUDState hUDState;
+    NetworkOwnershipContext context;
     public override void Awake()
     {
         base.Awake();
         hUDState = GetComponent<HUDState>();
-
-        liftingSlingRb = liftingSling.GetComponent<Rigidbody>();
-        ordinaryRopeRb = ordinaryRope.GetComponent<Rigidbody>();
-        harnessRb = harness.GetComponent<Rigidbody>();
+        context = GetComponentInParent<NetworkOwnershipContext>();
 
         liftingSling.OnEnter += () => {
             hUDState.OpenHud(liftingThingsHUD);
@@ -45,9 +38,6 @@ public class RescueOperationState : State
             isPass = true;
             harness.gameObject.SetActive(false);
 
-            //liftingSling.enabled = false;
-            //ordinaryRope.enabled = false;
-            //harness.enabled = false;
             liftingSling.gameObject.SetActive(false);
             ordinaryRope.gameObject.SetActive(false);
             harness.gameObject.SetActive(false);
@@ -65,16 +55,6 @@ public class RescueOperationState : State
     public override void StateEnter()
     {
         base.StateEnter();
-
-        //DOVirtual.DelayedCall(1, () =>
-        //{
-        //    if (liftingSlingRb) liftingSlingRb.isKinematic = true;
-        //    if (ordinaryRopeRb) ordinaryRopeRb.isKinematic = true;
-        //    if (harnessRb) harnessRb.isKinematic = true;
-
-        //    print($"harnessRb: {harnessRb}");
-        //    print($"isKinematic: {harnessRb.isKinematic}");
-        //});
 
         liftingSling.gameObject.SetActive(true);
         ordinaryRope.gameObject.SetActive(true);

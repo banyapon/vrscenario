@@ -12,6 +12,7 @@ public class ScenarioOneHomeState : State
     public GameObject popup1;
     public GameObject popup2;
     [Space(10)]
+    public GameObject hook;
     public Victims victims;
     public GameObject radio;
     public GameObject gasDetector;
@@ -74,6 +75,8 @@ public class ScenarioOneHomeState : State
 
     void ResetScenario()
     {
+        hook.gameObject.SetActive(false);
+
         victims.gameObject.SetActive(true);
         victims.ResetAnimation();
 

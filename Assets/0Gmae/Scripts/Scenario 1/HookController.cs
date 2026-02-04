@@ -13,25 +13,25 @@ namespace Boy
         private void Awake()
         {
             player = Player.Instance;
-            playerTrans = player.transform;
+            if(player) playerTrans = player.transform;
         }
 
-        private void OnEnable()
-        {
-            foreach (var hook in hooks)
-            {
-                hook.gameObject.SetActive(true);
-            }
-        }
+        //private void OnEnable()
+        //{
+        //    foreach (var hook in hooks)
+        //    {
+        //        hook.gameObject.SetActive(true);
+        //    }
+        //}
 
-        private void OnDisable()
-        {
-            foreach (var hook in hooks)
-            {
-                if (hook == null) continue;
-                hook.gameObject.SetActive(false);
-            }
-        }
+        //private void OnDisable()
+        //{
+        //    foreach (var hook in hooks)
+        //    {
+        //        if (hook == null) continue;
+        //        hook.gameObject.SetActive(false);
+        //    }
+        //}
 
         private void Update()
         {
@@ -56,7 +56,7 @@ namespace Boy
                 return false;
             }
 
-            if (playerTrans == null)
+            if (playerTrans == null && player)
             {
                 playerTrans = player.transform;
                 return false;
