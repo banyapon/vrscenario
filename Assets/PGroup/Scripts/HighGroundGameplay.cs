@@ -14,6 +14,7 @@ namespace PGroup
         [SerializeField] private Transform positionEndgame;
         [SerializeField] private SummaryUI summaryUI;
         [SerializeField] private Transform endRope;
+        [SerializeField] private GameObject ladder;
         private List<bool> scoreList;
         private int score;
 
@@ -98,7 +99,6 @@ namespace PGroup
                 item.OnEnter += () => OnTryClimb();
             }
 
-            scoreList = new List<bool>();
             //Checkpoint 3
             /*slingTop1.OnEnter += GetTrigger;
             slingTop2.OnEnter += GetTrigger;
@@ -106,6 +106,16 @@ namespace PGroup
             slingTop4.OnEnter += GetTrigger;
             slingTop5.OnEnter += GetTrigger;
             slingTop6.OnEnter += GetTrigger;*/
+
+            //SetScore
+            scoreList = new List<bool>(4);
+
+            for (int i = 0; i < 4; i++)
+            {
+                scoreList.Add(false);
+            }
+
+            Debug.Log(scoreList.Count);
         }
 
         private void OnThermalscanEnter(GameObject thermal, GameObject hit)
@@ -119,12 +129,20 @@ namespace PGroup
                         scanPoint++;
                         hit.gameObject.SetActive(false);
                         scanCompleted[i].SetActive(true);
+                        delay?.Kill();
+                        delay = DOVirtual.DelayedCall(2, () =>
+                        {
+                            CheckScanPoint();
+                        });
                     }
                 }
             }
-            if(scanPoint >= 3)
+        }
+        private void CheckScanPoint()
+        {
+            if (scanPoint >= 3)
             {
-                for(int i = 0;i < thermalscanProcess.Length; i++)
+                for (int i = 0; i < thermalscanProcess.Length; i++)
                 {
                     thermalscanProcess[i].gameObject.SetActive(false);
                 }
@@ -156,11 +174,15 @@ namespace PGroup
         }
         private void ShowResult()
         {
+            ladder.SetActive(false);
+            rope.SetActive(false);
+            hookLeft.gameObject.SetActive(false);
+            hookRight.gameObject.SetActive(false);
+            /*scoreList.Add(true);
             scoreList.Add(true);
             scoreList.Add(true);
-            scoreList.Add(true);
-            scoreList.Add(true);
-            player.parent.position = positionEndgame.position;
+            scoreList.Add(true);*/
+            Player.Instance.Teleport(positionEndgame.position, Vector3.zero);
             summaryUI.gameObject.SetActive(true);
             summaryUI.ShowSummary(scoreList);
         }
@@ -206,8 +228,8 @@ namespace PGroup
             uiCheckpoint1[3].SetActive(true);
             uiCheckpoint1[4].SetActive(true);
 
-            hookLeft.transform.position = player.parent.position + positionHookLeft.position;
-            hookRight.transform.position = player.parent.position + positionHookRight.position;
+            //hookLeft.transform.position = player.parent.position + positionHookLeft.position;
+            //hookRight.transform.position = player.parent.position + positionHookRight.position;
 
             rope.gameObject.SetActive(true);
             hookLeft.gameObject.SetActive(true);
@@ -215,6 +237,9 @@ namespace PGroup
             //hookLeft.GetComponent<Rigidbody>().isKinematic = true;
             //hookRight.GetComponent<Rigidbody>().isKinematic = true;
             //hlCheckpoint1[0].SetActive(true);
+
+            //GetScore
+            scoreList[0] = true;
         }
         public void Checkpoint1Success()
         {
@@ -234,6 +259,7 @@ namespace PGroup
         #region Checkpoint 2
         private void Checkpoint2Start()
         {
+            point1.gameObject.SetActive(false);
             onCheckClimbing = true;
             ladders[currentLadderHook].transform.GetChild(0).gameObject.SetActive(true);
             uiCheckpoint2[0].SetActive(false);
@@ -322,6 +348,9 @@ namespace PGroup
                 //hookLeft.GetComponent<XRGrabInteractable>().enabled = true;
                 blockDown.position = new Vector3(blockDown.position.x, hookSide.hitObject.transform.position.y - 2, blockDown.position.z);
             }
+
+            //GetScore
+            scoreList[1] = true;
         }
         #endregion
         #region Checkpoint 3
@@ -382,16 +411,23 @@ namespace PGroup
                     slingTop1.gameObject.SetActive(false);
                     slingTop2.gameObject.SetActive(false);
                     startPoint3_2.gameObject.SetActive(true);
+                    hookLeft.SetOffset();
+                    hookRight.SetOffset();
                     hookLeft.isFollowPlayer = new Vector3(1, 0, 0);
                     hookRight.isFollowPlayer = new Vector3(1, 0, 0);
                     isHookOnR = false;
                     isHookOnL = false;
+
+                    //GetScore
+                    scoreList[2] = true;
                 }
                 else if (slingTop3.gameObject.activeSelf || slingTop4.gameObject.activeSelf)
                 {
                     slingTop3.gameObject.SetActive(false);
                     slingTop4.gameObject.SetActive(false);
                     startPoint3_3.gameObject.SetActive(true);
+                    hookLeft.SetOffset();
+                    hookRight.SetOffset();
                     hookLeft.isFollowPlayer = new Vector3(0, 0, 1);
                     hookRight.isFollowPlayer = new Vector3(0, 0, 1);
                     isHookOnR = false;
@@ -404,6 +440,8 @@ namespace PGroup
                     //ladders[15].transform.GetChild(0).gameObject.SetActive(true);
                     slingTop5.gameObject.SetActive(false);
                     slingTop6.gameObject.SetActive(false);
+                    hookLeft.SetOffset();
+                    hookRight.SetOffset();
                     hookLeft.isFollowPlayer = new Vector3(1, 0, 0);
                     hookRight.isFollowPlayer = new Vector3(1, 0, 0);
                     isHookOnR = false;
@@ -456,6 +494,7 @@ namespace PGroup
         }
         private void Thermalscan()
         {
+            startPoint3_3.gameObject.SetActive(false);
             for (int i = 0; i < thermalscanProcess.Length; i++)
             {
                 thermalscanProcess[i].gameObject.SetActive(true);
@@ -542,6 +581,9 @@ namespace PGroup
         {
             if (num == 0)
             {
+                //GetScore
+                scoreList[3] = true;
+
                 uiCheckpoint5[2].SetActive(false);
                 uiCheckpoint5[3].SetActive(true);
                 delay?.Kill();
@@ -590,6 +632,8 @@ namespace PGroup
         private void Checkpoint7EndGame()
         {
             uiCheckpoint7[1].SetActive(true);
+            uiCheckpoint1[5].SetActive(false);
+            point1.gameObject.SetActive(false);
             delay?.Kill();
             delay = DOVirtual.DelayedCall(2, () =>
             {

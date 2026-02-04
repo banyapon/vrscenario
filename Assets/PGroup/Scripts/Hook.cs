@@ -30,6 +30,10 @@ namespace PGroup
             grab.selectEntered.AddListener(OnGrab);
             grab.selectExited.AddListener(OnRelease);
         }
+        public void SetOffset()
+        {
+            startOffset = transform.position - player.position;
+        }
         private void LateUpdate()
         {
             if (isFollowPlayer == Vector3.zero || onGrab) return;
