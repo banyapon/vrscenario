@@ -33,9 +33,11 @@ namespace PGroup
         }
         private void ActiveStep(int index)
         {
+            Debug.Log(index);
             if(steps[index].Trigger != null) steps[index].Trigger.SetActive(true);
-            if(steps[index].hudPanels.Length > 0)
+            if (steps[index].hudPanels.Length == 1)
             {
+                Debug.Log(steps[index].hudPanels.Length);
                 steps[index].hudPanels[0].panel.SetActive(true);
                 delay?.Kill();
                 delay = DOVirtual.DelayedCall(steps[index].hudPanels[0].duration, () =>
@@ -45,12 +47,14 @@ namespace PGroup
             }
             else if (steps[index].hudPanels.Length > 1)
             {
+                Debug.Log(steps[index].hudPanels.Length);
                 float firstDuration = steps[index].hudPanels[0].duration;
                 float secDuration = steps[index].hudPanels[1].duration;
 
                 delay?.Kill();
                 if (secDuration != -1)
                 {
+                    Debug.Log(secDuration);
                     delay = DOTween.Sequence()
                         .AppendCallback(() =>
                         {
@@ -70,6 +74,7 @@ namespace PGroup
                 }
                 else
                 {
+                    Debug.Log(secDuration);
                     delay = DOTween.Sequence()
                         .AppendCallback(() =>
                         {
