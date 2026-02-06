@@ -2171,9 +2171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b45ebbf86be4df6b0e6cd933812af2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1679a1802f2014f3ebb22f30f3a94662, type: 2}
+  material: {fileID: 2100000, guid: 53c16fb5d5c516b40a1f6a8fc34132f3, type: 2}
   renderParameters:
-    layer: 0
+    layer: 10
     lightProbeUsage: 1
     reflectionProbeUsage: 1
     shadowCastingMode: 1

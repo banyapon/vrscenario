@@ -85,6 +85,7 @@ namespace Boy
             if (!rb) rb = GetComponent<Rigidbody>();
 
             SetGravity(false);
+            delay = DOVirtual.DelayedCall(3, () => { SetGravity(true); });
 
             transform.SetParent(null);
 
@@ -98,8 +99,6 @@ namespace Boy
             if (other.CompareTag("Hand"))
             {
                 handColliders.Add(other);
-
-                //SetLockRotate(true);
                 UpdateGravity();
             }
             else if (other.CompareTag("Ladder"))
@@ -114,9 +113,6 @@ namespace Boy
             if (other.CompareTag("Hand"))
             {
                 handColliders.Remove(other);
-
-                //if (!IsInsideHand) SetLockRotate(false);
-
                 UpdateGravity();
             }
             else if (other.CompareTag("Ladder"))
@@ -129,7 +125,7 @@ namespace Boy
         void UpdateGravity()
         {
             bool shouldEnableGravity = !IsInsideHand && !IsInsideLadder;
-            //SetGravity(shouldEnableGravity);
+            SetGravity(shouldEnableGravity);
         }
 
         void SetGravity(bool value)
