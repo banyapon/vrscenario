@@ -38,6 +38,7 @@ namespace PGroup
                 }
                 else
                 {
+                    obj.SetActive(false);
                     gameplayController.NextStep();
                 }
             }

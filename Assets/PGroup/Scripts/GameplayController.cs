@@ -6,6 +6,7 @@ namespace PGroup
     public class GameplayController : MonoBehaviour
     {
         [SerializeField] private CheckpointController[] checkpointControllers;
+        [SerializeField] private SummaryUI summaryUI;
 
         private List<bool> scoreList = new List<bool>();
         private int currentCheckpoint;
@@ -24,6 +25,7 @@ namespace PGroup
             }
             else
             {
+                scoreList.Add(true);
                 EndScenario();
             }
         }
@@ -33,7 +35,9 @@ namespace PGroup
         }
         private void EndScenario()
         {
-
+            Player.Instance.Teleport(Vector3.zero, Vector3.zero);
+            summaryUI.gameObject.SetActive(true);
+            summaryUI.ShowSummary(scoreList);
         }
 
     }
