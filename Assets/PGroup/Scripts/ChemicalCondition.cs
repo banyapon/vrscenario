@@ -10,6 +10,8 @@ namespace PGroup
         [SerializeField] private GameObject failCheckpoint1;
         [SerializeField] private GameObject endCheckpoint1;
         [SerializeField] private GameObject endCheckpoint2;
+        [SerializeField] private GameObject quizCheckpoint4;
+        [SerializeField] private GameObject failCheckpoint4;
         [SerializeField] private Boy.PPESelector pPESelector;
 
         private GameplayController gameplayController; 
@@ -56,13 +58,31 @@ namespace PGroup
         }
         public void EndCheckpoint2()
         {
-            endCheckpoint2.SetActive(true);
             delay?.Kill();
             delay = DOVirtual.DelayedCall(3, () =>
             {
                 endCheckpoint2.SetActive(false);
                 gameplayController.NextCheckpoint();
             });
+        }
+        public void QuizCheckpoint4(int num)
+        {
+            if (num == 0)
+            {
+                quizCheckpoint4.SetActive(false);
+                gameplayController.NextStep();
+            }
+            else
+            {
+                quizCheckpoint4.SetActive(false);
+                failCheckpoint4.SetActive(true);
+                delay?.Kill();
+                delay = DOVirtual.DelayedCall(3, () =>
+                {
+                    quizCheckpoint4.SetActive(true);
+                    failCheckpoint4.SetActive(false);
+                });
+            }
         }
     }
 }

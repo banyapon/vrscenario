@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 namespace PGroup
@@ -8,12 +9,17 @@ namespace PGroup
         [SerializeField] private GameObject triggerTarget;
         [SerializeField] private GameObject correctTrigger;
         [SerializeField] private GameObject wrongTrigger;
+        [SerializeField] private GameObject deactiveObject;
+        [SerializeField] private bool deactiveTarget;
 
         private TriggerController triggerController;
+        private Tween delay = null;
 
         private void Start()
         {
             triggerController = GetComponentInParent<TriggerController>();
+
+            if (triggerTarget != null) triggerTarget.GetComponent<Collider>().enabled = true;
         }
         private void OnTriggerEnter(Collider other)
         {
@@ -24,13 +30,14 @@ namespace PGroup
                 {
                     if (other.gameObject == triggerTarget)
                     {
-                        other.gameObject.SetActive(false);
-                        correctTrigger.SetActive(true);
+                        if (deactiveObject != null) deactiveObject.SetActive(false);
+                        if (deactiveTarget) other.gameObject.SetActive(false);
+                        if (correctTrigger != null) correctTrigger.SetActive(true);
                         triggerController.GetTrigger(gameObject);
                     }
                     else
                     {
-                        wrongTrigger.SetActive(true);
+                        WrongTrigger(other.gameObject);
                     }
                 }
             }
@@ -38,8 +45,9 @@ namespace PGroup
             {
                 if (other.gameObject == triggerTarget)
                 {
-                    other.gameObject.SetActive(false);
-                    correctTrigger.SetActive(true);
+                    if (deactiveObject != null) deactiveObject.SetActive(false);
+                    if (deactiveTarget) other.gameObject.SetActive(false);
+                    if (correctTrigger != null) correctTrigger.SetActive(true);
                     triggerController.GetTrigger(gameObject);
                 }
             }
@@ -47,8 +55,9 @@ namespace PGroup
             {
                 if (other.CompareTag(triggerTag))
                 {
-                    other.gameObject.SetActive(false);
-                    correctTrigger.SetActive(true);
+                    if (deactiveObject != null) deactiveObject.SetActive(false);
+                    if (deactiveTarget) other.gameObject.SetActive(false);
+                    if (correctTrigger != null) correctTrigger.SetActive(true);
                     triggerController.GetTrigger(gameObject);
                 }
             }
@@ -62,6 +71,17 @@ namespace PGroup
                     wrongTrigger.SetActive(false);
                 }
             }
+        }
+
+        private void WrongTrigger(GameObject target)
+        {
+            target.SetActive(false);
+            wrongTrigger.SetActive(true);
+            delay?.Kill();
+            delay = DOVirtual.DelayedCall(3, () =>
+            {
+                wrongTrigger.SetActive(false);
+            });
         }
     }
 }
