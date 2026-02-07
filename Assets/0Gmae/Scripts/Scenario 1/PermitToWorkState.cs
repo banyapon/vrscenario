@@ -27,11 +27,13 @@ public class PermitToWorkState : State
 
     Player player = null;
     HUDState hUDState;
+    Scenario scenario;
     public override void Awake()
     {
         base.Awake();
         player = Player.Instance;
         hUDState = GetComponent<HUDState>();
+        scenario = GetComponentInParent<Scenario>();
         workPermitBtn.onClick.AddListener(() =>
         {
             workPermitBtn.interactable = false;
@@ -77,7 +79,7 @@ public class PermitToWorkState : State
     public override void StateEnter()
     {
         base.StateEnter();
-        player?.Teleport(teleportTarget);
+        if (scenario) player?.Teleport(teleportTarget, scenario.IsOwner);
         workPermitPaper.SetActive(false);
         ShowButtonGroup();
 

@@ -10,6 +10,12 @@ namespace PGroup
 
         private List<bool> scoreList = new List<bool>();
         private int currentCheckpoint;
+        Scenario scenario;
+
+        private void Awake()
+        {
+            scenario = GetComponentInParent<Scenario>();
+        }
 
         private void Start()
         {
@@ -35,7 +41,7 @@ namespace PGroup
         }
         private void EndScenario()
         {
-            Player.Instance.Teleport(Vector3.zero, Vector3.zero);
+            if (scenario) Player.Instance?.Teleport(Vector3.zero, Vector3.zero, scenario.IsOwner);
             summaryUI.gameObject.SetActive(true);
             summaryUI.ShowSummary(scoreList);
         }

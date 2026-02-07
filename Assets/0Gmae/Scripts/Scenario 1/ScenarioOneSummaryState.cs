@@ -28,10 +28,12 @@ public class ScenarioOneSummaryState : State
     [SerializeField] private List<State> stateList = new();
 
     Player player = null;
+    Scenario scenario;
     const float TIME_EPSILON = 0.001f;
     public override void Awake()
     {
         base.Awake();
+        scenario = GetComponentInParent<Scenario>();
         ambulance.SetActive(false);
         player = Player.Instance;
 
@@ -51,7 +53,7 @@ public class ScenarioOneSummaryState : State
         base.StateEnter();
         ambulance.SetActive(true);
         npc.SetActive(false);
-        player?.Teleport(teleportTarget);
+        if (scenario) player?.Teleport(teleportTarget, scenario.IsOwner);
 
         summaryUI.gameObject.SetActive(false);
         passHUD.SetActive(false);

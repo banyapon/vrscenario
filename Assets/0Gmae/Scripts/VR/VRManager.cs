@@ -152,10 +152,11 @@ public class VRManager : NetworkBehaviour
 
     public void OpenBoardUI()
     {
+        if (!IsOwner) return;
         boardUI.SetActive(true);
         environment.SetActive(true);
         CurrentConfig = null;
-        Player.Instance?.Teleport(Vector3.zero, Vector3.zero);
+        Player.Instance?.Teleport(Vector3.zero, Vector3.zero, IsOwner);
     }
 
     #region XR Control

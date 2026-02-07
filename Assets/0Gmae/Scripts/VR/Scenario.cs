@@ -47,7 +47,7 @@ public class Scenario : NetworkBehaviour
             player = Player.Instance;
             player?.SetJump(false);
             //player?.SetTeleportation(false);
-            if (resetPlayerTransform) player?.Teleport(Vector3.zero, Vector3.zero);
+            if (resetPlayerTransform) player?.Teleport(Vector3.zero, Vector3.zero, IsOwner);
         }
 
         if ((IsServer || IsHost) && CCTVController.Instance != null)

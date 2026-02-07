@@ -28,6 +28,7 @@ namespace Boy
         HashSet<Collider> handColliders = new HashSet<Collider>();
         HashSet<Collider> ladderColliders = new HashSet<Collider>();
 
+        bool isGrab;
         bool IsInsideHand => handColliders.Count > 0;
         bool IsInsideLadder => ladderColliders.Count > 0;
 
@@ -46,7 +47,7 @@ namespace Boy
         private void OnEnable()
         {
             delay?.Kill();
-            delay = DOVirtual.DelayedCall(0.5f, ResetTransform);
+            delay = DOVirtual.DelayedCall(0.25f, ResetTransform);
         }
 
         private void OnDisable()
@@ -89,9 +90,13 @@ namespace Boy
 
             transform.SetParent(null);
 
-            Transform camera = Player.Instance.camera.transform;
-            transform.localPosition = camera.position + camera.rotation * offset;
-            transform.localEulerAngles = camera.eulerAngles;
+            Player player = Player.Instance;
+            if (player)
+            {
+                Transform camera = player.camera.transform;
+                transform.localPosition = camera.position + camera.rotation * offset;
+                transform.localEulerAngles = camera.eulerAngles;
+            }
         }
 
         void OnTriggerEnter(Collider other)
@@ -124,6 +129,7 @@ namespace Boy
 
         void UpdateGravity()
         {
+            if (isGrab) return;
             bool shouldEnableGravity = !IsInsideHand && !IsInsideLadder;
             SetGravity(shouldEnableGravity);
         }
@@ -136,10 +142,15 @@ namespace Boy
         void OnGrab(SelectEnterEventArgs args)
         {
             SetLockRotate(true);
+            SetGravity(false);
+            isGrab = true;
+            delay?.Kill();
         }
         void OnRelease(SelectExitEventArgs args)
         {
             SetLockRotate(false);
+            SetGravity(true);
+            isGrab = false;
         }
 
         public void SetLockRotate(bool open)

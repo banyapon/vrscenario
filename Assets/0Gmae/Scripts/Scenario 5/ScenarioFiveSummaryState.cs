@@ -11,15 +11,18 @@ public class ScenarioFiveSummaryState : State
     public SummaryUI summaryUI;
     [SerializeField] private List<State> stateList = new();
 
+    Scenario scenario;
+
     public override void Awake()
     {
         base.Awake();
+        scenario = GetComponentInParent<Scenario>();
     }
 
     public override void StateEnter()
     {
         base.StateEnter();
-        Player.Instance?.Teleport(teleportTarget);
+        if (scenario) Player.Instance?.Teleport(teleportTarget, scenario.IsOwner);
 
         List<bool> resultList = new();
         foreach (var state in stateList)

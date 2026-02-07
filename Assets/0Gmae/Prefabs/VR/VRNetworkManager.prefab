@@ -52,8 +52,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  connectedObjects:
-  - {fileID: 0}
+  connectedObjects: []
   statusText: {fileID: 0}
   clientButton: {fileID: 0}
   hostButton: {fileID: 0}
@@ -123,7 +122,7 @@ MonoBehaviour:
   m_MaxConnectAttempts: 60
   m_DisconnectTimeoutMS: 30000
   ConnectionData:
-    Address: 10.191.19.155
+    Address: 10.99.48.155
     Port: 7777
     ServerListenAddress: 127.0.0.1
   DebugSimulator:

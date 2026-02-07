@@ -1,4 +1,5 @@
 using Boy;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Locomotion.Climbing;
 
@@ -15,7 +16,7 @@ public class Player : MonoBehaviour
     public ClimbProvider climbProvider;
     public GameObject gravity;
     public GameObject jump;
-    
+
     bool defaultEnableGravityOnClimbEnd;
     float defaultSlopeLimit;
     CharacterController characterController;
@@ -35,14 +36,15 @@ public class Player : MonoBehaviour
         defaultEnableGravityOnClimbEnd = climbProvider.enableGravityOnClimbEnd;
     }
 
-    public void Teleport(Transform transform)
+    public void Teleport(Transform transform, bool isOwner)
     {
         if (transform == null) return;
-        Teleport(transform.localPosition, transform.localEulerAngles);
+        Teleport(transform.localPosition, transform.localEulerAngles, isOwner);
     }
 
-    public void Teleport(Vector3 position, Vector3 rotate)
+    public void Teleport(Vector3 position, Vector3 rotate, bool isOwner)
     {
+        if (!isOwner) return;
         transform.position = position;
         transform.eulerAngles = rotate;
     }

@@ -77,8 +77,10 @@ namespace PGroup
 
 
         private Tween delay = null;
+        Scenario scenario;
         private void Awake()
         {
+            scenario = GetComponentInParent<Scenario>();
             player = Camera.main.transform;
             endRope.parent = player.parent;
             pPESelector.OnSelectionValidated += OnValidated;
@@ -182,7 +184,7 @@ namespace PGroup
             scoreList.Add(true);
             scoreList.Add(true);
             scoreList.Add(true);*/
-            Player.Instance.Teleport(positionEndgame.position, Vector3.zero);
+            if (scenario) Player.Instance?.Teleport(positionEndgame.position, Vector3.zero, scenario.IsOwner);
             summaryUI.gameObject.SetActive(true);
             summaryUI.ShowSummary(scoreList);
         }
