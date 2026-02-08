@@ -228,7 +228,7 @@ namespace XRMultiplayer
 
             bool skipCloudCheck = false;
 # if HAS_MPPM
-            if (!CurrentPlayer.IsMainEditor)
+            if (IsMppmCloneEditor())
             {
                 skipCloudCheck = true;
             }
@@ -669,5 +669,22 @@ namespace XRMultiplayer
             }
             return localIP;
         }
+
+#if UNITY_EDITOR && HAS_MPPM
+        static bool IsMppmCloneEditor()
+        {
+            const string typeName = "Unity.Multiplayer.Playmode.VirtualProjects.Editor.VirtualProjectsEditor";
+            const string assemblyName = "Unity.Multiplayer.Playmode.VirtualProjects.Editor";
+            var type = Type.GetType($"{typeName}, {assemblyName}");
+            if (type == null)
+                return false;
+
+            var property = type.GetProperty("IsClone", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
+            if (property == null || property.PropertyType != typeof(bool))
+                return false;
+
+            return (bool)property.GetValue(null);
+        }
+#endif
     }
 }
