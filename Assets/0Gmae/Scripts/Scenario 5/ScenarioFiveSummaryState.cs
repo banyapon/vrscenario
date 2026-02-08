@@ -55,8 +55,8 @@ public class ScenarioFiveSummaryState : State
         {
             userEmail = APIManager.Instance.userEmail,
             scenarioKey = "scenario5",
-            total_score = (float)totalScore,
-            stars = (int)stars,
+            total_score = totalScore,
+            stars = stars,
             details = new
             {
                 risk_assessment = details[0],

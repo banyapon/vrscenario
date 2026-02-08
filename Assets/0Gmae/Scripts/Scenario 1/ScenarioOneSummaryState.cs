@@ -103,8 +103,8 @@ public class ScenarioOneSummaryState : State
         {
             userEmail = APIManager.Instance.userEmail,
             scenarioKey = "scenario1",
-            total_score = (float)totalScore,
-            stars = (int)stars,
+            total_score = totalScore,
+            stars = stars,
             details = new
             {
                 ppe = details[0],

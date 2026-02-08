@@ -52,7 +52,7 @@ public class SummaryUI : MonoBehaviour
         pass.SetActive(isPass);
         fail.SetActive(!isPass);
 
-        callback?.Invoke(TotalScore(), percent, GetResultText());
+        callback?.Invoke(TotalScore(), percent * 5, GetResultText());
     }
 
 
