@@ -824,6 +824,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2590590238692551139, guid: 56abe6670b4e29e4d81acf3390d55165,
         type: 3}
+      propertyPath: attachment
+      value: 
+      objectReference: {fileID: 5234320247909765124}
+    - target: {fileID: 2590590238692551139, guid: 56abe6670b4e29e4d81acf3390d55165,
+        type: 3}
       propertyPath: isLeftSide
       value: 0
       objectReference: {fileID: 0}
@@ -1015,6 +1020,11 @@ PrefabInstance:
       propertyPath: offset.z
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 2590590238692551139, guid: 56abe6670b4e29e4d81acf3390d55165,
+        type: 3}
+      propertyPath: attachment
+      value: 
+      objectReference: {fileID: 7047270836758134567}
     - target: {fileID: 3580440598173431586, guid: 56abe6670b4e29e4d81acf3390d55165,
         type: 3}
       propertyPath: id

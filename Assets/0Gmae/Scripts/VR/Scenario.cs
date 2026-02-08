@@ -7,6 +7,8 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 public class Scenario : NetworkBehaviour
 {
     [SerializeField] private bool resetPlayerTransform = true;
+    public float timeUsed;
+    private bool isCounting = false;
     [SerializeField] private Button destroyBtn;
     [SerializeField] private List<Camera> allCamera = new List<Camera>();
     List<GameObject> grabObjects = new List<GameObject>();
@@ -20,6 +22,12 @@ public class Scenario : NetworkBehaviour
         {
             grabObjects.Add(grab.gameObject);
         }
+    }
+
+    private void Update()
+    {
+        if (!isCounting) return;
+        timeUsed += Time.deltaTime;
     }
 
     public void RequestDestroy()
@@ -48,6 +56,7 @@ public class Scenario : NetworkBehaviour
             player?.SetJump(false);
             //player?.SetTeleportation(false);
             if (resetPlayerTransform) player?.Teleport(Vector3.zero, Vector3.zero, IsOwner);
+            StartCount();
         }
 
         if ((IsServer || IsHost) && CCTVController.Instance != null)
@@ -67,6 +76,7 @@ public class Scenario : NetworkBehaviour
         ClearGrabObject();
         GetVRManager()?.OpenBoardUI();
         player?.SetJump(true);
+        StopCount();
         //player?.SetTeleportation(true);
         CCTVController cctv = CCTVController.Instance;
         if ((IsServer || IsHost) && cctv != null)
@@ -109,5 +119,24 @@ public class Scenario : NetworkBehaviour
         {
             camera.enabled = value;
         }
+    }
+    public void StartCount()
+    {
+        isCounting = true;
+    }
+
+    public void StopCount()
+    {
+        isCounting = false;
+    }
+
+    public void ResetCount()
+    {
+        timeUsed = 0f;
+    }
+    public void RestartCount()
+    {
+        timeUsed = 0f;
+        isCounting = true;
     }
 }

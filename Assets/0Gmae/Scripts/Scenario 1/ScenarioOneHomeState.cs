@@ -22,13 +22,11 @@ public class ScenarioOneHomeState : State
     public GameObject harness;
 
     Tween delay;
-    Scenario scenario;
     ResetToDefault radioResetter;
     ResetToDefault gasDetectorResetter;
     public override void Awake()
     {
         base.Awake();
-        scenario = GetComponentInParent<Scenario>();
         radioResetter = radio.GetComponent<ResetToDefault>();
         gasDetectorResetter = gasDetector.GetComponent<ResetToDefault>();
     }
@@ -37,7 +35,11 @@ public class ScenarioOneHomeState : State
     {
         base.StateEnter();
         Player player = Player.Instance;
-        if (scenario) player?.Teleport(teleportTarget, scenario.IsOwner);
+        if (controller.scenario)
+        {
+            player?.Teleport(teleportTarget, controller.scenario.IsOwner);
+            controller.scenario.RestartCount();
+        }
 
         ResetScenario();
 

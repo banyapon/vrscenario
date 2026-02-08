@@ -13,7 +13,7 @@ namespace Boy
         [Header("States")]
         public List<State> states = new List<State>();
 
-        Scenario scenario;
+        public Scenario scenario;
 
         // ===== Network =====
         NetworkVariable<int> syncedState =

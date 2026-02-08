@@ -1,5 +1,6 @@
 using Boy;
 using DG.Tweening;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,12 +29,10 @@ public class ScenarioOneSummaryState : State
     [SerializeField] private List<State> stateList = new();
 
     Player player = null;
-    Scenario scenario;
     const float TIME_EPSILON = 0.001f;
     public override void Awake()
     {
         base.Awake();
-        scenario = GetComponentInParent<Scenario>();
         ambulance.SetActive(false);
         player = Player.Instance;
 
@@ -53,7 +52,11 @@ public class ScenarioOneSummaryState : State
         base.StateEnter();
         ambulance.SetActive(true);
         npc.SetActive(false);
-        if (scenario) player?.Teleport(teleportTarget, scenario.IsOwner);
+        if (controller.scenario)
+        {
+            player?.Teleport(teleportTarget, controller.scenario.IsOwner);
+            controller.scenario.StopCount();
+        }
 
         summaryUI.gameObject.SetActive(false);
         passHUD.SetActive(false);
@@ -71,7 +74,7 @@ public class ScenarioOneSummaryState : State
         }
         resultList.Add(hasTimeLeft);
 
-        summaryUI?.ShowSummary(resultList, hasTimeLeft);
+        summaryUI?.ShowSummary(resultList, hasTimeLeft, SendApi);
 
         DOVirtual.DelayedCall(delayShowUI, () =>
         {
@@ -91,5 +94,39 @@ public class ScenarioOneSummaryState : State
         base.StateExit();
         npc.SetActive(true);
         ambulance.SetActive(false);
+    }
+    void SendApi(int totalScore, float stars, List<string> details)
+    {
+        float timeUsed = controller.scenario?.timeUsed ?? 0f;
+
+        var body = new
+        {
+            userEmail = APIManager.Instance.userEmail,
+            scenarioKey = "scenario1",
+            total_score = totalScore,
+            stars = stars,
+            details = new
+            {
+                ppe = details[0],
+                permit_to_work = details[1],
+                silo_entry = details[2],
+                gas_level = details[3],
+                unconscious_found = details[4],
+                rescue_operation = details[5],
+                completed_within_4_minutes = details[6],
+            },
+            time_used_seconds = (int)timeUsed,
+            remark = ""
+        };
+
+        string json = JsonConvert.SerializeObject(body);
+        print(json);
+
+        APIManager.Instance.SaveSession<string>(json, (ok, msg, res) =>
+        {
+            print(msg);
+            if (!ok) return;
+            print(res);
+        });
     }
 }

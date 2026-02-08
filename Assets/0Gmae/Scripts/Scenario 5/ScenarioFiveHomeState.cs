@@ -15,12 +15,10 @@ public class ScenarioFiveHomeState : State
     public Animator npcAnimator;
 
     HUDState hUDState;
-    Scenario scenario;
 
     public override void Awake()
     {
         base.Awake();
-        scenario = GetComponentInParent<Scenario>();
         hUDState = GetComponent<HUDState>();
         area.OnExit = () =>
         {
@@ -31,7 +29,11 @@ public class ScenarioFiveHomeState : State
     public override void StateEnter()
     {
         base.StateEnter();
-        if (scenario) Player.Instance?.Teleport(teleportTarget, scenario.IsOwner);
+        if (controller.scenario)
+        {
+            Player.Instance?.Teleport(teleportTarget, controller.scenario.IsOwner);
+            controller.scenario.RestartCount();
+        }
         hUDState?.OpenHud(explainHUD);
         lOTOState.ResetSequence();
         machineDoor.Close();
