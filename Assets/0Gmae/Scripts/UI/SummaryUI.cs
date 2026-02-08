@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -18,7 +19,19 @@ public class SummaryUI : MonoBehaviour
 
     private List<bool> resultList;
 
-    public void ShowSummary(List<bool> _resultList, bool usePercentResult = true)
+    public void ShowSummary(
+        List<bool> _resultList,
+        Action<int, float, List<string>> callback
+        )
+    {
+        ShowSummary(_resultList, true, callback);
+    }
+
+    public void ShowSummary(
+        List<bool> _resultList,
+        bool usePercentResult = true,
+        Action<int, float, List<string>> callback = null
+        )
     {
         resultList = _resultList ?? new List<bool>();
         pass.SetActive(false);
@@ -38,6 +51,8 @@ public class SummaryUI : MonoBehaviour
 
         pass.SetActive(isPass);
         fail.SetActive(!isPass);
+
+        callback?.Invoke(TotalScore(), percent, GetResultText());
     }
 
 
@@ -86,5 +101,16 @@ public class SummaryUI : MonoBehaviour
             if (resultList[i]) total++;
 
         return total;
+    }
+
+    List<string> GetResultText()
+    {
+        List<string> answer = new List<string>();
+        foreach (var r in resultList)
+        {
+            answer.Add(r ? "PASS" : "FAIL");
+        }
+
+        return answer;
     }
 }

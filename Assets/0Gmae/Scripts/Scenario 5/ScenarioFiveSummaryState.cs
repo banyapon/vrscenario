@@ -1,4 +1,5 @@
 using Boy;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,18 +12,21 @@ public class ScenarioFiveSummaryState : State
     public SummaryUI summaryUI;
     [SerializeField] private List<State> stateList = new();
 
-    Scenario scenario;
 
     public override void Awake()
     {
         base.Awake();
-        scenario = GetComponentInParent<Scenario>();
     }
 
     public override void StateEnter()
     {
         base.StateEnter();
-        if (scenario) Player.Instance?.Teleport(teleportTarget, scenario.IsOwner);
+
+        if (controller.scenario)
+        {
+            Player.Instance?.Teleport(teleportTarget, controller.scenario.IsOwner);
+            controller.scenario.StopCount();
+        }
 
         List<bool> resultList = new();
         foreach (var state in stateList)
@@ -30,7 +34,7 @@ public class ScenarioFiveSummaryState : State
             resultList.Add(state.IsPass);
         }
 
-        summaryUI?.ShowSummary(resultList);
+        summaryUI?.ShowSummary(resultList, SendApi);
     }
 
     public override void StateUpdate()
@@ -41,5 +45,37 @@ public class ScenarioFiveSummaryState : State
     public override void StateExit()
     {
         base.StateExit();
+    }
+
+    void SendApi(int totalScore, float stars, List<string> details)
+    {
+        float timeUsed = controller.scenario?.timeUsed ?? 0f;
+
+        var body = new
+        {
+            userEmail = APIManager.Instance.userEmail,
+            scenarioKey = "scenario5",
+            total_score = (float)totalScore,
+            stars = (int)stars,
+            details = new
+            {
+                risk_assessment = details[0],
+                loto = details[1],
+                security_verification = details[2],
+                harm_prevention = details[3],
+            },
+            time_used_seconds = (int)timeUsed,
+            remark = ""
+        };
+
+        string json = JsonConvert.SerializeObject(body);
+        print(json);
+
+        APIManager.Instance.SaveSession<string>(json, (ok, msg, res) =>
+        {
+            print(msg);
+            if (!ok) return;
+            print(res);
+        });
     }
 }

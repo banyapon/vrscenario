@@ -3,6 +3,8 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using Obi;
+using System.Net.Mail;
 
 namespace Boy
 {
@@ -10,6 +12,7 @@ namespace Boy
     {
         public bool isLeftSide = true;
         public TriggerChecker checker;
+        public ObiParticleAttachment attachment;
 
         [Header("Transform Setting")]
         public Vector3 offset;
@@ -37,6 +40,7 @@ namespace Boy
             rb = GetComponent<Rigidbody>();
             player = Player.Instance;
             if (player) vRInput = player.vRInput;
+            else attachment.attachmentType = ObiParticleAttachment.AttachmentType.Static;
 
             grab = GetComponent<XRGrabInteractable>();
             grab.selectEntered.AddListener(OnGrab);
@@ -90,7 +94,6 @@ namespace Boy
 
             transform.SetParent(null);
 
-            Player player = Player.Instance;
             if (player)
             {
                 Transform camera = player.camera.transform;
@@ -145,12 +148,20 @@ namespace Boy
             SetGravity(false);
             isGrab = true;
             delay?.Kill();
+            if (player)
+            {
+                attachment.attachmentType = ObiParticleAttachment.AttachmentType.Static;
+            }
         }
         void OnRelease(SelectExitEventArgs args)
         {
             SetLockRotate(false);
             SetGravity(true);
             isGrab = false;
+            if (player)
+            {
+                attachment.attachmentType = ObiParticleAttachment.AttachmentType.Dynamic;
+            }
         }
 
         public void SetLockRotate(bool open)
