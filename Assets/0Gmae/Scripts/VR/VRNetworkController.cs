@@ -1,16 +1,20 @@
 ﻿using System;
-using Unity.Netcode;
+using System.Threading.Tasks;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Unity.Netcode;
+using Unity.Netcode.Transports.UTP;
+
+using Unity.Services.Core;
+using Unity.Services.Authentication;
+using Unity.Services.Relay;
+using Unity.Services.Relay.Models;
 
 public class VRNetworkController : MonoBehaviour
 {
     public static VRNetworkController Instance;
 
-    // ===============================
-    // Events (public)
-    // ===============================
     public event Action onClientConnected;
     public event Action onClientDisconnected;
 
@@ -27,23 +31,37 @@ public class VRNetworkController : MonoBehaviour
     public Button disconnectButton;
 
     NetworkManager nm;
+    UnityTransport transport;
+
     bool isConnected;
 
-    void Awake()
+    #region INIT
+
+    async void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Instance = this;
+
+        nm = NetworkManager.Singleton;
+        transport = GetComponent<UnityTransport>();
+
+        await UnityServices.InitializeAsync();
+
+        if (!AuthenticationService.Instance.IsSignedIn)
+            await AuthenticationService.Instance.SignInAnonymouslyAsync();
     }
 
     void Start()
     {
-        nm = NetworkManager.Singleton;
-
-        // Buttons
-        if (clientButton) clientButton.onClick.AddListener(StartClient);
-        if (hostButton) hostButton.onClick.AddListener(StartHost);
+        if (clientButton) clientButton.onClick.AddListener(() => StartRelayClient("PUT_JOIN_CODE"));
+        if (hostButton) hostButton.onClick.AddListener(StartLocalHost);
         if (disconnectButton) disconnectButton.onClick.AddListener(Disconnect);
 
-        // NGO callbacks
         nm.OnClientConnectedCallback += OnClientConnected;
         nm.OnClientDisconnectCallback += OnClientDisconnected;
 
@@ -52,38 +70,98 @@ public class VRNetworkController : MonoBehaviour
 
     void OnDestroy()
     {
-        if (nm == null) return;
-
         nm.OnClientConnectedCallback -= OnClientConnected;
         nm.OnClientDisconnectCallback -= OnClientDisconnected;
     }
 
-    // ===============================
-    // Network Actions
-    // ===============================
+    #endregion
 
-    public void StartClient()
+    #region SAFE STOP
+
+    void StopIfRunning()
     {
-        if (nm.IsClient || nm.IsHost) return;
-
-        SetStatus("Connecting...");
-        nm.StartClient();
+        if (nm.IsListening)
+            nm.Shutdown();
     }
 
-    public void StartHost()
-    {
-        if (nm.IsHost) return;
+    #endregion
 
-        SetStatus("Starting Host...");
+    #region LOCAL HOST (VR SOLO)
+
+    public void StartLocalHost()
+    {
+        StopIfRunning();
+
+        transport.SetConnectionData("0.0.0.0", 7777);
+
+        SetStatus("Starting Local Host...");
         nm.StartHost();
     }
 
+    #endregion
+
+    #region RELAY CLIENT (JOIN PC)
+
+    public async void StartRelayClient(string joinCode)
+    {
+        StopIfRunning();
+
+        SetStatus("Joining Relay...");
+
+        JoinAllocation allocation =
+            await RelayService.Instance.JoinAllocationAsync(joinCode);
+
+        transport.SetRelayServerData(
+            allocation.RelayServer.IpV4,
+            (ushort)allocation.RelayServer.Port,
+            allocation.AllocationIdBytes,
+            allocation.Key,
+            allocation.ConnectionData,
+            allocation.HostConnectionData
+        );
+
+        nm.StartClient();
+    }
+
+    #endregion
+
+    #region RELAY HOST (OPTIONAL)
+
+    public async Task<string> StartRelayHost(int maxPlayers = 4)
+    {
+        StopIfRunning();
+
+        SetStatus("Creating Relay Room...");
+
+        Allocation allocation =
+            await RelayService.Instance.CreateAllocationAsync(maxPlayers);
+
+        string joinCode =
+            await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
+
+        transport.SetRelayServerData(
+            allocation.RelayServer.IpV4,
+            (ushort)allocation.RelayServer.Port,
+            allocation.AllocationIdBytes,
+            allocation.Key,
+            allocation.ConnectionData,
+            allocation.ConnectionData
+        );
+
+        nm.StartHost();
+
+        Debug.Log("Join Code: " + joinCode);
+
+        return joinCode;
+    }
+
+    #endregion
+
+    #region DISCONNECT
+
     public void Disconnect()
     {
-        if (!nm.IsClient && !nm.IsHost) return;
-
-        nm.Shutdown();
-        VRAvatarNetwork.Local = null;
+        StopIfRunning();
 
         isConnected = false;
         onClientDisconnected?.Invoke();
@@ -91,15 +169,13 @@ public class VRNetworkController : MonoBehaviour
         ShowDisconnectedUI("Disconnected");
     }
 
-    // ===============================
-    // NGO Callbacks
-    // ===============================
+    #endregion
+
+    #region NGO CALLBACKS
 
     void OnClientConnected(ulong clientId)
     {
         if (clientId != nm.LocalClientId) return;
-
-        Debug.Log($"[VR] Connected id={clientId}");
 
         isConnected = true;
 
@@ -107,60 +183,50 @@ public class VRNetworkController : MonoBehaviour
         onClientConnected?.Invoke();
 
         if (!nm.IsHost) return;
+
         GameObject vr = Instantiate(vrPlayerPrefab);
-        NetworkObject no = vr.GetComponent<NetworkObject>();
-        no.SpawnAsPlayerObject(clientId, true);
+        vr.GetComponent<NetworkObject>()
+          .SpawnAsPlayerObject(clientId, true);
     }
 
     void OnClientDisconnected(ulong clientId)
     {
         if (clientId != nm.LocalClientId) return;
 
-        Debug.Log($"[VR] Disconnected id={clientId}");
-
         isConnected = false;
-        VRAvatarNetwork.Local = null;
 
         ShowDisconnectedUI("Disconnected");
         onClientDisconnected?.Invoke();
     }
 
-    // ===============================
-    // UI State Handling
-    // ===============================
+    #endregion
+
+    #region UI
 
     void ShowConnectedUI(string text)
     {
         SetGroupActive(disconnectedObjects, false);
         SetGroupActive(connectedObjects, true);
-
         SetStatus(text);
-
-        //if (disconnectButton) disconnectButton.gameObject.SetActive(true);
     }
 
     void ShowDisconnectedUI(string text)
     {
         SetGroupActive(disconnectedObjects, true);
         SetGroupActive(connectedObjects, false);
-
         SetStatus(text);
-
-        //if (disconnectButton) disconnectButton.gameObject.SetActive(false);
     }
 
-    void SetGroupActive(GameObject[] objects, bool active)
+    void SetGroupActive(GameObject[] objs, bool active)
     {
-        if (objects == null) return;
-
-        foreach (var go in objects)
-        {
+        foreach (var go in objs)
             if (go) go.SetActive(active);
-        }
     }
 
-    void SetStatus(string text)
+    void SetStatus(string t)
     {
-        if (statusText) statusText.text = text;
+        if (statusText) statusText.text = t;
     }
+
+    #endregion
 }

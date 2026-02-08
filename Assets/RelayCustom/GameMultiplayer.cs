@@ -1,4 +1,6 @@
 using System.Threading.Tasks;
+using Unity.Netcode;
+using Unity.Services.Authentication;
 using Unity.Services.Multiplayer;
 using UnityEngine;
 
@@ -11,11 +13,25 @@ public class GameMultiplayer : MonoBehaviour
 
     void Start()
     {
+        SampleRelay();
+
         if (!m_CreateTestPrimitives)
             return;
 
         CreateTestPrimitive(PrimitiveType.Plane, "TestPlane", Vector3.zero, new Vector3(5f, 1f, 5f));
         CreateTestPrimitive(PrimitiveType.Cube, "TestCube", new Vector3(0f, 0.5f, 0f), Vector3.one);
+    }
+    async void SampleRelay()
+    {
+        await Unity.Services.Core.UnityServices.InitializeAsync();
+
+        if (!AuthenticationService.Instance.IsSignedIn)
+            await AuthenticationService.Instance.SignInAnonymouslyAsync();
+
+        var code = await Create16PlayerSession();
+
+        Debug.Log("Room Ready: " + code);
+        //NetworkManager.Singleton.StartHost();
     }
 
     public async Task<string> Create16PlayerSession()
