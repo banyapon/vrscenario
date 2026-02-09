@@ -24,7 +24,7 @@ namespace Boy
         {
             Instance = this;
             SetText("");
-            //StartCoroutine(CheckAPI());
+            StartCoroutine(CheckAPI());
             StartCoroutine(CheckInternetConnection());
         }
 
@@ -33,7 +33,7 @@ namespace Boy
         {
             status.Clear();
             if (!googleTest) status.Add("I");
-            //if (!apiStatus) status.Add("A");
+            if (!apiStatus) status.Add("A");
             //if (!SocketIOController.Instance.connectStatus) status.Add("S");
 
             internetStatus = status.Count == 0;

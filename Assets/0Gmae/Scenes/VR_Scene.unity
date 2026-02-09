@@ -1646,7 +1646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3c8806bc055ff418a8cc25c0f3bbf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  apiUrl: 
+  apiUrl: https://wt-vr-st.th1.proen.cloud/
   internetStatus: 0
   googleTest: 1
   apiStatus: 1
@@ -1966,7 +1966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e279202ff54414bb3daf3c03e7dece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseUrl: http://node85399-vr-st.th1.proen.cloud:11041
+  baseUrl: https://wt-vr-st.th1.proen.cloud
   vrstApiKey: fastfishapi2026
   userEmail: test@gmail.com
 --- !u!4 &1525521172
