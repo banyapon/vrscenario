@@ -8,6 +8,8 @@ using Unity.Services.Core;
 using Unity.Services.Authentication;
 using Unity.Services.Multiplayer;
 using TMPro;
+using Unity.Services.Core.Environments;
+using Unity.Services.Relay;
 
 public class PCNetworkBootstrap : MonoBehaviour
 {
@@ -41,12 +43,18 @@ public class PCNetworkBootstrap : MonoBehaviour
         nm.OnClientConnectedCallback += OnClientConnected;
         nm.OnClientDisconnectCallback += OnClientDisconnected;
 
+        nm.OnServerStarted += () => Debug.Log("HOST STARTED");
+        nm.OnClientStopped += (_) => Debug.Log("CLIENT STOPPED");
+        nm.OnServerStopped += (_) => Debug.Log("SERVER STOPPED");
+
+
         nm.OnTransportFailure += () =>
         {
             Debug.LogError("[PC] Transport failure");
         };
 
         StartHost();
+
     }
 
     #endregion
@@ -55,12 +63,22 @@ public class PCNetworkBootstrap : MonoBehaviour
 
     public async void StartHost()
     {
-        await UnityServices.InitializeAsync();
-
-        if (!AuthenticationService.Instance.IsSignedIn)
-            await AuthenticationService.Instance.SignInAnonymouslyAsync();
+        await RelayAuthen();
 
         var code = await CreateSession();
+        //var allocation = await RelayService.Instance.CreateAllocationAsync(
+        //    maxConnections: 1,
+        //    region: "asia-southeast1"
+        //    );
+
+        //Debug.Log("ALLOCATION CREATED");
+        //Debug.Log("AllocationId = " + allocation.AllocationId);
+
+        //var code = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
+
+        Debug.Log("JOIN CODE = " + code);
+        Debug.Log(Application.cloudProjectId);
+
         header.text = $"PC Host";
 
         if (!string.IsNullOrEmpty(code))
@@ -92,7 +110,6 @@ public class PCNetworkBootstrap : MonoBehaviour
             var session = await MultiplayerService.Instance.CreateSessionAsync(options);
 
             Debug.Log($"Room created successfully! Max players: {session.MaxPlayers}");
-            Debug.Log($"Join Code: {session.Code}");
 
             return session.Code;
         }
@@ -101,6 +118,18 @@ public class PCNetworkBootstrap : MonoBehaviour
             Debug.LogError($"Failed to create room: {e.Message}");
             return null;
         }
+    }
+    public async Task RelayAuthen()
+    {
+        var options = new InitializationOptions()
+            .SetEnvironmentName("production");
+
+        await UnityServices.InitializeAsync(options);
+
+        if (!AuthenticationService.Instance.IsSignedIn)
+            await AuthenticationService.Instance.SignInAnonymouslyAsync();
+
+        Debug.Log("Unity Services Initialized (production)");
     }
 
     #endregion
