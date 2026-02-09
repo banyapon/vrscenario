@@ -6,15 +6,17 @@ using Unity.Netcode.Transports.UTP;
 
 using Unity.Services.Core;
 using Unity.Services.Authentication;
-using Unity.Services.Relay;
-using Unity.Services.Relay.Models;
+using Unity.Services.Multiplayer;
+using TMPro;
 
 public class PCNetworkBootstrap : MonoBehaviour
 {
     public static PCNetworkBootstrap Instance;
 
     public GameObject vrPlayerPrefab;
+    public TMP_Text header;
     public float betweenDistance = 10f;
+    public int maxPlayer = 16;
 
     int spawnIndex = 0;
 
@@ -26,20 +28,15 @@ public class PCNetworkBootstrap : MonoBehaviour
 
     #region INIT
 
-    async void Awake()
+    void Awake()
     {
         Instance = this;
 
         nm = NetworkManager.Singleton;
         transport = GetComponent<UnityTransport>();
-
-        await UnityServices.InitializeAsync();
-
-        if (!AuthenticationService.Instance.IsSignedIn)
-            await AuthenticationService.Instance.SignInAnonymouslyAsync();
     }
 
-    async void Start()
+    void Start()
     {
         nm.OnClientConnectedCallback += OnClientConnected;
         nm.OnClientDisconnectCallback += OnClientDisconnected;
@@ -49,35 +46,61 @@ public class PCNetworkBootstrap : MonoBehaviour
             Debug.LogError("[PC] Transport failure");
         };
 
-        await StartRelayHost();
+        StartHost();
     }
 
     #endregion
 
     #region RELAY HOST
 
-    async Task StartRelayHost()
+    public async void StartHost()
     {
-        Debug.Log("[PC] Creating Relay Host...");
+        await UnityServices.InitializeAsync();
 
-        Allocation allocation =
-            await RelayService.Instance.CreateAllocationAsync(8);
+        if (!AuthenticationService.Instance.IsSignedIn)
+            await AuthenticationService.Instance.SignInAnonymouslyAsync();
 
-        string joinCode =
-            await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
+        var code = await CreateSession();
+        header.text = $"PC Host";
 
-        transport.SetRelayServerData(
-            allocation.RelayServer.IpV4,
-            (ushort)allocation.RelayServer.Port,
-            allocation.AllocationIdBytes,
-            allocation.Key,
-            allocation.ConnectionData,
-            allocation.ConnectionData
-        );
+        if (!string.IsNullOrEmpty(code))
+        {
+            header.text += $": {code}";
+        }
+        else
+        {
+            header.text += $": failed";
+            return;
+        }
 
         nm.StartHost();
+    }
 
-        Debug.Log($"[PC] Relay Join Code: {joinCode}");
+    public async Task<string> CreateSession()
+    {
+        try
+        {
+            var options = new SessionOptions
+            {
+                Name = "SUT Training Session",
+                MaxPlayers = maxPlayer,
+                IsPrivate = false,
+                IsLocked = false
+            };
+            options.WithRelayNetwork();
+
+            var session = await MultiplayerService.Instance.CreateSessionAsync(options);
+
+            Debug.Log($"Room created successfully! Max players: {session.MaxPlayers}");
+            Debug.Log($"Join Code: {session.Code}");
+
+            return session.Code;
+        }
+        catch (SessionException e)
+        {
+            Debug.LogError($"Failed to create room: {e.Message}");
+            return null;
+        }
     }
 
     #endregion
@@ -94,8 +117,7 @@ public class PCNetworkBootstrap : MonoBehaviour
         float posX = spawnIndex * betweenDistance;
         spawnIndex++;
 
-        GameObject vr =
-            Instantiate(vrPlayerPrefab, new Vector3(posX, 0, 0), Quaternion.identity);
+        GameObject vr = Instantiate(vrPlayerPrefab, new Vector3(posX, 0, 0), Quaternion.identity);
 
         NetworkObject no = vr.GetComponent<NetworkObject>();
         no.SpawnAsPlayerObject(clientId, true);

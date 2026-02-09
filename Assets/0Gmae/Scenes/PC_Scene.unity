@@ -1547,10 +1547,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 61673902}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: 400, y: 100}
+  m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1300953028
 MonoBehaviour:
@@ -1713,7 +1713,7 @@ MonoBehaviour:
     NetworkProfilingMetrics: 1
     OldPrefabList: []
   RunInBackground: 1
-  LogLevel: 0
+  LogLevel: 1
 --- !u!4 &1392229170
 Transform:
   m_ObjectHideFlags: 0
@@ -1743,7 +1743,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vrPlayerPrefab: {fileID: 7670191458027302223, guid: bb31d06d7ef27f744b91e3e2f3fa7951,
     type: 3}
+  header: {fileID: 1300953028}
   betweenDistance: 1000
+  maxPlayer: 16
 --- !u!114 &1392229172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1766,9 +1768,9 @@ MonoBehaviour:
   m_MaxConnectAttempts: 60
   m_DisconnectTimeoutMS: 30000
   ConnectionData:
-    Address: 0.0.0.0
+    Address: 127.0.0.1
     Port: 7777
-    ServerListenAddress: 0.0.0.0
+    ServerListenAddress: 127.0.0.1
     ClientBindPort: 0
   DebugSimulator:
     PacketDelayMS: 0
