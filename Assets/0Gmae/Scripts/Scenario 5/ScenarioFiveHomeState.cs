@@ -29,7 +29,7 @@ public class ScenarioFiveHomeState : State
     public override void StateEnter()
     {
         base.StateEnter();
-        if (controller.scenario)
+        if (controller?.scenario)
         {
             Player.Instance?.Teleport(teleportTarget, controller.scenario.IsOwner);
             controller.scenario.RestartCount();

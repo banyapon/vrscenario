@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using Obi;
-using System.Net.Mail;
 
 namespace Boy
 {
@@ -13,6 +12,8 @@ namespace Boy
         public bool isLeftSide = true;
         public TriggerChecker checker;
         public ObiParticleAttachment attachment;
+        ObiCollider obiCollider;
+        ObiRigidbody obiRb;
 
         [Header("Transform Setting")]
         public Vector3 offset;
@@ -27,6 +28,7 @@ namespace Boy
         Player player;
         VRInput vRInput;
         XRGrabInteractable grab;
+        HookController hookController;
 
         HashSet<Collider> handColliders = new HashSet<Collider>();
         HashSet<Collider> ladderColliders = new HashSet<Collider>();
@@ -38,6 +40,10 @@ namespace Boy
         private void Start()
         {
             rb = GetComponent<Rigidbody>();
+            obiCollider = GetComponent<ObiCollider>();
+            obiRb = GetComponent<ObiRigidbody>();
+            hookController = GetComponentInParent<HookController>();
+
             player = Player.Instance;
             if (player) vRInput = player.vRInput;
             else attachment.attachmentType = ObiParticleAttachment.AttachmentType.Static;
@@ -90,15 +96,18 @@ namespace Boy
             if (!rb) rb = GetComponent<Rigidbody>();
 
             SetGravity(false);
-            delay = DOVirtual.DelayedCall(3, () => { SetGravity(true); });
-
-            transform.SetParent(null);
 
             if (player)
             {
+                transform.SetParent(null);
                 Transform camera = player.camera.transform;
                 transform.localPosition = camera.position + camera.rotation * offset;
                 transform.localEulerAngles = camera.eulerAngles;
+                delay = DOVirtual.DelayedCall(3, () => { SetGravity(true); });
+            }
+            else
+            {
+                transform.SetParent(hookController.transform.parent);
             }
         }
 
@@ -133,6 +142,8 @@ namespace Boy
         void UpdateGravity()
         {
             if (isGrab) return;
+            if (!player) return;
+
             bool shouldEnableGravity = !IsInsideHand && !IsInsideLadder;
             SetGravity(shouldEnableGravity);
         }
@@ -147,6 +158,8 @@ namespace Boy
             SetLockRotate(true);
             SetGravity(false);
             isGrab = true;
+            obiCollider.enabled = false;
+            if (obiRb) obiRb.enabled = false;
             delay?.Kill();
             if (player)
             {
@@ -158,6 +171,8 @@ namespace Boy
             SetLockRotate(false);
             SetGravity(true);
             isGrab = false;
+            obiCollider.enabled = true;
+            if (obiRb) obiRb.enabled = true;
             if (player)
             {
                 attachment.attachmentType = ObiParticleAttachment.AttachmentType.Dynamic;

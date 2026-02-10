@@ -22,7 +22,7 @@ public class ScenarioFiveSummaryState : State
     {
         base.StateEnter();
 
-        if (controller.scenario)
+        if (controller?.scenario)
         {
             Player.Instance?.Teleport(teleportTarget, controller.scenario.IsOwner);
             controller.scenario.StopCount();
@@ -49,6 +49,10 @@ public class ScenarioFiveSummaryState : State
 
     void SendApi(int totalScore, float stars, List<string> details)
     {
+        if (controller == null) return;
+        if (controller.scenario == null) return;
+        if (!controller.scenario.IsOwner) return;
+
         float timeUsed = controller.scenario?.timeUsed ?? 0f;
 
         var body = new

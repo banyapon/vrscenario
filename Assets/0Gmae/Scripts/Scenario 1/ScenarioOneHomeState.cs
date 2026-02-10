@@ -35,7 +35,7 @@ public class ScenarioOneHomeState : State
     {
         base.StateEnter();
         Player player = Player.Instance;
-        if (controller.scenario)
+        if (controller?.scenario)
         {
             player?.Teleport(teleportTarget, controller.scenario.IsOwner);
             controller.scenario.RestartCount();

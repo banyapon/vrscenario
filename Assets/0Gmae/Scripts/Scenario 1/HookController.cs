@@ -16,22 +16,22 @@ namespace Boy
             if(player) playerTrans = player.transform;
         }
 
-        //private void OnEnable()
-        //{
-        //    foreach (var hook in hooks)
-        //    {
-        //        hook.gameObject.SetActive(true);
-        //    }
-        //}
+        private void OnEnable()
+        {
+            foreach (var hook in hooks)
+            {
+                hook.gameObject.SetActive(true);
+            }
+        }
 
-        //private void OnDisable()
-        //{
-        //    foreach (var hook in hooks)
-        //    {
-        //        if (hook == null) continue;
-        //        hook.gameObject.SetActive(false);
-        //    }
-        //}
+        private void OnDisable()
+        {
+            foreach (var hook in hooks)
+            {
+                if (hook == null) continue;
+                hook.gameObject.SetActive(false);
+            }
+        }
 
         private void Update()
         {

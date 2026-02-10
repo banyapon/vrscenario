@@ -726,6 +726,8 @@ GameObject:
   - component: {fileID: 3580440598173431586}
   - component: {fileID: 8997353199254795167}
   - component: {fileID: 7028293425107183318}
+  - component: {fileID: 8455878320509805507}
+  - component: {fileID: 7339691189721769001}
   m_Layer: 0
   m_Name: Hook
   m_TagString: Untagged
@@ -766,7 +768,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLeftSide: 1
   checker: {fileID: 967041993029176989}
-  offset: {x: 0, y: 0, z: 0}
+  attachment: {fileID: 0}
+  offset: {x: -0.15, y: -0.1, z: 0.4}
   lockDuration: 0.1
   lockModel: {fileID: 6289091469696034303}
   lockTarget: {fileID: 64242130748474545}
@@ -922,7 +925,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 1
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &3580440598173431586
@@ -937,7 +940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1fcbb83794c883408b8a14492fb2d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Hook_-136650
+  id: Hook Left_-434244
 --- !u!114 &8997353199254795167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -950,7 +953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Hook_-136646
+  id: Hook Left_-434246
 --- !u!65 &7028293425107183318
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -972,6 +975,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.01, y: 0.070843756, z: 0.07770431}
   m_Center: {x: 0.00000018849947, y: 0.009168129, z: -0.07809387}
+--- !u!114 &8455878320509805507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6168665242970136802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thickness: 0
+  inverted: 0
+  material: {fileID: 0}
+  filter: -65535
+  m_SourceCollider: {fileID: 7028293425107183318}
+  m_DistanceField: {fileID: 0}
+--- !u!114 &7339691189721769001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6168665242970136802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62359d80fdc0e4315ab6331b78ec5b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kinematicForParticles: 0
 --- !u!1 &6863937880588535282
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,7 +1267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1fcbb83794c883408b8a14492fb2d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: pasted__Lock_-568044
+  id: pasted__Lock_-581248
 --- !u!1 &8821140141321229172
 GameObject:
   m_ObjectHideFlags: 0
