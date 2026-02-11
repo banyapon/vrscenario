@@ -11,6 +11,7 @@ namespace Boy
     {
         public bool isLeftSide = true;
         public TriggerChecker checker;
+        public MeshRenderer[] meshList;
         public ObiParticleAttachment attachment;
         ObiCollider obiCollider;
         ObiRigidbody obiRb;
@@ -29,11 +30,15 @@ namespace Boy
         VRInput vRInput;
         XRGrabInteractable grab;
         HookController hookController;
+        Collider[] colliders;
 
         HashSet<Collider> handColliders = new HashSet<Collider>();
         HashSet<Collider> ladderColliders = new HashSet<Collider>();
 
         bool isGrab;
+        bool isShow;
+
+        bool wasPressed = false;
         bool IsInsideHand => handColliders.Count > 0;
         bool IsInsideLadder => ladderColliders.Count > 0;
 
@@ -43,6 +48,8 @@ namespace Boy
             obiCollider = GetComponent<ObiCollider>();
             obiRb = GetComponent<ObiRigidbody>();
             hookController = GetComponentInParent<HookController>();
+            colliders = GetComponentsInChildren<Collider>();
+            SetColliders(false);
 
             player = Player.Instance;
             if (player) vRInput = player.vRInput;
@@ -65,9 +72,40 @@ namespace Boy
             delay?.Kill();
         }
 
-        bool wasPressed = false;
+        public void ShowModel()
+        {
+            SetColliders(true);
+            isShow = true;
+            delay?.Kill();
+            delay = DOVirtual.DelayedCall(0.25f, ResetTransform);
+            foreach (var m in meshList)
+            {
+                m.enabled = true;
+            }
+        }
+
+        public void HideModel()
+        {
+            SetColliders(false);
+            isShow = false;
+            foreach (var m in meshList)
+            {
+                m.enabled = false;
+            }
+            delay?.Kill();
+        }
+
+        void SetColliders(bool value)
+        {
+            foreach (var c in colliders)
+            {
+                if (c == null) continue;
+                c.enabled = value;
+            }
+        }
         private void Update()
         {
+            if (!isShow) return;
             if (player == null)
             {
                 player = Player.Instance;

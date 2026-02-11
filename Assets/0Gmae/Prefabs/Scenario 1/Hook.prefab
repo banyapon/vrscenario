@@ -768,6 +768,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLeftSide: 1
   checker: {fileID: 967041993029176989}
+  meshList:
+  - {fileID: 5620477680423372425}
+  - {fileID: 8940819405028014265}
+  - {fileID: 7780859464676224744}
   attachment: {fileID: 0}
   offset: {x: -0.15, y: -0.1, z: 0.4}
   lockDuration: 0.1

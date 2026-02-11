@@ -65,7 +65,7 @@ public class SiloEntryState : State
         isGrounded = false;
         isTrigger = false;
 
-        hookController.gameObject.SetActive(true);
+        hookController.Show();
         player?.SetSlopeLimit(slopeLimit);
     }
 
@@ -83,7 +83,7 @@ public class SiloEntryState : State
     {
         base.StateExit();
         lid.SetActive(true);
-        hookController.gameObject.SetActive(false);
+        hookController.Hide();
         player?.ResetSlopeLimit();
         checker.enabled = false;
     }
