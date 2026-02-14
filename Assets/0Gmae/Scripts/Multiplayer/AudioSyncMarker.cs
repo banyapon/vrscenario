@@ -1,3 +1,4 @@
+using Unity.Netcode;
 using UnityEngine;
 
 public class AudioSyncMarker : SyncMarker
@@ -36,13 +37,17 @@ public class AudioSyncMarker : SyncMarker
 
     #region Public API
 
-    public void Play() => Notify(AudioState.Play);
+    public void Play()
+    {
+        print($"Play audio: {name}");
+        Notify(AudioState.Play);
+    }
     public void Pause() => Notify(AudioState.Pause);
     public void Stop() => Notify(AudioState.Stop);
 
     void Notify(AudioState state)
     {
-        ApplyState(state);
+        //ApplyState(state);
         controller?.NotifyAudioChange(this, state);
     }
 
@@ -59,10 +64,12 @@ public class AudioSyncMarker : SyncMarker
             case AudioState.Pause: source.Pause(); break;
             case AudioState.Stop: source.Stop(); break;
         }
+
     }
 
     public void SetMute(bool value)
     {
+        print($"SetMute: {value}");
         if (source) source.mute = value;
     }
 

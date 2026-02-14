@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
+using UnityEditor.Sprites;
 using UnityEngine;
 
 public class SyncAudioController : NetworkBehaviour
@@ -223,8 +224,7 @@ public class SyncAudioController : NetworkBehaviour
 
     public void NotifyAudioChange(AudioSyncMarker marker, AudioState state)
     {
-        if (!IsOwner || !IsSpawned) return;
-
+        if (!IsOwner) return;
         RequestSetAudioServerRpc(marker.Id, state);
     }
 
@@ -232,7 +232,6 @@ public class SyncAudioController : NetworkBehaviour
     void RequestSetAudioServerRpc(string id, AudioState state, ServerRpcParams rpcParams = default)
     {
         if (!IsSenderOwner(rpcParams)) return;
-
         ApplyAudio(id, state);
     }
 
@@ -250,7 +249,8 @@ public class SyncAudioController : NetworkBehaviour
 
     bool IsSenderOwner(ServerRpcParams rpcParams)
     {
-        return rpcParams.Receive.SenderClientId == OwnerClientId;
+        var sender = rpcParams.Receive.SenderClientId;
+        return sender == OwnerClientId;
     }
 
     #endregion

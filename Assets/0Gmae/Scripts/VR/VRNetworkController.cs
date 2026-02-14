@@ -134,7 +134,6 @@ public class VRNetworkController : MonoBehaviour
             StopIfRunning();
 
             SetStatus("Joining Relay...");
-            Debug.Log(Application.cloudProjectId);
 
             //var allocation =
             //    await RelayService.Instance.JoinAllocationAsync(joinCode);

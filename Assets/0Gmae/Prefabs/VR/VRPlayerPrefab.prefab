@@ -6438,6 +6438,7 @@ MonoBehaviour:
   allCamera:
   - {fileID: 846100543756191518}
   - {fileID: 7786528779758276497}
+  syncAudioList: []
   boardUI: {fileID: 7854619892190634570}
   environment: {fileID: 4038763931929538905}
   startBtn: {fileID: 4721085512698885604}
@@ -8791,6 +8792,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: World Space Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129260341288889246, guid: f4b12ddd1d88e3140809ecfcde201baa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8544821773056940695, guid: f4b12ddd1d88e3140809ecfcde201baa,
         type: 3}

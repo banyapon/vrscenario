@@ -81,7 +81,7 @@ public class CCTVController : MonoBehaviour
         if (IsOpen) return;
 
         activeViewer = viewer;
-        activeViewer.SetAudio(true);
+        activeViewer.SetAudio(false);
         RectTransform viewRect = viewer.ViewportRect;
 
         viewRect.SetParent(canvasRoot);
@@ -94,7 +94,7 @@ public class CCTVController : MonoBehaviour
     public void CloseViewer()
     {
         if (!IsOpen) return;
-        activeViewer.SetAudio(false);
+        activeViewer.SetAudio(true);
         RectTransform viewRect = activeViewer.ViewportRect;
 
         viewRect.DOSizeDelta(activeViewer.RectTransform.sizeDelta, tweenDuration)
