@@ -9,8 +9,9 @@ using UnityEngine.XR.Interaction.Toolkit.UI;
 
 public class VRManager : NetworkBehaviour
 {
-    [Header("Camera")]
+    //[Header("Camera")]
     [SerializeField] private List<Camera> allCamera = new List<Camera>();
+    public List<SyncAudioController> syncAudioList = new List<SyncAudioController>();
 
     [Header("Scenario")]
     public GameObject boardUI;
@@ -40,6 +41,7 @@ public class VRManager : NetworkBehaviour
     private void Start()
     {
         InitializeScenarioButtons();
+        syncAudioList.Add(GetComponent<SyncAudioController>());
     }
     private void InitializeScenarioButtons()
     {
@@ -140,6 +142,20 @@ public class VRManager : NetworkBehaviour
     public void RemoveNullCameras()
     {
         allCamera.RemoveAll(item => item == null);
+    }
+
+    public void SetMute(bool value)
+    {
+        RemoveNullSyncAudio();
+        foreach (var item in syncAudioList)
+        {
+            item.SetMute(value);
+        }
+    }
+
+    public void RemoveNullSyncAudio()
+    {
+        syncAudioList.RemoveAll(item => item == null);
     }
 
     void SetAllCamerasEnabled(bool value)

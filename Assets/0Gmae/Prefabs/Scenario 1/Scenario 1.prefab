@@ -17631,6 +17631,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2295515808547033848, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: Button_-340184
+      objectReference: {fileID: 0}
     - target: {fileID: 2424530390892772752, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -19274,10 +19279,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Quiz UI
       objectReference: {fileID: 0}
+    - target: {fileID: 7299316246934370364, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+        type: 3}
+      propertyPath: id
+      value: Button 1_-340634
+      objectReference: {fileID: 0}
     - target: {fileID: 7502468295876903717, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
       propertyPath: id
       value: UI_-231188
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017208004284855245, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+        type: 3}
+      propertyPath: id
+      value: Button 2_-340682
       objectReference: {fileID: 0}
     - target: {fileID: 8309902865433484020, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
@@ -21063,6 +21078,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2933544916152683999}
     m_Modifications:
+    - target: {fileID: 437923473953816951, guid: d66f38f033df54741a9e187829282ceb,
+        type: 3}
+      propertyPath: id
+      value: Button_-340532
+      objectReference: {fileID: 0}
     - target: {fileID: 6013044403271598699, guid: d66f38f033df54741a9e187829282ceb,
         type: 3}
       propertyPath: m_text
@@ -23280,6 +23300,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6630176241693338395, guid: 746b3d83a78304749a1ba17903d2303b,
+        type: 3}
+      propertyPath: id
+      value: Back To Lobby Button_-338298
+      objectReference: {fileID: 0}
     - target: {fileID: 7153765746163743041, guid: 746b3d83a78304749a1ba17903d2303b,
         type: 3}
       propertyPath: m_text
@@ -23310,6 +23335,11 @@ PrefabInstance:
       propertyPath: 'stateUIs.Array.data[6]'
       value: 
       objectReference: {fileID: 7105781416837258083}
+    - target: {fileID: 7840348171087807217, guid: 746b3d83a78304749a1ba17903d2303b,
+        type: 3}
+      propertyPath: id
+      value: Play Again Button_-338250
+      objectReference: {fileID: 0}
     - target: {fileID: 8200348932809743011, guid: 746b3d83a78304749a1ba17903d2303b,
         type: 3}
       propertyPath: m_text

@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class AudioSyncMarker : SyncMarker
 {
+    public bool playOnEnable;
     AudioSource source;
-    ScenarioAudioController controller;
+    SyncAudioController controller;
 
     #region Unity
 
@@ -15,8 +16,14 @@ public class AudioSyncMarker : SyncMarker
         if (!source)
             source = gameObject.AddComponent<AudioSource>();
 
-        controller = GetComponentInParent<ScenarioAudioController>();
+        source.playOnAwake = false;
+        controller = GetComponentInParent<SyncAudioController>();
         controller?.RegisterMarker(this);
+    }
+
+    private void OnEnable()
+    {
+        if (playOnEnable) Play();
     }
 
     void OnDestroy()
@@ -35,6 +42,7 @@ public class AudioSyncMarker : SyncMarker
 
     void Notify(AudioState state)
     {
+        ApplyState(state);
         controller?.NotifyAudioChange(this, state);
     }
 
@@ -55,7 +63,7 @@ public class AudioSyncMarker : SyncMarker
 
     public void SetMute(bool value)
     {
-        source.mute = value;
+        if (source) source.mute = value;
     }
 
     #endregion

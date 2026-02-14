@@ -373,13 +373,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8347775817851818447}
+  - component: {fileID: 437923473953816951}
   - component: {fileID: 8738217950251763611}
   - component: {fileID: 3065879722669653117}
   - component: {fileID: 5085713050302842067}
   - component: {fileID: 1603901582654685707}
   - component: {fileID: 1430480257286858772}
   - component: {fileID: 2576509487783009988}
-  - component: {fileID: 437923473953816951}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -408,6 +408,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -212.00002}
   m_SizeDelta: {x: 119, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &437923473953816951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6667275700104245688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc485f4ca270272448956e01b7fafe2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Button_-179886
+  playOnEnable: 0
 --- !u!222 &8738217950251763611
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -655,16 +669,3 @@ MonoBehaviour:
   m_MinDistance: 0.15
   m_ClampToMaxDistance: 1
   m_MaxDistance: 0
---- !u!114 &437923473953816951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6667275700104245688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc485f4ca270272448956e01b7fafe2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: Button_-179886

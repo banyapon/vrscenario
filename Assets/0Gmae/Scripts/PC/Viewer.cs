@@ -101,4 +101,20 @@ public class Viewer : MonoBehaviour
     {
         cameraList.RemoveAll(item => item == null);
     }
+
+    public void SetAudio(bool value)
+    {
+        GetVRManager()?.SetMute(value);
+    }
+
+    VRManager GetVRManager()
+    {
+        VRManager[] vRManagers = FindObjectsByType<VRManager>(FindObjectsSortMode.None);
+        foreach (var vrManager in vRManagers)
+        {
+            if (vrManager.OwnerClientId == ClientId) return vrManager;
+        }
+
+        return null;
+    }
 }

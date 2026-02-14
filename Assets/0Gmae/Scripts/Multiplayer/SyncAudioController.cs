@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-public class ScenarioAudioController : NetworkBehaviour
+public class SyncAudioController : NetworkBehaviour
 {
     public AudioSource BGSource { get; private set; }
     public AudioSource SFXSource { get; private set; }
@@ -101,7 +101,7 @@ public class ScenarioAudioController : NetworkBehaviour
         SetMute(!IsOwner);
     }
 
-    void SetMute(bool value)
+    public void SetMute(bool value)
     {
         if (isMuted == value) return;
 

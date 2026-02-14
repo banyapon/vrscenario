@@ -62,7 +62,12 @@ public class Scenario : NetworkBehaviour
         if ((IsServer || IsHost) && CCTVController.Instance != null)
         {
             SetCamera(true);
-            GetVRManager()?.AppendAndSyncCameras(allCamera);
+            VRManager manager = GetVRManager();
+            if (manager != null)
+            {
+                manager.AppendAndSyncCameras(allCamera);
+                manager.syncAudioList.Add(GetComponent<SyncAudioController>());
+            }
         }
 
     }
