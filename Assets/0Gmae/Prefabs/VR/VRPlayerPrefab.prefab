@@ -6452,7 +6452,7 @@ MonoBehaviour:
     scenarioPrefab: {fileID: 4504585982904447517, guid: a416b1980f046e849b9e8295b54054c7,
       type: 3}
   - scenarioBtn: {fileID: 2735517774757053569}
-    scenarioPrefab: {fileID: 4504585982904447517, guid: 23affe99d35848a4cb8ee4b08fee84d6,
+    scenarioPrefab: {fileID: 8247558754193092410, guid: 23affe99d35848a4cb8ee4b08fee84d6,
       type: 3}
   - scenarioBtn: {fileID: 7802893632452942947}
     scenarioPrefab: {fileID: 8873530353989227592, guid: 05810d6b0e8873e4a8be8e2c6b4717ef,
