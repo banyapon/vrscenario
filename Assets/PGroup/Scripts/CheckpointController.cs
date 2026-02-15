@@ -44,14 +44,16 @@ namespace PGroup
             if(steps[index].Trigger != null) steps[index].Trigger.SetActive(true);
             if (steps[index].hudPanels.Length == 1)
             {
-                //Debug.Log(steps[index].hudPanels.Length);
                 steps[index].hudPanels[0].panel.SetActive(true);
-                delay?.Kill();
-                delay = DOVirtual.DelayedCall(steps[index].hudPanels[0].duration, () =>
+                if (steps[index].hudPanels[0].duration != -1)
                 {
-                    steps[index].hudPanels[0].panel.SetActive(false);
-                    if (steps[index].Trigger == null) NextStep();
-                });
+                    delay?.Kill();
+                    delay = DOVirtual.DelayedCall(steps[index].hudPanels[0].duration, () =>
+                    {
+                        steps[index].hudPanels[0].panel.SetActive(false);
+                        if (steps[index].Trigger == null) NextStep();
+                    });
+                }
             }
             else if (steps[index].hudPanels.Length > 1)
             {

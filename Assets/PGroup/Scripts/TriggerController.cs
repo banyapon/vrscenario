@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 namespace PGroup
@@ -5,8 +6,14 @@ namespace PGroup
     public class TriggerController : MonoBehaviour
     {
         [SerializeField] private GameplayController gameplayController;
+        [SerializeField] private bool isNextStep;
+        [SerializeField] private GameObject done;
+
         private GameObject[] triggers;
         private int currentTrigger;
+        private Tween delay = null;
+
+
         private void Start()
         {
             SetupTriggers();
@@ -38,8 +45,24 @@ namespace PGroup
                 }
                 else
                 {
-                    obj.SetActive(false);
-                    gameplayController.NextStep();
+                    if (isNextStep)
+                    {
+                        obj.SetActive(false);
+                        gameplayController.NextStep();
+                    }
+                    else
+                    {
+                        obj.SetActive(false);
+                        if (done != null)
+                        {
+                            done.SetActive(true);
+                            delay?.Kill();
+                            delay = DOVirtual.DelayedCall(3, () =>
+                            {
+                                done.SetActive(false);
+                            });
+                        }
+                    }
                 }
             }
         }

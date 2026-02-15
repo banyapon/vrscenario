@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,13 +9,18 @@ namespace PGroup
         [SerializeField] private CheckpointController[] checkpointControllers;
         [SerializeField] private SummaryUI summaryUI;
 
+        public Transform player;
+
         private List<bool> scoreList = new List<bool>();
         private int currentCheckpoint;
         Scenario scenario;
 
+        public static Action<int> OnCheckpointEnd = delegate { };
+
         private void Awake()
         {
             scenario = GetComponentInParent<Scenario>();
+            player = Camera.main.transform.parent.parent;
         }
 
         private void Start()
@@ -34,6 +40,7 @@ namespace PGroup
                 scoreList.Add(true);
                 EndScenario();
             }
+            OnCheckpointEnd?.Invoke(currentCheckpoint);
         }
         public void NextStep()
         {
