@@ -97,6 +97,7 @@ namespace Boy
 
         void SetColliders(bool value)
         {
+            if (colliders == null) return;
             foreach (var c in colliders)
             {
                 if (c == null) continue;
