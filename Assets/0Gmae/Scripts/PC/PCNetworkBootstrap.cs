@@ -77,7 +77,6 @@ public class PCNetworkBootstrap : MonoBehaviour
         //var code = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
 
         Debug.Log("JOIN CODE = " + code);
-        Debug.Log(Application.cloudProjectId);
 
         header.text = $"PC Host";
 

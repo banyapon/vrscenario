@@ -11,8 +11,6 @@ public class CCTVController : MonoBehaviour
     [SerializeField] private Transform viewerRoot;
     [SerializeField] private Viewer viewerPrefab;
     [SerializeField] private RectTransform mainViewport;
-    [SerializeField] private Button nextButton;
-    [SerializeField] private Button backButton;
     [SerializeField] private Button closeButton;
     [SerializeField] private GameObject disconnectWarning;
     [SerializeField] private GameObject noPlayerText;
@@ -21,7 +19,7 @@ public class CCTVController : MonoBehaviour
     [SerializeField] private float tweenDuration = 0.35f;
     [SerializeField] private Ease tweenEase = Ease.OutCubic;
 
-    private readonly Dictionary<ulong, Viewer> viewers = new();
+    public readonly Dictionary<ulong, Viewer> viewers = new();
     private Viewer activeViewer;
     private Transform canvasRoot;
 
@@ -33,8 +31,6 @@ public class CCTVController : MonoBehaviour
         canvasRoot = GetComponentInParent<Canvas>().transform;
         closeButton.onClick.AddListener(CloseViewer);
         closeButton.gameObject.SetActive(false);
-        nextButton.onClick.AddListener(() => { if (activeViewer) activeViewer.Index += 1; });
-        backButton.onClick.AddListener(() => { if (activeViewer) activeViewer.Index -= 1; });
     }
 
     private void Update()
