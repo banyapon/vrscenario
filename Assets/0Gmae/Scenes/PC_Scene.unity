@@ -335,7 +335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1115,7 +1115,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCountText: {fileID: 675495348}
+  noPlayerText: {fileID: 71488071}
+  viewerPrefab: {fileID: 9007589002111096891, guid: e6baeb1dd7262c44ab2be7ffe566ebcb,
+    type: 3}
   currentCategory: 0
+  contentCategory: {fileID: 1723994629}
   categories:
   - {fileID: 729323192}
   - {fileID: 404154531}
@@ -2547,7 +2551,6 @@ MonoBehaviour:
   mainViewport: {fileID: 34641032}
   closeButton: {fileID: 1808519288}
   disconnectWarning: {fileID: 195265718}
-  noPlayerText: {fileID: 71488071}
   tweenDuration: 0.35
   tweenEase: 9
 --- !u!114 &881636127

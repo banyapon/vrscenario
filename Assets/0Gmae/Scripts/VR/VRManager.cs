@@ -85,6 +85,31 @@ public class VRManager : NetworkBehaviour
 
         boardUI.SetActive(false);
         environment.SetActive(false);
+
+        CCTVController cctv = CCTVController.Instance;
+        if ((IsServer || IsHost) && cctv != null)
+        {
+            CCTVCategory category = CCTVCategory.Scenario1;
+            switch (index)
+            {
+                case 1:
+                    category = CCTVCategory.Scenario2;
+                    break;
+                case 2:
+                    category = CCTVCategory.Scenario3;
+                    break;
+                case 3:
+                    category = CCTVCategory.Scenario4;
+                    break;
+                case 4:
+                    category = CCTVCategory.Scenario5;
+                    break;
+            }
+
+            cctv.SetViewerCategory(OwnerClientId, category);
+        }
+
+        print($"Owner {OwnerClientId}: scenario {index}");
     }
 
     public override void OnNetworkSpawn()

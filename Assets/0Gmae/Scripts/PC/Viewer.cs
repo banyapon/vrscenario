@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Viewer : MonoBehaviour
 {
+    [SerializeField] private CCTVCategory category = CCTVCategory.Lobby;
     [SerializeField] private int index = -1;
 
     [Header("Reference")]
@@ -42,6 +43,13 @@ public class Viewer : MonoBehaviour
             renderTexture = new RenderTexture(1920, 1080, 24);
             cameraList[index].targetTexture = renderTexture;
             viewportImage.texture = renderTexture;
+        }
+    }
+
+    public CCTVCategory Category { get => category;
+        set {
+            category = value;
+            PCUIManager.Instance.SetViewerParent(this);
         }
     }
 

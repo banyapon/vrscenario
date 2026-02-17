@@ -82,6 +82,8 @@ public class Scenario : NetworkBehaviour
         if ((IsServer || IsHost) && cctv != null)
         {
             cctv.SetCameraIndex(OwnerClientId, 0);
+            cctv.SetViewerCategory(OwnerClientId, CCTVCategory.Lobby);
+            print($"Scenario OnDespawn {OwnerClientId}");
         }
     }
 

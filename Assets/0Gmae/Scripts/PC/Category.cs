@@ -5,8 +5,9 @@ public class Category : MonoBehaviour
 {
     public CCTVCategory CCTVCategory = CCTVCategory.Lobby;
     public GameObject header;
+    public Transform rootGrid;
 
-
+    bool showHeader = true;
 #if UNITY_EDITOR
     private void OnValidate()
     {
@@ -15,8 +16,14 @@ public class Category : MonoBehaviour
     }
 #endif
 
+    private void Update()
+    {
+        header.SetActive(showHeader && rootGrid.childCount > 0);
+    }
+
     public void SetHeaderActive(bool value)
     {
-        header.SetActive(value);
+        showHeader = value;
+        //header.SetActive(value);
     }
 }

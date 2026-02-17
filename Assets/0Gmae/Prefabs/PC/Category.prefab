@@ -308,6 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CCTVCategory: 1
   header: {fileID: 5043024293355280025}
+  rootGrid: {fileID: 3409206765737490493}
 --- !u!222 &6165815146824591487
 CanvasRenderer:
   m_ObjectHideFlags: 0

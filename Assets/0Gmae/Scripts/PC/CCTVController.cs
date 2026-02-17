@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,7 +14,6 @@ public class CCTVController : MonoBehaviour
     [SerializeField] private RectTransform mainViewport;
     [SerializeField] private Button closeButton;
     [SerializeField] private GameObject disconnectWarning;
-    [SerializeField] private GameObject noPlayerText;
 
     [Header("Animation")]
     [SerializeField] private float tweenDuration = 0.35f;
@@ -36,14 +36,13 @@ public class CCTVController : MonoBehaviour
     private void Update()
     {
         disconnectWarning.SetActive(activeViewer == null);
-        noPlayerText.SetActive(viewerRoot.childCount == 0);
     }
 
     public void RegisterVRCamera(ulong clientId, List<Camera> vrCamera)
     {
         if (viewers.ContainsKey(clientId)) return;
 
-        Viewer viewer = Instantiate(viewerPrefab, viewerRoot);
+        Viewer viewer = PCUIManager.Instance.InstantiateViewer();
         viewer.Initialize(clientId, vrCamera);
 
         viewers.Add(clientId, viewer);
@@ -70,6 +69,12 @@ public class CCTVController : MonoBehaviour
     {
         if (!viewers.TryGetValue(clientId, out var viewer)) return;
         viewer.Index = index;
+    }
+
+    public void SetViewerCategory(ulong clientId, CCTVCategory category)
+    {
+        if (!viewers.TryGetValue(clientId, out var viewer)) return;
+        viewer.Category = category;
     }
 
     public void OpenViewer(Viewer viewer)

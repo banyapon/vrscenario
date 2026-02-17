@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -7,10 +8,15 @@ public class PCUIManager : MonoBehaviour
 {
     public static PCUIManager Instance { get; private set; }
 
-    public TMP_Text playerCountText;
+    [SerializeField] private TMP_Text playerCountText;
+    public GameObject noPlayerText;
+
+    [Header("Viewer")]
+    [SerializeField] private Viewer viewerPrefab;
 
     [Header("Category")]
     [SerializeField] private CCTVCategory currentCategory;
+    public RectTransform contentCategory;
     public Category[] categories;
     public Button[] categoryButtons;
     List<Image> categoryImgs = new();
@@ -31,6 +37,13 @@ public class PCUIManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
         InitializeExit();
         InitializeCategory();
     }
@@ -39,6 +52,21 @@ public class PCUIManager : MonoBehaviour
     {
         playerCountText.text = $"{CCTVController.Instance.viewers.Count}";
     }
+
+    public Viewer InstantiateViewer()
+    {
+        Category category = FindCategory(CCTVCategory.Lobby);
+        Viewer viewer = Instantiate(viewerPrefab, category.rootGrid);
+        return viewer;
+    }
+
+    public void SetViewerParent(Viewer viewer)
+    {
+        Category category = FindCategory(viewer.Category);
+        viewer.transform.SetParent(category.rootGrid);
+        Rebuild();
+    }
+
     public void InitializeCategory()
     {
         for (int i = 0; i < categoryButtons.Length; i++)
@@ -67,10 +95,25 @@ public class PCUIManager : MonoBehaviour
             }
             else
             {
-                c.gameObject.SetActive(c.CCTVCategory.Equals(currentCategory));
+                c.gameObject.SetActive(currentCategory.Equals(c.CCTVCategory));
                 c.SetHeaderActive(false);
             }
         }
+
+        Rebuild();
+    }
+
+    public void Rebuild(RectTransform target = null)
+    {
+        if (target == null) target = contentCategory;
+        StartCoroutine(_Rebuild(target));
+    }
+
+    IEnumerator _Rebuild(RectTransform target)
+    {
+        yield return null;
+        Canvas.ForceUpdateCanvases();
+        LayoutRebuilder.ForceRebuildLayoutImmediate(target);
     }
 
     void UpdateCategoryButton()
@@ -85,6 +128,19 @@ public class PCUIManager : MonoBehaviour
 
         color.a = 1;
         categoryImgs[(int)currentCategory].color = color;
+    }
+
+    Category FindCategory(CCTVCategory category)
+    {
+        foreach (var c in categories)
+        {
+            if (c.CCTVCategory.Equals(category))
+            {
+                return c;
+            }
+        }
+
+        return null;
     }
 
     public void InitializeExit()
