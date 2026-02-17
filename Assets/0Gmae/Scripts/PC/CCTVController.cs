@@ -9,8 +9,6 @@ public class CCTVController : MonoBehaviour
     public static CCTVController Instance;
 
     [Header("UI")]
-    [SerializeField] private Transform viewerRoot;
-    [SerializeField] private Viewer viewerPrefab;
     [SerializeField] private RectTransform mainViewport;
     [SerializeField] private Button closeButton;
     [SerializeField] private GameObject disconnectWarning;

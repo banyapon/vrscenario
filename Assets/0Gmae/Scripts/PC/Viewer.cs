@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,9 @@ public class Viewer : MonoBehaviour
     [SerializeField] private int index = -1;
 
     [Header("Reference")]
+    [SerializeField] private TMP_Text userNameText;
+    [SerializeField] private TMP_Text categoryNameText;
+    [SerializeField] private Button expandBtn;
     [SerializeField] private RawImage viewportImage;
     [SerializeField] private List<Camera> cameraList = new List<Camera>();
 
@@ -50,6 +54,7 @@ public class Viewer : MonoBehaviour
         set {
             category = value;
             PCUIManager.Instance.SetViewerParent(this);
+            categoryNameText.text = category.ToString();
         }
     }
 
@@ -63,6 +68,10 @@ public class Viewer : MonoBehaviour
         OriginalSize = ViewportRect.sizeDelta;
 
         ViewportButton.onClick.AddListener(OnClick);
+        expandBtn.onClick.AddListener(() =>
+        {
+            PCUIManager.Instance.ExpandViewer(this);
+        });
     }
 
     public void UpdateCameraList(List<Camera> _cameraList)

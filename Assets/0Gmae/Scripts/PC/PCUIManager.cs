@@ -51,22 +51,44 @@ public class PCUIManager : MonoBehaviour
     private void Update()
     {
         playerCountText.text = $"{CCTVController.Instance.viewers.Count}";
+        SetActiveNoPlayerText();
     }
 
-    public Viewer InstantiateViewer()
+    void SetActiveNoPlayerText()
     {
-        Category category = FindCategory(CCTVCategory.Lobby);
-        Viewer viewer = Instantiate(viewerPrefab, category.rootGrid);
-        return viewer;
+        if (currentCategory.Equals(CCTVCategory.All))
+        {
+            noPlayerText.SetActive(CCTVController.Instance.viewers.Count == 0);
+            return;
+        }
+
+        Category category = null;
+        switch (currentCategory)
+        {
+            case CCTVCategory.Lobby:
+                category = FindCategory(CCTVCategory.Lobby);
+                break;
+            case CCTVCategory.Scenario1:
+                category = FindCategory(CCTVCategory.Scenario1);
+                break;
+            case CCTVCategory.Scenario2:
+                category = FindCategory(CCTVCategory.Scenario2);
+                break;
+            case CCTVCategory.Scenario3:
+                category = FindCategory(CCTVCategory.Scenario3);
+                break;
+            case CCTVCategory.Scenario4:
+                category = FindCategory(CCTVCategory.Scenario4);
+                break;
+            case CCTVCategory.Scenario5:
+                category = FindCategory(CCTVCategory.Scenario5);
+                break;
+        }
+
+        noPlayerText.SetActive(category.rootGrid.childCount == 0);
     }
 
-    public void SetViewerParent(Viewer viewer)
-    {
-        Category category = FindCategory(viewer.Category);
-        viewer.transform.SetParent(category.rootGrid);
-        Rebuild();
-    }
-
+    #region Initialize
     public void InitializeCategory()
     {
         for (int i = 0; i < categoryButtons.Length; i++)
@@ -83,6 +105,30 @@ public class PCUIManager : MonoBehaviour
         UpdateCategoryButton();
         UpdateCategoryUI();
     }
+    public void InitializeExit()
+    {
+        exitBtn.onClick.AddListener(() =>
+        {
+            exitPopup.SetActive(true);
+        });
+
+        exitCancelBtn.onClick.AddListener(() =>
+        {
+            exitPopup.SetActive(false);
+        });
+        exitConfirmBtn.onClick.AddListener(() =>
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
+        });
+    }
+
+    #endregion
+
+    #region Category
 
     void UpdateCategoryUI()
     {
@@ -102,20 +148,6 @@ public class PCUIManager : MonoBehaviour
 
         Rebuild();
     }
-
-    public void Rebuild(RectTransform target = null)
-    {
-        if (target == null) target = contentCategory;
-        StartCoroutine(_Rebuild(target));
-    }
-
-    IEnumerator _Rebuild(RectTransform target)
-    {
-        yield return null;
-        Canvas.ForceUpdateCanvases();
-        LayoutRebuilder.ForceRebuildLayoutImmediate(target);
-    }
-
     void UpdateCategoryButton()
     {
         Color color = categoryImgs[(int)currentCategory].color;
@@ -143,26 +175,45 @@ public class PCUIManager : MonoBehaviour
         return null;
     }
 
-    public void InitializeExit()
-    {
-        exitBtn.onClick.AddListener(() =>
-        {
-            exitPopup.SetActive(true);
-        });
+    #endregion
 
-        exitCancelBtn.onClick.AddListener(() =>
-        {
-            exitPopup.SetActive(false);
-        });
-        exitConfirmBtn.onClick.AddListener(() =>
-        {
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-#else
-            Application.Quit();
-#endif
-        });
+    #region Viewer
+    public Viewer InstantiateViewer()
+    {
+        Category category = FindCategory(CCTVCategory.Lobby);
+        Viewer viewer = Instantiate(viewerPrefab, category.rootGrid);
+        return viewer;
     }
+
+    public void SetViewerParent(Viewer viewer)
+    {
+        Category category = FindCategory(viewer.Category);
+        viewer.transform.SetParent(category.rootGrid);
+        Rebuild();
+    }
+
+    public void ExpandViewer(Viewer viewer)
+    {
+
+    }
+    #endregion
+
+    #region Utility
+
+    public void Rebuild(RectTransform target = null)
+    {
+        if (target == null) target = contentCategory;
+        StartCoroutine(_Rebuild(target));
+    }
+
+    IEnumerator _Rebuild(RectTransform target)
+    {
+        yield return null;
+        Canvas.ForceUpdateCanvases();
+        LayoutRebuilder.ForceRebuildLayoutImmediate(target);
+    }
+
+    #endregion
 }
 
 public enum CCTVCategory { All, Lobby, Scenario1, Scenario2, Scenario3, Scenario4, Scenario5 };
