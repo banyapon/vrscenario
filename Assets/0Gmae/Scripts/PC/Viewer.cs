@@ -14,15 +14,11 @@ public class Viewer : MonoBehaviour
     [SerializeField] private TMP_Text categoryNameText;
     [SerializeField] private Button expandBtn;
     [SerializeField] private RawImage viewportImage;
-    [SerializeField] private List<Camera> cameraList = new List<Camera>();
+    public List<Camera> cameraList = new List<Camera>();
 
     public ulong ClientId { get; private set; }
-    public Vector2 OriginalSize { get; private set; }
-    public RectTransform ViewportRect => viewportImage.rectTransform;
-    public Button ViewportButton => viewportImage.GetComponent<Button>();
 
-    private RenderTexture renderTexture;
-    public RectTransform RectTransform => GetComponent<RectTransform>();
+    [HideInInspector] public RenderTexture renderTexture;
 
     public int Index { get => index;
         set {
@@ -43,9 +39,17 @@ public class Viewer : MonoBehaviour
             if (index >= cameraList.Count) index = 0;
             else if (index < 0) index = cameraList.Count - 1;
 
-            if (renderTexture != null) Destroy(renderTexture);
-            renderTexture = new RenderTexture(1920, 1080, 24);
-            cameraList[index].targetTexture = renderTexture;
+            if (cameraList[index].targetTexture != null)
+            {
+                renderTexture = cameraList[index].targetTexture;
+            }
+            else
+            {
+                if (renderTexture != null) Destroy(renderTexture);
+                renderTexture = new RenderTexture(1280, 720, 24);
+                cameraList[index].targetTexture = renderTexture;
+            }
+
             viewportImage.texture = renderTexture;
         }
     }
@@ -65,19 +69,15 @@ public class Viewer : MonoBehaviour
         renderTexture = new RenderTexture(1920, 1080, 24);
         Index = 0;
         viewportImage.texture = renderTexture;
-        OriginalSize = ViewportRect.sizeDelta;
 
-        ViewportButton.onClick.AddListener(OnClick);
-        expandBtn.onClick.AddListener(() =>
-        {
-            PCUIManager.Instance.ExpandViewer(this);
-        });
+        expandBtn.onClick.AddListener(Expand);
     }
 
     public void UpdateCameraList(List<Camera> _cameraList)
     {
         cameraList = _cameraList;
         CheckCameraIndex();
+        PCUIManager.Instance.UpdateOtherCamera();
     }
 
     public void CheckCameraIndex()
@@ -85,12 +85,9 @@ public class Viewer : MonoBehaviour
         if (index >= cameraList.Count) Index = 0;
     }
 
-    private void Update()
+    public void SetIndex(int index)
     {
-        if (ViewportRect.parent == transform)
-        {
-            ViewportRect.sizeDelta = RectTransform.sizeDelta;
-        }
+        Index = index;
     }
 
     private void OnDestroy()
@@ -106,12 +103,11 @@ public class Viewer : MonoBehaviour
         }
     }
 
-    public void OnClick()
+    public void Expand()
     {
-        if (!CCTVController.Instance.IsOpen)
+        if (!PCUIManager.Instance.IsOpen)
         {
-            DOTween.Kill(viewportImage);
-            CCTVController.Instance.OpenViewer(this);
+            PCUIManager.Instance.ExpandViewer(this);
         }
     }
     public void ClearNullInList()

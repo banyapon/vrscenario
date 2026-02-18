@@ -12,7 +12,18 @@ public class PCUIManager : MonoBehaviour
     public GameObject noPlayerText;
 
     [Header("Viewer")]
+    public Viewer activeViewer;
     [SerializeField] private Viewer viewerPrefab;
+    [SerializeField] private GameObject viewerUI;
+    [SerializeField] private CameraView cameraViewPrefab;
+    [Space(20)]
+    [SerializeField] private RawImage mainViewPort;
+    [SerializeField] private Transform otherCameraParent;
+    [SerializeField] private Button backBtn;
+    [SerializeField] private TMP_Text categoryNameText;
+
+
+    public bool IsOpen => activeViewer != null;
 
     [Header("Category")]
     [SerializeField] private CCTVCategory currentCategory;
@@ -46,12 +57,14 @@ public class PCUIManager : MonoBehaviour
         Instance = this;
         InitializeExit();
         InitializeCategory();
+        InitializeViewer();
     }
 
     private void Update()
     {
         playerCountText.text = $"{CCTVController.Instance.viewers.Count}";
         SetActiveNoPlayerText();
+        ViewerUpdate();
     }
 
     void SetActiveNoPlayerText()
@@ -178,6 +191,24 @@ public class PCUIManager : MonoBehaviour
     #endregion
 
     #region Viewer
+
+    void InitializeViewer()
+    {
+        viewerUI.SetActive(false);
+        backBtn.onClick.AddListener(CloseViewer);
+    }
+
+    void ViewerUpdate()
+    {
+        if (activeViewer == null) return;
+        categoryNameText.text = activeViewer.Category.ToString();
+
+        if (mainViewPort.texture != activeViewer.renderTexture)
+        {
+            mainViewPort.texture = activeViewer.renderTexture;
+        }
+    }
+
     public Viewer InstantiateViewer()
     {
         Category category = FindCategory(CCTVCategory.Lobby);
@@ -194,8 +225,40 @@ public class PCUIManager : MonoBehaviour
 
     public void ExpandViewer(Viewer viewer)
     {
-
+        if (IsOpen || viewerUI.activeInHierarchy) return;
+        activeViewer = viewer;
+        UpdateOtherCamera();
+        viewerUI.SetActive(true);
     }
+
+    public void CloseViewer()
+    {
+        if (!IsOpen && !viewerUI.activeInHierarchy) return;
+        activeViewer = null;
+        viewerUI.SetActive(false);
+        ClearOtherCamera();
+    }
+
+    public void UpdateOtherCamera()
+    {
+        if (!IsOpen) return;
+        ClearOtherCamera();
+        for (int i = 0; i < activeViewer.cameraList.Count; i++)
+        {
+            Camera c = activeViewer.cameraList[i];
+            CameraView cameraView = Instantiate(cameraViewPrefab, otherCameraParent);
+            cameraView.Initialize(i, c, activeViewer.SetIndex);
+        }
+    }
+
+    public void ClearOtherCamera()
+    {
+        for (int i = otherCameraParent.childCount - 1; i >= 0; i--)
+        {
+            Destroy(otherCameraParent.GetChild(i).gameObject);
+        }
+    }
+
     #endregion
 
     #region Utility
