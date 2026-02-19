@@ -83,6 +83,7 @@ public class Scenario : NetworkBehaviour
         {
             cctv.SetCameraIndex(OwnerClientId, 0);
             cctv.SetViewerCategory(OwnerClientId, CCTVCategory.Lobby);
+            GetVRManager()?.AppendAndSyncCameras(null);
             print($"Scenario OnDespawn {OwnerClientId}");
         }
     }

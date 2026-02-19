@@ -108,8 +108,6 @@ public class VRManager : NetworkBehaviour
 
             cctv.SetViewerCategory(OwnerClientId, category);
         }
-
-        print($"Owner {OwnerClientId}: scenario {index}");
     }
 
     public override void OnNetworkSpawn()
@@ -151,9 +149,12 @@ public class VRManager : NetworkBehaviour
     public void AppendAndSyncCameras(List<Camera> cameras)
     {
         RemoveNullCameras();
-        foreach (var camera in cameras)
+        if (cameras != null)
         {
-            allCamera.Add(camera);
+            foreach (var camera in cameras)
+            {
+                allCamera.Add(camera);
+            }
         }
 
         if (IsServer && CCTVController.Instance != null)
@@ -177,7 +178,7 @@ public class VRManager : NetworkBehaviour
 
     public void OpenBoardUI()
     {
-        if (!IsOwner) return;
+        if (!IsOwner && !IsServer && !IsHost) return;
         boardUI.SetActive(true);
         environment.SetActive(true);
         CurrentConfig = null;

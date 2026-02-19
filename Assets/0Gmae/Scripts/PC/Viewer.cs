@@ -1,4 +1,3 @@
-using DG.Tweening;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -15,23 +14,15 @@ public class Viewer : MonoBehaviour
     [SerializeField] private Button expandBtn;
     [SerializeField] private RawImage viewportImage;
     public List<Camera> cameraList = new List<Camera>();
+    private Dictionary<int, RenderTexture> renderTextureDict = new Dictionary<int, RenderTexture>();
 
     public ulong ClientId { get; private set; }
-
-    [HideInInspector] public RenderTexture renderTexture;
-
-    public int Index { get => index;
-        set {
+    public int Index
+    {
+        get => index;
+        set
+        {
             if (index == value) return;
-
-            if (cameraList.Count > index && index >= 0)
-            {
-                if (cameraList[index] != null && cameraList[index].targetTexture != null)
-                {
-                    cameraList[index].targetTexture.Release();
-                    cameraList[index].targetTexture = null;
-                }
-            }
 
             index = value;
             ClearNullInList();
@@ -39,20 +30,10 @@ public class Viewer : MonoBehaviour
             if (index >= cameraList.Count) index = 0;
             else if (index < 0) index = cameraList.Count - 1;
 
-            if (cameraList[index].targetTexture != null)
-            {
-                renderTexture = cameraList[index].targetTexture;
-            }
-            else
-            {
-                if (renderTexture != null) Destroy(renderTexture);
-                renderTexture = new RenderTexture(1280, 720, 24);
-                cameraList[index].targetTexture = renderTexture;
-            }
-
-            viewportImage.texture = renderTexture;
+            viewportImage.texture = GetOrCreateRenderTexture(index);
         }
     }
+
 
     public CCTVCategory Category { get => category;
         set {
@@ -66,17 +47,18 @@ public class Viewer : MonoBehaviour
     {
         ClientId = clientId;
         cameraList = _cameraList;
-        renderTexture = new RenderTexture(1920, 1080, 24);
         Index = 0;
-        viewportImage.texture = renderTexture;
-
         expandBtn.onClick.AddListener(Expand);
     }
 
     public void UpdateCameraList(List<Camera> _cameraList)
     {
+        ClearAllRenderTextures();
         cameraList = _cameraList;
-        CheckCameraIndex();
+        int oldIndex = index;
+        index = -1;
+        if (oldIndex >= cameraList.Count) Index = 0;
+        else Index = oldIndex;
         PCUIManager.Instance.UpdateOtherCamera();
     }
 
@@ -92,15 +74,7 @@ public class Viewer : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (renderTexture != null)
-        {
-            renderTexture.Release();
-            Destroy(renderTexture);
-        }
-
-        if (viewportImage != null) {
-            Destroy(viewportImage.gameObject);
-        }
+        ClearAllRenderTextures();
     }
 
     public void Expand()
@@ -112,6 +86,87 @@ public class Viewer : MonoBehaviour
     }
     public void ClearNullInList()
     {
+        if (cameraList == null) return;
         cameraList.RemoveAll(item => item == null);
     }
+    public RenderTexture GetOrCreateRenderTexture(int camIndex)
+    {
+        ClearNullInList();
+        if (cameraList == null || cameraList.Count == 0)
+            return null;
+
+        if (camIndex >= cameraList.Count)
+            camIndex = 0;
+        else if (camIndex < 0)
+            camIndex = cameraList.Count - 1;
+
+        Camera cam = cameraList[camIndex];
+
+        if (cam == null)
+            return null;
+
+        if (renderTextureDict.TryGetValue(camIndex, out RenderTexture existingRT))
+        {
+            cam.enabled = true;
+            cam.targetTexture = existingRT;
+            return existingRT;
+        }
+
+        RenderTexture newRT = new RenderTexture(1280, 720, 24);
+        newRT.Create();
+
+        cam.targetTexture = newRT;
+        cam.enabled = true;
+
+        renderTextureDict.Add(camIndex, newRT);
+
+        return newRT;
+    }
+    public void ClearAllRenderTextures()
+    {
+        foreach (var pair in renderTextureDict)
+        {
+            int camIndex = pair.Key;
+            RenderTexture rt = pair.Value;
+
+            if (cameraList.Count > camIndex && cameraList[camIndex] != null)
+            {
+                cameraList[camIndex].enabled = false;
+                cameraList[camIndex].targetTexture = null;
+            }
+
+            if (rt != null)
+            {
+                rt.Release();
+                Destroy(rt);
+            }
+        }
+
+        renderTextureDict.Clear();
+    }
+    public void ClearAllExcept()
+    {
+        List<int> keys = new List<int>(renderTextureDict.Keys);
+
+        foreach (int key in keys)
+        {
+            if (key == index)
+                continue;
+
+            if (cameraList.Count > key && cameraList[key] != null)
+            {
+                cameraList[key].enabled = false;
+                cameraList[key].targetTexture = null;
+            }
+
+            if (renderTextureDict[key] != null)
+            {
+                renderTextureDict[key].Release();
+                Destroy(renderTextureDict[key]);
+            }
+
+            renderTextureDict.Remove(key);
+        }
+    }
+
 }
