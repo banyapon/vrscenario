@@ -246,6 +246,7 @@ public class PCUIManager : MonoBehaviour
         activeViewer = null;
         ClearOtherCamera();
         viewerUI.SetActive(false);
+        Rebuild();
     }
 
     public void UpdateOtherCamera()
