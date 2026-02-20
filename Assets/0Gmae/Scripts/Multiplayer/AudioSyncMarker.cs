@@ -47,7 +47,7 @@ public class AudioSyncMarker : SyncMarker
 
     void Notify(AudioState state)
     {
-        //ApplyState(state);
+        ApplyState(state);
         controller?.NotifyAudioChange(this, state);
     }
 
@@ -69,7 +69,6 @@ public class AudioSyncMarker : SyncMarker
 
     public void SetMute(bool value)
     {
-        print($"SetMute: {value}");
         if (source) source.mute = value;
     }
 

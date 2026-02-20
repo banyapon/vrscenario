@@ -8,7 +8,7 @@ public class PCUIManager : MonoBehaviour
 {
     public static PCUIManager Instance { get; private set; }
 
-    public bool isUnmute = true;
+    public bool isMute = true;
     [SerializeField] private TMP_Text playerCountText;
     public GameObject noPlayerText;
 
@@ -64,10 +64,10 @@ public class PCUIManager : MonoBehaviour
 
         muteBtn.onClick.AddListener(() =>
         {
-            isUnmute = !isUnmute;
-            muteBtn.transform.GetChild(0).gameObject.SetActive(isUnmute);
-            muteBtn.transform.GetChild(1).gameObject.SetActive(!isUnmute);
-            print("Set audio here");
+            isMute = !isMute;
+            muteBtn.transform.GetChild(0).gameObject.SetActive(!isMute);
+            muteBtn.transform.GetChild(1).gameObject.SetActive(isMute);
+            activeViewer?.SetAudio(isMute);
         });
     }
 
@@ -235,14 +235,16 @@ public class PCUIManager : MonoBehaviour
     {
         if (IsOpen || viewerUI.activeInHierarchy) return;
         activeViewer = viewer;
+        activeViewer.SetAudio(isMute);
         UpdateOtherCamera();
         viewerUI.SetActive(true);
-        print("Set audio here");
+        activeViewer.SetAudio(isMute);
     }
 
     public void CloseViewer()
     {
         if (!IsOpen && !viewerUI.activeInHierarchy) return;
+        activeViewer.SetAudio(true);
         activeViewer = null;
         ClearOtherCamera();
         viewerUI.SetActive(false);

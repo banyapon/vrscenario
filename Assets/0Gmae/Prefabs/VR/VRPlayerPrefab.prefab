@@ -7964,6 +7964,11 @@ PrefabInstance:
       propertyPath: m_text
       value: Scenario 5
       objectReference: {fileID: 0}
+    - target: {fileID: 3017563426178417286, guid: 32418e9b6384b974b80f5062e11e4b56,
+        type: 3}
+      propertyPath: id
+      value: ScenarioButton 5_-752156
+      objectReference: {fileID: 0}
     - target: {fileID: 4609886188129146484, guid: 32418e9b6384b974b80f5062e11e4b56,
         type: 3}
       propertyPath: id
@@ -8425,6 +8430,11 @@ PrefabInstance:
       propertyPath: m_text
       value: Scenario 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3017563426178417286, guid: 32418e9b6384b974b80f5062e11e4b56,
+        type: 3}
+      propertyPath: id
+      value: ScenarioButton 3_-752158
+      objectReference: {fileID: 0}
     - target: {fileID: 4609886188129146484, guid: 32418e9b6384b974b80f5062e11e4b56,
         type: 3}
       propertyPath: id
@@ -8581,6 +8591,11 @@ PrefabInstance:
       propertyPath: m_text
       value: Scenario 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3017563426178417286, guid: 32418e9b6384b974b80f5062e11e4b56,
+        type: 3}
+      propertyPath: id
+      value: ScenarioButton 4_-752160
+      objectReference: {fileID: 0}
     - target: {fileID: 4609886188129146484, guid: 32418e9b6384b974b80f5062e11e4b56,
         type: 3}
       propertyPath: id
@@ -8736,6 +8751,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: Scenario 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3017563426178417286, guid: 32418e9b6384b974b80f5062e11e4b56,
+        type: 3}
+      propertyPath: id
+      value: ScenarioButton 2_-752154
       objectReference: {fileID: 0}
     - target: {fileID: 4609886188129146484, guid: 32418e9b6384b974b80f5062e11e4b56,
         type: 3}

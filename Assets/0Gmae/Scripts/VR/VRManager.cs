@@ -168,7 +168,7 @@ public class VRManager : NetworkBehaviour
         RemoveNullSyncAudio();
         foreach (var item in syncAudioList)
         {
-            item.SetMute(value);
+            item?.SetMute(value);
         }
     }
 
