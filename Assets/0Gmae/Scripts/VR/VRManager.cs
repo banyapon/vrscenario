@@ -148,24 +148,17 @@ public class VRManager : NetworkBehaviour
 
     public void AppendAndSyncCameras(List<Camera> cameras)
     {
-        RemoveNullCameras();
+        List<Camera> cameraTemp = new List<Camera>();
+        foreach (var camera in allCamera) cameraTemp.Add(camera);
         if (cameras != null)
         {
-            foreach (var camera in cameras)
-            {
-                allCamera.Add(camera);
-            }
+            foreach (var camera in cameras) cameraTemp.Add(camera);
         }
 
         if (IsServer && CCTVController.Instance != null)
         {
-            CCTVController.Instance.UpdateViewer(OwnerClientId, allCamera);
+            CCTVController.Instance.UpdateViewer(OwnerClientId, cameraTemp);
         }
-    }
-
-    public void RemoveNullCameras()
-    {
-        allCamera.RemoveAll(item => item == null);
     }
 
     void SetAllCamerasEnabled(bool value)
@@ -178,7 +171,7 @@ public class VRManager : NetworkBehaviour
 
     public void OpenBoardUI()
     {
-        if (!IsOwner && !IsServer && !IsHost) return;
+        if (!IsOwner) return;
         boardUI.SetActive(true);
         environment.SetActive(true);
         CurrentConfig = null;
