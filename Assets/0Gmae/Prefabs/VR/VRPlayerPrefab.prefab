@@ -6457,6 +6457,7 @@ GameObject:
   - component: {fileID: 7800158850210223466}
   - component: {fileID: 6590655285799890560}
   - component: {fileID: 6063639850395714560}
+  - component: {fileID: 7602636586498375548}
   m_Layer: 0
   m_Name: VRPlayerPrefab
   m_TagString: Untagged
@@ -6525,6 +6526,7 @@ MonoBehaviour:
   allCamera:
   - {fileID: 846100543756191518}
   - {fileID: 7786528779758276497}
+  syncAudioList: []
   boardUI: {fileID: 7854619892190634570}
   environment: {fileID: 4038763931929538905}
   startBtn: {fileID: 4721085512698885604}
@@ -6613,6 +6615,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
+--- !u!114 &7602636586498375548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7670191458027302223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8b00211b6acc90479fe8244abf1914a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  BGVolume: 1
+  SFXVolume: 1
+  bgClip: {fileID: 0}
+  buttonClip: {fileID: 0}
 --- !u!1 &7755910887956518963
 GameObject:
   m_ObjectHideFlags: 0
@@ -8759,6 +8778,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 549312417855827350}
     m_Modifications:
+    - target: {fileID: 437923473953816951, guid: d66f38f033df54741a9e187829282ceb,
+        type: 3}
+      propertyPath: id
+      value: Start Button_-410588
+      objectReference: {fileID: 0}
     - target: {fileID: 3214097706675555038, guid: d66f38f033df54741a9e187829282ceb,
         type: 3}
       propertyPath: m_PixelsPerUnitMultiplier
@@ -8956,6 +8980,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: World Space Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129260341288889246, guid: f4b12ddd1d88e3140809ecfcde201baa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8544821773056940695, guid: f4b12ddd1d88e3140809ecfcde201baa,
         type: 3}
@@ -9243,6 +9272,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 549312417855827350}
     m_Modifications:
+    - target: {fileID: 437923473953816951, guid: d66f38f033df54741a9e187829282ceb,
+        type: 3}
+      propertyPath: id
+      value: Disconnect Button_-410798
+      objectReference: {fileID: 0}
     - target: {fileID: 6013044403271598699, guid: d66f38f033df54741a9e187829282ceb,
         type: 3}
       propertyPath: m_text

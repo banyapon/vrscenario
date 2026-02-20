@@ -8095,6 +8095,7 @@ MonoBehaviour:
   - {fileID: 8470691528464848181}
   - {fileID: 8089916887648889517}
   - {fileID: 9063481296089296459}
+  scenario: {fileID: 0}
 --- !u!1001 &903749166989154997
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8508,6 +8509,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6630176241693338395, guid: 746b3d83a78304749a1ba17903d2303b,
+        type: 3}
+      propertyPath: id
+      value: Back To Lobby Button_-360612
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840348171087807217, guid: 746b3d83a78304749a1ba17903d2303b,
+        type: 3}
+      propertyPath: id
+      value: Play Again Button_-360564
       objectReference: {fileID: 0}
     - target: {fileID: 8480500142899712084, guid: 746b3d83a78304749a1ba17903d2303b,
         type: 3}
@@ -11303,6 +11314,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7299316246934370364, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+        type: 3}
+      propertyPath: id
+      value: Wrong Button_-361038
+      objectReference: {fileID: 0}
     - target: {fileID: 7502468295876903717, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
       propertyPath: id
@@ -11312,6 +11328,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017208004284855245, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+        type: 3}
+      propertyPath: id
+      value: Correct Button_-361086
       objectReference: {fileID: 0}
     - target: {fileID: 8309902865433484020, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
@@ -11979,10 +12000,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Quiz UI
       objectReference: {fileID: 0}
+    - target: {fileID: 7299316246934370364, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+        type: 3}
+      propertyPath: id
+      value: Wrong Button_-361192
+      objectReference: {fileID: 0}
     - target: {fileID: 7502468295876903717, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
       propertyPath: id
       value: UI_-215736
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017208004284855245, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+        type: 3}
+      propertyPath: id
+      value: Correct Button_-361240
       objectReference: {fileID: 0}
     - target: {fileID: 8309902865433484020, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}

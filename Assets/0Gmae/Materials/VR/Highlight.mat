@@ -147,8 +147,8 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Specular: {r: 0, g: 0, b: 0, a: 0}
-    - _VignetteColor: {r: 0.3017462, g: 1, b: 0, a: 0.124736585}
-    - _VignetteColorBlend: {r: 0.23005807, g: 1, b: 0, a: 0.124736585}
+    - _VignetteColor: {r: 0.30152422, g: 1, b: 0, a: 0.0014618039}
+    - _VignetteColorBlend: {r: 0.22983614, g: 1, b: 0, a: 0.0014618039}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &8647381751785521114
