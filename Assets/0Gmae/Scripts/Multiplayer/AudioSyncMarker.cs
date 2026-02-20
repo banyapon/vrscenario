@@ -39,7 +39,7 @@ public class AudioSyncMarker : SyncMarker
 
     public void Play()
     {
-        print($"Play audio: {name}");
+        //print($"Play audio: {name}");
         Notify(AudioState.Play);
     }
     public void Pause() => Notify(AudioState.Pause);
