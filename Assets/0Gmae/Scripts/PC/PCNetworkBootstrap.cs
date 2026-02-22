@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
 using Unity.Netcode;
@@ -18,7 +17,6 @@ public class PCNetworkBootstrap : MonoBehaviour
     public TMP_Text header;
     public float betweenDistance = 10f;
     public int maxPlayer = 16;
-    public float disconnectTimeout = 10f;
 
     int spawnIndex = 0;
 
@@ -26,7 +24,6 @@ public class PCNetworkBootstrap : MonoBehaviour
     UnityTransport transport;
 
     ISession currentSession;
-    Coroutine disconnectCoroutine;
 
     public Action<ulong> onClientConnected;
     public Action<ulong> onClientDisconnected;
@@ -42,15 +39,6 @@ public class PCNetworkBootstrap : MonoBehaviour
     {
         nm.OnClientConnectedCallback += OnClientConnected;
         nm.OnClientDisconnectCallback += OnClientDisconnected;
-
-        nm.OnServerStarted += () => Debug.Log("HOST STARTED");
-        nm.OnClientStopped += (_) => Debug.Log("CLIENT STOPPED");
-        nm.OnServerStopped += (_) => Debug.Log("SERVER STOPPED");
-
-        nm.OnTransportFailure += () =>
-        {
-            Debug.LogError("[PC] Transport failure");
-        };
 
         await RelayAuthen();
         await StartHost();
@@ -68,32 +56,23 @@ public class PCNetworkBootstrap : MonoBehaviour
 
         header.text = $"PC Host: {code}";
         print(code);
-
         nm.StartHost();
     }
 
     async Task<string> CreateSession()
     {
-        try
+        var options = new SessionOptions
         {
-            var options = new SessionOptions
-            {
-                Name = "SUT Training Session",
-                MaxPlayers = maxPlayer,
-                IsPrivate = false,
-                IsLocked = false
-            };
+            Name = "SUT Training Session",
+            MaxPlayers = maxPlayer,
+            IsPrivate = false,
+            IsLocked = false
+        };
 
-            options.WithRelayNetwork();
+        options.WithRelayNetwork();
 
-            currentSession = await MultiplayerService.Instance.CreateSessionAsync(options);
-            return currentSession.Code;
-        }
-        catch (SessionException e)
-        {
-            Debug.LogError($"Failed to create room: {e.Message}");
-            return null;
-        }
+        currentSession = await MultiplayerService.Instance.CreateSessionAsync(options);
+        return currentSession.Code;
     }
 
     async Task RelayAuthen()
@@ -111,12 +90,6 @@ public class PCNetworkBootstrap : MonoBehaviour
     {
         if (clientId == nm.LocalClientId)
             return;
-
-        if (disconnectCoroutine != null)
-        {
-            StopCoroutine(disconnectCoroutine);
-            disconnectCoroutine = null;
-        }
 
         float posX = spawnIndex * betweenDistance;
         spawnIndex++;
@@ -138,36 +111,5 @@ public class PCNetworkBootstrap : MonoBehaviour
             return;
 
         onClientDisconnected?.Invoke(clientId);
-
-        if (nm.ConnectedClientsList.Count <= 1)
-        {
-            if (disconnectCoroutine != null)
-                StopCoroutine(disconnectCoroutine);
-
-            disconnectCoroutine = StartCoroutine(DisconnectCountdown());
-        }
-    }
-
-    IEnumerator DisconnectCountdown()
-    {
-        float timer = 0f;
-
-        while (timer < disconnectTimeout)
-        {
-            if (nm.ConnectedClientsList.Count > 1)
-                yield break;
-
-            timer += Time.deltaTime;
-            yield return null;
-        }
-
-        if (currentSession != null)
-        {
-            var leaveTask = currentSession.LeaveAsync();
-            yield return new WaitUntil(() => leaveTask.IsCompleted);
-            currentSession = null;
-        }
-
-        nm.Shutdown();
     }
 }

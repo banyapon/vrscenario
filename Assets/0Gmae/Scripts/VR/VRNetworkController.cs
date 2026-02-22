@@ -18,7 +18,6 @@ public class VRNetworkController : MonoBehaviour
     public event Action onClientDisconnected;
 
     public string joinCode;
-    public GameObject vrPlayerPrefab;
 
     public GameObject[] disconnectedObjects;
     public GameObject[] connectedObjects;
@@ -82,12 +81,8 @@ public class VRNetworkController : MonoBehaviour
 
     async void OnApplicationPause(bool pause)
     {
-        if (pause)
-            await ForceDisconnect();
-    }
+        if (!pause) return;
 
-    async Task ForceDisconnect()
-    {
         if (currentSession != null)
         {
             await currentSession.LeaveAsync();
@@ -98,8 +93,6 @@ public class VRNetworkController : MonoBehaviour
             nm.Shutdown();
 
         isConnected = false;
-        joinCode = null;
-
         ShowDisconnectedUI("Disconnected");
         onClientDisconnected?.Invoke();
     }
@@ -111,35 +104,38 @@ public class VRNetworkController : MonoBehaviour
 
     public async Task StartRelayClient()
     {
-        try
+        if (string.IsNullOrEmpty(joinCode))
         {
-            if (string.IsNullOrEmpty(joinCode))
-            {
-                SetStatus("Join code is empty");
-                return;
-            }
-
-            joinCode = joinCode.Trim().ToUpper();
-
-            if (nm.IsListening)
-                nm.Shutdown();
-
-            SetStatus("Joining...");
-
-            currentSession = await MultiplayerService.Instance.JoinSessionByCodeAsync(joinCode);
-
-            nm.StartClient();
+            SetStatus("Join code is empty");
+            return;
         }
-        catch (Exception e)
-        {
-            SetStatus("Join Failed");
-            Debug.LogError(e);
-        }
+
+        joinCode = joinCode.Trim().ToUpper();
+
+        if (nm.IsListening)
+            nm.Shutdown();
+
+        SetStatus("Joining...");
+
+        currentSession = await MultiplayerService.Instance.JoinSessionByCodeAsync(joinCode);
+
+        nm.StartClient();
     }
 
     public async void Disconnect()
     {
-        await ForceDisconnect();
+        if (currentSession != null)
+        {
+            await currentSession.LeaveAsync();
+            currentSession = null;
+        }
+
+        if (nm.IsListening)
+            nm.Shutdown();
+
+        isConnected = false;
+        ShowDisconnectedUI("Disconnected");
+        onClientDisconnected?.Invoke();
     }
 
     void OnClientConnected(ulong clientId)
@@ -148,7 +144,6 @@ public class VRNetworkController : MonoBehaviour
             return;
 
         isConnected = true;
-
         ShowConnectedUI("Connected");
         onClientConnected?.Invoke();
     }
@@ -159,7 +154,6 @@ public class VRNetworkController : MonoBehaviour
             return;
 
         isConnected = false;
-
         ShowDisconnectedUI("Disconnected");
         onClientDisconnected?.Invoke();
     }
