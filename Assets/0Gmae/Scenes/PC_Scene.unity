@@ -5218,6 +5218,7 @@ MonoBehaviour:
   header: {fileID: 1300953028}
   betweenDistance: 1000
   maxPlayer: 16
+  disconnectTimeout: 10
 --- !u!114 &1392229172
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,15 +1,14 @@
 using System;
+using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
-
 using Unity.Services.Core;
 using Unity.Services.Authentication;
 using Unity.Services.Multiplayer;
-using TMPro;
 using Unity.Services.Core.Environments;
-using Unity.Services.Relay;
+using TMPro;
 
 public class PCNetworkBootstrap : MonoBehaviour
 {
@@ -19,26 +18,27 @@ public class PCNetworkBootstrap : MonoBehaviour
     public TMP_Text header;
     public float betweenDistance = 10f;
     public int maxPlayer = 16;
+    public float disconnectTimeout = 10f;
 
     int spawnIndex = 0;
 
     NetworkManager nm;
     UnityTransport transport;
 
+    ISession currentSession;
+    Coroutine disconnectCoroutine;
+
     public Action<ulong> onClientConnected;
     public Action<ulong> onClientDisconnected;
-
-    #region INIT
 
     void Awake()
     {
         Instance = this;
-
         nm = NetworkManager.Singleton;
         transport = GetComponent<UnityTransport>();
     }
 
-    void Start()
+    async void Start()
     {
         nm.OnClientConnectedCallback += OnClientConnected;
         nm.OnClientDisconnectCallback += OnClientDisconnected;
@@ -47,53 +47,32 @@ public class PCNetworkBootstrap : MonoBehaviour
         nm.OnClientStopped += (_) => Debug.Log("CLIENT STOPPED");
         nm.OnServerStopped += (_) => Debug.Log("SERVER STOPPED");
 
-
         nm.OnTransportFailure += () =>
         {
             Debug.LogError("[PC] Transport failure");
         };
 
-        StartHost();
-
+        await RelayAuthen();
+        await StartHost();
     }
 
-    #endregion
-
-    #region RELAY HOST
-
-    public async void StartHost()
+    async Task StartHost()
     {
-        await RelayAuthen();
-
         var code = await CreateSession();
-        //var allocation = await RelayService.Instance.CreateAllocationAsync(
-        //    maxConnections: 1,
-        //    region: "asia-southeast1"
-        //    );
 
-        //Debug.Log("ALLOCATION CREATED");
-        //Debug.Log("AllocationId = " + allocation.AllocationId);
-
-        //var code = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
-
-        Debug.Log("JOIN CODE = " + code);
-
-        header.text = $"PC Host";
-
-        if (!string.IsNullOrEmpty(code))
+        if (string.IsNullOrEmpty(code))
         {
-            header.text += $": {code}";
-        }
-        else
-        {
-            header.text += $": failed";
+            header.text = "PC Host: failed";
             return;
         }
+
+        header.text = $"PC Host: {code}";
+        print(code);
 
         nm.StartHost();
     }
 
-    public async Task<string> CreateSession()
+    async Task<string> CreateSession()
     {
         try
         {
@@ -104,13 +83,11 @@ public class PCNetworkBootstrap : MonoBehaviour
                 IsPrivate = false,
                 IsLocked = false
             };
+
             options.WithRelayNetwork();
 
-            var session = await MultiplayerService.Instance.CreateSessionAsync(options);
-
-            Debug.Log($"Room created successfully! Max players: {session.MaxPlayers}");
-
-            return session.Code;
+            currentSession = await MultiplayerService.Instance.CreateSessionAsync(options);
+            return currentSession.Code;
         }
         catch (SessionException e)
         {
@@ -118,7 +95,8 @@ public class PCNetworkBootstrap : MonoBehaviour
             return null;
         }
     }
-    public async Task RelayAuthen()
+
+    async Task RelayAuthen()
     {
         var options = new InitializationOptions()
             .SetEnvironmentName("production");
@@ -127,20 +105,18 @@ public class PCNetworkBootstrap : MonoBehaviour
 
         if (!AuthenticationService.Instance.IsSignedIn)
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
-
-        Debug.Log("Unity Services Initialized (production)");
     }
-
-    #endregion
-
-    #region CLIENT EVENTS
 
     void OnClientConnected(ulong clientId)
     {
         if (clientId == nm.LocalClientId)
             return;
 
-        Debug.Log($"[PC] VR joined: {clientId}");
+        if (disconnectCoroutine != null)
+        {
+            StopCoroutine(disconnectCoroutine);
+            disconnectCoroutine = null;
+        }
 
         float posX = spawnIndex * betweenDistance;
         spawnIndex++;
@@ -158,9 +134,40 @@ public class PCNetworkBootstrap : MonoBehaviour
 
     void OnClientDisconnected(ulong clientId)
     {
-        Debug.Log("[PC] VR left: " + clientId);
+        if (clientId == nm.LocalClientId)
+            return;
+
         onClientDisconnected?.Invoke(clientId);
+
+        if (nm.ConnectedClientsList.Count <= 1)
+        {
+            if (disconnectCoroutine != null)
+                StopCoroutine(disconnectCoroutine);
+
+            disconnectCoroutine = StartCoroutine(DisconnectCountdown());
+        }
     }
 
-    #endregion
+    IEnumerator DisconnectCountdown()
+    {
+        float timer = 0f;
+
+        while (timer < disconnectTimeout)
+        {
+            if (nm.ConnectedClientsList.Count > 1)
+                yield break;
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        if (currentSession != null)
+        {
+            var leaveTask = currentSession.LeaveAsync();
+            yield return new WaitUntil(() => leaveTask.IsCompleted);
+            currentSession = null;
+        }
+
+        nm.Shutdown();
+    }
 }
