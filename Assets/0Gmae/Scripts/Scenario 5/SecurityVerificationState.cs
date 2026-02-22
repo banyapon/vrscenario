@@ -27,6 +27,7 @@ public class SecurityVerificationState : State
     {
         base.StateEnter();
         CloseHud();
+        door.enabled = true;
     }
 
     public override void StateUpdate()
@@ -39,6 +40,7 @@ public class SecurityVerificationState : State
         base.StateExit();
         machineDoor.Close();
         SetEnableHandTrigger(false);
+        door.enabled = false;
     }
     void SetEnableHandTrigger(bool value)
     {
