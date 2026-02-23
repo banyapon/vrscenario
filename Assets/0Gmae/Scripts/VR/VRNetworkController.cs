@@ -9,6 +9,7 @@ using Unity.Services.Core;
 using Unity.Services.Authentication;
 using Unity.Services.Multiplayer;
 using Unity.Services.Core.Environments;
+using Boy;
 
 public class VRNetworkController : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class VRNetworkController : MonoBehaviour
     public event Action onClientConnected;
     public event Action onClientDisconnected;
 
-    public string joinCode;
+    //public string joinCode;
 
     public GameObject[] disconnectedObjects;
     public GameObject[] connectedObjects;
@@ -61,7 +62,7 @@ public class VRNetworkController : MonoBehaviour
         if (disconnectButton) disconnectButton.onClick.AddListener(Disconnect);
         if (inputField) inputField.onValueChanged.AddListener((value) =>
         {
-            joinCode = value;
+            //joinCode = value;
         });
 
         nm.OnClientConnectedCallback += OnClientConnected;
@@ -79,10 +80,14 @@ public class VRNetworkController : MonoBehaviour
             nm.Shutdown();
     }
 
-    async void OnApplicationPause(bool pause)
+    void OnApplicationPause(bool pause)
     {
         if (!pause) return;
+        _ = HandlePauseAsync();
+    }
 
+    async Task HandlePauseAsync()
+    {
         if (currentSession != null)
         {
             await currentSession.LeaveAsync();
@@ -97,14 +102,27 @@ public class VRNetworkController : MonoBehaviour
         onClientDisconnected?.Invoke();
     }
 
-    async void OnClickJoin()
+    void OnClickJoin()
     {
-        await StartRelayClient();
+        APIManager.Instance.GetJoinCode<JoinMultiplayerResponse>(OnJoinCodeReceived);
     }
 
-    public async Task StartRelayClient()
+    async void OnJoinCodeReceived(bool status, string message, JoinMultiplayerResponse response)
     {
-        if (string.IsNullOrEmpty(joinCode))
+        Debug.Log(message);
+
+        if (!status || response == null || response.data == null)
+        {
+            SetStatus("Failed to get join code");
+            return;
+        }
+
+        await StartRelayClient(response.data.key_join_multiplayer);
+    }
+
+    public async Task StartRelayClient(string joinCode)
+    {
+        if (string.IsNullOrWhiteSpace(joinCode))
         {
             SetStatus("Join code is empty");
             return;
@@ -115,11 +133,22 @@ public class VRNetworkController : MonoBehaviour
         if (nm.IsListening)
             nm.Shutdown();
 
-        SetStatus("Joining...");
+        SetStatus("Connecting...");
 
-        currentSession = await MultiplayerService.Instance.JoinSessionByCodeAsync(joinCode);
+        try
+        {
+            currentSession = await MultiplayerService.Instance
+                .JoinSessionByCodeAsync(joinCode);
 
-        nm.StartClient();
+            nm.StartClient();
+
+            SetStatus("Connected!");
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError("Join Failed: " + ex.Message);
+            SetStatus("Invalid or expired join code");
+        }
     }
 
     public async void Disconnect()

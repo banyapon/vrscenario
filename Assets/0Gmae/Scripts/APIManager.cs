@@ -13,6 +13,7 @@ namespace Boy
         public string baseUrl;
         [SerializeField] private string vrstApiKey = "";
         public string userEmail = "test@gmail.com";
+        public string roomCode = "1";
 
         private void Awake()
         {
@@ -33,7 +34,7 @@ namespace Boy
         {
             var body = new
             {
-                room_code = "1",
+                room_code = roomCode,
                 key_join_multiplayer = code,
                 overwrite = true,
             };
@@ -41,6 +42,11 @@ namespace Boy
             string json = JsonConvert.SerializeObject(body);
             string url = $"{baseUrl}/api/save-key-join-multiplayer";
             StartCoroutine(PostJson(url, json, callback));
+        }
+        public void GetJoinCode<T>(UnityAction<bool, string, T> callback = null)
+        {
+            string url = $"{baseUrl}/api/get-key-join-multiplayer?room_code={roomCode}";
+            StartCoroutine(GetRequest(url, callback));
         }
 
         public IEnumerator GetRequest<T>(string url,
@@ -107,16 +113,18 @@ namespace Boy
 }
 
 [Serializable]
-public class Response
+public class JoinMultiplayerResponse
 {
-    public string status;
+    public bool status;
     public string message;
+    public string code;
+    public string desc;
+    public JoinMultiplayerData data;
 }
 
 [Serializable]
-public class Response<T>
+public class JoinMultiplayerData
 {
-    public string status;
-    public string message;
-    public T data;
+    public string key_join_multiplayer;
+    public string updatedAt;
 }
