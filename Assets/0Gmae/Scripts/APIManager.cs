@@ -29,6 +29,19 @@ namespace Boy
             string url = $"{baseUrl}/api/save-session";
             StartCoroutine(PostJson(url, json, callback));
         }
+        public void SaveJoinCode<T>(string code, UnityAction<bool, string, T> callback = null)
+        {
+            var body = new
+            {
+                room_code = "1",
+                key_join_multiplayer = code,
+                overwrite = true,
+            };
+
+            string json = JsonConvert.SerializeObject(body);
+            string url = $"{baseUrl}/api/save-key-join-multiplayer";
+            StartCoroutine(PostJson(url, json, callback));
+        }
 
         public IEnumerator GetRequest<T>(string url,
             UnityAction<bool, string, T> callback = null)

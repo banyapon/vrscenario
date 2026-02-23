@@ -8,6 +8,7 @@ using Unity.Services.Authentication;
 using Unity.Services.Multiplayer;
 using Unity.Services.Core.Environments;
 using TMPro;
+using Boy;
 
 public class PCNetworkBootstrap : MonoBehaviour
 {
@@ -55,6 +56,7 @@ public class PCNetworkBootstrap : MonoBehaviour
         }
 
         header.text = $"PC Host: {code}";
+        APIManager.Instance.SaveJoinCode<string>(code);
         print(code);
         nm.StartHost();
     }

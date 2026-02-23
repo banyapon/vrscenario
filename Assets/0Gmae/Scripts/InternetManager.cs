@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 using System;
+using TMPro;
 
 namespace Boy
 {
@@ -18,7 +19,7 @@ namespace Boy
         public bool InternetStatus { get => internetStatus; set => internetStatus = value; }
 
         [Header("UI")]
-        public Text[] netText;
+        public TMP_Text[] netText;
 
         private void Awake()
         {
@@ -45,7 +46,7 @@ namespace Boy
 
         void SetText(string text)
         {
-            foreach (Text t in netText) t.text = text;
+            foreach (TMP_Text t in netText) t.text = text;
         }
 
         public IEnumerator CheckAPI()
