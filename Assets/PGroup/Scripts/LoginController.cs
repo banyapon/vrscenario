@@ -1,3 +1,4 @@
+using Boy;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,6 +7,7 @@ namespace PGroup
 {
     public class LoginController : MonoBehaviour
     {
+        #region Input UI
         [Header("Panel")]
         [HideInInspector][SerializeField] private GameObject loginPanel;
         [HideInInspector][SerializeField] private GameObject registerPanel;
@@ -38,7 +40,7 @@ namespace PGroup
 
         [Header("Toggle")]
         [HideInInspector][SerializeField] private Toggle policyToggle;
-
+        #endregion
         #region Public Fuction Button
         private void Awake()
         {
@@ -79,7 +81,33 @@ namespace PGroup
         }
         private void OnLogin()
         {
+            Debug.Log(InternetManager.Instance.InternetStatus);
+            APIManager.Instance.Login<LoginResponse>("Test", "1234", (success, msg, res) =>
+            {
+                if (success)
+                {
+                    Debug.Log("Login success");
+                }
+                else
+                {
+                    Debug.LogError(msg);
+                }
+            });
+            string getUsername = usernameInputField.text;
+            string getPassword = passwordInputField.text;
+            if (string.IsNullOrEmpty(getUsername) || string.IsNullOrEmpty(getPassword)) return;
 
+            APIManager.Instance.Login<LoginResponse>(getUsername, getPassword, (success, msg, res) =>
+            {
+                if (success)
+                {
+                    Debug.Log("Login success");
+                }
+                else
+                {
+                    Debug.LogError(msg);
+                }
+            });
         }
         private void OnForgotPassword()
         {
@@ -99,7 +127,17 @@ namespace PGroup
         }
         private void OnRegister()
         {
-
+            APIManager.Instance.Register<RegisterResponse>("Test", "1234","testname","testlastname", (success, msg, res) =>
+            {
+                if (success)
+                {
+                    Debug.Log("Register success");
+                }
+                else
+                {
+                    Debug.LogError(msg);
+                }
+            });
         }
         private void OnBacktoLogin()
         {

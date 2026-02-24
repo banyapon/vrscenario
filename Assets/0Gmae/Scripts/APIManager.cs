@@ -1,9 +1,10 @@
-using System.Collections;
-using UnityEngine;
-using UnityEngine.Networking;
-using System;
-using UnityEngine.Events;
 using Newtonsoft.Json;
+using System;
+using System.Collections;
+using System.Net;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Networking;
 
 namespace Boy
 {
@@ -47,6 +48,34 @@ namespace Boy
         {
             string url = $"{baseUrl}/api/get-key-join-multiplayer?room_code={roomCode}";
             StartCoroutine(GetRequest(url, callback));
+        }
+        public void Login<T>(string email, string password, UnityAction<bool, string, T> callback = null)
+        {
+            var body = new
+            {
+                userEmail = email,
+                password = password
+            };
+
+            string json = JsonConvert.SerializeObject(body);
+            string url = $"{baseUrl}/api/login";
+
+            StartCoroutine(PostJson(url, json, callback));
+        }
+        public void Register<T>(string email, string password,string firstname,string lastname, UnityAction<bool, string, T> callback = null)
+        {
+            var body = new
+            {
+                userEmail = email,
+                password = password,
+                firstName = firstname,
+                lastName = lastname
+            };
+
+            string json = JsonConvert.SerializeObject(body);
+            string url = $"{baseUrl}/api/register";
+
+            StartCoroutine(PostJson(url, json, callback));
         }
 
         public IEnumerator GetRequest<T>(string url,
@@ -127,4 +156,20 @@ public class JoinMultiplayerData
 {
     public string key_join_multiplayer;
     public string updatedAt;
+}
+[Serializable]
+public class LoginResponse
+{
+    public bool status;
+    public string message;
+    public string code;
+    public string desc;
+}
+[Serializable]
+public class RegisterResponse
+{
+    public bool status;
+    public string message;
+    public string code;
+    public string desc;
 }
