@@ -25,6 +25,7 @@ public class VRNetworkController : MonoBehaviour
 
     public TMP_Text statusText;
     public Button clientButton;
+    public Button hostButton;
     public Button disconnectButton;
     public TMP_InputField inputField;
 
@@ -59,6 +60,7 @@ public class VRNetworkController : MonoBehaviour
     void Start()
     {
         if (clientButton) clientButton.onClick.AddListener(OnClickJoin);
+        if (hostButton) hostButton.onClick.AddListener(OnClickHost);
         if (disconnectButton) disconnectButton.onClick.AddListener(Disconnect);
         if (inputField) inputField.onValueChanged.AddListener((value) =>
         {
@@ -84,6 +86,43 @@ public class VRNetworkController : MonoBehaviour
     {
         if (!pause) return;
         _ = HandlePauseAsync();
+    }
+    void OnClickHost()
+    {
+        _ = StartHostSession();
+    }
+    async Task StartHostSession()
+    {
+        if (nm.IsListening)
+            nm.Shutdown();
+
+        SetStatus("Creating session...");
+
+        try
+        {
+            var options = new SessionOptions
+            {
+                Name = "SUT Training Session",
+                MaxPlayers = 1,
+                IsPrivate = false,
+                IsLocked = false
+            };
+
+            options.WithRelayNetwork();
+            currentSession = await MultiplayerService.Instance.CreateSessionAsync(options);
+
+            string joinCode = currentSession.Code;
+            Debug.Log("Join Code: " + joinCode);
+
+            nm.StartHost();
+
+            SetStatus("Hosting\nCode: " + joinCode);
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError("Host Failed: " + ex.Message);
+            SetStatus("Failed to create host session");
+        }
     }
 
     async Task HandlePauseAsync()
