@@ -101,7 +101,7 @@ namespace PGroup
             {
                 OnExit?.Invoke();
             }
-            GetComponent<Rigidbody>().isKinematic = true;
+            //GetComponent<Rigidbody>().isKinematic = true;
         }
 
         private void PlayAnimation(Animation animation, string clip, bool reversed)

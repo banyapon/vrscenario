@@ -8202,7 +8202,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2235912971937970400
 Transform:
   m_ObjectHideFlags: 0
@@ -8675,7 +8675,7 @@ PrefabInstance:
         type: 3}
       propertyPath: triggerTarget
       value: 
-      objectReference: {fileID: 3183460443684362439}
+      objectReference: {fileID: 8742428695617232203}
     - target: {fileID: 1134142636041089813, guid: b715ac73c6f55fd49b14619b10182739,
         type: 3}
       propertyPath: correctTrigger
@@ -11115,7 +11115,7 @@ PrefabInstance:
         type: 3}
       propertyPath: correctTrigger
       value: 
-      objectReference: {fileID: 3183460443684362439}
+      objectReference: {fileID: 8742428695617232203}
     - target: {fileID: 1134142636041089813, guid: b715ac73c6f55fd49b14619b10182739,
         type: 3}
       propertyPath: deactiveObject
@@ -12853,7 +12853,7 @@ PrefabInstance:
     - target: {fileID: 8151954492914599796, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 3433351392
+      value: 1824821705
       objectReference: {fileID: 0}
     - target: {fileID: 8592179861658787997, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
