@@ -2837,6 +2837,12 @@ PrefabInstance:
       objectReference: {fileID: 1464360628}
     - target: {fileID: 5565900776138302504, guid: 27f6887b08037ca4297bc472b404d215,
         type: 3}
+      propertyPath: hostPrefab
+      value: 
+      objectReference: {fileID: 7670191458027302223, guid: bb31d06d7ef27f744b91e3e2f3fa7951,
+        type: 3}
+    - target: {fileID: 5565900776138302504, guid: 27f6887b08037ca4297bc472b404d215,
+        type: 3}
       propertyPath: inputField
       value: 
       objectReference: {fileID: 1698378215}

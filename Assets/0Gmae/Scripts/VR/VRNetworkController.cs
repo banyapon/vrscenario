@@ -10,6 +10,7 @@ using Unity.Services.Authentication;
 using Unity.Services.Multiplayer;
 using Unity.Services.Core.Environments;
 using Boy;
+using UnityEditor.PackageManager;
 
 public class VRNetworkController : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class VRNetworkController : MonoBehaviour
     public Button hostButton;
     public Button disconnectButton;
     public TMP_InputField inputField;
+    public GameObject hostPrefab;
+    GameObject spawnedHostObject;
 
     NetworkManager nm;
     UnityTransport transport;
@@ -60,7 +63,7 @@ public class VRNetworkController : MonoBehaviour
     void Start()
     {
         if (clientButton) clientButton.onClick.AddListener(OnClickJoin);
-        if (hostButton) hostButton.onClick.AddListener(OnClickHost);
+        if (hostButton) hostButton.onClick.AddListener(StartHostLocal);
         if (disconnectButton) disconnectButton.onClick.AddListener(Disconnect);
         if (inputField) inputField.onValueChanged.AddListener((value) =>
         {
@@ -133,14 +136,13 @@ public class VRNetworkController : MonoBehaviour
             currentSession = null;
         }
 
-        if (nm.IsListening)
-            nm.Shutdown();
+        if (nm.IsListening) nm.Shutdown();
 
+        DespawnHostObject();
         isConnected = false;
         ShowDisconnectedUI("Disconnected");
         onClientDisconnected?.Invoke();
     }
-
     void OnClickJoin()
     {
         APIManager.Instance.GetJoinCode<JoinMultiplayerResponse>(OnJoinCodeReceived);
@@ -201,6 +203,8 @@ public class VRNetworkController : MonoBehaviour
         if (nm.IsListening)
             nm.Shutdown();
 
+        DespawnHostObject();
+
         isConnected = false;
         ShowDisconnectedUI("Disconnected");
         onClientDisconnected?.Invoke();
@@ -214,6 +218,7 @@ public class VRNetworkController : MonoBehaviour
         isConnected = true;
         ShowConnectedUI("Connected");
         onClientConnected?.Invoke();
+        if (nm.IsHost) SpawnHostObject(clientId);
     }
 
     void OnClientDisconnected(ulong clientId)
@@ -224,6 +229,26 @@ public class VRNetworkController : MonoBehaviour
         isConnected = false;
         ShowDisconnectedUI("Disconnected");
         onClientDisconnected?.Invoke();
+    }
+    void SpawnHostObject(ulong clientId)
+    {
+        if (hostPrefab == null)
+            return;
+
+        if (spawnedHostObject != null)
+            return;
+
+        spawnedHostObject = Instantiate(hostPrefab);
+        NetworkObject no = spawnedHostObject.GetComponent<NetworkObject>();
+        no.SpawnAsPlayerObject(clientId, true);
+    }
+    void DespawnHostObject()
+    {
+        if (spawnedHostObject != null)
+        {
+            Destroy(spawnedHostObject);
+            spawnedHostObject = null;
+        }
     }
 
     void ShowConnectedUI(string text)
@@ -249,5 +274,30 @@ public class VRNetworkController : MonoBehaviour
     void SetStatus(string t)
     {
         if (statusText) statusText.text = t;
+    }
+    public void StartHostLocal()
+    {
+        if (nm.IsListening)
+            nm.Shutdown();
+
+        ConfigureTransportAsHost();
+
+        bool success = nm.StartHost();
+
+        if (success)
+        {
+            SetStatus("Hosting (No Relay)");
+        }
+        else
+        {
+            SetStatus("Failed to start host");
+        }
+    }
+    void ConfigureTransportAsHost()
+    {
+        transport.SetConnectionData(
+            "0.0.0.0",
+            7777
+        );
     }
 }
