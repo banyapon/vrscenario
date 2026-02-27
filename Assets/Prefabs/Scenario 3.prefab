@@ -8196,6 +8196,7 @@ GameObject:
   - component: {fileID: 2235912971937970400}
   - component: {fileID: 754523006817932972}
   - component: {fileID: 8638727228548956480}
+  - component: {fileID: 3860941560334845154}
   m_Layer: 0
   m_Name: pad_Yellow
   m_TagString: Untagged
@@ -8271,6 +8272,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3860941560334845154
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8742428695617232203}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.40691063, y: 0.44406015, z: 0.009496343}
+  m_Center: {x: -0.0000000745058, y: -0.0000014081597, z: -0.0000000053551044}
 --- !u!1 &8869984193003046180
 GameObject:
   m_ObjectHideFlags: 0
@@ -12853,7 +12875,12 @@ PrefabInstance:
     - target: {fileID: 8151954492914599796, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 1824821705
+      value: 1104490572
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151954492914599796, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
+        type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 709565462
       objectReference: {fileID: 0}
     - target: {fileID: 8592179861658787997, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
@@ -12894,6 +12921,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Scenario 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8686919214326522056, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9157611003545956223, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}

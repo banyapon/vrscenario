@@ -18051,11 +18051,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2012949329517489606, guid: 6a3143c567c026a44bb85a26a74613a0,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2940964212392090927, guid: 6a3143c567c026a44bb85a26a74613a0,
         type: 3}
       propertyPath: isFollowPlayer.x
@@ -18075,21 +18070,6 @@ PrefabInstance:
         type: 3}
       propertyPath: id
       value: HookLeft_-761322
-      objectReference: {fileID: 0}
-    - target: {fileID: 8320899321960402781, guid: 6a3143c567c026a44bb85a26a74613a0,
-        type: 3}
-      propertyPath: m_Mass
-      value: 0.001
-      objectReference: {fileID: 0}
-    - target: {fileID: 8320899321960402781, guid: 6a3143c567c026a44bb85a26a74613a0,
-        type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8372549762536680628, guid: 6a3143c567c026a44bb85a26a74613a0,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19625,7 +19605,7 @@ PrefabInstance:
     - target: {fileID: 8151954492914599796, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 3137331157
+      value: 3304227913
       objectReference: {fileID: 0}
     - target: {fileID: 8271470209092725051, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
@@ -21110,11 +21090,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8320899321960402781, guid: 6a3143c567c026a44bb85a26a74613a0,
-        type: 3}
-      propertyPath: m_UseGravity
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -143,7 +143,7 @@ public class VRNetworkController : MonoBehaviour
         ShowDisconnectedUI("Disconnected");
         onClientDisconnected?.Invoke();
     }
-    void OnClickJoin()
+    public void OnClickJoin()
     {
         APIManager.Instance.GetJoinCode<JoinMultiplayerResponse>(OnJoinCodeReceived);
     }
