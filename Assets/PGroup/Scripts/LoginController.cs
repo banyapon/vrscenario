@@ -1,9 +1,11 @@
 ﻿using Boy;
+using Microsoft.MixedReality.Toolkit.Experimental.UI;
 using System;
 using System.Collections;
 using System.Text;
 using TMPro;
 using Unity.Services.Relay.Models;
+using Unity.XR.PXR;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
@@ -54,6 +56,7 @@ namespace PGroup
 
         [Header("Scripts")]
         [SerializeField] private VRNetworkController networkController;
+        [SerializeField] private NonNativeKeyboard nonNativeKeyboard;
         #endregion
         #region Public Fuction Button
         private void Awake()
@@ -71,6 +74,18 @@ namespace PGroup
             backToLoginFromResetButton.onClick.AddListener(() => ButtonBacktoLogin());
             sendEmailPasswordButton.onClick.AddListener(() => ButtonSentEmailPassword());
             backToLoginFromSentEmailTokenButton.onClick.AddListener(() => ButtonBacktoLogin());
+
+            usernameInputField.onSelect.AddListener(x => ShowKeyboard(usernameInputField));
+            passwordInputField.onSelect.AddListener(x => ShowKeyboard(passwordInputField));
+            firstnameInputField.onSelect.AddListener(x => ShowKeyboard(firstnameInputField));
+            lastnameInputField.onSelect.AddListener(x => ShowKeyboard(lastnameInputField));
+            emailInputField.onSelect.AddListener(x => ShowKeyboard(emailInputField));
+            passwordRegisInputField.onSelect.AddListener(x => ShowKeyboard(passwordRegisInputField));
+            confirmPasswordInputField.onSelect.AddListener(x => ShowKeyboard(confirmPasswordInputField));
+            emailSentResetInputField.onSelect.AddListener(x => ShowKeyboard(emailSentResetInputField));
+            emailResetInputField.onSelect.AddListener(x => ShowKeyboard(emailResetInputField));
+            tokenResetInputField.onSelect.AddListener(x => ShowKeyboard(tokenResetInputField));
+            newPasswordResetInputField.onSelect.AddListener(x => ShowKeyboard(newPasswordResetInputField));
         }
         public void ButtonStandalone() { OnStandAlone(); }
         public void ButtonConnectHost() { OnConnectHost(); }
@@ -83,6 +98,12 @@ namespace PGroup
         public void ButtonBacktoLogin() { OnBacktoLogin(); }
         public void ButtonResetPassword() { OnResetPassword(); }
         public void ButtonSentEmailPassword() { OnSentEmailResetPassword(); }
+        public void ShowKeyboard(TMP_InputField _input)
+        {
+            //nonNativeKeyboard.myInputField = _input;
+            NonNativeKeyboard.Instance.InputField = _input;
+            NonNativeKeyboard.Instance.PresentKeyboard(_input.text);
+        }
         #endregion
         #region Private Fuction Action
 
@@ -106,8 +127,8 @@ namespace PGroup
             string getPassword = passwordInputField.text;
 
             //========================================================================================================TEST==
-            getUsername = "nopparat.pgroup@gmail.com";
-            getPassword = "12345";
+            //getUsername = "nopparat.pgroup@gmail.com";
+            //getPassword = "12345";
             //============================================================================================================================
 
             if (string.IsNullOrEmpty(getUsername) || string.IsNullOrEmpty(getPassword)) return;
@@ -118,6 +139,8 @@ namespace PGroup
                 {
                     loginPanel.SetActive(false);
                     Debug.Log("Login success");
+
+                    nonNativeKeyboard.Close();
 
                     if (isOnline) networkController.StartHostLocal();
                     else networkController.OnClickJoin();
@@ -155,14 +178,14 @@ namespace PGroup
             string getLastname = lastnameInputField.text;
 
             //========================================================================================================TEST==
-            getEmail = "nopparat.pgroup@gmail.com";
-            getPassword = "12345";
-            getFirstname = "nopparat";
-            getLastname = "sangpakdee";
+            //getEmail = "nopparat.pgroup@gmail.com";
+            //getPassword = "12345";
+            //getFirstname = "nopparat";
+            //getLastname = "sangpakdee";
             //============================================================================================================================
 
             if (string.IsNullOrEmpty(getEmail) || string.IsNullOrEmpty(getPassword) ||
-                string.IsNullOrEmpty(getFirstname) || string.IsNullOrEmpty(getLastname))
+                string.IsNullOrEmpty(getFirstname) || string.IsNullOrEmpty(getLastname) || !policyToggle.isOn)
             {
                 registerButton.interactable = true;
                 Debug.Log("Fill All Value");
@@ -199,8 +222,8 @@ namespace PGroup
             string getNewPassword = newPasswordResetInputField.text;
 
             //========================================================================================================TEST==
-            getEmail = "nopparat.pgroup@gmail.com";
-            getNewPassword = "12345";
+            //getEmail = "nopparat.pgroup@gmail.com";
+            //getNewPassword = "12345";
             //============================================================================================================================
 
             if (string.IsNullOrEmpty(getEmail) || string.IsNullOrEmpty(getToken) || string.IsNullOrEmpty(getNewPassword)) return;
@@ -224,7 +247,7 @@ namespace PGroup
             string getEmail = emailSentResetInputField.text;
 
             //========================================================================================================TEST==
-            getEmail = "nopparat.pgroup@gmail.com";
+            //getEmail = "nopparat.pgroup@gmail.com";
             //============================================================================================================================
 
             if (string.IsNullOrEmpty(getEmail)) return;

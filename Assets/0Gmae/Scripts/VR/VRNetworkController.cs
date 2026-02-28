@@ -10,7 +10,7 @@ using Unity.Services.Authentication;
 using Unity.Services.Multiplayer;
 using Unity.Services.Core.Environments;
 using Boy;
-using UnityEditor.PackageManager;
+//using UnityEditor.PackageManager;
 
 public class VRNetworkController : MonoBehaviour
 {
