@@ -12,6 +12,7 @@ public class ScenarioFiveHomeState : State
     public GameObject explainHUD;
     public LOTOState lOTOState;
     public MachineDoor machineDoor;
+    public NPC npc;
     public Animator npcAnimator;
 
     HUDState hUDState;
@@ -37,6 +38,9 @@ public class ScenarioFiveHomeState : State
         hUDState?.OpenHud(explainHUD);
         lOTOState.ResetSequence();
         machineDoor.Close();
+        npc.SetBool("pick", true);
+        npc.SetBool("walk", false);
+        npc.SetBool("check out", false);
         npcAnimator.SetBool("move", false);
     }
 

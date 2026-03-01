@@ -15,6 +15,7 @@ public class HarmPreventionState : State
     public Button correctBtn;
     public Button wrongBtn;
     [Space(10)]
+    public NPC npc;
     public Animator npcAnimator;
     public AnimationClip npcClip;
     public MachineDoor machineDoor;
@@ -44,10 +45,16 @@ public class HarmPreventionState : State
         quizHud.SetActive(false);
         quizUI?.HideAllHuds();
         npcAnimator.SetBool("move", true);
+        npc.SetBool("pick", false);
+        npc.SetBool("walk", true);
+        npc.SetBool("check out", false);
 
         DOVirtual.DelayedCall(npcClip.length, () =>
         {
             machineDoor.Open();
+            npc.SetBool("pick", false);
+            npc.SetBool("walk", false);
+            npc.SetBool("check out", true);
             explainHud.SetActive(false);
             quizHud.SetActive(true);
         });
