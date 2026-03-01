@@ -6,6 +6,7 @@ namespace Boy
 {
     public class Victims : MonoBehaviour
     {
+        [SerializeField] NPC npc;
         [SerializeField] private AnimationClip unconsciousClip;
         [SerializeField] private AnimationClip pullupClip;
 
@@ -18,6 +19,8 @@ namespace Boy
 
         public void Unconscious(Action callback = null)
         {
+            npc.SetBool("look", false);
+            npc.SetBool("unconscious", true);
             PlayAnimation("unconscious", unconsciousClip.length, callback);
         }
 
@@ -43,6 +46,8 @@ namespace Boy
         public void ResetAnimation()
         {
             PlayAnimation("reset");
+            npc.SetBool("look", true);
+            npc.SetBool("unconscious", false);
         }
     }
 }

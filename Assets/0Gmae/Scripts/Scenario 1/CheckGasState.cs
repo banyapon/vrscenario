@@ -6,6 +6,7 @@ public class CheckGasState : State
 {
     [Header("Setting")]
     public float duration = 5;
+    public NPC npc;
 
     [Header("Fake Value")]
     public float o2Fake;
@@ -23,6 +24,7 @@ public class CheckGasState : State
     public GameObject safeHUD;
     public GameObject notSafeHUD;
 
+    string parameterName = "Blend Pick";
     HUDState hUDState;
     public override void Awake()
     {
@@ -33,7 +35,8 @@ public class CheckGasState : State
     public override void StateEnter()
     {
         base.StateEnter();
-        print("Play NPC Animation here");
+        npc.SetFloat(parameterName, 0);
+        ChangeNpcPose(1);
         hUDState?.HideHUD();
 
         o2.StartNumber(o2Fake, duration);
@@ -54,6 +57,7 @@ public class CheckGasState : State
                 {
                     hUDState.OpenHud(safeHUD, () =>
                     {
+                        ChangeNpcPose(0);
                         controller.NextState();
                     });
                 });
@@ -69,5 +73,26 @@ public class CheckGasState : State
     public override void StateExit()
     {
         base.StateExit();
+        npc.SetFloat(parameterName, 0);
+    }
+
+    Tween poseTween;
+    void ChangeNpcPose(float value)
+    {
+        float duration = 0.5f;
+
+        float currentValue = npc.GetFloat(parameterName);
+
+        poseTween?.Kill();
+        poseTween = DOTween.To(
+            () => currentValue,
+            x =>
+            {
+                currentValue = x;
+                npc.SetFloat(parameterName, x);
+            },
+            value,
+            duration
+        );
     }
 }
