@@ -7,6 +7,8 @@ public class CheckGasState : State
     [Header("Setting")]
     public float duration = 5;
     public NPC npc;
+    public Transform npcSpot1;
+    public Transform npcSpot2;
 
     [Header("Fake Value")]
     public float o2Fake;
@@ -73,13 +75,12 @@ public class CheckGasState : State
     public override void StateExit()
     {
         base.StateExit();
-        npc.SetFloat(parameterName, 0);
     }
 
     Tween poseTween;
     void ChangeNpcPose(float value)
     {
-        float duration = 0.5f;
+        float duration = 2f;
 
         float currentValue = npc.GetFloat(parameterName);
 
@@ -94,5 +95,13 @@ public class CheckGasState : State
             value,
             duration
         );
+
+        DOTween.Kill(npc.transform);
+        Transform spot = value > 0.95f ? npcSpot2 : npcSpot1;
+        Ease ease = value > 0.95f ? Ease.OutQuart : Ease.InExpo;
+        npc.transform.DORotate(spot.eulerAngles, duration)
+            .SetLink(gameObject).SetEase(ease);
+        npc.transform.DOMove(spot.position, duration)
+            .SetLink(gameObject).SetEase(ease);
     }
 }

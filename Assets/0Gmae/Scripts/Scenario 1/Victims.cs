@@ -7,6 +7,7 @@ namespace Boy
     public class Victims : MonoBehaviour
     {
         [SerializeField] NPC npc;
+        [SerializeField] Transform model;
         [SerializeField] private AnimationClip unconsciousClip;
         [SerializeField] private AnimationClip pullupClip;
 
@@ -21,6 +22,8 @@ namespace Boy
         {
             npc.SetBool("look", false);
             npc.SetBool("unconscious", true);
+            DOTween.Kill(model);
+            model.DOLocalRotate(Vector3.zero, 1);
             PlayAnimation("unconscious", unconsciousClip.length, callback);
         }
 
