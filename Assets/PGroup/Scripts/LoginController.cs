@@ -102,6 +102,7 @@ namespace PGroup
                 if (success)
                 {
                     Debug.Log("Login success");
+                    APIManager.Instance.userEmail = getUsername;
                 }
                 else
                 {

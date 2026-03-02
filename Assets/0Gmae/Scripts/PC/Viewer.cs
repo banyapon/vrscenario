@@ -9,7 +9,7 @@ public class Viewer : MonoBehaviour
     [SerializeField] private int index = -1;
 
     [Header("Reference")]
-    [SerializeField] private TMP_Text userNameText;
+    public TMP_Text userNameText;
     [SerializeField] private TMP_Text categoryNameText;
     [SerializeField] private Button expandBtn;
     [SerializeField] private RawImage viewportImage;
