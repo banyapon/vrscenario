@@ -413,6 +413,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7751900505364929524}
+  - component: {fileID: 4198769908049456163}
   m_Layer: 0
   m_Name: Checkpoint 3 Trigger 2
   m_TagString: Untagged
@@ -437,6 +438,19 @@ Transform:
   - {fileID: 7260237417784024616}
   m_Father: {fileID: 8339959238425198752}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4198769908049456163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124672078336707405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Checkpoint 3 Trigger 2_-470762
 --- !u!1 &2173523655483119392
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,6 +733,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4930448320499141386}
   - component: {fileID: 5932514126417706611}
+  - component: {fileID: 4118183090298795538}
   m_Layer: 0
   m_Name: Checkpoint 1 Trigger 1
   m_TagString: Untagged
@@ -757,6 +772,19 @@ MonoBehaviour:
   gameplayController: {fileID: 5196046191436567181}
   isNextStep: 1
   done: {fileID: 0}
+--- !u!114 &4118183090298795538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2918779641504768816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Checkpoint 1 Trigger 1_-470774
 --- !u!1 &3107144142378295129
 GameObject:
   m_ObjectHideFlags: 0
@@ -982,7 +1010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1fcbb83794c883408b8a14492fb2d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: HookRight_-761254
+  id: Tong_-426794
 --- !u!114 &6663162731805594794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -995,7 +1023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Cone_-2055986
+  id: Tong_-426796
 --- !u!65 &6346680334364392473
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1164,6 +1192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2568435130628322106}
+  - component: {fileID: 8843270598142088610}
   m_Layer: 0
   m_Name: Checkpoint 3 Trigger 1
   m_TagString: Untagged
@@ -1188,6 +1217,19 @@ Transform:
   - {fileID: 4447457315715459780}
   m_Father: {fileID: 8339959238425198752}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8843270598142088610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3339707844760468029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Checkpoint 3 Trigger 1_-470766
 --- !u!1 &3411421161225998887
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,6 +1326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2104953460412570117}
   - component: {fileID: 3341847719076485775}
+  - component: {fileID: 6401747644009308040}
   m_Layer: 0
   m_Name: Checkpoint 1 Trigger 2
   m_TagString: Untagged
@@ -1324,6 +1367,19 @@ MonoBehaviour:
   gameplayController: {fileID: 5196046191436567181}
   isNextStep: 1
   done: {fileID: 0}
+--- !u!114 &6401747644009308040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3650963881918351566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Checkpoint 1 Trigger 2_-470770
 --- !u!1 &3670125845671603684
 GameObject:
   m_ObjectHideFlags: 0
@@ -6947,6 +7003,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1316927433932204805}
   - component: {fileID: 3247940618772716793}
+  - component: {fileID: 1592384043079232525}
   m_Layer: 0
   m_Name: Checkpoint 4 Trigger 1
   m_TagString: Untagged
@@ -6985,6 +7042,19 @@ MonoBehaviour:
   gameplayController: {fileID: 5196046191436567181}
   isNextStep: 1
   done: {fileID: 0}
+--- !u!114 &1592384043079232525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5003454368730242295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Checkpoint 4 Trigger 1_-470754
 --- !u!1 &5018873770751961026
 GameObject:
   m_ObjectHideFlags: 0
@@ -7515,6 +7585,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6761190128765839785}
   - component: {fileID: 7559848376195959285}
+  - component: {fileID: 3417390032560595117}
   m_Layer: 0
   m_Name: Checkpoint 4 Trigger 2
   m_TagString: Untagged
@@ -7553,6 +7624,19 @@ MonoBehaviour:
   gameplayController: {fileID: 5196046191436567181}
   isNextStep: 1
   done: {fileID: 0}
+--- !u!114 &3417390032560595117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6216840381842420975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Checkpoint 4 Trigger 2_-470750
 --- !u!1 &6275647287482387946
 GameObject:
   m_ObjectHideFlags: 0
@@ -8043,6 +8127,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4943938182650988985}
+  - component: {fileID: 626809232363740252}
   m_Layer: 0
   m_Name: Checkpoint 3 Trigger 3
   m_TagString: Untagged
@@ -8067,6 +8152,19 @@ Transform:
   - {fileID: 1281362989319426268}
   m_Father: {fileID: 8339959238425198752}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &626809232363740252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8278832206126882895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Checkpoint 3 Trigger 3_-470758
 --- !u!1 &8475034270910854639
 GameObject:
   m_ObjectHideFlags: 0
@@ -8768,6 +8866,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8346489817329362788, guid: b715ac73c6f55fd49b14619b10182739,
+        type: 3}
+      propertyPath: id
+      value: Trigger_-426902
+      objectReference: {fileID: 0}
     - target: {fileID: 8546757895628647688, guid: b715ac73c6f55fd49b14619b10182739,
         type: 3}
       propertyPath: m_Name
@@ -8980,6 +9083,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346489817329362788, guid: b715ac73c6f55fd49b14619b10182739,
+        type: 3}
+      propertyPath: id
+      value: Trigger (1)_-426580
       objectReference: {fileID: 0}
     - target: {fileID: 8546757895628647688, guid: b715ac73c6f55fd49b14619b10182739,
         type: 3}
@@ -9620,6 +9728,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346489817329362788, guid: b715ac73c6f55fd49b14619b10182739,
+        type: 3}
+      propertyPath: id
+      value: MoveTo_-426520
       objectReference: {fileID: 0}
     - target: {fileID: 8546757895628647688, guid: b715ac73c6f55fd49b14619b10182739,
         type: 3}
@@ -10267,6 +10380,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346489817329362788, guid: b715ac73c6f55fd49b14619b10182739,
+        type: 3}
+      propertyPath: id
+      value: Trigger_-426626
       objectReference: {fileID: 0}
     - target: {fileID: 8546757895628647688, guid: b715ac73c6f55fd49b14619b10182739,
         type: 3}
@@ -11054,6 +11172,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8346489817329362788, guid: b715ac73c6f55fd49b14619b10182739,
+        type: 3}
+      propertyPath: id
+      value: Trigger (1)_-426562
+      objectReference: {fileID: 0}
     - target: {fileID: 8546757895628647688, guid: b715ac73c6f55fd49b14619b10182739,
         type: 3}
       propertyPath: m_Name
@@ -11202,6 +11325,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346489817329362788, guid: b715ac73c6f55fd49b14619b10182739,
+        type: 3}
+      propertyPath: id
+      value: Trigger_-426860
       objectReference: {fileID: 0}
     - target: {fileID: 8546757895628647688, guid: b715ac73c6f55fd49b14619b10182739,
         type: 3}
@@ -11873,6 +12001,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4447457315715459780}
     m_Modifications:
+    - target: {fileID: 1094215376671797591, guid: deb8add6a54eeec479353259554a1a98,
+        type: 3}
+      propertyPath: id
+      value: Pad (2)_-426744
+      objectReference: {fileID: 0}
     - target: {fileID: 2433788799883812734, guid: deb8add6a54eeec479353259554a1a98,
         type: 3}
       propertyPath: m_Name
@@ -11932,6 +12065,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242000172317283469, guid: deb8add6a54eeec479353259554a1a98,
+        type: 3}
+      propertyPath: id
+      value: Pad (2)_-426746
       objectReference: {fileID: 0}
     - target: {fileID: 6871175002279522539, guid: deb8add6a54eeec479353259554a1a98,
         type: 3}
@@ -12875,7 +13013,7 @@ PrefabInstance:
     - target: {fileID: 8151954492914599796, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 1104490572
+      value: 1294351454
       objectReference: {fileID: 0}
     - target: {fileID: 8151954492914599796, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
@@ -13081,6 +13219,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4447457315715459780}
     m_Modifications:
+    - target: {fileID: 1094215376671797591, guid: deb8add6a54eeec479353259554a1a98,
+        type: 3}
+      propertyPath: id
+      value: Pad (1)_-426698
+      objectReference: {fileID: 0}
     - target: {fileID: 2038781652064775763, guid: deb8add6a54eeec479353259554a1a98,
         type: 3}
       propertyPath: m_IsActive
@@ -13145,6 +13288,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242000172317283469, guid: deb8add6a54eeec479353259554a1a98,
+        type: 3}
+      propertyPath: id
+      value: Pad (1)_-426700
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14170,6 +14318,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4447457315715459780}
     m_Modifications:
+    - target: {fileID: 1094215376671797591, guid: deb8add6a54eeec479353259554a1a98,
+        type: 3}
+      propertyPath: id
+      value: Pad_-426652
+      objectReference: {fileID: 0}
     - target: {fileID: 2038781652064775763, guid: deb8add6a54eeec479353259554a1a98,
         type: 3}
       propertyPath: m_IsActive
@@ -14229,6 +14382,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242000172317283469, guid: deb8add6a54eeec479353259554a1a98,
+        type: 3}
+      propertyPath: id
+      value: Pad_-426654
       objectReference: {fileID: 0}
     - target: {fileID: 6871175002279522539, guid: deb8add6a54eeec479353259554a1a98,
         type: 3}
@@ -14694,6 +14852,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8346489817329362788, guid: b715ac73c6f55fd49b14619b10182739,
+        type: 3}
+      propertyPath: id
+      value: Trigger (2)_-426598
+      objectReference: {fileID: 0}
     - target: {fileID: 8546757895628647688, guid: b715ac73c6f55fd49b14619b10182739,
         type: 3}
       propertyPath: m_Name
@@ -14853,6 +15016,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8346489817329362788, guid: b715ac73c6f55fd49b14619b10182739,
+        type: 3}
+      propertyPath: id
+      value: MoveTo_-426980
+      objectReference: {fileID: 0}
     - target: {fileID: 8546757895628647688, guid: b715ac73c6f55fd49b14619b10182739,
         type: 3}
       propertyPath: m_Name
@@ -14996,6 +15164,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346489817329362788, guid: b715ac73c6f55fd49b14619b10182739,
+        type: 3}
+      propertyPath: id
+      value: MoveTo_-426946
       objectReference: {fileID: 0}
     - target: {fileID: 8546757895628647688, guid: b715ac73c6f55fd49b14619b10182739,
         type: 3}
