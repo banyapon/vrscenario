@@ -20,7 +20,7 @@ MonoBehaviour:
     rid: 5462088023504060532
   m_OverrideGlobalSceneList: 1
   m_Scenes:
-  - m_enabled: 0
+  - m_enabled: 1
     m_path: Assets/0Gmae/Scenes/VR_Scene.unity
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:

@@ -1208,7 +1208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Checkpoint3TriggerStart_190348
+  id: Checkpoint3TriggerStart_-421434
 --- !u!1 &2018227623133904322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1430,7 +1430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Checkpoint3Point3_190286
+  id: Checkpoint3Point3_-421554
 --- !u!1 &2521722220700002961
 GameObject:
   m_ObjectHideFlags: 0
@@ -1721,7 +1721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Checkpoint4Accident_189670
+  id: Checkpoint4Accident_-421734
 --- !u!1 &2872913661237399291
 GameObject:
   m_ObjectHideFlags: 0
@@ -3589,7 +3589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: ThermalscanObject_-4923096
+  id: ThermalscanObject_-423052
 --- !u!1 &5485721338471487771
 GameObject:
   m_ObjectHideFlags: 0
@@ -3884,7 +3884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1fcbb83794c883408b8a14492fb2d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Thermalscan_-827424
+  id: Thermalscan_-423112
 --- !u!114 &4265546923354396054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3897,7 +3897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Thermalscan_-827422
+  id: Thermalscan_-423114
 --- !u!65 &4564955964613557541
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4097,7 +4097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Checkpoint2TriggerStart_189808
+  id: Checkpoint2TriggerStart_-421374
 --- !u!1 &5901428479741297700
 GameObject:
   m_ObjectHideFlags: 0
@@ -4762,7 +4762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Checkpoint3Point2_190066
+  id: Checkpoint3Point2_-421494
 --- !u!1 &7052273347893529974
 GameObject:
   m_ObjectHideFlags: 0
@@ -5966,7 +5966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Checkpoint3Point4_190118
+  id: Checkpoint3Point4_-421614
 --- !u!1 &8895488963534124040
 GameObject:
   m_ObjectHideFlags: 0
@@ -6133,7 +6133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Checkpoint4Start_190030
+  id: Checkpoint4Start_-421674
 --- !u!1 &8907362998483616591
 GameObject:
   m_ObjectHideFlags: 0
@@ -6835,7 +6835,7 @@ PrefabInstance:
     - target: {fileID: 8302749288014153391, guid: 5583419961fb16c4597cbb1452c59dc7,
         type: 3}
       propertyPath: id
-      value: PlaceObject_-43030
+      value: PlaceObject_-422902
       objectReference: {fileID: 0}
     - target: {fileID: 8781724344078705050, guid: 5583419961fb16c4597cbb1452c59dc7,
         type: 3}
@@ -7820,7 +7820,7 @@ PrefabInstance:
     - target: {fileID: 8302749288014153391, guid: 5583419961fb16c4597cbb1452c59dc7,
         type: 3}
       propertyPath: id
-      value: PlaceObject_-33594
+      value: PlaceObject_-422718
       objectReference: {fileID: 0}
     - target: {fileID: 8781724344078705050, guid: 5583419961fb16c4597cbb1452c59dc7,
         type: 3}
@@ -7981,7 +7981,7 @@ PrefabInstance:
     - target: {fileID: 8302749288014153391, guid: 5583419961fb16c4597cbb1452c59dc7,
         type: 3}
       propertyPath: id
-      value: PlaceObject_-619158
+      value: PlaceObject_-423084
       objectReference: {fileID: 0}
     - target: {fileID: 8327071113276561770, guid: 5583419961fb16c4597cbb1452c59dc7,
         type: 3}
@@ -8154,7 +8154,7 @@ PrefabInstance:
     - target: {fileID: 8302749288014153391, guid: 5583419961fb16c4597cbb1452c59dc7,
         type: 3}
       propertyPath: id
-      value: PlaceObject (1)_-43032
+      value: PlaceObject (1)_-422948
       objectReference: {fileID: 0}
     - target: {fileID: 8781724344078705050, guid: 5583419961fb16c4597cbb1452c59dc7,
         type: 3}
@@ -8315,7 +8315,7 @@ PrefabInstance:
     - target: {fileID: 8302749288014153391, guid: 5583419961fb16c4597cbb1452c59dc7,
         type: 3}
       propertyPath: id
-      value: PlaceObject (1)_-2719748
+      value: PlaceObject (1)_-423092
       objectReference: {fileID: 0}
     - target: {fileID: 8327071113276561770, guid: 5583419961fb16c4597cbb1452c59dc7,
         type: 3}
@@ -15497,7 +15497,7 @@ PrefabInstance:
     - target: {fileID: 3820922898261741640, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
       propertyPath: id
-      value: HighlightObject_-2583908
+      value: HighlightObject_-423058
       objectReference: {fileID: 0}
     - target: {fileID: 5593281840876868023, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
@@ -15601,7 +15601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1fcbb83794c883408b8a14492fb2d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: HighlightObject_-2625542
+  id: HighlightObject_-423060
 --- !u!1001 &1550869266425990721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16546,7 +16546,7 @@ PrefabInstance:
     - target: {fileID: 8302749288014153391, guid: 5583419961fb16c4597cbb1452c59dc7,
         type: 3}
       propertyPath: id
-      value: PlaceObject (2)_-410648
+      value: PlaceObject (2)_-422810
       objectReference: {fileID: 0}
     - target: {fileID: 8781724344078705050, guid: 5583419961fb16c4597cbb1452c59dc7,
         type: 3}
@@ -18064,12 +18064,12 @@ PrefabInstance:
     - target: {fileID: 3014491126635733469, guid: 6a3143c567c026a44bb85a26a74613a0,
         type: 3}
       propertyPath: id
-      value: HookLeft_-761320
+      value: HookLeft_-421302
       objectReference: {fileID: 0}
     - target: {fileID: 8096058943788041223, guid: 6a3143c567c026a44bb85a26a74613a0,
         type: 3}
       propertyPath: id
-      value: HookLeft_-761322
+      value: HookLeft_-421304
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19605,7 +19605,7 @@ PrefabInstance:
     - target: {fileID: 8151954492914599796, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 1319555789
+      value: 225108292
       objectReference: {fileID: 0}
     - target: {fileID: 8271470209092725051, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
@@ -20933,7 +20933,7 @@ PrefabInstance:
     - target: {fileID: 8302749288014153391, guid: 5583419961fb16c4597cbb1452c59dc7,
         type: 3}
       propertyPath: id
-      value: PlaceObject (3)_-410650
+      value: PlaceObject (3)_-422856
       objectReference: {fileID: 0}
     - target: {fileID: 8781724344078705050, guid: 5583419961fb16c4597cbb1452c59dc7,
         type: 3}
@@ -21086,10 +21086,20 @@ PrefabInstance:
       propertyPath: isFollowPlayer.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3014491126635733469, guid: 6a3143c567c026a44bb85a26a74613a0,
+        type: 3}
+      propertyPath: id
+      value: HookRight_-421234
+      objectReference: {fileID: 0}
     - target: {fileID: 7852872065867919854, guid: 6a3143c567c026a44bb85a26a74613a0,
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096058943788041223, guid: 6a3143c567c026a44bb85a26a74613a0,
+        type: 3}
+      propertyPath: id
+      value: HookRight_-421236
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21200,7 +21210,7 @@ PrefabInstance:
     - target: {fileID: 8302749288014153391, guid: 5583419961fb16c4597cbb1452c59dc7,
         type: 3}
       propertyPath: id
-      value: PlaceObject (2)_-2761490
+      value: PlaceObject (2)_-423100
       objectReference: {fileID: 0}
     - target: {fileID: 8327071113276561770, guid: 5583419961fb16c4597cbb1452c59dc7,
         type: 3}
@@ -24786,7 +24796,7 @@ PrefabInstance:
     - target: {fileID: 8302749288014153391, guid: 5583419961fb16c4597cbb1452c59dc7,
         type: 3}
       propertyPath: id
-      value: PlaceObject (1)_-33558
+      value: PlaceObject (1)_-422764
       objectReference: {fileID: 0}
     - target: {fileID: 8781724344078705050, guid: 5583419961fb16c4597cbb1452c59dc7,
         type: 3}

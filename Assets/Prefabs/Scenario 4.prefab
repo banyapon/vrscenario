@@ -1529,6 +1529,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1779593885721391688}
+  - component: {fileID: 7822300575525592362}
   m_Layer: 0
   m_Name: Cone_3
   m_TagString: Untagged
@@ -1555,6 +1556,19 @@ Transform:
   - {fileID: 6250465352410667950}
   m_Father: {fileID: 4560962613633932679}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7822300575525592362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3337495821376530223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Cone_3_-478364
 --- !u!1 &3379702574205562422
 GameObject:
   m_ObjectHideFlags: 0
@@ -1774,6 +1788,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3917179757083001334}
+  - component: {fileID: 5863946368184261420}
   m_Layer: 0
   m_Name: Cones
   m_TagString: Untagged
@@ -1800,6 +1815,19 @@ Transform:
   - {fileID: 5230753497684878416}
   m_Father: {fileID: 4560962613633932679}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5863946368184261420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3812446151650988209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Cones_-478356
 --- !u!1 &4429790893531461875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1809,6 +1837,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7622316008106443002}
+  - component: {fileID: 4255973115824901443}
   m_Layer: 0
   m_Name: Cone_1
   m_TagString: Untagged
@@ -1837,6 +1866,19 @@ Transform:
   - {fileID: 6043041887203892340}
   m_Father: {fileID: 4560962613633932679}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4255973115824901443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4429790893531461875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Cone_1_-478372
 --- !u!1 &4560452648052386631
 GameObject:
   m_ObjectHideFlags: 0
@@ -2236,6 +2278,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5666964118826051634}
+  - component: {fileID: 2102576390390300684}
   m_Layer: 0
   m_Name: 2 Trigger
   m_TagString: Untagged
@@ -2262,6 +2305,19 @@ Transform:
   - {fileID: 1781819625167238146}
   m_Father: {fileID: 4560962613633932679}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2102576390390300684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5291851695545429685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 2 Trigger_-478360
 --- !u!1 &5378166770177759444
 GameObject:
   m_ObjectHideFlags: 0
@@ -2959,6 +3015,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5571563362102787276}
+  - component: {fileID: 4332304040837824782}
   m_Layer: 0
   m_Name: Cone_2
   m_TagString: Untagged
@@ -2985,6 +3042,19 @@ Transform:
   - {fileID: 4397018284152279078}
   m_Father: {fileID: 4560962613633932679}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4332304040837824782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7579486963081447999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Cone_2_-478368
 --- !u!1 &7626077850447141651
 GameObject:
   m_ObjectHideFlags: 0
@@ -4093,7 +4163,7 @@ PrefabInstance:
     - target: {fileID: 8151954492914599796, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 2257809601
+      value: 866214356
       objectReference: {fileID: 0}
     - target: {fileID: 8592179861658787997, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
