@@ -48,13 +48,19 @@ public class HarmPreventionState : State
         npc.SetBool("pick", false);
         npc.SetBool("walk", true);
         npc.SetBool("check out", false);
+        npc.SetForcePosition(true);
+        npc.SetForceRotation(true);
+
+        DOVirtual.DelayedCall(npcClip.length - 0.75f, () =>
+        {
+            npc.SetBool("pick", false);
+            npc.SetBool("walk", false);
+            npc.SetBool("check out", true);
+        });
 
         DOVirtual.DelayedCall(npcClip.length, () =>
         {
             machineDoor.Open();
-            npc.SetBool("pick", false);
-            npc.SetBool("walk", false);
-            npc.SetBool("check out", true);
             explainHud.SetActive(false);
             quizHud.SetActive(true);
         });

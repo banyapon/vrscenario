@@ -1,6 +1,5 @@
 using UnityEngine;
 using Boy;
-using NUnit.Framework.Interfaces;
 
 public class ScenarioFiveHomeState : State
 {
@@ -42,6 +41,7 @@ public class ScenarioFiveHomeState : State
         npc.SetBool("walk", false);
         npc.SetBool("check out", false);
         npcAnimator.SetBool("move", false);
+        npc.SetForceRotation(false);
     }
 
     public override void StateUpdate()

@@ -8,6 +8,7 @@ namespace Boy
     {
         [SerializeField] NPC npc;
         [SerializeField] Transform model;
+        [SerializeField] GameObject safetyHarness;
         [SerializeField] private AnimationClip unconsciousClip;
         [SerializeField] private AnimationClip pullupClip;
 
@@ -22,6 +23,8 @@ namespace Boy
         {
             npc.SetBool("look", false);
             npc.SetBool("unconscious", true);
+            npc.SetForcePosition(true);
+            npc.SetForceRotation(true);
             DOTween.Kill(model);
             model.DOLocalRotate(Vector3.zero, 1);
             PlayAnimation("unconscious", unconsciousClip.length, callback);
@@ -29,6 +32,7 @@ namespace Boy
 
         public void Pullup(Action callback = null)
         {
+            safetyHarness.SetActive(true);
             PlayAnimation("pull up", pullupClip.length, callback);
         }
 
@@ -49,8 +53,11 @@ namespace Boy
         public void ResetAnimation()
         {
             PlayAnimation("reset");
+            safetyHarness.SetActive(false);
             npc.SetBool("look", true);
             npc.SetBool("unconscious", false);
+            npc.SetForcePosition(false);
+            npc.SetForceRotation(false);
         }
     }
 }

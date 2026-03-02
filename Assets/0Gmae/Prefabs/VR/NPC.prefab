@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1551971588527172164}
+  model: {fileID: 4857582153503141950}
 --- !u!1001 &4963846699721791445
 PrefabInstance:
   m_ObjectHideFlags: 0
