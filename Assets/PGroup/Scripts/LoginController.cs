@@ -22,6 +22,8 @@ namespace PGroup
         [HideInInspector][SerializeField] private GameObject sentEmailResetPasswordPanel;
         [HideInInspector][SerializeField] private GameObject searchingPanel;
         [HideInInspector][SerializeField] private GameObject notFoundPanel;
+        [HideInInspector][SerializeField] private GameObject regisSuccessPanel;
+        [HideInInspector][SerializeField] private GameObject resetPasswordSuccessPanel;
 
         [Header("Button")]
         [HideInInspector][SerializeField] private Button standaloneButton;
@@ -37,6 +39,8 @@ namespace PGroup
         [HideInInspector][SerializeField] private Button resetPasswordButton;
         [HideInInspector][SerializeField] private Button backToLoginFromResetButton;
         [HideInInspector][SerializeField] private Button backToLoginFromSentEmailTokenButton;
+        [HideInInspector][SerializeField] private Button closeRegisSuccessButton;
+        [HideInInspector][SerializeField] private Button closeResetPasswordSuccessButton;
             
         [Header("InputField")]
         [HideInInspector][SerializeField] private TMP_InputField usernameInputField;
@@ -104,6 +108,8 @@ namespace PGroup
             NonNativeKeyboard.Instance.InputField = _input;
             NonNativeKeyboard.Instance.PresentKeyboard(_input.text);
         }
+        public void ButtonCloseRegisSuccess() { OnCloseRegisSuccess(); }
+        public void ButtonCloseResetPasswordSuccess() { OnCloseResetPasswordSuccess(); }
         #endregion
         #region Private Fuction Action
 
@@ -196,6 +202,7 @@ namespace PGroup
             {
                 if (success)
                 {
+                    regisSuccessPanel.SetActive(true);
                     registerPanel.SetActive(false);
                     loginPanel.SetActive(true);
                     registerButton.interactable = true;
@@ -232,6 +239,7 @@ namespace PGroup
             {
                 if (success)
                 {
+                    resetPasswordSuccessPanel.SetActive(true);
                     resetPasswordPanel.SetActive(false);
                     loginPanel.SetActive(true);
                     Debug.Log("Reset Password success");
@@ -244,6 +252,7 @@ namespace PGroup
         }
         private void OnSentEmailResetPassword()
         {
+            sendEmailPasswordButton.interactable = false;
             string getEmail = emailSentResetInputField.text;
 
             //========================================================================================================TEST==
@@ -264,7 +273,16 @@ namespace PGroup
                 {
                     Debug.LogError(msg);
                 }
+                sendEmailPasswordButton.interactable = true;
             });
+        }
+        private void OnCloseRegisSuccess()
+        {
+            regisSuccessPanel.SetActive(false);
+        }
+        private void OnCloseResetPasswordSuccess()
+        {
+            resetPasswordSuccessPanel.SetActive(false);
         }
         #endregion
     }
