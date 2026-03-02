@@ -121,6 +121,7 @@ namespace PGroup
 
                     if (isOnline) networkController.StartHostLocal();
                     else networkController.OnClickJoin();
+                    APIManager.Instance.userEmail = getUsername;
                 }
                 else
                 {
