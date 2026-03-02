@@ -1,9 +1,10 @@
-using System.Collections;
-using UnityEngine;
-using UnityEngine.Networking;
-using System;
-using UnityEngine.Events;
 using Newtonsoft.Json;
+using System;
+using System.Collections;
+using System.Net;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Networking;
 
 namespace Boy
 {
@@ -48,6 +49,62 @@ namespace Boy
             string url = $"{baseUrl}/api/get-key-join-multiplayer?room_code={roomCode}";
             StartCoroutine(GetRequest(url, callback));
         }
+        #region PGroup
+        public void Login<T>(string _email, string _password, UnityAction<bool, string, T> callback = null)
+        {
+            var body = new
+            {
+                userEmail = _email,
+                password = _password
+            };
+
+            string json = JsonConvert.SerializeObject(body);
+            string url = $"{baseUrl}/api/login";
+
+            StartCoroutine(PostJson(url, json, callback));
+        }
+        public void Register<T>(string _email, string _password,string _firstname,string _lastname, UnityAction<bool, string, T> callback = null)
+        {
+            var body = new
+            {
+                userEmail = _email,
+                password = _password,
+                firstName = _firstname,
+                lastName = _lastname
+            };
+
+            string json = JsonConvert.SerializeObject(body);
+            string url = $"{baseUrl}/api/register";
+
+            StartCoroutine(PostJson(url, json, callback));
+        }
+        public void SentEmailResetPasswordToken<T>(string _userEmail, UnityAction<bool, string, T> callback = null)
+        {
+            var body = new
+            {
+                userEmail = _userEmail
+            };
+
+            string json = JsonConvert.SerializeObject(body);
+            string url = $"{baseUrl}/api/email-reset-password";
+
+            StartCoroutine(PostJson(url, json, callback));
+        }
+        public void ResetPassword<T>(string _userEmail, string _resetPasswordToken, string _newPassword, UnityAction<bool, string, T> callback = null)
+        {
+            var body = new
+            {
+                userEmail = _userEmail,
+                resetPasswordToken = _resetPasswordToken,
+                newPassword = _newPassword
+            };
+
+            string json = JsonConvert.SerializeObject(body);
+            string url = $"{baseUrl}/api/reset-password";
+
+            StartCoroutine(PostJson(url, json, callback));
+        }
+        #endregion
 
         public IEnumerator GetRequest<T>(string url,
             UnityAction<bool, string, T> callback = null)
@@ -97,6 +154,8 @@ namespace Boy
                     yield return null;
                 }
 
+                Debug.Log(webRequest.downloadHandler.text);
+
                 if (webRequest.result != UnityWebRequest.Result.Success)
                 {
                     callback?.Invoke(false, webRequest.error, default(T));
@@ -127,4 +186,12 @@ public class JoinMultiplayerData
 {
     public string key_join_multiplayer;
     public string updatedAt;
+}
+[Serializable]
+public class LoginResponse
+{
+    public bool status;
+    public string message;
+    public string code;
+    public string desc;
 }

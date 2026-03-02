@@ -38,7 +38,7 @@ namespace PGroup
         {
             if (isFollowPlayer == Vector3.zero || onGrab) return;
 
-            //GetComponent<Rigidbody>().isKinematic = true;
+            GetComponent<Rigidbody>().isKinematic = true;
             Vector3 current = transform.position;
             Vector3 target = player.position + startOffset;
 

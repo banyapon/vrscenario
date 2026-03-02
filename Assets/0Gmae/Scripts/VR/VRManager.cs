@@ -58,7 +58,7 @@ public class VRManager : NetworkBehaviour
         }
 
         startBtn.onClick.AddListener(() => {
-            if (currentConfig == null) return;
+            if (currentConfig.scenarioPrefab == null) return;
             boardUI.SetActive(false);
             environment.SetActive(false);
             int index = scenarioConfigs.ToList().IndexOf(currentConfig);

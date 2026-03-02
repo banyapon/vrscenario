@@ -491,6 +491,15 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.xr.oculus": {
+      "version": "4.5.2",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.xr.management": "4.4.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.xr.openxr": {
       "version": "1.16.0",
       "depth": 0,
@@ -502,6 +511,17 @@
         "com.unity.xr.legacyinputhelpers": "2.1.2"
       },
       "url": "https://packages.unity.com"
+    },
+    "com.unity.xr.picoxr": {
+      "version": "https://github.com/Pico-Developer/PICO-Unity-Integration-SDK.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.xr.management": "4.0.0",
+        "com.unity.xr.interaction.toolkit": "2.0.0",
+        "com.unity.xr.core-utils": "2.3.0"
+      },
+      "hash": "3831bd51749e9d29d7d30db68deea7152851ba60"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",

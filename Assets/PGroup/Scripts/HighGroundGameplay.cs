@@ -1,4 +1,6 @@
+using Boy;
 using DG.Tweening;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +19,8 @@ namespace PGroup
         [SerializeField] private GameObject ladder;
         private List<bool> scoreList;
         private int score;
+        private float timeUsed;
+        private bool onPlaying;
 
         [Header("CheckPoint 1")]
         [SerializeField] private GameObject[] uiCheckpoint1;
@@ -156,6 +160,11 @@ namespace PGroup
         {
             Checkpoint1Start();
         }
+        private void Update()
+        {
+            if (onPlaying)
+                timeUsed += Time.deltaTime;
+        }
         private void OnHookHit(GameObject hook,GameObject hitObject)
         {
             if (hitObject.CompareTag("Ladder"))
@@ -176,6 +185,7 @@ namespace PGroup
         }
         private void ShowResult()
         {
+            onPlaying = false;
             ladder.SetActive(false);
             rope.SetActive(false);
             hookLeft.gameObject.SetActive(false);
@@ -187,6 +197,8 @@ namespace PGroup
             if (scenario) Player.Instance?.Teleport(positionEndgame.position, Vector3.zero, scenario.IsOwner);
             summaryUI.gameObject.SetActive(true);
             summaryUI.ShowSummary(scoreList);
+
+            SendScoreAPI();
         }
         private void PlayAnimation(Animation animation, string clip, bool reversed)
         {
@@ -353,6 +365,46 @@ namespace PGroup
 
             //GetScore
             scoreList[1] = true;
+        }
+        private void SendScoreAPI()
+        {
+            //SCORE
+            int score = 0;
+            for (int i = 0; i < scoreList.Count; i++)
+            {
+                if (scoreList[i]) score++;
+            }
+            //STAR
+            int star = Convert.ToInt32(score / (float)scoreList.Count);
+
+            Debug.Log(star);
+
+            var body = new
+            {
+                userEmail = APIManager.Instance.userEmail,
+                scenarioKey = "scenario2",
+                total_score = score,
+                stars = star,
+                details = new
+                {
+                    ppe_work_permit = scoreList[0],
+                    climbing = scoreList[1],
+                    anchor_point = scoreList[2],
+                    emergency_call = scoreList[3],
+                },
+                time_used_seconds = (int)timeUsed,
+                remark = ""
+            };
+
+            string json = JsonConvert.SerializeObject(body);
+            print(json);
+
+            APIManager.Instance.SaveSession<string>(json, (ok, msg, res) =>
+            {
+                print(msg);
+                if (!ok) return;
+                print(res);
+            });
         }
         #endregion
         #region Checkpoint 3
