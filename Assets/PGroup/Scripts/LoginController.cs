@@ -113,7 +113,12 @@ namespace PGroup
         #endregion
         #region Private Fuction Action
 
-        private bool isOnline;
+        [SerializeField] private bool isOnline;
+
+        private void OnEnable()
+        {
+            loginPanel.SetActive(true);
+        }
 
         private void OnStandAlone()
         {
@@ -148,8 +153,8 @@ namespace PGroup
 
                     nonNativeKeyboard.Close();
 
-                    if (isOnline) networkController.StartHostLocal();
-                    else networkController.OnClickJoin();
+                    if (isOnline) networkController.OnClickJoin();
+                    else networkController.StartHostLocal();
                     APIManager.Instance.userEmail = getUsername;
                 }
                 else
