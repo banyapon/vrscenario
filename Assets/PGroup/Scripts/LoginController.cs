@@ -133,8 +133,8 @@ namespace PGroup
             string getPassword = passwordInputField.text;
 
             //========================================================================================================TEST==
-            //getUsername = "nopparat.pgroup@gmail.com";
-            //getPassword = "12345";
+            getUsername = "nopparat.pgroup@gmail.com";
+            getPassword = "12345";
             //============================================================================================================================
 
             if (string.IsNullOrEmpty(getUsername) || string.IsNullOrEmpty(getPassword)) return;
@@ -148,8 +148,8 @@ namespace PGroup
 
                     nonNativeKeyboard.Close();
 
-                    if (isOnline) networkController.StartHostLocal();
-                    else networkController.OnClickJoin();
+                    if (isOnline) networkController.OnClickJoin();
+                    else networkController.StartHostLocal();
                     APIManager.Instance.userEmail = getUsername;
                 }
                 else

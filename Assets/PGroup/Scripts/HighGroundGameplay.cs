@@ -608,6 +608,7 @@ namespace PGroup
             blockDown.position += Vector3.up;
 
             PlayAnimation(npcAnim, "NPCDrop", false);
+            npcAnim.GetComponent<Animator>().enabled = true;
             uiCheckpoint4[0].SetActive(true);
             delay?.Kill();
             delay = DOVirtual.DelayedCall(3, () =>
