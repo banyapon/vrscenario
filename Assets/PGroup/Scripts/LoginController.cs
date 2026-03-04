@@ -24,6 +24,7 @@ namespace PGroup
         [HideInInspector][SerializeField] private GameObject notFoundPanel;
         [HideInInspector][SerializeField] private GameObject regisSuccessPanel;
         [HideInInspector][SerializeField] private GameObject resetPasswordSuccessPanel;
+        [HideInInspector][SerializeField] private GameObject notCorrectPasswordPanel;
 
         [Header("Button")]
         [HideInInspector][SerializeField] private Button standaloneButton;
@@ -41,6 +42,7 @@ namespace PGroup
         [HideInInspector][SerializeField] private Button backToLoginFromSentEmailTokenButton;
         [HideInInspector][SerializeField] private Button closeRegisSuccessButton;
         [HideInInspector][SerializeField] private Button closeResetPasswordSuccessButton;
+        [HideInInspector][SerializeField] private Button closeNotCorrectPasswordButton;
             
         [Header("InputField")]
         [HideInInspector][SerializeField] private TMP_InputField usernameInputField;
@@ -78,6 +80,7 @@ namespace PGroup
             backToLoginFromResetButton.onClick.AddListener(() => ButtonBacktoLogin());
             sendEmailPasswordButton.onClick.AddListener(() => ButtonSentEmailPassword());
             backToLoginFromSentEmailTokenButton.onClick.AddListener(() => ButtonBacktoLogin());
+            closeNotCorrectPasswordButton.onClick.AddListener(() => ButtonCloseNotCorrectPassword());
 
             usernameInputField.onSelect.AddListener(x => ShowKeyboard(usernameInputField));
             passwordInputField.onSelect.AddListener(x => ShowKeyboard(passwordInputField));
@@ -110,6 +113,7 @@ namespace PGroup
         }
         public void ButtonCloseRegisSuccess() { OnCloseRegisSuccess(); }
         public void ButtonCloseResetPasswordSuccess() { OnCloseResetPasswordSuccess(); }
+        public void ButtonCloseNotCorrectPassword() { OnCloseNotCorrectPassword(); }
         #endregion
         #region Private Fuction Action
 
@@ -119,7 +123,6 @@ namespace PGroup
         {
             loginPanel.SetActive(true);
         }
-
         private void OnStandAlone()
         {
             isOnline = false;
@@ -134,22 +137,28 @@ namespace PGroup
         }
         private void OnLogin()
         {
+            //Debug.Log("Login processing");
+            loginButton.interactable = false;
             string getUsername = usernameInputField.text;
             string getPassword = passwordInputField.text;
 
             //========================================================================================================TEST==
-            getUsername = "nopparat.pgroup@gmail.com";
-            getPassword = "12345";
+            //getUsername = "nopparat.pgroup@gmail.com";
+            //getPassword = "12345";
             //============================================================================================================================
 
-            if (string.IsNullOrEmpty(getUsername) || string.IsNullOrEmpty(getPassword)) return;
+            if (string.IsNullOrEmpty(getUsername) || string.IsNullOrEmpty(getPassword))
+            {
+                loginButton.interactable = true;
+                return;
+            }
 
             APIManager.Instance.Login<LoginResponse>(getUsername, getPassword, (success, msg, res) =>
             {
                 if (success)
                 {
                     loginPanel.SetActive(false);
-                    Debug.Log("Login success");
+                    //Debug.Log("Login success");
 
                     nonNativeKeyboard.Close();
 
@@ -159,8 +168,11 @@ namespace PGroup
                 }
                 else
                 {
-                    Debug.LogError(msg);
+                    //Debug.Log(msg);
+                    notCorrectPasswordPanel.SetActive(true);
+                    //Debug.LogError(msg);
                 }
+                loginButton.interactable = true;
             });
         }
         private void OnForgotPassword()
@@ -289,6 +301,10 @@ namespace PGroup
         private void OnCloseResetPasswordSuccess()
         {
             resetPasswordSuccessPanel.SetActive(false);
+        }
+        private void OnCloseNotCorrectPassword()
+        {
+            notCorrectPasswordPanel.SetActive(false);
         }
         #endregion
     }
