@@ -113,7 +113,12 @@ namespace PGroup
         #endregion
         #region Private Fuction Action
 
-        private bool isOnline;
+        [SerializeField] private bool isOnline;
+
+        private void OnEnable()
+        {
+            loginPanel.SetActive(true);
+        }
 
         private void OnStandAlone()
         {

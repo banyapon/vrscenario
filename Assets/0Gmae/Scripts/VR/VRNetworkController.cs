@@ -47,7 +47,6 @@ public class VRNetworkController : MonoBehaviour
 
         Instance = this;
 
-        nm = NetworkManager.Singleton;
         transport = GetComponent<UnityTransport>();
 
         var options = new InitializationOptions()
@@ -69,6 +68,7 @@ public class VRNetworkController : MonoBehaviour
             //joinCode = value;
         });
 
+        nm = NetworkManager.Singleton;
         nm.OnClientConnectedCallback += OnClientConnected;
         nm.OnClientDisconnectCallback += OnClientDisconnected;
 
@@ -142,22 +142,36 @@ public class VRNetworkController : MonoBehaviour
         ShowDisconnectedUI("Disconnected");
         onClientDisconnected?.Invoke();
     }
+
+    bool isJoining;
     public void OnClickJoin()
     {
+        if (isJoining) return;
+        isJoining = true;
         APIManager.Instance.GetJoinCode<JoinMultiplayerResponse>(OnJoinCodeReceived);
     }
 
     async void OnJoinCodeReceived(bool status, string message, JoinMultiplayerResponse response)
     {
-        Debug.Log(message);
-
-        if (!status || response == null || response.data == null)
+        try
         {
-            SetStatus("Failed to get join code");
-            return;
-        }
+            Debug.Log(message);
 
-        await StartRelayClient(response.data.key_join_multiplayer);
+            if (!status || response == null || response.data == null)
+            {
+                SetStatus("Failed to get join code");
+                isJoining = false;
+                return;
+            }
+
+            await StartRelayClient(response.data.key_join_multiplayer);
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError("Join flow crashed: " + ex.Message);
+            SetStatus("Join error");
+            isJoining = false;
+        }
     }
 
     public async Task StartRelayClient(string joinCode)
@@ -165,6 +179,7 @@ public class VRNetworkController : MonoBehaviour
         if (string.IsNullOrWhiteSpace(joinCode))
         {
             SetStatus("Join code is empty");
+            isJoining = false;
             return;
         }
 
@@ -189,6 +204,10 @@ public class VRNetworkController : MonoBehaviour
             Debug.LogError("Join Failed: " + ex.Message);
             SetStatus("Invalid or expired join code");
         }
+        finally
+        {
+            isJoining = false;
+        }
     }
 
     public async void Disconnect()
@@ -205,6 +224,7 @@ public class VRNetworkController : MonoBehaviour
         DespawnHostObject();
 
         isConnected = false;
+        isJoining = false;
         ShowDisconnectedUI("Disconnected");
         onClientDisconnected?.Invoke();
     }

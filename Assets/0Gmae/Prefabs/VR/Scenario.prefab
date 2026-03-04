@@ -432,7 +432,7 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   BGVolume: 1
   SFXVolume: 1
-  bgClip: {fileID: 0}
+  bgClip: {fileID: 8300000, guid: d4c60000148d64f419ca424cd3fe255d, type: 3}
   buttonClip: {fileID: 0}
 --- !u!1 &8970955821052837665
 GameObject:
