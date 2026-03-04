@@ -80,6 +80,12 @@ namespace PGroup
         [SerializeField] private Thermalscan thermalscan;
         private int scanPoint;
 
+        [Header("Follower Sling")]
+        [SerializeField] private Transform followerFirstLeft;
+        [SerializeField] private Transform followerFirstRight;
+        [SerializeField] private Transform followerSecondLeft;
+        [SerializeField] private Transform followerSecondRight;
+
 
         private Tween delay = null;
         Scenario scenario;
@@ -472,10 +478,8 @@ namespace PGroup
                     slingTop1.gameObject.SetActive(false);
                     slingTop2.gameObject.SetActive(false);
                     startPoint3_2.gameObject.SetActive(true);
-                    hookLeft.SetOffset();
-                    hookRight.SetOffset();
-                    hookLeft.isFollowPlayer = new Vector3(1, 0, 0);
-                    hookRight.isFollowPlayer = new Vector3(1, 0, 0);
+                    hookLeft.SetFollower(followerFirstLeft);
+                    hookRight.SetFollower(followerFirstRight);
                     isHookOnR = false;
                     isHookOnL = false;
 
@@ -487,10 +491,8 @@ namespace PGroup
                     slingTop3.gameObject.SetActive(false);
                     slingTop4.gameObject.SetActive(false);
                     startPoint3_3.gameObject.SetActive(true);
-                    hookLeft.SetOffset();
-                    hookRight.SetOffset();
-                    hookLeft.isFollowPlayer = new Vector3(0, 0, 1);
-                    hookRight.isFollowPlayer = new Vector3(0, 0, 1);
+                    hookLeft.SetFollower(followerSecondLeft);
+                    hookRight.SetFollower(followerSecondRight);
                     isHookOnR = false;
                     isHookOnL = false;
                 }
@@ -501,10 +503,8 @@ namespace PGroup
                     //ladders[15].transform.GetChild(0).gameObject.SetActive(true);
                     slingTop5.gameObject.SetActive(false);
                     slingTop6.gameObject.SetActive(false);
-                    hookLeft.SetOffset();
-                    hookRight.SetOffset();
-                    hookLeft.isFollowPlayer = new Vector3(1, 0, 0);
-                    hookRight.isFollowPlayer = new Vector3(1, 0, 0);
+                    hookLeft.SetFollower(followerFirstLeft);
+                    hookRight.SetFollower(followerFirstRight);
                     isHookOnR = false;
                     isHookOnL = false;
                 }
@@ -546,8 +546,8 @@ namespace PGroup
         {
             startPoint3_2.gameObject.SetActive(false);
             uiCheckpoint3[2].SetActive(true);
-            hookLeft.isFollowPlayer = Vector3.zero;
-            hookRight.isFollowPlayer = Vector3.zero;
+            hookLeft.SetFollower(null);
+            hookRight.SetFollower(null);
             //hookRight.GetComponent<XRGrabInteractable>().enabled = true;
             hookLeft.GetComponent<XRGrabInteractable>().enabled = true;
             slingTop3.gameObject.SetActive(true);
@@ -574,8 +574,8 @@ namespace PGroup
         }
         private void CheckPoint3Success()
         {
-            hookLeft.isFollowPlayer = new Vector3(0, 0, 0);
-            hookRight.isFollowPlayer = new Vector3(0, 0, 0);
+            hookLeft.SetFollower(null);
+            hookRight.SetFollower(null);
             startPoint3_4.gameObject.SetActive(false);
             slingTop5.gameObject.SetActive(true);
             //slingTop6.gameObject.SetActive(true);
@@ -589,8 +589,8 @@ namespace PGroup
         {
             movePoint4.gameObject.SetActive(false);
             ladders[16].transform.GetChild(0).gameObject.SetActive(true);
-            hookLeft.isFollowPlayer = new Vector3(0, 0, 0);
-            hookRight.isFollowPlayer = new Vector3(0, 0, 0);
+            hookLeft.SetFollower(null);
+            hookRight.SetFollower(null);
             //hookLeft.transform.position = player.parent.position + positionHookLeft.position;
             //hookRight.transform.position = player.parent.position + positionHookRight.position;
             hookRight.GetComponent<XRGrabInteractable>().enabled = true;

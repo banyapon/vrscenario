@@ -8,52 +8,32 @@ namespace PGroup
     public class Hook : MonoBehaviour
     {
         public bool isHit;
-        public Transform player;
-        public Vector3 isFollowPlayer;
+        public Transform follow;
         public Action<GameObject,GameObject> OnEnter;
         public Action OnExit;
         public GameObject hitObject;
-        public float smoothTime = 0.2f;
 
         private Animation anim; 
-        private Vector3 velocity;
-        private Vector3 startOffset;
         private bool onGrab;
 
         void Awake()
         {
             anim = GetComponent<Animation>();
-            player = Camera.main.transform.parent.parent;
-            startOffset = transform.position - player.position;
 
             var grab = GetComponent<XRGrabInteractable>();
             grab.selectEntered.AddListener(OnGrab);
             grab.selectExited.AddListener(OnRelease);
         }
-        public void SetOffset()
+        public void SetFollower(Transform follower)
         {
-            startOffset = transform.position - player.position;
+            follow = follower;
         }
         private void LateUpdate()
         {
-            if (isFollowPlayer == Vector3.zero || onGrab) return;
-
-            GetComponent<Rigidbody>().isKinematic = true;
-            Vector3 current = transform.position;
-            Vector3 target = player.position + startOffset;
-
-            Vector3 followTarget = new Vector3(
-                isFollowPlayer.x == 1 ? target.x : current.x,
-                isFollowPlayer.y == 1 ? target.y : current.y,
-                isFollowPlayer.z == 1 ? target.z : current.z
-                );
-
-            transform.position = Vector3.SmoothDamp(
-                current,
-                followTarget,
-                ref velocity,
-                smoothTime
-            );
+            if (follow != null)
+            {
+                transform.position = follow.position;
+            }
         }
         private void OnTriggerEnter(Collider other)
         {
@@ -90,7 +70,6 @@ namespace PGroup
         void OnRelease(SelectExitEventArgs args)
         {
             onGrab = false;
-            startOffset = transform.position - player.position;
             PlayAnimation(anim, "HookGrab", true);
             if (isHit)
             {
