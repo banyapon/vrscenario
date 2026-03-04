@@ -61,6 +61,7 @@ namespace PGroup
         [SerializeField] private TriggerChecker movePoint4;
         [SerializeField] private TriggerChecker movePoint4_2;
         [SerializeField] private Animation npcAnim;
+        [SerializeField] private GameObject npcTopLoop;
         private bool isClimbDown;
         [Header("CheckPoint 5")]
         [SerializeField] private GameObject[] uiCheckpoint5;
@@ -158,6 +159,12 @@ namespace PGroup
 
         private void Start()
         {
+            //=================================================================Test======================================================================
+            //npcTopLoop.SetActive(false);
+            //npcAnim.gameObject.SetActive(true);
+            //PlayAnimation(npcAnim, "NPCDrop", false);
+            //=================================================================Test======================================================================
+
             Checkpoint1Start();
         }
         private void Update()
@@ -607,8 +614,10 @@ namespace PGroup
 
             blockDown.position += Vector3.up;
 
+            npcTopLoop.SetActive(false);
+            npcAnim.gameObject.SetActive(true);
             PlayAnimation(npcAnim, "NPCDrop", false);
-            npcAnim.GetComponent<Animator>().enabled = true;
+            //npcAnim.GetComponent<Animator>().enabled = true;
             uiCheckpoint4[0].SetActive(true);
             delay?.Kill();
             delay = DOVirtual.DelayedCall(3, () =>

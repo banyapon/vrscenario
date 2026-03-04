@@ -467,7 +467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   gameplayController: {fileID: 233081554980543404}
-  moveSpeed: 3
+  moveSpeed: 2
   stopDistance: 1.5
   animator: {fileID: 4028085067251815002}
   walkParam: isWalk
@@ -4052,7 +4052,12 @@ PrefabInstance:
     - target: {fileID: 8151954492914599796, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 1350510005
+      value: 1163286790
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151954492914599796, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
+        type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 3800201784
       objectReference: {fileID: 0}
     - target: {fileID: 8592179861658787997, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
@@ -4863,6 +4868,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5314691045117025389}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 978620ebc56e0694c9309ba4fd827ba5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 792113599851805685}
   m_SourcePrefab: {fileID: 100100000, guid: 978620ebc56e0694c9309ba4fd827ba5, type: 3}
 --- !u!4 &1665223953175268748 stripped
 Transform:
@@ -4889,6 +4898,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: NPC_Accident_-480882
+--- !u!65 &792113599851805685
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042313094181132086}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.4034674, y: 1.9389335, z: 0.4020323}
+  m_Center: {x: -0.004683957, y: 0.9413573, z: 0.009147257}
 --- !u!1001 &1408749493317375952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9063,6 +9093,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8583916008033640994}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 978620ebc56e0694c9309ba4fd827ba5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3799357955211262778}
   m_SourcePrefab: {fileID: 100100000, guid: 978620ebc56e0694c9309ba4fd827ba5, type: 3}
 --- !u!4 &4990347565370312904 stripped
 Transform:
@@ -9089,6 +9123,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: NPC_Accident (1)_-480878
+--- !u!65 &3799357955211262778
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5623472042223489650}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.4034674, y: 1.9389335, z: 0.4020323}
+  m_Center: {x: -0.004683957, y: 0.9413573, z: 0.009147257}
 --- !u!1001 &5124074401653290752
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class Follower : MonoBehaviour
     public GameplayController gameplayController;
 
     [Header("Follow Setting")]
-    public float moveSpeed = 3f;
+    public float moveSpeed = 2f;
     public float stopDistance = 1.5f;   // ระยะที่หยุด
 
     [Header("Animation")]
