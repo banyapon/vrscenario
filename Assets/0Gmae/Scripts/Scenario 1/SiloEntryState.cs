@@ -15,6 +15,7 @@ public class SiloEntryState : State
     public TriggerChecker floorChecker;
     public TriggerChecker checker;
     public HookController hookController;
+    public Rung[] rungs;
 
     [Header("HUD")]
     public GameObject lifelineHUD;
@@ -67,6 +68,8 @@ public class SiloEntryState : State
 
         hookController.Show();
         player?.SetSlopeLimit(slopeLimit);
+
+        foreach (var r in rungs) r.SetHighlightObj(true);
     }
 
     public override void StateUpdate()
@@ -86,6 +89,7 @@ public class SiloEntryState : State
         hookController.Hide();
         player?.ResetSlopeLimit();
         checker.enabled = false;
+        foreach (var r in rungs) r.SetHighlightObj(false);
     }
 
     public void Trigger()
