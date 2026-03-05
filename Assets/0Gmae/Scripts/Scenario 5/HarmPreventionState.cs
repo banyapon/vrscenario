@@ -10,6 +10,7 @@ public class HarmPreventionState : State
 
     [Header("Reference")]
     public GameObject explainHud;
+    public GameObject npcHud;
     public GameObject quizHud;
     [Space(10)]
     public Button correctBtn;
@@ -30,6 +31,10 @@ public class HarmPreventionState : State
         {
             isPass = true;
             controller.NextState(delayChangeState);
+            npcHud.SetActive(true);
+            DOVirtual.DelayedCall(5, () => {
+                npcHud.SetActive(false);
+            });
         });
 
         wrongBtn.onClick.AddListener(() =>
@@ -42,6 +47,7 @@ public class HarmPreventionState : State
     {
         base.StateEnter();
         explainHud.SetActive(true);
+        npcHud.SetActive(false);
         quizHud.SetActive(false);
         quizUI?.HideAllHuds();
         npcAnimator.SetBool("move", true);

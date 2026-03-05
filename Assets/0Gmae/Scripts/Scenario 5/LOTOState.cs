@@ -3,7 +3,7 @@ using Boy;
 using DG.Tweening;
 using System.Collections.Generic;
 
-public enum LOTOStep { StopButton, MainSwitchOff, LockoutTagout, LockoutTagout2 }
+public enum LOTOStep { StopButton, MainSwitchOff, MainSwitchOff2, LockoutTagout, LockoutTagout2, EmergencyButton }
 public class LOTOState : State
 {
     [Header("Setting")]
@@ -11,17 +11,21 @@ public class LOTOState : State
     [SerializeField]
     private LOTOStep[] correctSequence =
     {
-        LOTOStep.StopButton,
+        LOTOStep.EmergencyButton,
         LOTOStep.MainSwitchOff,
+        LOTOStep.MainSwitchOff2,
         LOTOStep.LockoutTagout,
-        LOTOStep.LockoutTagout2
+        LOTOStep.LockoutTagout2,
+        LOTOStep.StopButton
     };
 
     [Header("Reference")]
     public Transform mainSwitchTrans;
     [Space(10)]
+    public TriggerChecker emergencyBtn;
     public TriggerChecker stopBtn;
     public TriggerChecker mainSwitch;
+    public TriggerChecker mainSwitch2;
     public TriggerChecker lockoutTagout;
     public TriggerChecker lockoutTagout2;
     [Space(10)]
