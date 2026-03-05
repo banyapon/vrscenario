@@ -8,6 +8,7 @@ public class LOTOState : State
 {
     [Header("Setting")]
     public float delayChangeState = 3;
+
     [SerializeField]
     private LOTOStep[] correctSequence =
     {
@@ -21,6 +22,7 @@ public class LOTOState : State
 
     [Header("Reference")]
     public Transform mainSwitchTrans;
+    public Transform mainSwitchTrans2;
     [Space(10)]
     public TriggerChecker emergencyBtn;
     public TriggerChecker stopBtn;
@@ -58,8 +60,10 @@ public class LOTOState : State
     {
         base.StateEnter();
 
+        emergencyBtn.OnEnter += OnEmergencyBtn;
         stopBtn.OnEnter += OnStopBtn;
         mainSwitch.OnEnter += OnMainSwitch;
+        mainSwitch2.OnEnter += OnMainSwitch2;
         lockoutTagout.OnEnter += OnLockoutTagout;
         lockoutTagout2.OnEnter += OnLockoutTagout2;
 
@@ -77,8 +81,10 @@ public class LOTOState : State
     {
         base.StateExit();
 
+        emergencyBtn.OnEnter -= OnEmergencyBtn;
         stopBtn.OnEnter -= OnStopBtn;
         mainSwitch.OnEnter -= OnMainSwitch;
+        mainSwitch2.OnEnter -= OnMainSwitch2;
         lockoutTagout.OnEnter -= OnLockoutTagout;
         lockoutTagout2.OnEnter -= OnLockoutTagout2;
     }
@@ -88,7 +94,9 @@ public class LOTOState : State
         pressedSequence.Clear();
         pressedSteps.Clear();
 
+        emergencyBtn.enabled = true;
         mainSwitch.enabled = true;
+        mainSwitch2.enabled = true;
         stopBtn.enabled = true;
         lockoutTagout.enabled = true;
         lockoutTagout2.enabled = true;
@@ -108,18 +116,19 @@ public class LOTOState : State
         lockoutTagoutGrab2.SetActive(true);
 
         if (activateStateEvent) activateStateEvent.SetTargetActive();
-        RotateMainSwitch(Vector3.zero);
+        RotateMainSwitch(mainSwitchTrans, Vector3.zero);
+        RotateMainSwitch(mainSwitchTrans2, Vector3.zero);
     }
 
-    void RotateMainSwitch(Vector3 endValue)
+    void RotateMainSwitch(Transform target, Vector3 endValue)
     {
         float duration = 0.5f;
         Ease ease = Ease.Linear;
-        DOTween.Kill(mainSwitchTrans);
+        DOTween.Kill(target);
 
-        mainSwitchTrans.DOLocalRotate(endValue, duration)
+        target.DOLocalRotate(endValue, duration)
             .SetEase(ease)
-            .SetLink(mainSwitchTrans.gameObject);
+            .SetLink(target.gameObject);
     }
     public void PressStep(LOTOStep step)
     {
@@ -169,12 +178,23 @@ public class LOTOState : State
         stopBtn.enabled = false;
         PressStep(LOTOStep.StopButton);
     }
+    void OnEmergencyBtn()
+    {
+        emergencyBtn.enabled = false;
+        PressStep(LOTOStep.EmergencyButton);
+    }
 
     void OnMainSwitch()
     {
         mainSwitch.enabled = false;
-        RotateMainSwitch(Vector3.right * 180);
+        RotateMainSwitch(mainSwitchTrans,Vector3.right * 180);
         PressStep(LOTOStep.MainSwitchOff);
+    }
+    void OnMainSwitch2()
+    {
+        mainSwitch2.enabled = false;
+        RotateMainSwitch(mainSwitchTrans2, Vector3.right * 180);
+        PressStep(LOTOStep.MainSwitchOff2);
     }
 
     void OnLockoutTagout()
