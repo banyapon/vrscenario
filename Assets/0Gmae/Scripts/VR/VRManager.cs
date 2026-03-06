@@ -114,15 +114,24 @@ public class VRManager : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        Debug.Log($"[VRManager] Spawn | IsOwner={IsOwner}");
+        Debug.Log($"[VRManager] Spawn | IsOwner={IsOwner} | ClientId={OwnerClientId}");
 
         SetAllCamerasEnabled(false);
-        OpenBoardUI();
+        PlayerData playerData = GetComponent<PlayerData>();
 
+        print($"IsInspector: {playerData.IsInspector}");
+        if (playerData.IsInspector)
+        {
+            DisableObjects();
+            return;
+        }
+
+        OpenBoardUI();
         if (IsOwner) return;
 
         // PC side: register camera to CCTV
-        if ((IsServer || IsHost) && CCTVController.Instance != null)
+        if ((IsServer || IsHost) &&
+            CCTVController.Instance != null)
         {
             CCTVController.Instance.RegisterVRCamera(OwnerClientId, allCamera);
             SetAllCamerasEnabled(true);

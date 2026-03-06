@@ -5,11 +5,17 @@ using Boy;
 
 public class PlayerData : NetworkBehaviour
 {
-    public NetworkVariable<bool> IsInspector =
-    new NetworkVariable<bool>(
-        false,
-        NetworkVariableReadPermission.Everyone,
-        NetworkVariableWritePermission.Server);
+    public NetworkVariable<bool> _isInspector = new NetworkVariable<bool>(
+    false,
+    NetworkVariableReadPermission.Everyone,
+    NetworkVariableWritePermission.Server
+);
+
+    public bool IsInspector
+    {
+        get => _isInspector.Value;
+        set => _isInspector.Value = value;
+    }
 
     //public NetworkVariable<FixedString64Bytes> UserName =
     //    new NetworkVariable<FixedString64Bytes>(
@@ -19,7 +25,7 @@ public class PlayerData : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        IsInspector.OnValueChanged += OnRoleChanged;
+        _isInspector.OnValueChanged += OnRoleChanged;
 
         //UserName.OnValueChanged += OnUserNameChanged;
 
@@ -37,7 +43,7 @@ public class PlayerData : NetworkBehaviour
 
     public override void OnNetworkDespawn()
     {
-        IsInspector.OnValueChanged -= OnRoleChanged;
+        _isInspector.OnValueChanged -= OnRoleChanged;
         //UserName.OnValueChanged -= OnUserNameChanged;
     }
     void OnRoleChanged(bool oldValue, bool newValue)

@@ -202,8 +202,6 @@ public class VRNetworkController : MonoBehaviour
                 userName = APIManager.Instance.userEmail
             };
 
-            print($"inspector: {inspector}");
-
             string json = JsonUtility.ToJson(payload);
             nm.NetworkConfig.ConnectionData = System.Text.Encoding.UTF8.GetBytes(json);
 

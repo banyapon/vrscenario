@@ -103,11 +103,15 @@ public class PCNetworkBootstrap : MonoBehaviour
             return;
         }
 
+        int clientCount = nm.ConnectedClientsList.Count - 1;
+        if (clientCount == 0) payload.isInspector = false;
+
         if (payload.isInspector)
         {
             Debug.Log($"Client {clientId} is Inspector");
-            return;
+            //return;
         }
+
 
         float posX = spawnIndex * betweenDistance;
         spawnIndex++;
@@ -121,7 +125,7 @@ public class PCNetworkBootstrap : MonoBehaviour
         sync.pcClientId = clientId;
 
         var playerData = vr.GetComponent<PlayerData>();
-        playerData.IsInspector.Value = payload.isInspector;
+        playerData.IsInspector = payload.isInspector;
 
         onClientConnected?.Invoke(clientId);
     }
@@ -160,6 +164,16 @@ public class PCNetworkBootstrap : MonoBehaviour
         }
 
         return payload.userName;
+    }
+
+    public bool GetIsInspector(ulong clientId)
+    {
+        if (!clientPayloads.TryGetValue(clientId, out ConnectionPayload payload))
+        {
+            return false;
+        }
+
+        return payload.isInspector;
     }
 }
 
