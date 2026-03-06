@@ -28,7 +28,8 @@ namespace PGroup
 
         [Header("Button")]
         [HideInInspector][SerializeField] private Button standaloneButton;
-        [HideInInspector][SerializeField] private Button connectHostButton;
+        [HideInInspector][SerializeField] private Button playerButton;
+        [HideInInspector][SerializeField] private Button inspectorButton;
         [HideInInspector][SerializeField] private Button forgotPasswordButton;
         [HideInInspector][SerializeField] private Button sendEmailPasswordButton;
         [HideInInspector][SerializeField] private Button loginButton;
@@ -68,7 +69,8 @@ namespace PGroup
         private void Awake()
         {
             standaloneButton.onClick.AddListener(() => ButtonStandalone());
-            connectHostButton.onClick.AddListener(() => ButtonConnectHost());
+            playerButton.onClick.AddListener(() => ButtonPlayer());
+            inspectorButton.onClick.AddListener(() => ButtonInpector());
             forgotPasswordButton.onClick.AddListener(() => ButtonForgotPassword());
             loginButton.onClick.AddListener(() => ButtonLogin());
             signUpButton.onClick.AddListener(() => ButtonSignup());
@@ -95,7 +97,8 @@ namespace PGroup
             newPasswordResetInputField.onSelect.AddListener(x => ShowKeyboard(newPasswordResetInputField));
         }
         public void ButtonStandalone() { OnStandAlone(); }
-        public void ButtonConnectHost() { OnConnectHost(); }
+        public void ButtonPlayer() { OnPlayer(); }
+        public void ButtonInpector() { OnInspector(); }
         public void ButtonLogin() { OnLogin(); }
         public void ButtonForgotPassword() { OnForgotPassword(); }
         public void ButtonSignup() { OnSignUp(); }
@@ -127,13 +130,23 @@ namespace PGroup
         {
             isOnline = false;
             standaloneButton.image.color = new Color32(254, 50, 1, 255);
-            connectHostButton.image.color = Color.clear;
+            playerButton.image.color = Color.clear;
+            inspectorButton.image.color = Color.clear;
         }
-        private void OnConnectHost()
+        private void OnPlayer()
         {
             isOnline = true;
             standaloneButton.image.color = Color.clear;
-            connectHostButton.image.color = new Color32(254, 50, 1, 255);
+            playerButton.image.color = new Color32(254, 50, 1, 255);
+            inspectorButton.image.color = Color.clear;
+        }
+        private void OnInspector()
+        {
+            //Set to Inpector==========================================================================??????
+            isOnline = true;
+            standaloneButton.image.color = Color.clear;
+            playerButton.image.color = Color.clear;
+            inspectorButton.image.color = new Color32(254, 50, 1, 255);
         }
         private void OnLogin()
         {
@@ -161,9 +174,10 @@ namespace PGroup
                     //Debug.Log("Login success");
 
                     nonNativeKeyboard.Close();
-
+                    //Set to Inpector==========================================================================??????
                     if (isOnline) networkController.OnClickJoin();
                     else networkController.StartHostLocal();
+                    //Set to Inpector==========================================================================??????
                     APIManager.Instance.userEmail = getUsername;
                 }
                 else
