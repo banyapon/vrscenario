@@ -236,8 +236,14 @@ public class SyncAudioController : NetworkBehaviour
 
     void ApplyAudio(string id, AudioState state)
     {
-        if (!markers.TryGetValue(id, out var t) || t.marker == null)
+        if (!markers.TryGetValue(id, out var t))
             return;
+
+        if (t.marker == null)
+        {
+            markers.Remove(id);
+            return;
+        }
 
         t.marker.ApplyState(state);
     }
