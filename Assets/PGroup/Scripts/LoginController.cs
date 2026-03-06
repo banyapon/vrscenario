@@ -143,8 +143,8 @@ namespace PGroup
             string getPassword = passwordInputField.text;
 
             //========================================================================================================TEST==
-            //getUsername = "nopparat.pgroup@gmail.com";
-            //getPassword = "12345";
+            getUsername = "nopparat.pgroup@gmail.com";
+            getPassword = "12345";
             //============================================================================================================================
 
             if (string.IsNullOrEmpty(getUsername) || string.IsNullOrEmpty(getPassword))

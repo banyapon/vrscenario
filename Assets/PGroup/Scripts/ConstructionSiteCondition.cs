@@ -18,10 +18,15 @@ namespace PGroup
 
         [SerializeField] private GameObject startAnimationCheckpoint3;
         [SerializeField] private GameObject deactiveBeforeAnimationCheckpoint3;
+        [SerializeField] private GameObject checkActiveCorrectCheckpoint3;
+        [SerializeField] private GameObject checkActiveFailCheckpoint3;
+
+        [SerializeField] private GameObject accidentGuy;
 
         private GameplayController gameplayController;
         private Tween delay = null;
         private int currentSafeArea;
+        private bool checkPoint3Done;
 
 
         private void Awake()
@@ -34,7 +39,24 @@ namespace PGroup
         {
             GameplayController.OnCheckpointEnd -= HandleCheckpointEnd;
         }
-
+        private void Update()
+        {
+            if (!checkPoint3Done)
+            {
+                if (checkActiveCorrectCheckpoint3.activeSelf)
+                {
+                    checkPoint3Done = true;
+                    if (gameplayController.scoreList.Count == 2) gameplayController.scoreList.Add(true);
+                    return;
+                }
+                if (checkActiveFailCheckpoint3.activeSelf)
+                {
+                    checkPoint3Done = true;
+                    if (gameplayController.scoreList.Count == 2) gameplayController.scoreList.Add(false);
+                    return;
+                }
+            }
+        }
         private void HandleCheckpointEnd(int num)
         {
             Debug.Log(num);
@@ -60,6 +82,7 @@ namespace PGroup
         }
         private void WrongSafeArea(int num)
         {
+            if (gameplayController.scoreList.Count == 0) gameplayController.scoreList.Add(false);
             delay?.Kill();
             delay = DOTween.Sequence()
                 .AppendCallback(() => wrongSafeArea.SetActive(true))
@@ -99,6 +122,7 @@ namespace PGroup
                 paper.SetActive(false);
                 if (currentSafeArea == 3)
                 {
+                    if (gameplayController.scoreList.Count == 0) gameplayController.scoreList.Add(true);
                     gameplayController.NextStep();
                     endCheckpoint1.SetActive(false);
                 }
@@ -108,11 +132,13 @@ namespace PGroup
         {
             if (num == 0)
             {
+                if (gameplayController.scoreList.Count == 1) gameplayController.scoreList.Add(true);
                 quizCheckpoint2.SetActive(false);
                 gameplayController.NextStep();
             }
             else
             {
+                if (gameplayController.scoreList.Count == 1) gameplayController.scoreList.Add(false);
                 quizCheckpoint2.SetActive(false);
                 wrongWarning.SetActive(true);
                 delay?.Kill();
@@ -122,6 +148,14 @@ namespace PGroup
                     wrongWarning.SetActive(false);
                 });
             }
+        }
+        public void AmbulanceActive()
+        {
+            delay?.Kill();
+            delay = DOVirtual.DelayedCall(4, () =>
+            {
+                accidentGuy.SetActive(false);
+            });
         }
     }
 }

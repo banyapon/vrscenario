@@ -13,9 +13,12 @@ namespace PGroup
         [SerializeField] private GameObject quizCheckpoint4;
         [SerializeField] private GameObject failCheckpoint4;
         [SerializeField] private Boy.PPESelector pPESelector;
+        [SerializeField] private GameObject checkActiveCorrectCheckpoint3;
+        [SerializeField] private GameObject checkActiveFailCheckpoint3;
 
         private GameplayController gameplayController; 
         private Tween delay = null;
+        private bool checkPoint3Done;
 
         private void Awake()
         {
@@ -23,12 +26,34 @@ namespace PGroup
 
             pPESelector.OnSelectionValidated += OnValidated;
         }
-
+        private void Update()
+        {
+            if (!checkPoint3Done)
+            {
+                if (checkActiveCorrectCheckpoint3.activeSelf)
+                {
+                    checkPoint3Done = true;
+                    if (gameplayController.scoreList.Count == 2) gameplayController.scoreList.Add(true);
+                    return;
+                }
+                if (checkActiveFailCheckpoint3.activeSelf)
+                {
+                    checkPoint3Done = true;
+                    if (gameplayController.scoreList.Count == 2) gameplayController.scoreList.Add(false);
+                    return;
+                }
+            }
+        }
         private void OnValidated(bool value)
         {
             if (value)
             {
+                if (gameplayController.scoreList.Count == 1) gameplayController.scoreList.Add(true);
                 EndCheckpoint2();
+            }
+            else
+            {
+                if (gameplayController.scoreList.Count == 1) gameplayController.scoreList.Add(false);
             }
         }
 
@@ -36,11 +61,13 @@ namespace PGroup
         {
             if (num == 0)
             {
+                if (gameplayController.scoreList.Count == 0) gameplayController.scoreList.Add(true);
                 quizCheckpoint1.SetActive(false);
                 gameplayController.NextStep();
             }
             else
             {
+                if (gameplayController.scoreList.Count == 0) gameplayController.scoreList.Add(false);
                 quizCheckpoint1.SetActive(false);
                 failCheckpoint1.SetActive(true);
                 delay?.Kill();
@@ -69,11 +96,13 @@ namespace PGroup
         {
             if (num == 0)
             {
+                if (gameplayController.scoreList.Count == 3) gameplayController.scoreList.Add(true);
                 quizCheckpoint4.SetActive(false);
                 gameplayController.NextStep();
             }
             else
             {
+                if (gameplayController.scoreList.Count == 3) gameplayController.scoreList.Add(false);
                 quizCheckpoint4.SetActive(false);
                 failCheckpoint4.SetActive(true);
                 delay?.Kill();
