@@ -121,6 +121,7 @@ namespace PGroup
         #region Private Fuction Action
 
         [SerializeField] private bool isOnline;
+        [SerializeField] private bool isInspector;
 
         private void OnEnable()
         {
@@ -129,6 +130,7 @@ namespace PGroup
         private void OnStandAlone()
         {
             isOnline = false;
+            isInspector = false;
             standaloneButton.image.color = new Color32(254, 50, 1, 255);
             playerButton.image.color = Color.clear;
             inspectorButton.image.color = Color.clear;
@@ -136,6 +138,7 @@ namespace PGroup
         private void OnPlayer()
         {
             isOnline = true;
+            isInspector = false;
             standaloneButton.image.color = Color.clear;
             playerButton.image.color = new Color32(254, 50, 1, 255);
             inspectorButton.image.color = Color.clear;
@@ -144,6 +147,7 @@ namespace PGroup
         {
             //Set to Inpector==========================================================================??????
             isOnline = true;
+            isInspector = true;
             standaloneButton.image.color = Color.clear;
             playerButton.image.color = Color.clear;
             inspectorButton.image.color = new Color32(254, 50, 1, 255);
@@ -177,7 +181,7 @@ namespace PGroup
 
                     nonNativeKeyboard.Close();
                     //Set to Inpector==========================================================================??????
-                    if (isOnline) networkController.OnClickJoin();
+                    if (isOnline) networkController.OnClickJoin(isInspector);
                     else networkController.StartHostLocal();
                     //Set to Inpector==========================================================================??????
                     APIManager.Instance.userEmail = getUsername;

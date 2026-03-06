@@ -48,6 +48,7 @@ public class Viewer : MonoBehaviour
         ClientId = clientId;
         cameraList = _cameraList;
         Index = 0;
+        userNameText.text = PCNetworkBootstrap.Instance.GetUserName(clientId);
         expandBtn.onClick.AddListener(Expand);
     }
 

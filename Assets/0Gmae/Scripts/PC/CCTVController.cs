@@ -56,10 +56,4 @@ public class CCTVController : MonoBehaviour
         if (!viewers.TryGetValue(clientId, out var viewer)) return;
         viewer.Category = category;
     }
-
-    public void SetUserName(ulong clientId, string userName)
-    {
-        if (!viewers.TryGetValue(clientId, out var viewer)) return;
-        viewer.userNameText.text = userName;
-    }
 }

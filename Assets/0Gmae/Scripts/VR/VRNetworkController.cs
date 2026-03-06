@@ -60,7 +60,10 @@ public class VRNetworkController : MonoBehaviour
 
     void Start()
     {
-        if (clientButton) clientButton.onClick.AddListener(OnClickJoin);
+        if (clientButton) clientButton.onClick.AddListener(() =>
+        {
+            OnClickJoin(false);
+        });
         if (hostButton) hostButton.onClick.AddListener(StartHostLocal);
         if (disconnectButton) disconnectButton.onClick.AddListener(Disconnect);
         if (inputField) inputField.onValueChanged.AddListener((value) =>
@@ -144,10 +147,12 @@ public class VRNetworkController : MonoBehaviour
     }
 
     bool isJoining;
-    public void OnClickJoin()
+    bool inspector;
+    public void OnClickJoin(bool isInspector)
     {
         if (isJoining) return;
         isJoining = true;
+        inspector = isInspector;
         APIManager.Instance.GetJoinCode<JoinMultiplayerResponse>(OnJoinCodeReceived);
     }
 
@@ -173,7 +178,6 @@ public class VRNetworkController : MonoBehaviour
             isJoining = false;
         }
     }
-
     public async Task StartRelayClient(string joinCode)
     {
         if (string.IsNullOrWhiteSpace(joinCode))
@@ -192,9 +196,19 @@ public class VRNetworkController : MonoBehaviour
 
         try
         {
+            ConnectionPayload payload = new ConnectionPayload
+            {
+                isInspector = inspector,
+                userName = APIManager.Instance.userEmail
+            };
+
+            print($"inspector: {inspector}");
+
+            string json = JsonUtility.ToJson(payload);
+            nm.NetworkConfig.ConnectionData = System.Text.Encoding.UTF8.GetBytes(json);
+
             currentSession = await MultiplayerService.Instance
                 .JoinSessionByCodeAsync(joinCode);
-
             nm.StartClient();
 
             SetStatus("Connected!");
