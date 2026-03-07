@@ -46,6 +46,10 @@ public class SyncActiveController : NetworkBehaviour
     // =========================================================
     public void NotifyActiveChange(ActiveSyncMarker marker, bool value)
     {
+        if (IsServer || IsHost) return;
+        VRNetworkController vRNetwork = VRNetworkController.Instance;
+        if (vRNetwork != null && vRNetwork.inspector) return;
+
         if (!IsOwner)
         {
             if (markers.TryGetValue(marker.Id, out var t))
@@ -70,8 +74,7 @@ public class SyncActiveController : NetworkBehaviour
             return;
 
         ApplyActive(id, value);
-
-        BroadcastToPC(id, value);
+        ApplyActiveClientRpc(id, value);
     }
 
     // =========================================================
@@ -105,6 +108,7 @@ public class SyncActiveController : NetworkBehaviour
     void ApplyActiveClientRpc(string id, bool value, ClientRpcParams rpcParams = default)
     {
         if (IsOwner) return;
+        if (IsHost) return;
         ApplyActive(id, value);
     }
 

@@ -18,13 +18,11 @@ public class ActiveSyncMarker : SyncMarker
 
     private void OnEnable()
     {
-        if (controller.IsServer || controller.IsHost) return;
         controller?.NotifyActiveChange(this, true);
     }
 
     private void OnDisable()
     {
-        if (controller.IsServer || controller.IsHost) return;
         controller?.NotifyActiveChange(this, false);
     }
 }
