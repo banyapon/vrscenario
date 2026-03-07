@@ -88,6 +88,7 @@ public class SiloEntryState : State
         lid.SetActive(true);
         hookController.Hide();
         player?.ResetSlopeLimit();
+        player?.StopClimbDownSilo();
         checker.enabled = false;
         foreach (var r in rungs) r.SetHighlightObj(false);
     }
