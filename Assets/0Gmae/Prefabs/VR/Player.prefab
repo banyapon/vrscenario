@@ -11377,6 +11377,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 2304908456071080614}
+  handColliders:
+  - {fileID: 4836348290831158344}
+  - {fileID: 411326131734410050}
   turn: {fileID: 3423207074487114669}
   move: {fileID: 5726045818766835821}
   teleportation: {fileID: 5228053483669249452}

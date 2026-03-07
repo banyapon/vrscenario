@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public static Player Instance { get; private set; }
 
     public Camera camera;
+    public Collider[] handColliders;
 
     [Header("Locomotion")]
     public GameObject turn;
@@ -47,6 +48,14 @@ public class Player : MonoBehaviour
         if (!isOwner) return;
         transform.position = position;
         transform.eulerAngles = rotate;
+    }
+
+    public void SetHandColliders(bool value)
+    {
+        foreach (var h in handColliders)
+        {
+            h.enabled = value;
+        }
     }
 
     public void StartClimbDownSilo()

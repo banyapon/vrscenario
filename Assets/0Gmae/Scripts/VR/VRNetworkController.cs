@@ -156,6 +156,7 @@ public class VRNetworkController : MonoBehaviour
         isJoining = true;
         print($"OnClickJoin: {isInspector}");
         inspector = isInspector;
+        Player.Instance.SetHandColliders(inspector);
         APIManager.Instance.GetJoinCode<JoinMultiplayerResponse>(OnJoinCodeReceived);
     }
 
