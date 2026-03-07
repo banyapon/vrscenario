@@ -43,17 +43,22 @@ public class Scenario : NetworkBehaviour
     }
     public override void OnNetworkSpawn()
     {
+        VRManager manager = GetVRManager();
+        PlayerData playerData = null;
+        if (manager != null) playerData = manager.GetComponent<PlayerData>();
         SetCamera(false);
 
         if (!IsOwner && !(IsServer || IsHost))
         {
-            DisableChild();
+            if (playerData == null) DisableChild();
+            else if (playerData.IsInspector) DisableChild();
         }
 
         if (IsOwner || IsHost)
         {
             player = Player.Instance;
             player?.SetJump(false);
+            player?.SetGravity(true);
             //player?.SetTeleportation(false);
             if (resetPlayerTransform) player?.Teleport(Vector3.zero, Vector3.zero, IsOwner);
             StartCount();
@@ -62,14 +67,12 @@ public class Scenario : NetworkBehaviour
         if ((IsServer || IsHost) && CCTVController.Instance != null)
         {
             SetCamera(true);
-            VRManager manager = GetVRManager();
             if (manager != null)
             {
                 manager.AppendAndSyncCameras(allCamera);
                 manager.syncAudioList.Add(GetComponent<SyncAudioController>());
             }
         }
-
     }
     public override void OnNetworkDespawn()
     {

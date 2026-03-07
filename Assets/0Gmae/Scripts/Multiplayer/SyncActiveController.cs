@@ -71,7 +71,7 @@ public class SyncActiveController : NetworkBehaviour
 
         ApplyActive(id, value);
 
-        //BroadcastToPC(id, value);
+        BroadcastToPC(id, value);
     }
 
     // =========================================================

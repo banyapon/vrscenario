@@ -1,15 +1,21 @@
 using Unity.Netcode;
-using Unity.Collections;
 using UnityEngine;
-using Boy;
+using System;
 
 public class PlayerData : NetworkBehaviour
 {
     public NetworkVariable<bool> _isInspector = new NetworkVariable<bool>(
     false,
     NetworkVariableReadPermission.Everyone,
-    NetworkVariableWritePermission.Server
-);
+    NetworkVariableWritePermission.Server);
+
+    public NetworkVariable<bool> _isPlayer = new NetworkVariable<bool>(
+    false,
+    NetworkVariableReadPermission.Everyone,
+    NetworkVariableWritePermission.Server);
+
+    public Action OnInspector;
+    public Action OnPlayer;
 
     public bool IsInspector
     {
@@ -17,65 +23,31 @@ public class PlayerData : NetworkBehaviour
         set => _isInspector.Value = value;
     }
 
-    //public NetworkVariable<FixedString64Bytes> UserName =
-    //    new NetworkVariable<FixedString64Bytes>(
-    //        default,
-    //        NetworkVariableReadPermission.Everyone,
-    //        NetworkVariableWritePermission.Server);
+    public bool IsPlayer
+    {
+        get => _isPlayer.Value;
+        set => _isPlayer.Value = value;
+    }
 
     public override void OnNetworkSpawn()
     {
         _isInspector.OnValueChanged += OnRoleChanged;
-
-        //UserName.OnValueChanged += OnUserNameChanged;
-
-        //if (IsOwner)
-        //{
-        //    string localName = APIManager.Instance.userEmail;
-        //    SetUserName(localName);
-        //}
-
-        //if (UserName.Value.Length > 0)
-        //{
-        //    OnUserNameChanged(default, UserName.Value);
-        //}
+        _isPlayer.OnValueChanged += OnPlayerChanged;
     }
 
     public override void OnNetworkDespawn()
     {
         _isInspector.OnValueChanged -= OnRoleChanged;
-        //UserName.OnValueChanged -= OnUserNameChanged;
+        _isPlayer.OnValueChanged -= OnPlayerChanged;
     }
     void OnRoleChanged(bool oldValue, bool newValue)
     {
         Debug.Log($"Inspector: {newValue}");
+        if (newValue) OnInspector?.Invoke();
     }
-
-    //public void SetUserName(string newName)
-    //{
-    //    if (IsOwner)
-    //    {
-    //        Debug.Log($"newName {newName}");
-    //        SubmitNameServerRpc(newName);
-    //    }
-    //}
-
-    //[ServerRpc]
-    //void SubmitNameServerRpc(string name, ServerRpcParams rpcParams = default)
-    //{
-    //    ulong senderId = rpcParams.Receive.SenderClientId;
-
-    //    Debug.Log($"Server mapped ClientId {senderId} to {name}");
-
-    //    UserName.Value = name;
-
-    //    CCTVController cCTV = CCTVController.Instance;
-    //    if (cCTV == null) return;
-    //    cCTV.SetUserName(senderId, name);
-    //}
-
-    //private void OnUserNameChanged(FixedString64Bytes oldValue, FixedString64Bytes newValue)
-    //{
-    //    Debug.Log($"Name Updated: {newValue}");
-    //}
+    void OnPlayerChanged(bool oldValue, bool newValue)
+    {
+        Debug.Log($"Player: {newValue}");
+        if (newValue) OnPlayer?.Invoke();
+    }
 }

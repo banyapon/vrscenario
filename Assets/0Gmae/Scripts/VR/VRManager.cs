@@ -10,6 +10,7 @@ using UnityEngine.XR.Interaction.Toolkit.UI;
 public class VRManager : NetworkBehaviour
 {
     //[Header("Camera")]
+    [SerializeField] GameObject headMock;
     [SerializeField] private List<Camera> allCamera = new List<Camera>();
     public List<SyncAudioController> syncAudioList = new List<SyncAudioController>();
 
@@ -37,6 +38,9 @@ public class VRManager : NetworkBehaviour
             startBtn.interactable = currentConfig != null;
         }
     }
+    
+    bool defaultActiveInitialize;
+    List<DefaultActive> defaultActives = new List<DefaultActive>();
 
     private void Start()
     {
@@ -111,35 +115,56 @@ public class VRManager : NetworkBehaviour
             cctv.SetViewerCategory(OwnerClientId, category);
         }
     }
-
+    Player player;
     public override void OnNetworkSpawn()
     {
-        Debug.Log($"[VRManager] Spawn | IsOwner={IsOwner} | ClientId={OwnerClientId}");
-
+        headMock.layer = 0;
+        player = Player.Instance;
+        player?.SetGravity(false);
         SetAllCamerasEnabled(false);
+        string log = $"[VRManager] Spawn | IsOwner={IsOwner} | ClientId={OwnerClientId}";
         PlayerData playerData = GetComponent<PlayerData>();
 
-        print($"IsInspector: {playerData.IsInspector}");
-        if (playerData.IsInspector)
+        if (VRNetworkController.Instance != null)//VR
         {
-            DisableObjects();
-            return;
-        }
+            log += $"| IsInspector: {VRNetworkController.Instance.inspector}";
 
-        OpenBoardUI();
-        if (IsOwner) return;
-
-        // PC side: register camera to CCTV
-        if ((IsServer || IsHost) &&
-            CCTVController.Instance != null)
+            if (VRNetworkController.Instance.inspector)
+            {
+                if (IsOwner)
+                {
+                    DisableObjects();
+                    player?.SetGravity(false);
+                    player?.SetMove(false);
+                    player?.SetJump(false);
+                    player?.SetTeleportation(false);
+                    player?.SetTurn(false);
+                }
+                else
+                {
+                    playerData.OnPlayer += () => {
+                        ResetObjects();
+                        print("Set simulate camera here");
+                    };
+                }
+            }
+            else if (!IsOwner)
+            {
+                DisableObjects();
+            }
+        }else if ((IsServer || IsHost) &&
+            CCTVController.Instance != null) // PC side: register camera to CCTV
         {
+            headMock.layer = LayerMask.NameToLayer("Mirror");
             CCTVController.Instance.RegisterVRCamera(OwnerClientId, allCamera);
             SetAllCamerasEnabled(true);
+            playerData.OnInspector += () => {
+                CCTVController.Instance.UnregisterViewer(OwnerClientId);
+                SetAllCamerasEnabled(false);
+            };
         }
-        else
-        {
-            DisableObjects();
-        }
+
+        print(log);
     }
 
     public override void OnNetworkDespawn()
@@ -155,6 +180,12 @@ public class VRManager : NetworkBehaviour
         {
             ShutdownXR();
         }
+
+        player?.SetGravity(true);
+        player?.SetMove(true);
+        player?.SetJump(true);
+        player?.SetTeleportation(true);
+        player?.SetTurn(true);
     }
 
     public void AppendAndSyncCameras(List<Camera> cameras)
@@ -205,8 +236,28 @@ public class VRManager : NetworkBehaviour
 
     #region XR Control
 
+    void ResetObjects()
+    {
+        foreach (var item in defaultActives)
+        {
+            item.go.SetActive(item.value);
+        }
+    }
+
     private void DisableObjects()
     {
+        if (!defaultActiveInitialize)
+        {
+            foreach (Transform child in transform)
+            {
+                child.gameObject.SetActive(false);
+                DefaultActive defaultActive = new DefaultActive();
+                defaultActive.value = child.gameObject.activeInHierarchy;
+                defaultActive.go = child.gameObject;
+                defaultActives.Add(defaultActive);
+            }
+        }
+
         foreach (Transform child in transform)
         {
             child.gameObject.SetActive(false);
@@ -232,4 +283,11 @@ public class ScenarioConfig
 {
     public ScenarioButton scenarioBtn;
     public GameObject scenarioPrefab;
+}
+
+[System.Serializable]
+public class DefaultActive
+{
+    public bool value;
+    public GameObject go;
 }

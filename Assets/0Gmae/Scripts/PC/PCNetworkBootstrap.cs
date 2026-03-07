@@ -126,6 +126,7 @@ public class PCNetworkBootstrap : MonoBehaviour
 
         var playerData = vr.GetComponent<PlayerData>();
         playerData.IsInspector = payload.isInspector;
+        playerData.IsPlayer = !payload.isInspector;
 
         onClientConnected?.Invoke(clientId);
     }

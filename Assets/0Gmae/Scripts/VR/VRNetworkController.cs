@@ -20,6 +20,8 @@ public class VRNetworkController : MonoBehaviour
 
     //public string joinCode;
 
+    public bool inspector;
+
     public GameObject[] disconnectedObjects;
     public GameObject[] connectedObjects;
 
@@ -147,11 +149,11 @@ public class VRNetworkController : MonoBehaviour
     }
 
     bool isJoining;
-    bool inspector;
     public void OnClickJoin(bool isInspector)
     {
         if (isJoining) return;
         isJoining = true;
+        print($"OnClickJoin: {isInspector}");
         inspector = isInspector;
         APIManager.Instance.GetJoinCode<JoinMultiplayerResponse>(OnJoinCodeReceived);
     }
