@@ -58,6 +58,14 @@ public class AudioSyncMarker : SyncMarker
 
     public void ApplyState(AudioState state)
     {
+        if (source == null)
+        {
+            Debug.LogWarning($"AudioSource NULL on {name}");
+            source = GetComponent<AudioSource>();
+            if (source == null)
+                source = gameObject.AddComponent<AudioSource>();
+        }
+
         switch (state)
         {
             case AudioState.Play: source.Play(); break;

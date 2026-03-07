@@ -3135,7 +3135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: ambulance_-545868
+  id: ambulance_265534
 --- !u!1 &1684445799784760551
 GameObject:
   m_ObjectHideFlags: 0
@@ -3359,7 +3359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1fcbb83794c883408b8a14492fb2d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: lifting Sling Grab_302700
+  id: lifting Sling Grab_265986
 --- !u!114 &2734453960436191577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3372,7 +3372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: lifting Sling Grab_193394
+  id: lifting Sling Grab_264854
 --- !u!114 &1491481435470002912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4318,7 +4318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1fcbb83794c883408b8a14492fb2d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Harness Grab_302476
+  id: Harness Grab_265118
 --- !u!114 &5127519484790529217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4331,7 +4331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Harness Grab_193634
+  id: Harness Grab_265414
 --- !u!114 &8679943634001408548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4603,7 +4603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1fcbb83794c883408b8a14492fb2d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Ordinary Rope Grab_302778
+  id: Ordinary Rope Grab_266252
 --- !u!114 &8281837811803008205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4616,7 +4616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Ordinary Rope Grab_193966
+  id: Ordinary Rope Grab_266060
 --- !u!65 &3383822728700944661
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6358,7 +6358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Gas Detector_193230
+  id: Gas Detector Grab_264490
 --- !u!114 &447736144390987193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6371,7 +6371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1fcbb83794c883408b8a14492fb2d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Gas Detector_302282
+  id: Gas Detector Grab_264280
 --- !u!114 &7641994481056551211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9983,7 +9983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Radio_194046
+  id: Radio Grab_266208
 --- !u!114 &8798099242299988416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9996,7 +9996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1fcbb83794c883408b8a14492fb2d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Radio_302754
+  id: Radio Grab_266164
 --- !u!114 &8520634253500480854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10284,7 +10284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1fcbb83794c883408b8a14492fb2d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Victims_-599730
+  id: Victims_265382
 --- !u!1 &4592004537434468031
 GameObject:
   m_ObjectHideFlags: 0
@@ -16586,7 +16586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: ButtonGroup_-1694066
+  id: ButtonGroup_264530
 --- !u!1 &8384160674799646825
 GameObject:
   m_ObjectHideFlags: 0
@@ -18484,6 +18484,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2733104579764301432}
     m_Modifications:
+    - target: {fileID: 377931407399068718, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: select_-118368
+      objectReference: {fileID: 0}
+    - target: {fileID: 605055112731749196, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: unselect_-118022
+      objectReference: {fileID: 0}
+    - target: {fileID: 620742581990167281, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: unselect_-118118
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074864551877969875, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: Warning HUD_-118548
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141516015585500858, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: select_-118416
+      objectReference: {fileID: 0}
+    - target: {fileID: 1260477151028271327, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: unselect_-118406
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599962695322719380, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: select_-118128
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642953932399783209, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: select_-118032
+      objectReference: {fileID: 0}
     - target: {fileID: 1674915636823981696, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -18517,7 +18557,7 @@ PrefabInstance:
     - target: {fileID: 1700392709672429863, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
       propertyPath: id
-      value: Incorrect HUD_-451690
+      value: Incorrect HUD_-118632
       objectReference: {fileID: 0}
     - target: {fileID: 1700392709672429863, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
@@ -18614,10 +18654,15 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1988278839982285387, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: unselect_-118358
+      objectReference: {fileID: 0}
     - target: {fileID: 2295515808547033848, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
       propertyPath: id
-      value: Button_-340184
+      value: Button_-118486
       objectReference: {fileID: 0}
     - target: {fileID: 2424530390892772752, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
@@ -18648,6 +18693,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534632103690398142, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: Correct HUD_-118588
       objectReference: {fileID: 0}
     - target: {fileID: 3034728519288705308, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
@@ -18814,6 +18864,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4337265177765575249, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: Incorrect HUD_-118626
+      objectReference: {fileID: 0}
     - target: {fileID: 4399095369362434627, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -18843,6 +18898,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4838990659516261128, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: unselect_-118214
       objectReference: {fileID: 0}
     - target: {fileID: 4997994663229153500, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
@@ -18879,6 +18939,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5494248775587846885, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: unselect_-117926
+      objectReference: {fileID: 0}
+    - target: {fileID: 5617315314971134402, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: unselect_-118070
+      objectReference: {fileID: 0}
+    - target: {fileID: 5654437110916744143, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: unselect_-118310
+      objectReference: {fileID: 0}
     - target: {fileID: 5732584977989926851, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -18909,6 +18984,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5823716266545202602, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: select_-118320
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950972167303994496, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: select_-117936
+      objectReference: {fileID: 0}
+    - target: {fileID: 6007187321560666023, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: select_-118080
+      objectReference: {fileID: 0}
     - target: {fileID: 6258484992561949608, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
       propertyPath: m_Resource
@@ -18917,7 +19007,7 @@ PrefabInstance:
     - target: {fileID: 6607050024987594501, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
       propertyPath: id
-      value: Correct HUD_-451650
+      value: Correct HUD_-118592
       objectReference: {fileID: 0}
     - target: {fileID: 6607050024987594501, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
@@ -18984,10 +19074,60 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6741584984345912685, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: select_-118224
+      objectReference: {fileID: 0}
+    - target: {fileID: 6763989387120275998, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: Warning HUD_-118546
+      objectReference: {fileID: 0}
+    - target: {fileID: 7280703372036346336, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: select_-118176
+      objectReference: {fileID: 0}
+    - target: {fileID: 7572041183341082571, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: unselect_-117974
+      objectReference: {fileID: 0}
+    - target: {fileID: 7716140321547298429, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: select_-118272
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893544146147174946, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: unselect_-118454
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999840637852258204, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: Incorrect HUD_-118628
+      objectReference: {fileID: 0}
+    - target: {fileID: 8077480156749110387, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: Correct HUD_-118586
+      objectReference: {fileID: 0}
+    - target: {fileID: 8296447564658158663, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: select_-118464
+      objectReference: {fileID: 0}
+    - target: {fileID: 8483756074036944920, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: unselect_-118262
+      objectReference: {fileID: 0}
     - target: {fileID: 8536160882785509736, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
       propertyPath: id
-      value: Warning HUD_-451610
+      value: Warning HUD_-118552
       objectReference: {fileID: 0}
     - target: {fileID: 8536160882785509736, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
@@ -18999,11 +19139,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: PPE Selector
       objectReference: {fileID: 0}
+    - target: {fileID: 8627820295467676078, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: select_-117984
+      objectReference: {fileID: 0}
+    - target: {fileID: 8640132135093361060, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: PPE Selector_-117866
+      objectReference: {fileID: 0}
     - target: {fileID: 8871219440328918469, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
       propertyPath: m_Resource
       value: 
       objectReference: {fileID: 8300000, guid: c33d8b02090fecd4997ed3b50b0728ca, type: 3}
+    - target: {fileID: 8909007002036524933, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: unselect_-118166
+      objectReference: {fileID: 0}
+    - target: {fileID: 9209429509654449180, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: PPE UI_-117874
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19465,12 +19625,12 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Check Work Permit HUD_-233358
+      value: Check Work Permit HUD_-117830
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Check Work Permit HUD_-567246
+      value: Check Work Permit HUD_-117828
       objectReference: {fileID: 0}
     - target: {fileID: -2377035255845622415, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -19616,7 +19776,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Check Work Permit HUD_-455700
+      value: Check Work Permit HUD_-117834
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -19651,7 +19811,7 @@ PrefabInstance:
     - target: {fileID: 3820922898261741640, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
       propertyPath: id
-      value: HighlightObject (7)_-200452
+      value: HighlightObject (7)_-117290
       objectReference: {fileID: 0}
     - target: {fileID: 5593281840876868023, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
@@ -19761,12 +19921,12 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Fail HUD_-233058
+      value: Fail HUD_-121888
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Fail HUD_-568234
+      value: Fail HUD_-121886
       objectReference: {fileID: 0}
     - target: {fileID: -2377035255845622415, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -19904,7 +20064,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Fail HUD_-450184
+      value: Fail HUD_-121892
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -19939,12 +20099,12 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Work Permit Paper_-314026
+      value: Work Permit Paper_-118824
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Work Permit Paper_-314024
+      value: Work Permit Paper_-118822
       objectReference: {fileID: 0}
     - target: {fileID: 272798048078493460, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -20075,7 +20235,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Work Permit Paper_-455446
+      value: Work Permit Paper_-118828
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -23344,6 +23504,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.038840145
       objectReference: {fileID: 0}
+    - target: {fileID: 4853814819121125299, guid: 921feb7d04beed54cae472f46679eb48,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4943921818825441063, guid: 921feb7d04beed54cae472f46679eb48,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -24250,7 +24415,7 @@ PrefabInstance:
     - target: {fileID: 1331153923586568210, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
       propertyPath: id
-      value: Quiz UI_-231180
+      value: Quiz UI_-116612
       objectReference: {fileID: 0}
     - target: {fileID: 2706496743492578046, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
@@ -24400,22 +24565,22 @@ PrefabInstance:
     - target: {fileID: 7299316246934370364, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
       propertyPath: id
-      value: Button 1_-340634
+      value: Button 1_-116666
       objectReference: {fileID: 0}
     - target: {fileID: 7502468295876903717, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
       propertyPath: id
-      value: UI_-231188
+      value: UI_-116620
       objectReference: {fileID: 0}
     - target: {fileID: 8017208004284855245, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
       propertyPath: id
-      value: Button 2_-340682
+      value: Button 2_-116714
       objectReference: {fileID: 0}
     - target: {fileID: 8309902865433484020, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
       propertyPath: id
-      value: Quiz UI_-568464
+      value: Quiz UI_-116614
       objectReference: {fileID: 0}
     - target: {fileID: 8485672627890779124, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
@@ -24489,12 +24654,12 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Check Gas HUD_-231566
+      value: Check Gas HUD_-116762
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Check Gas HUD_-567278
+      value: Check Gas HUD_-116760
       objectReference: {fileID: 0}
     - target: {fileID: -2377035255845622415, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -24641,7 +24806,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Check Gas HUD_-455338
+      value: Check Gas HUD_-116766
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -24767,12 +24932,12 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Gas Detector Screen_-27820
+      value: Gas Detector Screen_-123148
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Gas Detector Screen_-27822
+      value: Gas Detector Screen_-123146
       objectReference: {fileID: 0}
     - target: {fileID: 272798048078493460, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -24895,6 +25060,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Gas Detector Screen_-123152
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: playOnEnable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3267449016363095803, guid: 498fc9b29cd70204dab3af42a6dbc5c9, type: 3}
@@ -24931,12 +25106,12 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Check gas HUD_-232898
+      value: Check gas HUD_-123262
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Check gas HUD_-568352
+      value: Check gas HUD_-123260
       objectReference: {fileID: 0}
     - target: {fileID: -2377035255845622415, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -25078,7 +25253,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Check gas HUD_-450328
+      value: Check gas HUD_-123266
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -25113,7 +25288,7 @@ PrefabInstance:
     - target: {fileID: 3820922898261741640, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
       propertyPath: id
-      value: HighlightObject (3)_-200198
+      value: HighlightObject (3)_-123376
       objectReference: {fileID: 0}
     - target: {fileID: 5593281840876868023, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
@@ -25223,12 +25398,12 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Pass HUD_-233026
+      value: Pass HUD_-121924
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Pass HUD_-567332
+      value: Pass HUD_-121922
       objectReference: {fileID: 0}
     - target: {fileID: -2377035255845622415, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -25366,7 +25541,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Pass HUD_-455482
+      value: Pass HUD_-121928
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -25401,7 +25576,7 @@ PrefabInstance:
     - target: {fileID: 437923473953816951, guid: d66f38f033df54741a9e187829282ceb,
         type: 3}
       propertyPath: id
-      value: Button_-340532
+      value: Button (1)_-117564
       objectReference: {fileID: 0}
     - target: {fileID: 3065879722669653117, guid: d66f38f033df54741a9e187829282ceb,
         type: 3}
@@ -25691,7 +25866,7 @@ PrefabInstance:
     - target: {fileID: 3820922898261741640, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
       propertyPath: id
-      value: HighlightObject (2)_-200144
+      value: HighlightObject (2)_-121956
       objectReference: {fileID: 0}
     - target: {fileID: 5593281840876868023, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
@@ -25895,7 +26070,7 @@ PrefabInstance:
     - target: {fileID: 437923473953816951, guid: d66f38f033df54741a9e187829282ceb,
         type: 3}
       propertyPath: id
-      value: Button_-340532
+      value: Button_-121804
       objectReference: {fileID: 0}
     - target: {fileID: 3065879722669653117, guid: d66f38f033df54741a9e187829282ceb,
         type: 3}
@@ -26111,12 +26286,12 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Reached the top HUD_-232812
+      value: Reached the top HUD_-117326
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Reached the top HUD_-568602
+      value: Reached the top HUD_-117324
       objectReference: {fileID: 0}
     - target: {fileID: 704497060421761420, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -26252,7 +26427,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Reached the top HUD_-450292
+      value: Reached the top HUD_-117330
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -26287,12 +26462,12 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Not safe HUD_-64070
+      value: Not safe HUD_-123298
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Not safe HUD_-64072
+      value: Not safe HUD_-123296
       objectReference: {fileID: 0}
     - target: {fileID: 272798048078493460, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -26454,7 +26629,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Not safe HUD_-451876
+      value: Not safe HUD_-123302
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -26489,7 +26664,7 @@ PrefabInstance:
     - target: {fileID: 3820922898261741640, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
       propertyPath: id
-      value: HighlightObject (9)_-200580
+      value: HighlightObject (9)_-123330
       objectReference: {fileID: 0}
     - target: {fileID: 5593281840876868023, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
@@ -26599,12 +26774,12 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Value is safe HUD_-232866
+      value: Value is safe HUD_-118788
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Value is safe HUD_-567530
+      value: Value is safe HUD_-118786
       objectReference: {fileID: 0}
     - target: {fileID: -2377035255845622415, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -26745,7 +26920,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Value is safe HUD_-455136
+      value: Value is safe HUD_-118792
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -26780,12 +26955,12 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Emergency HUD_-233218
+      value: Emergency HUD_-118674
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Emergency HUD_-566334
+      value: Emergency HUD_-118672
       objectReference: {fileID: 0}
     - target: {fileID: -2377035255845622415, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -26926,7 +27101,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Emergency HUD_-451912
+      value: Emergency HUD_-118678
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -27052,7 +27227,7 @@ PrefabInstance:
     - target: {fileID: 3820922898261741640, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
       propertyPath: id
-      value: HighlightObject (6)_-200424
+      value: HighlightObject (6)_-116166
       objectReference: {fileID: 0}
     - target: {fileID: 5593281840876868023, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
@@ -27253,12 +27428,12 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Work Permit Paper_-314026
+      value: Work Permit Paper (1)_-123190
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Work Permit Paper_-314024
+      value: Work Permit Paper (1)_-123188
       objectReference: {fileID: 0}
     - target: {fileID: 272798048078493460, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -27389,7 +27564,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Work Permit Paper (1)_-449818
+      value: Work Permit Paper (1)_-123194
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -27438,12 +27613,12 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Install HUD_-232962
+      value: Install HUD_-118866
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Install HUD_-568298
+      value: Install HUD_-118864
       objectReference: {fileID: 0}
     - target: {fileID: 704497060421761420, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -27579,7 +27754,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Install HUD_-450856
+      value: Install HUD_-118870
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -27614,7 +27789,7 @@ PrefabInstance:
     - target: {fileID: 437923473953816951, guid: d66f38f033df54741a9e187829282ceb,
         type: 3}
       propertyPath: id
-      value: Button_-340532
+      value: Button_-116796
       objectReference: {fileID: 0}
     - target: {fileID: 3065879722669653117, guid: d66f38f033df54741a9e187829282ceb,
         type: 3}
@@ -27828,12 +28003,12 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Warning HUD_-233186
+      value: Warning HUD_-117424
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Warning HUD_-566432
+      value: Warning HUD_-117422
       objectReference: {fileID: 0}
     - target: {fileID: -2377035255845622415, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -27981,7 +28156,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Warning HUD_-455290
+      value: Warning HUD_-117428
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -30099,12 +30274,12 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: PPE HUD_-233154
+      value: PPE HUD_-122632
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: PPE HUD_-568266
+      value: PPE HUD_-122630
       objectReference: {fileID: 0}
     - target: {fileID: 272798048078493460, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -30235,7 +30410,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: PPE HUD_-450220
+      value: PPE HUD_-122636
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -30779,12 +30954,12 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Mission HUD_-231598
+      value: Mission HUD_-123344
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Mission HUD_-567562
+      value: Mission HUD_-123342
       objectReference: {fileID: 0}
     - target: {fileID: 272798048078493460, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -30915,7 +31090,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Mission HUD_-450892
+      value: Mission HUD_-123348
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -31171,12 +31346,12 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Gas Detector HUD_-233250
+      value: Gas Detector HUD_-121852
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Gas Detector HUD_-567594
+      value: Gas Detector HUD_-121850
       objectReference: {fileID: 0}
     - target: {fileID: 272798048078493460, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -31483,12 +31658,12 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Safe HUD_-64576
+      value: Safe HUD_-116846
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Safe HUD_-64574
+      value: Safe HUD_-116844
       objectReference: {fileID: 0}
     - target: {fileID: -2377035255845622415, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -31655,7 +31830,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Safe HUD_-455100
+      value: Safe HUD_-116850
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -31690,12 +31865,12 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Lifeline HUD_-233282
+      value: Lifeline HUD_-122744
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Lifeline HUD_-566368
+      value: Lifeline HUD_-122742
       objectReference: {fileID: 0}
     - target: {fileID: 704497060421761420, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -31816,7 +31991,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Lifeline HUD_-452606
+      value: Lifeline HUD_-122748
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -31851,7 +32026,7 @@ PrefabInstance:
     - target: {fileID: 3820922898261741640, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
       propertyPath: id
-      value: HighlightObject (1)_-199902
+      value: HighlightObject (1)_-122674
       objectReference: {fileID: 0}
     - target: {fileID: 5593281840876868023, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
@@ -32126,7 +32301,7 @@ PrefabInstance:
     - target: {fileID: 3820922898261741640, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
       propertyPath: id
-      value: HighlightObject (8)_-200542
+      value: HighlightObject (8)_-122664
       objectReference: {fileID: 0}
     - target: {fileID: 5593281840876868023, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
@@ -32236,12 +32411,12 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Start Mission HUD_-232930
+      value: Start Mission HUD_-122780
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Start Mission HUD_-567366
+      value: Start Mission HUD_-122778
       objectReference: {fileID: 0}
     - target: {fileID: 704497060421761420, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -32368,7 +32543,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Start Mission HUD_-455410
+      value: Start Mission HUD_-122784
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -32403,7 +32578,7 @@ PrefabInstance:
     - target: {fileID: 3820922898261741640, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
       propertyPath: id
-      value: HighlightObject_-181490
+      value: HighlightObject_-116176
       objectReference: {fileID: 0}
     - target: {fileID: 5593281840876868023, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
@@ -32513,7 +32688,7 @@ PrefabInstance:
     - target: {fileID: -1222471882415291429, guid: 746b3d83a78304749a1ba17903d2303b,
         type: 3}
       propertyPath: id
-      value: Summary UI_-567660
+      value: Summary UI_-116190
       objectReference: {fileID: 0}
     - target: {fileID: 575300248760858141, guid: 746b3d83a78304749a1ba17903d2303b,
         type: 3}
@@ -32758,7 +32933,7 @@ PrefabInstance:
     - target: {fileID: 6630176241693338395, guid: 746b3d83a78304749a1ba17903d2303b,
         type: 3}
       propertyPath: id
-      value: Back To Lobby Button_-338298
+      value: Back To Lobby Button_-116548
       objectReference: {fileID: 0}
     - target: {fileID: 7153765746163743041, guid: 746b3d83a78304749a1ba17903d2303b,
         type: 3}
@@ -32793,7 +32968,7 @@ PrefabInstance:
     - target: {fileID: 7840348171087807217, guid: 746b3d83a78304749a1ba17903d2303b,
         type: 3}
       propertyPath: id
-      value: Play Again Button_-338250
+      value: Play Again Button_-116500
       objectReference: {fileID: 0}
     - target: {fileID: 8200348932809743011, guid: 746b3d83a78304749a1ba17903d2303b,
         type: 3}
@@ -32991,12 +33166,12 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Work Permit HUD_-233122
+      value: Work Permit HUD_-117368
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Work Permit HUD_-567626
+      value: Work Permit HUD_-117366
       objectReference: {fileID: 0}
     - target: {fileID: 272798048078493460, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -33561,12 +33736,12 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Warning Work Permit HUD_-233090
+      value: Warning Work Permit HUD_-122688
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Warning Work Permit HUD_-567476
+      value: Warning Work Permit HUD_-122686
       objectReference: {fileID: 0}
     - target: {fileID: -2377035255845622415, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -33713,7 +33888,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Warning Work Permit HUD_-451948
+      value: Warning Work Permit HUD_-122692
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -33748,7 +33923,7 @@ PrefabInstance:
     - target: {fileID: 3820922898261741640, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
       propertyPath: id
-      value: HighlightObject (5)_-200334
+      value: HighlightObject (5)_-118660
       objectReference: {fileID: 0}
     - target: {fileID: 5593281840876868023, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
@@ -33949,12 +34124,12 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Lifting things HUD_-232994
+      value: Lifting things HUD_-118710
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Lifting things HUD_-566400
+      value: Lifting things HUD_-118708
       objectReference: {fileID: 0}
     - target: {fileID: -2377035255845622415, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -34100,7 +34275,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Lifting things HUD_-455518
+      value: Lifting things HUD_-118714
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -34209,12 +34384,12 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Risky HUD_-231326
+      value: Risky HUD_-122564
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Risky HUD_-567444
+      value: Risky HUD_-122562
       objectReference: {fileID: 0}
     - target: {fileID: -2377035255845622415, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -34346,7 +34521,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Risky HUD_-455374
+      value: Risky HUD_-122568
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -34472,12 +34647,12 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Not designed HUD_-233390
+      value: Not designed HUD_-123226
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Not designed HUD_-568634
+      value: Not designed HUD_-123224
       objectReference: {fileID: 0}
     - target: {fileID: -2377035255845622415, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -34623,7 +34798,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Not designed HUD_-450256
+      value: Not designed HUD_-123230
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -35315,6 +35490,11 @@ PrefabInstance:
       propertyPath: 'solverIndices.serializedContents.Array.data[110]'
       value: 221
       objectReference: {fileID: 0}
+    - target: {fileID: 678502851844498764, guid: f8fb7b8411272384ab2c82a75d79fbe6,
+        type: 3}
+      propertyPath: id
+      value: Hook Left_-122828
+      objectReference: {fileID: 0}
     - target: {fileID: 2115974215097855425, guid: f8fb7b8411272384ab2c82a75d79fbe6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -35370,10 +35550,35 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hook Controller
       objectReference: {fileID: 0}
+    - target: {fileID: 3537420816608578343, guid: f8fb7b8411272384ab2c82a75d79fbe6,
+        type: 3}
+      propertyPath: id
+      value: Hook Right_-122968
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994476682200010541, guid: f8fb7b8411272384ab2c82a75d79fbe6,
+        type: 3}
+      propertyPath: id
+      value: Hook Controller_-122816
+      objectReference: {fileID: 0}
     - target: {fileID: 4832713381443078086, guid: f8fb7b8411272384ab2c82a75d79fbe6,
         type: 3}
       propertyPath: indexInSystem
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902102696922325489, guid: f8fb7b8411272384ab2c82a75d79fbe6,
+        type: 3}
+      propertyPath: id
+      value: Hook Left_-122830
+      objectReference: {fileID: 0}
+    - target: {fileID: 5250769540272800156, guid: f8fb7b8411272384ab2c82a75d79fbe6,
+        type: 3}
+      propertyPath: id
+      value: Hook Controller_-122814
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643584119947787209, guid: f8fb7b8411272384ab2c82a75d79fbe6,
+        type: 3}
+      propertyPath: id
+      value: pasted__Lock_-122870
       objectReference: {fileID: 0}
     - target: {fileID: 5825688348320588010, guid: f8fb7b8411272384ab2c82a75d79fbe6,
         type: 3}
@@ -36040,6 +36245,16 @@ PrefabInstance:
       propertyPath: indexInSystem
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8516304803805320610, guid: f8fb7b8411272384ab2c82a75d79fbe6,
+        type: 3}
+      propertyPath: id
+      value: pasted__Lock_-123010
+      objectReference: {fileID: 0}
+    - target: {fileID: 8969538421736017818, guid: f8fb7b8411272384ab2c82a75d79fbe6,
+        type: 3}
+      propertyPath: id
+      value: Hook Right_-122970
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -36074,12 +36289,12 @@ PrefabInstance:
     - target: {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Radio report HUD_-231358
+      value: Radio report HUD_-117480
       objectReference: {fileID: 0}
     - target: {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Radio report HUD_-568384
+      value: Radio report HUD_-117478
       objectReference: {fileID: 0}
     - target: {fileID: 704497060421761420, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -36221,7 +36436,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Radio report HUD_-455592
+      value: Radio report HUD_-117484
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -36347,7 +36562,7 @@ PrefabInstance:
     - target: {fileID: 3820922898261741640, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}
       propertyPath: id
-      value: HighlightObject (4)_-200296
+      value: HighlightObject (4)_-117532
       objectReference: {fileID: 0}
     - target: {fileID: 5593281840876868023, guid: 3dfe46526c581194fbfe34cacb20ce0a,
         type: 3}

@@ -15,6 +15,7 @@ namespace PGroup
         [SerializeField] private Boy.PPESelector pPESelector;
         [SerializeField] private GameObject checkActiveCorrectCheckpoint3;
         [SerializeField] private GameObject checkActiveFailCheckpoint3;
+        [SerializeField] private GameObject warningSiren;
 
         private GameplayController gameplayController; 
         private Tween delay = null;
@@ -85,6 +86,7 @@ namespace PGroup
         }
         public void EndCheckpoint2()
         {
+            warningSiren.SetActive(false);
             delay?.Kill();
             delay = DOVirtual.DelayedCall(3, () =>
             {

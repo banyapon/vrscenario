@@ -156,8 +156,10 @@ namespace PGroup
             string getPassword = passwordInputField.text;
 
             //========================================================================================================TEST==
+#if UNITY_EDITOR
             getUsername = "nopparat.pgroup@gmail.com";
             getPassword = "12345";
+#endif
             //============================================================================================================================
 
             if (string.IsNullOrEmpty(getUsername) || string.IsNullOrEmpty(getPassword))
