@@ -132,7 +132,7 @@ public class VRManager : NetworkBehaviour
             if (VRNetworkController.Instance.inspector)
             {
                 DisableObjects();
-                player?.SetGravity(false);
+                //player?.SetGravity(false);
                 if (IsOwner)
                 {
                     boardUI.SetActive(false);
@@ -248,7 +248,7 @@ public class VRManager : NetworkBehaviour
 
     public void OpenBoardUI()
     {
-        if (!IsOwner) return;
+        //if (!IsOwner) return;
         boardUI.SetActive(true);
         environment.SetActive(true);
         CurrentConfig = null;

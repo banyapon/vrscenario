@@ -45,7 +45,11 @@ public class Player : MonoBehaviour
 
     public void Teleport(Vector3 position, Vector3 rotate, bool isOwner)
     {
-        if (!isOwner) return;
+        //if (!isOwner) return;
+        if (VRNetworkController.Instance != null && VRNetworkController.Instance.inspector)
+        {
+            position += Vector3.back * 0.5f;
+        }
         transform.position = position;
         transform.eulerAngles = rotate;
     }

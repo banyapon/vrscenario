@@ -115,7 +115,7 @@ namespace Boy
         public void UpdateSelectionCountUIOnServer()
         {
             if (context == null || context.IsOwner) return;
-            if (!context.IsServer) return;
+            //if (!context.IsServer) return;
 
             int count = 0;
             foreach (var s in selectedUI)
