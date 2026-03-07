@@ -348,7 +348,7 @@ namespace PGroup
             hookSide.transform.position = ladders[currentLadderHook].transform.GetChild(0).position;
             hookSide.transform.rotation = ladders[currentLadderHook].transform.GetChild(0).rotation;
             //ladders[currentLadderHook].transform.GetChild(0).gameObject.SetActive(false);
-            Debug.Log(currentLadderHook);
+            //Debug.Log(currentLadderHook);
 
             bool condition;
             if (!isClimbDown)

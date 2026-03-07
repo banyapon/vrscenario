@@ -5,6 +5,7 @@ namespace PGroup
     public class ActiveTriggerPlayer : MonoBehaviour
     {
         [SerializeField] private GameObject activeObject;
+        [SerializeField] private Transform topPos;
         private Transform player;
 
         private void OnEnable()
@@ -13,9 +14,15 @@ namespace PGroup
         }
         private void OnTriggerEnter(Collider other)
         {
-            if(other.transform == player)
+            Debug.Log(other);
+            if (other.transform == player)
             {
                 activeObject.SetActive(true);
+            }
+            else if (other.CompareTag("Player"))
+            {
+                activeObject.SetActive(true);
+                player.GetComponent<Player>().TeleportNonOwner(topPos, false);
             }
         }
         private void OnTriggerExit(Collider other)

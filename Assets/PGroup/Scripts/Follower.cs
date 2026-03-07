@@ -18,6 +18,7 @@ public class Follower : MonoBehaviour
     private void Start()
     {
         player = gameplayController.player;
+        if (VRNetworkController.Instance.inspector) gameObject.SetActive(false);
     }
     void Update()
     {
