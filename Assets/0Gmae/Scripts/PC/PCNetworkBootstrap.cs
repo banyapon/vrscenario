@@ -121,8 +121,11 @@ public class PCNetworkBootstrap : MonoBehaviour
         NetworkObject no = vr.GetComponent<NetworkObject>();
         no.SpawnAsPlayerObject(clientId, true);
 
-        var sync = vr.GetComponent<SyncTransformController>();
-        sync.pcClientId = clientId;
+        var syncTrans = vr.GetComponent<SyncTransformController>();
+        syncTrans.pcClientId = clientId;
+
+        var syncAudio = vr.GetComponent<SyncAudioController>();
+        syncAudio.pcClientId = clientId;
 
         var playerData = vr.GetComponent<PlayerData>();
         playerData.IsInspector = payload.isInspector;

@@ -19,6 +19,7 @@ public class SyncAudioController : NetworkBehaviour
     readonly Dictionary<string, AudioSyncTarget> markers = new();
 
     bool isMuted;
+    public ulong pcClientId;
 
     class AudioSyncTarget
     {
@@ -231,6 +232,33 @@ public class SyncAudioController : NetworkBehaviour
     void RequestSetAudioServerRpc(string id, AudioState state, ServerRpcParams rpcParams = default)
     {
         if (!IsSenderOwner(rpcParams)) return;
+        ApplyAudio(id, state);
+        //BroadcastToPC(id, state);
+        ApplyTransformClientRpc(id, state);
+    }
+
+    void BroadcastToPC(string id, AudioState state)
+    {
+        var rpcParams = new ClientRpcParams
+        {
+            Send = new ClientRpcSendParams
+            {
+                TargetClientIds = new[] { pcClientId }
+            }
+        };
+
+        ApplyTransformClientRpc(id, state, rpcParams);
+    }
+
+    // =========================================================
+    [ClientRpc]
+    void ApplyTransformClientRpc(string id, AudioState state, ClientRpcParams rpcParams = default)
+    {
+        //if (IsOwner) return;
+        VRNetworkController vRNetwork = VRNetworkController.Instance;
+        if (vRNetwork == null) return;
+        if (!vRNetwork.inspector) return;
+        if (IsHost) return;
         ApplyAudio(id, state);
     }
 

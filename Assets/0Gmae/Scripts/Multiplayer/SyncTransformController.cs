@@ -151,6 +151,7 @@ public class SyncTransformController : NetworkBehaviour
     {
         ApplyStates(states);
         //BroadcastToPC(states);
+        ApplyTransformClientRpc(states);
     }
 
     void BroadcastToPC(TransformState[] states)
@@ -170,7 +171,11 @@ public class SyncTransformController : NetworkBehaviour
     [ClientRpc]
     void ApplyTransformClientRpc(TransformState[] states, ClientRpcParams rpcParams = default)
     {
-        if (IsOwner) return;
+        //if (IsOwner) return;
+        VRNetworkController vRNetwork = VRNetworkController.Instance;
+        if (vRNetwork == null) return;
+        if (!vRNetwork.inspector) return;
+        if (IsHost) return;
         ApplyStates(states);
     }
 
