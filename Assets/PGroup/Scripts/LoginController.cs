@@ -25,11 +25,15 @@ namespace PGroup
         [HideInInspector][SerializeField] private GameObject regisSuccessPanel;
         [HideInInspector][SerializeField] private GameObject resetPasswordSuccessPanel;
         [HideInInspector][SerializeField] private GameObject notCorrectPasswordPanel;
+        [HideInInspector][SerializeField] private GameObject soloModePanel;
+        [HideInInspector][SerializeField] private GameObject multiplayerModePanel;
 
         [Header("Button")]
+        [HideInInspector][SerializeField] private Button soloModeButton;
+        [HideInInspector][SerializeField] private Button multiplayerModeButton;
         [HideInInspector][SerializeField] private Button standaloneButton;
-        [HideInInspector][SerializeField] private Button playerButton;
-        [HideInInspector][SerializeField] private Button inspectorButton;
+        [HideInInspector][SerializeField] private Button hostButton;
+        [HideInInspector][SerializeField] private Button joinerButton;
         [HideInInspector][SerializeField] private Button forgotPasswordButton;
         [HideInInspector][SerializeField] private Button sendEmailPasswordButton;
         [HideInInspector][SerializeField] private Button loginButton;
@@ -69,8 +73,8 @@ namespace PGroup
         private void Awake()
         {
             standaloneButton.onClick.AddListener(() => ButtonStandalone());
-            playerButton.onClick.AddListener(() => ButtonPlayer());
-            inspectorButton.onClick.AddListener(() => ButtonInpector());
+            hostButton.onClick.AddListener(() => ButtonPlayer());
+            joinerButton.onClick.AddListener(() => ButtonInpector());
             forgotPasswordButton.onClick.AddListener(() => ButtonForgotPassword());
             loginButton.onClick.AddListener(() => ButtonLogin());
             signUpButton.onClick.AddListener(() => ButtonSignup());
@@ -83,6 +87,8 @@ namespace PGroup
             sendEmailPasswordButton.onClick.AddListener(() => ButtonSentEmailPassword());
             backToLoginFromSentEmailTokenButton.onClick.AddListener(() => ButtonBacktoLogin());
             closeNotCorrectPasswordButton.onClick.AddListener(() => ButtonCloseNotCorrectPassword());
+            soloModeButton.onClick.AddListener(() => ButtonSoloMode());
+            multiplayerModeButton.onClick.AddListener(() => ButtonMultiplayerMode());
 
             usernameInputField.onSelect.AddListener(x => ShowKeyboard(usernameInputField));
             passwordInputField.onSelect.AddListener(x => ShowKeyboard(passwordInputField));
@@ -97,8 +103,8 @@ namespace PGroup
             newPasswordResetInputField.onSelect.AddListener(x => ShowKeyboard(newPasswordResetInputField));
         }
         public void ButtonStandalone() { OnStandAlone(); }
-        public void ButtonPlayer() { OnPlayer(); }
-        public void ButtonInpector() { OnInspector(); }
+        public void ButtonPlayer() { OnHost(); }
+        public void ButtonInpector() { OnJoiner(); }
         public void ButtonLogin() { OnLogin(); }
         public void ButtonForgotPassword() { OnForgotPassword(); }
         public void ButtonSignup() { OnSignUp(); }
@@ -117,6 +123,8 @@ namespace PGroup
         public void ButtonCloseRegisSuccess() { OnCloseRegisSuccess(); }
         public void ButtonCloseResetPasswordSuccess() { OnCloseResetPasswordSuccess(); }
         public void ButtonCloseNotCorrectPassword() { OnCloseNotCorrectPassword(); }
+        public void ButtonSoloMode() { OnSoloMode(); }
+        public void ButtonMultiplayerMode() { OnMultiplayerMode(); }
         #endregion
         #region Private Fuction Action
 
@@ -132,25 +140,25 @@ namespace PGroup
             isOnline = false;
             isInspector = false;
             standaloneButton.image.color = new Color32(254, 50, 1, 255);
-            playerButton.image.color = Color.clear;
-            inspectorButton.image.color = Color.clear;
+            hostButton.image.color = Color.clear;
+            joinerButton.image.color = Color.clear;
         }
-        private void OnPlayer()
+        private void OnHost()
         {
             isOnline = true;
             isInspector = false;
             standaloneButton.image.color = Color.clear;
-            playerButton.image.color = new Color32(254, 50, 1, 255);
-            inspectorButton.image.color = Color.clear;
+            hostButton.image.color = new Color32(254, 50, 1, 255);
+            joinerButton.image.color = Color.clear;
         }
-        private void OnInspector()
+        private void OnJoiner()
         {
             //Set to Inpector==========================================================================??????
             isOnline = true;
             isInspector = true;
             standaloneButton.image.color = Color.clear;
-            playerButton.image.color = Color.clear;
-            inspectorButton.image.color = new Color32(254, 50, 1, 255);
+            hostButton.image.color = Color.clear;
+            joinerButton.image.color = new Color32(254, 50, 1, 255);
         }
         private void OnLogin()
         {
@@ -325,6 +333,22 @@ namespace PGroup
         private void OnCloseNotCorrectPassword()
         {
             notCorrectPasswordPanel.SetActive(false);
+        }
+        private void OnSoloMode()
+        {
+            soloModeButton.image.color = new Color32(254, 50, 1, 255);
+            multiplayerModeButton.image.color = Color.clear;
+            soloModePanel.SetActive(true);
+            multiplayerModePanel.SetActive(false);
+            OnStandAlone();
+        }
+        private void OnMultiplayerMode()
+        {
+            soloModeButton.image.color = Color.clear;
+            multiplayerModeButton.image.color = new Color32(254, 50, 1, 255);
+            soloModePanel.SetActive(false);
+            multiplayerModePanel.SetActive(true);
+            OnHost();
         }
         #endregion
     }
