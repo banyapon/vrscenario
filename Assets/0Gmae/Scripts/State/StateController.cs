@@ -218,6 +218,15 @@ namespace Boy
         private void ReportStateValueServerRpc(int index, bool pass, bool first)
         {
             states[index].ApplyValue(pass, first);
+            ReportStateValueClientRpc(index, pass, first);
+        }
+
+        [ClientRpc]
+        void ReportStateValueClientRpc(int index, bool pass, bool first, ClientRpcParams rpcParams = default)
+        {
+            //if (IsOwner) return;
+            if (IsHost) return;
+            states[index].ApplyValue(pass, first);
         }
     }
 }

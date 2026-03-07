@@ -52,6 +52,7 @@ public class ScenarioFiveSummaryState : State
         if (controller == null) return;
         if (controller.scenario == null) return;
         if (!controller.scenario.IsOwner) return;
+        //if (controller.scenario.IsHost) return;
 
         float timeUsed = controller.scenario?.timeUsed ?? 0f;
 
