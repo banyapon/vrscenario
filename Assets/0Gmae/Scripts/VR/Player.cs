@@ -53,7 +53,22 @@ public class Player : MonoBehaviour
         transform.position = position;
         transform.eulerAngles = rotate;
     }
+    public void TeleportNonOwner(Transform transform, bool isOwner)
+    {
+        if (transform == null) return;
+        TeleportNonOwner(transform.localPosition, transform.localEulerAngles, isOwner);
+    }
 
+    public void TeleportNonOwner(Vector3 position, Vector3 rotate, bool isOwner)
+    {
+        if (isOwner) return;
+        if (VRNetworkController.Instance != null && VRNetworkController.Instance.inspector)
+        {
+            position += Vector3.back * 0.5f;
+        }
+        transform.position = position;
+        transform.eulerAngles = rotate;
+    }
     public void SetHandColliders(bool value)
     {
         foreach (var h in handColliders)
