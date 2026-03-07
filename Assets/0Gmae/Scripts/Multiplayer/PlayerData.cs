@@ -16,6 +16,7 @@ public class PlayerData : NetworkBehaviour
 
     public Action OnInspector;
     public Action OnPlayer;
+    public Action OnDespawn;
 
     public bool IsInspector
     {
@@ -39,6 +40,7 @@ public class PlayerData : NetworkBehaviour
     {
         _isInspector.OnValueChanged -= OnRoleChanged;
         _isPlayer.OnValueChanged -= OnPlayerChanged;
+        OnDespawn?.Invoke();
     }
     void OnRoleChanged(bool oldValue, bool newValue)
     {

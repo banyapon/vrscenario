@@ -116,6 +116,7 @@ public class VRManager : NetworkBehaviour
         }
     }
     Player player;
+    PlayerData playerData;
     public override void OnNetworkSpawn()
     {
         headMock.layer = 0;
@@ -123,7 +124,7 @@ public class VRManager : NetworkBehaviour
         player?.SetGravity(false);
         SetAllCamerasEnabled(false);
         string log = $"[VRManager] Spawn | IsOwner={IsOwner} | ClientId={OwnerClientId}";
-        PlayerData playerData = GetComponent<PlayerData>();
+        playerData = GetComponent<PlayerData>();
 
         if (VRNetworkController.Instance != null)//VR
         {
@@ -133,6 +134,7 @@ public class VRManager : NetworkBehaviour
             {
                 if (IsOwner)
                 {
+                    boardUI.SetActive(false);
                     DisableObjects();
                     player?.SetGravity(false);
                     player?.SetMove(false);
@@ -142,10 +144,14 @@ public class VRManager : NetworkBehaviour
                 }
                 else
                 {
-                    playerData.OnPlayer += () => {
-                        ResetObjects();
-                        print("Set simulate camera here");
-                    };
+                    if (playerData.IsPlayer)
+                    {
+                        InspectorSetup();
+                    }
+                    else
+                    {
+                        playerData.OnPlayer += InspectorSetup;
+                    }
                 }
             }
             else if (!IsOwner)
@@ -165,6 +171,17 @@ public class VRManager : NetworkBehaviour
         }
 
         print(log);
+    }
+
+    void InspectorSetup()
+    {
+        //ResetObjects();
+        print("Set simulate camera here");
+        playerData.OnDespawn += () =>
+        {
+            print($"playerData {playerData.OwnerClientId} | VRNetwork {OwnerClientId}");
+            VRNetworkController.Instance.Disconnect();
+        };
     }
 
     public override void OnNetworkDespawn()
