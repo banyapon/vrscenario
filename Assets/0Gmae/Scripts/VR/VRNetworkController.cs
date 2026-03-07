@@ -21,6 +21,7 @@ public class VRNetworkController : MonoBehaviour
     //public string joinCode;
 
     public bool inspector;
+    public bool isHavePlayer;
 
     public GameObject[] disconnectedObjects;
     public GameObject[] connectedObjects;
@@ -237,6 +238,7 @@ public class VRNetworkController : MonoBehaviour
 
         DespawnHostObject();
 
+        isHavePlayer = false;
         isConnected = false;
         isJoining = false;
         ShowDisconnectedUI("Disconnected");

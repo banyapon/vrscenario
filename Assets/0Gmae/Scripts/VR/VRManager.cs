@@ -121,7 +121,6 @@ public class VRManager : NetworkBehaviour
     {
         headMock.layer = 0;
         player = Player.Instance;
-        player?.SetGravity(false);
         SetAllCamerasEnabled(false);
         string log = $"[VRManager] Spawn | IsOwner={IsOwner} | ClientId={OwnerClientId}";
         playerData = GetComponent<PlayerData>();
@@ -132,15 +131,17 @@ public class VRManager : NetworkBehaviour
 
             if (VRNetworkController.Instance.inspector)
             {
+                DisableObjects();
+                player?.SetGravity(false);
                 if (IsOwner)
                 {
                     boardUI.SetActive(false);
-                    DisableObjects();
-                    player?.SetGravity(false);
-                    player?.SetMove(false);
-                    player?.SetJump(false);
-                    player?.SetTeleportation(false);
-                    player?.SetTurn(false);
+                    //DisableObjects();
+                    //player?.SetGravity(false);
+                    //player?.SetMove(false);
+                    //player?.SetJump(false);
+                    //player?.SetTeleportation(false);
+                    //player?.SetTurn(false);
                 }
                 else
                 {
@@ -158,7 +159,8 @@ public class VRManager : NetworkBehaviour
             {
                 DisableObjects();
             }
-        }else if ((IsServer || IsHost) &&
+        }
+        else if ((IsServer || IsHost) &&
             CCTVController.Instance != null) // PC side: register camera to CCTV
         {
             headMock.layer = LayerMask.NameToLayer("Mirror");
@@ -175,7 +177,9 @@ public class VRManager : NetworkBehaviour
 
     void InspectorSetup()
     {
-        //ResetObjects();
+        if (VRNetworkController.Instance.isHavePlayer) return;
+        VRNetworkController.Instance.isHavePlayer = true;
+        ResetObjects();
         print("Set simulate camera here");
         playerData.OnDespawn += () =>
         {
@@ -265,9 +269,9 @@ public class VRManager : NetworkBehaviour
     {
         if (!defaultActiveInitialize)
         {
+            defaultActiveInitialize = true;
             foreach (Transform child in transform)
             {
-                child.gameObject.SetActive(false);
                 DefaultActive defaultActive = new DefaultActive();
                 defaultActive.value = child.gameObject.activeInHierarchy;
                 defaultActive.go = child.gameObject;
