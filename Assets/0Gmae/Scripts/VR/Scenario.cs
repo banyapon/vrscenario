@@ -14,6 +14,11 @@ public class Scenario : NetworkBehaviour
     List<GameObject> grabObjects = new List<GameObject>();
     Player player;
 
+
+    PlayerData playerData = null;
+    bool defaultActiveInitialize;
+    List<DefaultActive> defaultActives = new List<DefaultActive>();
+
     private void Awake()
     {
         if (destroyBtn) destroyBtn.onClick.AddListener(RequestDestroy);
@@ -44,14 +49,47 @@ public class Scenario : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         VRManager manager = GetVRManager();
-        PlayerData playerData = null;
         if (manager != null) playerData = manager.GetComponent<PlayerData>();
         SetCamera(false);
 
-        if (!IsOwner && !(IsServer || IsHost))
+        //if (!IsOwner && !(IsServer || IsHost))
+        //{
+        //    if (playerData == null) DisableChild();
+        //    else if (playerData.IsInspector) DisableChild();
+        //    else if (!playerData.IsInspector) playerData.OnInspector += DisableChild;
+        //}
+
+        if (VRNetworkController.Instance != null)//VR
         {
-            if (playerData == null) DisableChild();
-            else if (playerData.IsInspector) DisableChild();
+            if (VRNetworkController.Instance.inspector)
+            {
+                DisableChild();
+                //player?.SetGravity(false);
+                if (IsOwner)
+                {
+                    //DisableObjects();
+                    //player?.SetGravity(false);
+                    //player?.SetMove(false);
+                    //player?.SetJump(false);
+                    //player?.SetTeleportation(false);
+                    //player?.SetTurn(false);
+                }
+                else
+                {
+                    if (playerData.IsPlayer)
+                    {
+                        InspectorSetup();
+                    }
+                    else
+                    {
+                        playerData.OnPlayer += InspectorSetup;
+                    }
+                }
+            }
+            else if (!IsOwner)
+            {
+                DisableChild();
+            }
         }
 
         if (IsOwner || IsHost)
@@ -114,9 +152,46 @@ public class Scenario : NetworkBehaviour
             Destroy(grabObj);
         }
     }
+    void InspectorSetup()
+    {
+        ulong id = VRNetworkController.Instance.playerId;
+        if (id != ulong.MaxValue && id != OwnerClientId)
+        {
+            return;
+        }
+        else
+        {
+            VRNetworkController.Instance.playerId = OwnerClientId;
+        }
+        ResetObjects();
+        playerData.OnDespawn += () =>
+        {
+            print($"playerData {playerData.OwnerClientId} | Scenario {OwnerClientId}");
+            VRNetworkController.Instance.Disconnect();
+        };
+    }
+    void ResetObjects()
+    {
+        foreach (var item in defaultActives)
+        {
+            item.go.SetActive(item.value);
+        }
+    }
 
     private void DisableChild()
     {
+        if (!defaultActiveInitialize)
+        {
+            defaultActiveInitialize = true;
+            foreach (Transform child in transform)
+            {
+                DefaultActive defaultActive = new DefaultActive();
+                defaultActive.value = child.gameObject.activeInHierarchy;
+                defaultActive.go = child.gameObject;
+                defaultActives.Add(defaultActive);
+            }
+        }
+
         foreach (Transform child in transform)
         {
             child.gameObject.SetActive(false);

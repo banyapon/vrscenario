@@ -177,10 +177,16 @@ public class VRManager : NetworkBehaviour
 
     void InspectorSetup()
     {
-        if (VRNetworkController.Instance.isHavePlayer) return;
-        VRNetworkController.Instance.isHavePlayer = true;
+        ulong id = VRNetworkController.Instance.playerId;
+        if (id != ulong.MaxValue && id != OwnerClientId)
+        {
+            return;
+        }
+        else
+        {
+            VRNetworkController.Instance.playerId = OwnerClientId;
+        }
         ResetObjects();
-        print("Set simulate camera here");
         playerData.OnDespawn += () =>
         {
             print($"playerData {playerData.OwnerClientId} | VRNetwork {OwnerClientId}");

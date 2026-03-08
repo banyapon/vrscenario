@@ -14,6 +14,8 @@ TagManager:
   - Ladder
   - Hook
   - Key
+  - Cone
+  - Pad
   layers:
   - Default
   - TransparentFX
@@ -25,7 +27,7 @@ TagManager:
   - Mirror
   - Hook
   - Slope
-  - 
+  - Ignore Player
   - 
   - 
   - 
