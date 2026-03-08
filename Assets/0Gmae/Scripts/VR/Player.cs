@@ -69,8 +69,9 @@ public class Player : MonoBehaviour
         transform.position = position;
         transform.eulerAngles = rotate;
     }
-    public void SetHandColliders(bool value)
+    public void SetInspector(bool value)
     {
+        gameObject.tag = value ? "Player": "Untagged";
         foreach (var h in handColliders)
         {
             h.enabled = value;

@@ -58,6 +58,16 @@ public class SiloEntryState : State
     public override void StateEnter()
     {
         base.StateEnter();
+
+        lid.layer = 0;
+        if (VRNetworkController.Instance != null)//VR
+        {
+            if (VRNetworkController.Instance.inspector)
+            {
+                lid.layer = LayerMask.NameToLayer("Ignore Player");
+            }
+        }
+
         lid.SetActive(false);
         climbChecker.enabled = true;
         floorChecker.enabled = true;

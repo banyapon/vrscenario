@@ -21,7 +21,7 @@ public class VRNetworkController : MonoBehaviour
     //public string joinCode;
 
     public bool inspector;
-    public bool isHavePlayer;
+    public ulong playerId = ulong.MaxValue;
 
     public GameObject[] disconnectedObjects;
     public GameObject[] connectedObjects;
@@ -156,7 +156,7 @@ public class VRNetworkController : MonoBehaviour
         isJoining = true;
         print($"OnClickJoin: {isInspector}");
         inspector = isInspector;
-        Player.Instance.SetHandColliders(!inspector);
+        Player.Instance.SetInspector(!inspector);
         APIManager.Instance.GetJoinCode<JoinMultiplayerResponse>(OnJoinCodeReceived);
     }
 
@@ -239,7 +239,7 @@ public class VRNetworkController : MonoBehaviour
 
         DespawnHostObject();
 
-        isHavePlayer = false;
+        playerId = ulong.MaxValue;
         isConnected = false;
         isJoining = false;
         ShowDisconnectedUI("Disconnected");

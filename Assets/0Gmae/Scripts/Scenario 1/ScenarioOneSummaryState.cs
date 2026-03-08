@@ -15,6 +15,7 @@ public class ScenarioOneSummaryState : State
     public Transform teleportTarget;
     public GameObject ambulance;
     public GameObject npc;
+    public GameObject lid;
 
     [Header("UI")]
     public GameObject passHUD;
@@ -52,6 +53,7 @@ public class ScenarioOneSummaryState : State
         base.StateEnter();
         ambulance.SetActive(true);
         npc.SetActive(false);
+        lid.layer = 0;
         if (controller?.scenario)
         {
             player?.Teleport(teleportTarget, controller.scenario.IsOwner);
