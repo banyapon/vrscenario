@@ -86,6 +86,8 @@ namespace PGroup
             backToLoginFromResetButton.onClick.AddListener(() => ButtonBacktoLogin());
             sendEmailPasswordButton.onClick.AddListener(() => ButtonSentEmailPassword());
             backToLoginFromSentEmailTokenButton.onClick.AddListener(() => ButtonBacktoLogin());
+            closeRegisSuccessButton.onClick.AddListener(() => ButtonCloseRegisSuccess());
+            closeResetPasswordSuccessButton.onClick.AddListener(() => ButtonCloseResetPasswordSuccess());
             closeNotCorrectPasswordButton.onClick.AddListener(() => ButtonCloseNotCorrectPassword());
             soloModeButton.onClick.AddListener(() => ButtonSoloMode());
             multiplayerModeButton.onClick.AddListener(() => ButtonMultiplayerMode());
