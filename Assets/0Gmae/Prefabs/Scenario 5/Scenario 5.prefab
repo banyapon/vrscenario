@@ -1669,7 +1669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b7842ad865396847b6f5fa309b727f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hudDuration: 3
+  hudDuration: 5
   hudArray:
   - {fileID: 7054312328889526812}
 --- !u!1 &1135789160243058146
@@ -5403,7 +5403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b7842ad865396847b6f5fa309b727f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hudDuration: 3
+  hudDuration: 5
   hudArray:
   - {fileID: 2203713224047378627}
   - {fileID: 30532276097192463}
@@ -7996,7 +7996,7 @@ MonoBehaviour:
   stateCanvas: {fileID: 0}
   nextButton: {fileID: 0}
   nextState: {fileID: 0}
-  delayChangeState: 3
+  delayChangeState: 5
   startBtn: {fileID: 5482095863977487199}
   door: {fileID: 8751930119978794487}
   correctHud: {fileID: 890044005873964666}
