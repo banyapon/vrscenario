@@ -33,6 +33,7 @@ public class VRNetworkController : MonoBehaviour
     public TMP_InputField inputField;
     public GameObject hostPrefab;
     public GameObject logOutUI;
+    public GameObject playerDropdown;
     GameObject spawnedHostObject;
 
     NetworkManager nm;
@@ -51,6 +52,7 @@ public class VRNetworkController : MonoBehaviour
 
         Instance = this;
         logOutUI.SetActive(false);
+        playerDropdown.SetActive(false);
 
         transport = GetComponent<UnityTransport>();
 
@@ -218,6 +220,7 @@ public class VRNetworkController : MonoBehaviour
 
             SetStatus("Connected!");
             logOutUI.SetActive(inspector);
+            playerDropdown.SetActive(inspector);
         }
         catch (Exception ex)
         {
@@ -248,6 +251,7 @@ public class VRNetworkController : MonoBehaviour
         isJoining = false;
         ShowDisconnectedUI("Disconnected");
         logOutUI.SetActive(false);
+        playerDropdown.SetActive(false);
         onClientDisconnected?.Invoke();
     }
 
