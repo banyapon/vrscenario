@@ -32,6 +32,7 @@ public class VRNetworkController : MonoBehaviour
     public Button disconnectButton;
     public TMP_InputField inputField;
     public GameObject hostPrefab;
+    public GameObject logOutUI;
     GameObject spawnedHostObject;
 
     NetworkManager nm;
@@ -49,6 +50,7 @@ public class VRNetworkController : MonoBehaviour
         }
 
         Instance = this;
+        logOutUI.SetActive(false);
 
         transport = GetComponent<UnityTransport>();
 
@@ -59,6 +61,7 @@ public class VRNetworkController : MonoBehaviour
 
         if (!AuthenticationService.Instance.IsSignedIn)
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
+
     }
 
     void Start()
@@ -214,6 +217,7 @@ public class VRNetworkController : MonoBehaviour
             nm.StartClient();
 
             SetStatus("Connected!");
+            logOutUI.SetActive(inspector);
         }
         catch (Exception ex)
         {
@@ -243,6 +247,7 @@ public class VRNetworkController : MonoBehaviour
         isConnected = false;
         isJoining = false;
         ShowDisconnectedUI("Disconnected");
+        logOutUI.SetActive(false);
         onClientDisconnected?.Invoke();
     }
 
@@ -335,5 +340,14 @@ public class VRNetworkController : MonoBehaviour
             "0.0.0.0",
             7777
         );
+    }
+
+    public static void SetCanvasBlocked(Canvas canvas, bool blocked)
+    {
+        var cg = canvas.GetComponent<CanvasGroup>();
+        if (cg == null) cg = canvas.gameObject.AddComponent<CanvasGroup>();
+
+        cg.interactable = !blocked;
+        cg.blocksRaycasts = !blocked;
     }
 }

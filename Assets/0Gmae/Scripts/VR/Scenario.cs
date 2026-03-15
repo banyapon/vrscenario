@@ -169,6 +169,11 @@ public class Scenario : NetworkBehaviour
             print($"playerData {playerData.OwnerClientId} | Scenario {OwnerClientId}");
             VRNetworkController.Instance.Disconnect();
         };
+
+        foreach (var canvas in GetComponentsInChildren<Canvas>())
+        {
+            VRNetworkController.SetCanvasBlocked(canvas, true);
+        }
     }
     void ResetObjects()
     {

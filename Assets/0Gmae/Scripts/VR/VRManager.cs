@@ -192,6 +192,11 @@ public class VRManager : NetworkBehaviour
             print($"playerData {playerData.OwnerClientId} | VRNetwork {OwnerClientId}");
             VRNetworkController.Instance.Disconnect();
         };
+
+        foreach (var canvas in GetComponentsInChildren<Canvas>())
+        {
+            VRNetworkController.SetCanvasBlocked(canvas, true);
+        }
     }
 
     public override void OnNetworkDespawn()
