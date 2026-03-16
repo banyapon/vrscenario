@@ -5,6 +5,7 @@ using UnityEngine;
 public class TrainingPlayerList : MonoBehaviour
 {
     public static TrainingPlayerList Instance;
+    public ulong selectedClientId = ulong.MaxValue;
 
     public List<PlayerData> players = new();
 

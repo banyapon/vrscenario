@@ -10,7 +10,7 @@ using UnityEngine.XR.Interaction.Toolkit.UI;
 public class VRManager : NetworkBehaviour
 {
     //[Header("Camera")]
-    [SerializeField] GameObject headMock;
+    public GameObject headMock;
     [SerializeField] private List<Camera> allCamera = new List<Camera>();
     public List<SyncAudioController> syncAudioList = new List<SyncAudioController>();
 
@@ -136,6 +136,21 @@ public class VRManager : NetworkBehaviour
                 if (IsOwner)
                 {
                     boardUI.SetActive(false);
+
+                    bool openEnvironment = true;
+                    Scenario[] scenarios = FindObjectsByType<Scenario>(
+                        FindObjectsInactive.Include,
+                        FindObjectsSortMode.None
+                        );
+                    foreach (Scenario scenario in scenarios)
+                    {
+                        if (scenario.OwnerClientId == TrainingPlayerList.Instance.selectedClientId)
+                        {
+                            openEnvironment = false;
+                        }
+                    }
+
+                    environment.SetActive(openEnvironment);
                     //DisableObjects();
                     //player?.SetGravity(false);
                     //player?.SetMove(false);
@@ -145,14 +160,14 @@ public class VRManager : NetworkBehaviour
                 }
                 else
                 {
-                    if (playerData.IsPlayer)
-                    {
-                        InspectorSetup();
-                    }
-                    else
-                    {
-                        playerData.OnPlayer += InspectorSetup;
-                    }
+                    //if (playerData.IsPlayer)
+                    //{
+                    //    InspectorSetup();
+                    //}
+                    //else
+                    //{
+                    //    playerData.OnPlayer += InspectorSetup;
+                    //}
                 }
             }
             else if (!IsOwner)
@@ -175,7 +190,7 @@ public class VRManager : NetworkBehaviour
         print(log);
     }
 
-    void InspectorSetup()
+    public void InspectorSetup()
     {
         ulong id = VRNetworkController.Instance.playerId;
         if (id != ulong.MaxValue && id != OwnerClientId)

@@ -15,16 +15,6 @@ public class TrainingPlayerDropdown : MonoBehaviour
     Dictionary<ulong, int> clientIndexMap = new();
     List<PlayerData> players = new();
 
-    ulong selectedClientId = ulong.MaxValue;
-
-    public ulong SelectedClientId {
-        get => selectedClientId;
-        set {
-            selectedClientId = value;
-            if (confirmButton) confirmButton.interactable = selectedClientId != ulong.MaxValue;
-        }
-    }
-
     void Start()
     {
         dropdown.onValueChanged.AddListener(OnDropdownChanged);
@@ -33,8 +23,21 @@ public class TrainingPlayerDropdown : MonoBehaviour
             confirmButton.onClick.AddListener(OnConfirm);
 
         TrainingPlayerList.Instance.OnListChanged += SyncDropdown;
-
+    }
+    void OnEnable()
+    {
         InitialBuild();
+
+        if (players.Count > 0)
+        {
+            dropdown.SetValueWithoutNotify(0);
+            TrainingPlayerList.Instance.selectedClientId = players[0].OwnerClientId;
+            UpdateHighlight();
+        }
+        else
+        {
+            TrainingPlayerList.Instance.selectedClientId = ulong.MaxValue;
+        }
     }
 
     void OnDestroy()
@@ -90,9 +93,9 @@ public class TrainingPlayerDropdown : MonoBehaviour
 
                 RebuildIndexMap();
 
-                if (selectedClientId == id)
+                if (TrainingPlayerList.Instance.selectedClientId == id)
                 {
-                    SelectedClientId = ulong.MaxValue;
+                    TrainingPlayerList.Instance.selectedClientId = ulong.MaxValue;
                 }
             }
         }
@@ -127,7 +130,7 @@ public class TrainingPlayerDropdown : MonoBehaviour
     {
         string name = GetDisplayName(p);
 
-        if (p.OwnerClientId == selectedClientId)
+        if (p.OwnerClientId == TrainingPlayerList.Instance.selectedClientId)
         {
             string hex = ColorUtility.ToHtmlStringRGB(highlightColor);
             return $"<color=#{hex}>{name}</color>";
@@ -138,14 +141,14 @@ public class TrainingPlayerDropdown : MonoBehaviour
 
     void RestoreSelection()
     {
-        if (selectedClientId == ulong.MaxValue)
+        if (TrainingPlayerList.Instance.selectedClientId == ulong.MaxValue)
             return;
 
-        if (clientIndexMap.TryGetValue(selectedClientId, out int index))
+        if (clientIndexMap.TryGetValue(TrainingPlayerList.Instance.selectedClientId, out int index))
             dropdown.SetValueWithoutNotify(index);
         else
         {
-            SelectedClientId = ulong.MaxValue;
+            TrainingPlayerList.Instance.selectedClientId = ulong.MaxValue;
         }
     }
 
@@ -162,7 +165,7 @@ public class TrainingPlayerDropdown : MonoBehaviour
         if (index < 0 || index >= players.Count)
             return;
 
-        SelectedClientId = players[index].OwnerClientId;
+        TrainingPlayerList.Instance.selectedClientId = players[index].OwnerClientId;
 
         UpdateHighlight();
     }
@@ -180,14 +183,53 @@ public class TrainingPlayerDropdown : MonoBehaviour
 
     void OnConfirm()
     {
-        if (selectedClientId == ulong.MaxValue)
+        if (TrainingPlayerList.Instance.selectedClientId == ulong.MaxValue)
         {
             Debug.Log("No player selected");
             return;
         }
 
         gameObject.SetActive(false);
-        Debug.Log($"Selected OwnerId: {selectedClientId}------------------");
+        Debug.Log($"Selected OwnerId: {TrainingPlayerList.Instance.selectedClientId}------------------");
+
+        bool foundScenario = false;
+
+        Scenario[] scenarios = FindObjectsByType<Scenario>(
+            FindObjectsInactive.Include,
+            FindObjectsSortMode.None
+            );
+        foreach (Scenario scenario in scenarios)
+        {
+            if (scenario.OwnerClientId == TrainingPlayerList.Instance.selectedClientId)
+            {
+                scenario.InspectorSetup();
+                foundScenario = true;
+            }
+        }
+
+        VRManager[] managers = FindObjectsByType<VRManager>(
+            FindObjectsInactive.Include,
+            FindObjectsSortMode.None
+            );
+        foreach (VRManager manager in managers)
+        {
+            if (manager.IsOwner)
+            {
+                manager.environment.SetActive(false);
+            }
+
+            if (manager.OwnerClientId == TrainingPlayerList.Instance.selectedClientId)
+            {
+                if (foundScenario)
+                {
+                    manager.headMock.SetActive(true);
+                }
+                else
+                {
+                    manager.InspectorSetup();
+                }
+            }
+        }
     }
     string GetDisplayName(PlayerData p)
     {
