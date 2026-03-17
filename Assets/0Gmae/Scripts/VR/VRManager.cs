@@ -10,7 +10,8 @@ using UnityEngine.XR.Interaction.Toolkit.UI;
 public class VRManager : NetworkBehaviour
 {
     //[Header("Camera")]
-    public GameObject headMock;
+    [SerializeField] private GameObject playerMock;
+    [SerializeField] private GameObject headMock;
     [SerializeField] private List<Camera> allCamera = new List<Camera>();
     public List<SyncAudioController> syncAudioList = new List<SyncAudioController>();
 
@@ -279,6 +280,11 @@ public class VRManager : NetworkBehaviour
         environment.SetActive(true);
         CurrentConfig = null;
         Player.Instance?.Teleport(Vector3.zero, Vector3.zero, IsOwner);
+    }
+
+    public void OpenMock() {
+        headMock.SetActive(true);
+        playerMock.SetActive(true);
     }
 
     #region XR Control
