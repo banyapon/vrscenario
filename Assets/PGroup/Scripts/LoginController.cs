@@ -361,7 +361,7 @@ namespace PGroup
                 return "Host mode";
             }
 
-            return "Solo mode";
+            return "Single mode";
         }
         #endregion
     }
