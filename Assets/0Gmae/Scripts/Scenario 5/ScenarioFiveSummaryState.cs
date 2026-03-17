@@ -1,5 +1,6 @@
 using Boy;
 using Newtonsoft.Json;
+using PGroup;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -56,6 +57,9 @@ public class ScenarioFiveSummaryState : State
 
         float timeUsed = controller.scenario?.timeUsed ?? 0f;
 
+        LoginController loginController = FindAnyObjectByType<LoginController>();
+        string role = loginController == null ? "" : loginController.GetPlayerRole();
+
         var body = new
         {
             userEmail = APIManager.Instance.userEmail,
@@ -70,7 +74,7 @@ public class ScenarioFiveSummaryState : State
                 harm_prevention = details[3],
             },
             time_used_seconds = (int)timeUsed,
-            remark = ""
+            remark = role
         };
 
         string json = JsonConvert.SerializeObject(body);

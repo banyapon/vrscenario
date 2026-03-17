@@ -79,6 +79,8 @@ namespace PGroup
             Debug.Log(star);
 
             string json = "";
+            LoginController loginController = FindAnyObjectByType<LoginController>();
+            string role = loginController == null ? "" : loginController.GetPlayerRole();
 
             switch (scenarioIndex)
             {
@@ -97,7 +99,7 @@ namespace PGroup
                             cleanse = scoreList[3],
                         },
                         time_used_seconds = (int)timeUsed,
-                        remark = ""
+                        remark = role
                     };
                     json = JsonConvert.SerializeObject(body3);
                     break;
@@ -115,7 +117,7 @@ namespace PGroup
                             action_emergency = scoreList[2]
                         },
                         time_used_seconds = (int)timeUsed,
-                        remark = ""
+                        remark = role
                     };
                     json = JsonConvert.SerializeObject(body4);
                     break;
