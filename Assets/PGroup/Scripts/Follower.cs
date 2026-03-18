@@ -32,6 +32,9 @@ public class Follower : MonoBehaviour
             Vector3 dir = (player.position - transform.position).normalized;
             transform.position += dir * moveSpeed * Time.deltaTime;
 
+            dir.y = 0;
+            dir = dir.normalized;
+
             // หันหน้าไปหาผู้เล่น
             if (dir != Vector3.zero)
                 transform.forward = dir;

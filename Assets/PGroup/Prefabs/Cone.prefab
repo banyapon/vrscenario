@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8232828963272215400}
   - component: {fileID: 8515002059885945819}
   - component: {fileID: 7613446566726895815}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cone
   m_TagString: Cone
   m_Icon: {fileID: 0}
@@ -269,6 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86f44fa8e3d5ca4d8e6d236455db4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationName: 
 --- !u!1 &4393468950535740695
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,7 +281,7 @@ GameObject:
   - component: {fileID: 5922299812607476688}
   - component: {fileID: 5645493318436672042}
   - component: {fileID: 3471069067045411179}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Safety_cone1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +365,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1540940100586709604}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
