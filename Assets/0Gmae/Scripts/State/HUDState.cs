@@ -6,7 +6,7 @@ namespace Boy
 {
     public class HUDState : MonoBehaviour
     {
-        public float hudDuration = 3;
+        public float hudDuration = 5;
         public GameObject[] hudArray;
 
         State state;
@@ -42,7 +42,7 @@ namespace Boy
         {
             hudTween?.Kill();
             HideHUD();
-            hud.SetActive(true);
+            if (hud != null) hud.SetActive(true);
             hudTween = DOVirtual.DelayedCall(hudDuration, HideHUD)
                 .SetLink(gameObject).OnComplete(() => { onHide?.Invoke(); });
         }

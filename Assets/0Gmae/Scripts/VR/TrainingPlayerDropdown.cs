@@ -2,13 +2,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Boy;
 
 public class TrainingPlayerDropdown : MonoBehaviour
 {
+    public HUDState hUDState;
+
     [Header("Highlight")]
     public Color highlightColor = Color.yellow;
 
     [Header("UI")]
+    public GameObject notSelectedHUD;
+    public GameObject playingHUD;
     public TMP_Dropdown dropdown;
     public Button confirmButton;
 
@@ -23,11 +28,15 @@ public class TrainingPlayerDropdown : MonoBehaviour
             confirmButton.onClick.AddListener(OnConfirm);
 
         TrainingPlayerList.Instance.OnListChanged += SyncDropdown;
+
+        notSelectedHUD?.SetActive(false);
+        playingHUD?.SetActive(false);
     }
 
     void OnEnable()
     {
         InitialBuild();
+        hUDState.HideHUD();
 
         if (players.Count > 0)
         {
@@ -209,10 +218,9 @@ public class TrainingPlayerDropdown : MonoBehaviour
         if (TrainingPlayerList.Instance.selectedClientId == ulong.MaxValue)
         {
             Debug.Log("No player selected");
+            hUDState?.OpenHud(notSelectedHUD);
             return;
         }
-
-        gameObject.SetActive(false);
 
         ulong targetId = TrainingPlayerList.Instance.selectedClientId;
 
@@ -227,11 +235,17 @@ public class TrainingPlayerDropdown : MonoBehaviour
         {
             if (scenario.OwnerClientId == targetId)
             {
-                scenario.InspectorSetup();
+                //scenario.InspectorSetup();
                 foundScenario = true;
             }
         }
-
+        if (foundScenario)
+        {
+            Debug.Log("The player is currently playing a scenario.");
+            hUDState?.OpenHud(playingHUD);
+            return;
+        }
+        
         VRManager[] managers = FindObjectsByType<VRManager>(
             FindObjectsInactive.Include,
             FindObjectsSortMode.None
@@ -252,6 +266,8 @@ public class TrainingPlayerDropdown : MonoBehaviour
                     manager.InspectorSetup();
             }
         }
+        gameObject.SetActive(false);
+        hUDState.HideHUD();
     }
 
     string GetDisplayName(PlayerData p)
