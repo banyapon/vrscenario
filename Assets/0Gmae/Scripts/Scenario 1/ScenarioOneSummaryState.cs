@@ -1,6 +1,7 @@
 using Boy;
 using DG.Tweening;
 using Newtonsoft.Json;
+using PGroup;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -104,6 +105,8 @@ public class ScenarioOneSummaryState : State
         if (!controller.scenario.IsOwner) return;
 
         float timeUsed = controller.scenario?.timeUsed ?? 0f;
+        LoginController loginController = FindAnyObjectByType<LoginController>();
+        string role = loginController == null? "": loginController.GetPlayerRole();
 
         var body = new
         {
@@ -122,7 +125,7 @@ public class ScenarioOneSummaryState : State
                 completed_within_4_minutes = details[6],
             },
             time_used_seconds = (int)timeUsed,
-            remark = ""
+            remark = role
         };
 
         string json = JsonConvert.SerializeObject(body);

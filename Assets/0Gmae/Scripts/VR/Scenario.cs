@@ -76,14 +76,19 @@ public class Scenario : NetworkBehaviour
                 }
                 else
                 {
-                    if (playerData.IsPlayer)
-                    {
-                        InspectorSetup();
-                    }
-                    else
-                    {
-                        playerData.OnPlayer += InspectorSetup;
-                    }
+                    //if (playerData.IsPlayer)
+                    //{
+                    //    InspectorSetup();
+                    //}
+                    //else
+                    //{
+                    //    playerData.OnPlayer += InspectorSetup;
+                    //}
+                }
+
+                if (TrainingPlayerList.Instance.selectedClientId == OwnerClientId)
+                {
+                    InspectorSetup();
                 }
             }
             else if (!IsOwner)
@@ -152,11 +157,13 @@ public class Scenario : NetworkBehaviour
             Destroy(grabObj);
         }
     }
-    void InspectorSetup()
+    public void InspectorSetup()
     {
         ulong id = VRNetworkController.Instance.playerId;
         if (id != ulong.MaxValue && id != OwnerClientId)
         {
+            print($"id != ulong.MaxValue: {id != ulong.MaxValue}");
+            print($"id != OwnerClientId: {id != OwnerClientId}");
             return;
         }
         else
@@ -164,11 +171,11 @@ public class Scenario : NetworkBehaviour
             VRNetworkController.Instance.playerId = OwnerClientId;
         }
         ResetObjects();
-        playerData.OnDespawn += () =>
-        {
-            print($"playerData {playerData.OwnerClientId} | Scenario {OwnerClientId}");
-            VRNetworkController.Instance.Disconnect();
-        };
+        //playerData.OnDespawn += () =>
+        //{
+        //    print($"playerData {playerData.OwnerClientId} | Scenario {OwnerClientId}");
+        //    VRNetworkController.Instance.Disconnect();
+        //};
 
         foreach (var canvas in GetComponentsInChildren<Canvas>())
         {

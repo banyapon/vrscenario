@@ -389,6 +389,8 @@ namespace PGroup
             }
             //STAR
             int star = Convert.ToInt32(score / (float)scoreList.Count);
+            LoginController loginController = FindAnyObjectByType<LoginController>();
+            string role = loginController == null ? "" : loginController.GetPlayerRole();
 
             Debug.Log(star);
 
@@ -406,7 +408,7 @@ namespace PGroup
                     emergency_call = scoreList[3],
                 },
                 time_used_seconds = (int)timeUsed,
-                remark = ""
+                remark = role
             };
 
             string json = JsonConvert.SerializeObject(body);

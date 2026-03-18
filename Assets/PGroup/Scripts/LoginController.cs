@@ -352,6 +352,17 @@ namespace PGroup
             multiplayerModePanel.SetActive(true);
             OnHost();
         }
+
+        public string GetPlayerRole()
+        {
+            if (isOnline)
+            {
+                if (isInspector) return "Joiner Mode";
+                return "Host mode";
+            }
+
+            return "Single mode";
+        }
         #endregion
     }
 }
