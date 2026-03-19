@@ -2634,12 +2634,12 @@ MonoBehaviour:
     hudPanels:
     - panel: {fileID: 8688476628285433592}
       duration: 3
-  - Trigger: {fileID: 6131962523657106179}
-    hudPanels: []
   - Trigger: {fileID: 0}
     hudPanels:
     - panel: {fileID: 2666710102288650885}
       duration: -1
+  - Trigger: {fileID: 6131962523657106179}
+    hudPanels: []
   - Trigger: {fileID: 0}
     hudPanels:
     - panel: {fileID: 2465757009139294396}
@@ -3069,6 +3069,7 @@ MonoBehaviour:
   checkActiveCorrectCheckpoint3: {fileID: 3812446151650988209}
   checkActiveFailCheckpoint3: {fileID: 9199942948415783419}
   accidentGuy: {fileID: 6382712013725106014}
+  coneArea: {fileID: 3812446151650988209}
 --- !u!1 &5907011937338270324
 GameObject:
   m_ObjectHideFlags: 0
@@ -5035,7 +5036,7 @@ PrefabInstance:
     - target: {fileID: 8151954492914599796, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 92812164
+      value: 1396217562
       objectReference: {fileID: 0}
     - target: {fileID: 8151954492914599796, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
@@ -14763,7 +14764,7 @@ PrefabInstance:
     - target: {fileID: 3065879722669653117, guid: d66f38f033df54741a9e187829282ceb,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3065879722669653117, guid: d66f38f033df54741a9e187829282ceb,
         type: 3}
