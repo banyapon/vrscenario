@@ -22,11 +22,13 @@ namespace PGroup
         [SerializeField] private GameObject checkActiveFailCheckpoint3;
 
         [SerializeField] private GameObject accidentGuy;
+        [SerializeField] private GameObject coneArea;
 
         private GameplayController gameplayController;
         private Tween delay = null;
         private int currentSafeArea;
         private bool checkPoint3Done;
+        private bool ambulanceDone;
 
 
         private void Awake()
@@ -55,6 +57,11 @@ namespace PGroup
                     if (gameplayController.scoreList.Count == 2) gameplayController.scoreList.Add(false);
                     return;
                 }
+            }
+            if (!ambulanceDone && coneArea.activeSelf)
+            {
+                ambulanceDone = true;
+                AmbulanceActive();
             }
         }
         private void HandleCheckpointEnd(int num)
@@ -156,6 +163,10 @@ namespace PGroup
             {
                 accidentGuy.SetActive(false);
             });
+        }
+        public void PlayAgain()
+        {
+
         }
     }
 }
