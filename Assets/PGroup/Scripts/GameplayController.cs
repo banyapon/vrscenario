@@ -79,7 +79,7 @@ namespace PGroup
             Debug.Log(star);
 
             string json = "";
-            LoginController loginController = FindAnyObjectByType<LoginController>();
+            LoginController loginController = FindAnyObjectByType<LoginController>(FindObjectsInactive.Include);
             string role = loginController == null ? "" : loginController.GetPlayerRole();
 
             switch (scenarioIndex)

@@ -137,21 +137,23 @@ public class VRManager : NetworkBehaviour
                 if (IsOwner)
                 {
                     boardUI.SetActive(false);
+                    environment.SetActive(true);
 
-                    bool openEnvironment = true;
-                    Scenario[] scenarios = FindObjectsByType<Scenario>(
-                        FindObjectsInactive.Include,
-                        FindObjectsSortMode.None
-                        );
-                    foreach (Scenario scenario in scenarios)
-                    {
-                        if (scenario.OwnerClientId == TrainingPlayerList.Instance.selectedClientId)
-                        {
-                            openEnvironment = false;
-                        }
-                    }
+                    //bool openEnvironment = true;
+                    //Scenario[] scenarios = FindObjectsByType<Scenario>(
+                    //    FindObjectsInactive.Include,
+                    //    FindObjectsSortMode.None
+                    //    );
+                    //foreach (Scenario scenario in scenarios)
+                    //{
+                    //    if (scenario.OwnerClientId == TrainingPlayerList.Instance.selectedClientId)
+                    //    {
+                    //        openEnvironment = false;
+                    //    }
+                    //}
 
-                    environment.SetActive(openEnvironment);
+                    //environment.SetActive(openEnvironment);
+
                     //DisableObjects();
                     //player?.SetGravity(false);
                     //player?.SetMove(false);

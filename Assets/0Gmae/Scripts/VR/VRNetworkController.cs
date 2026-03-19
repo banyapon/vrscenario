@@ -252,6 +252,7 @@ public class VRNetworkController : MonoBehaviour
         ShowDisconnectedUI("Disconnected");
         logOutUI.SetActive(false);
         playerDropdown.SetActive(false);
+        TrainingPlayerList.Instance.isSelected = false;
         onClientDisconnected?.Invoke();
     }
 

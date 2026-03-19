@@ -266,6 +266,7 @@ public class TrainingPlayerDropdown : MonoBehaviour
                     manager.InspectorSetup();
             }
         }
+        TrainingPlayerList.Instance.isSelected = true;
         gameObject.SetActive(false);
         hUDState.HideHUD();
     }

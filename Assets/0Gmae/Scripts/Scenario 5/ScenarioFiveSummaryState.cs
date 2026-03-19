@@ -57,7 +57,7 @@ public class ScenarioFiveSummaryState : State
 
         float timeUsed = controller.scenario?.timeUsed ?? 0f;
 
-        LoginController loginController = FindAnyObjectByType<LoginController>();
+        LoginController loginController = FindAnyObjectByType<LoginController>(FindObjectsInactive.Include);
         string role = loginController == null ? "" : loginController.GetPlayerRole();
 
         var body = new

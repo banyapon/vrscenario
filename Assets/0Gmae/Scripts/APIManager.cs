@@ -162,7 +162,7 @@ namespace Boy
                 }
                 else
                 {
-                    Debug.Log(webRequest.downloadHandler.text);
+                    //Debug.Log(webRequest.downloadHandler.text);
                     T res = JsonUtility.FromJson<T>(webRequest.downloadHandler.text);
                     callback?.Invoke(true, "complete", res);
                 }

@@ -86,7 +86,8 @@ public class Scenario : NetworkBehaviour
                     //}
                 }
 
-                if (TrainingPlayerList.Instance.selectedClientId == OwnerClientId)
+                if (TrainingPlayerList.Instance.selectedClientId == OwnerClientId
+                    && TrainingPlayerList.Instance.isSelected)
                 {
                     InspectorSetup();
                 }

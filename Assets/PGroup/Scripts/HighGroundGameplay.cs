@@ -389,7 +389,7 @@ namespace PGroup
             }
             //STAR
             int star = Convert.ToInt32(score / (float)scoreList.Count);
-            LoginController loginController = FindAnyObjectByType<LoginController>();
+            LoginController loginController = FindAnyObjectByType<LoginController>(FindObjectsInactive.Include);
             string role = loginController == null ? "" : loginController.GetPlayerRole();
 
             Debug.Log(star);
