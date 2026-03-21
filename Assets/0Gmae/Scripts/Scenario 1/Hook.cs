@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using Obi;
+using System.Collections;
 
 namespace Boy
 {
@@ -53,11 +54,17 @@ namespace Boy
 
             player = Player.Instance;
             if (player) vRInput = player.vRInput;
-            else attachment.attachmentType = ObiParticleAttachment.AttachmentType.Static;
+            //else SafeSetAttachment(ObiParticleAttachment.AttachmentType.Static);
 
             grab = GetComponent<XRGrabInteractable>();
             grab.selectEntered.AddListener(OnGrab);
             grab.selectExited.AddListener(OnRelease);
+
+            var actor = attachment.actor as ObiActor;
+            if (actor != null && actor.solver != null)
+            {
+                Debug.Log("Active particles: " + actor.solver.activeParticleCount);
+            }
         }
 
         Tween delay;
@@ -80,7 +87,7 @@ namespace Boy
             delay = DOVirtual.DelayedCall(0.25f, ResetTransform);
             foreach (var m in meshList)
             {
-                m.enabled = true;
+                if (m) m.enabled = true;
             }
         }
 
@@ -90,7 +97,7 @@ namespace Boy
             isShow = false;
             foreach (var m in meshList)
             {
-                m.enabled = false;
+                if (m) m.enabled = false;
             }
             delay?.Kill();
         }
@@ -197,25 +204,27 @@ namespace Boy
             SetLockRotate(true);
             SetGravity(false);
             isGrab = true;
-            obiCollider.enabled = false;
-            if (obiRb) obiRb.enabled = false;
+#if !UNITY_EDITOR
+            //obiCollider.enabled = false;
+            //if (obiRb) obiRb.enabled = false;
+#endif
             delay?.Kill();
-            if (player)
-            {
-                attachment.attachmentType = ObiParticleAttachment.AttachmentType.Static;
-            }
+            //if (player)
+            //{
+            //    SafeSetAttachment(ObiParticleAttachment.AttachmentType.Static);
+            //}
         }
         void OnRelease(SelectExitEventArgs args)
         {
             SetLockRotate(false);
             SetGravity(true);
             isGrab = false;
-            obiCollider.enabled = true;
-            if (obiRb) obiRb.enabled = true;
-            if (player)
-            {
-                attachment.attachmentType = ObiParticleAttachment.AttachmentType.Dynamic;
-            }
+            //obiCollider.enabled = true;
+            //if (obiRb) obiRb.enabled = true;
+            //if (player)
+            //{
+            //    SafeSetAttachment(ObiParticleAttachment.AttachmentType.Dynamic);
+            //}
         }
 
         public void SetLockRotate(bool open)
@@ -226,6 +235,44 @@ namespace Boy
             lockTween = lockModel
                 .DOLocalRotate(target, lockDuration)
                 .SetLink(gameObject);
+        }
+        void SafeSetAttachment(ObiParticleAttachment.AttachmentType type)
+        {
+            StartCoroutine(SetAttachmentSafe(type));
+        }
+
+        IEnumerator SetAttachmentSafe(ObiParticleAttachment.AttachmentType type)
+        {
+            if (attachment == null) yield break;
+
+            var actor = attachment.actor as ObiActor;
+            if (actor == null) yield break;
+
+            float timeout = 1f;
+            float timer = 0f;
+
+            yield return new WaitUntil(() =>
+            {
+                if (attachment == null) return true;
+
+                var actor = attachment.actor as ObiActor;
+                if (actor == null) return true;
+
+                bool ready = actor.solver != null && actor.solver.activeParticleCount >= 2;
+
+                timer += Time.deltaTime;
+
+                return ready || timer > timeout;
+            });
+
+            if (actor.solver != null && actor.solver.activeParticleCount >= 2)
+            {
+                attachment.attachmentType = type;
+            }
+            else
+            {
+                Debug.LogWarning("Rope not ready (timeout)");
+            }
         }
     }
 }

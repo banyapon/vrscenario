@@ -394,7 +394,7 @@ MonoBehaviour:
   m_Target: {fileID: 5023674582794849251}
   m_ParticleGroup: {fileID: -6997141410503844444, guid: 2860433cba6238d4b873c35aec2d9f39,
     type: 2}
-  m_AttachmentType: 1
+  m_AttachmentType: 0
   m_ConstrainOrientation: 0
   m_Projection: 1
   m_Compliance: 0
@@ -602,7 +602,7 @@ MonoBehaviour:
   m_Target: {fileID: 9064156880638862728}
   m_ParticleGroup: {fileID: -6997141410503844444, guid: f8cd7d7e0f42d9c49b5a70678fea5f1b,
     type: 2}
-  m_AttachmentType: 1
+  m_AttachmentType: 0
   m_ConstrainOrientation: 0
   m_Projection: 1
   m_Compliance: 0
