@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 namespace PGroup
 {
@@ -62,8 +63,8 @@ namespace PGroup
             onPlaying = false;
             if (scenario) Player.Instance?.Teleport(Vector3.zero, Vector3.zero, scenario.IsOwner);
             summaryUI.gameObject.SetActive(true);
-            summaryUI.ShowSummary(scoreList);
-            SendScoreAPI();
+            summaryUI.ShowSummary(scoreList, SendApi);
+            //SendScoreAPI();
         }
         private void SendScoreAPI()
         {
@@ -115,6 +116,62 @@ namespace PGroup
                             explore_area = scoreList[0],
                             warning = scoreList[1],
                             action_emergency = scoreList[2]
+                        },
+                        time_used_seconds = (int)timeUsed,
+                        remark = role
+                    };
+                    json = JsonConvert.SerializeObject(body4);
+                    break;
+            }
+
+            print(json);
+
+            APIManager.Instance.SaveSession<string>(json, (ok, msg, res) =>
+            {
+                print(msg);
+                if (!ok) return;
+                print(res);
+            });
+        }
+        private void SendApi(int totalScore, float stars, List<string> details)
+        {
+            LoginController loginController = FindAnyObjectByType<LoginController>();
+            string role = loginController == null ? "" : loginController.GetPlayerRole();
+
+            string json = "";
+            switch (scenarioIndex)
+            {
+                case 3:
+                    var body3 = new
+                    {
+                        userEmail = APIManager.Instance.userEmail,
+                        scenarioKey = "scenario3",
+                        total_score = totalScore,
+                        stars = stars,
+                        details = new
+                        {
+                            assess_situation = details[0],
+                            ppe = details[1],
+                            action_incident = details[2],
+                            cleanse = details[3],
+                        },
+                        time_used_seconds = (int)timeUsed,
+                        remark = role
+                    };
+                    json = JsonConvert.SerializeObject(body3);
+                    break;
+                case 4:
+                    var body4 = new
+                    {
+                        userEmail = APIManager.Instance.userEmail,
+                        scenarioKey = "scenario4",
+                        total_score = totalScore,
+                        stars = stars,
+                        details = new
+                        {
+                            explore_area = details[0],
+                            warning = details[1],
+                            action_emergency = details[2]
                         },
                         time_used_seconds = (int)timeUsed,
                         remark = role

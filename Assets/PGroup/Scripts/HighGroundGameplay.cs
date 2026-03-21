@@ -209,9 +209,9 @@ namespace PGroup
             scoreList.Add(true);*/
             if (scenario) Player.Instance?.Teleport(positionEndgame.position, Vector3.zero, scenario.IsOwner);
             summaryUI.gameObject.SetActive(true);
-            summaryUI.ShowSummary(scoreList);
+            summaryUI.ShowSummary(scoreList, SendApi);
 
-            SendScoreAPI();
+            //SendScoreAPI();
         }
         private void PlayAnimation(Animation animation, string clip, bool reversed)
         {
@@ -406,6 +406,38 @@ namespace PGroup
                     climbing = scoreList[1],
                     anchor_point = scoreList[2],
                     emergency_call = scoreList[3],
+                },
+                time_used_seconds = (int)timeUsed,
+                remark = role
+            };
+
+            string json = JsonConvert.SerializeObject(body);
+            print(json);
+
+            APIManager.Instance.SaveSession<string>(json, (ok, msg, res) =>
+            {
+                print(msg);
+                if (!ok) return;
+                print(res);
+            });
+        }
+        private void SendApi(int totalScore, float stars, List<string> details)
+        {
+            LoginController loginController = FindAnyObjectByType<LoginController>();
+            string role = loginController == null ? "" : loginController.GetPlayerRole();
+
+            var body = new
+            {
+                userEmail = APIManager.Instance.userEmail,
+                scenarioKey = "scenario2",
+                total_score = totalScore,
+                stars = stars,
+                details = new
+                {
+                    ppe_work_permit = details[0],
+                    climbing = details[1],
+                    anchor_point = details[2],
+                    emergency_call = details[3]
                 },
                 time_used_seconds = (int)timeUsed,
                 remark = role
