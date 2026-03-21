@@ -168,6 +168,43 @@ namespace Boy
                 }
             }
         }
+        public void DownloadImage(string url,
+        Action<Texture2D> callback = null,
+        Action<float> progress = null)
+        {
+            if (string.IsNullOrEmpty(url))
+            {
+                callback?.Invoke(null);
+                return;
+            }
+
+            StartCoroutine(_DownloadImage(url, callback, progress));
+        }
+
+        IEnumerator _DownloadImage(string url, Action<Texture2D> callback, Action<float> progress)
+        {
+            print(url);
+            if (!InternetManager.Instance.InternetStatus) yield break;
+            UnityWebRequest request = UnityWebRequestTexture.GetTexture(url);
+            yield return request.SendWebRequest();
+
+            while (!request.isDone)
+            {
+                progress?.Invoke(request.uploadProgress + request.downloadProgress);
+                yield return null;
+            }
+
+            if (request.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(request.error);
+                callback?.Invoke(null);
+            }
+            else
+            {
+                Texture2D texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
+                callback?.Invoke(texture);
+            }
+        }
     }
 }
 
