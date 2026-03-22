@@ -1754,6 +1754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56c63b93fa752694d94b698e268642ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSelected: 0
   selectedClientId: 18446744073709551615
   players: []
 --- !u!4 &572020269
@@ -2526,7 +2527,7 @@ PrefabInstance:
     - target: {fileID: 704497060421761420, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_text
-      value: "\u0E01\u0E33\u0E25\u0E31\u0E07\u0E40\u0E25\u0E48\u0E19\u0E2D\u0E22\u0E39\u0E48"
+      value: "\u0E02\u0E13\u0E30\u0E19\u0E35\u0E49\u0E1C\u0E39\u0E49\u0E40\u0E25\u0E48\u0E19\u0E17\u0E35\u0E48\u0E40\u0E25\u0E37\u0E2D\u0E01\u0E01\u0E33\u0E25\u0E31\u0E07\u0E1D\u0E36\u0E01\u0E2D\u0E1A\u0E23\u0E1A\u0E2D\u0E22\u0E39\u0E48"
       objectReference: {fileID: 0}
     - target: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -2561,7 +2562,7 @@ PrefabInstance:
     - target: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 242.27
+      value: 354.92
       objectReference: {fileID: 0}
     - target: {fileID: 2621333849747720342, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
