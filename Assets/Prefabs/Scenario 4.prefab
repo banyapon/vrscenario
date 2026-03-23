@@ -3011,12 +3011,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24910de70648b7540a97c87b014c29d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   checkpointControllers:
   - {fileID: 673167061939582396}
   - {fileID: 2120040218209396254}
   - {fileID: 9138604086976326457}
   summaryUI: {fileID: 4934455220798306023}
   scenarioIndex: 4
+  scoreText: {fileID: 6793187214073074610}
   player: {fileID: 0}
   scoreList: 
 --- !u!114 &462340101296848455
@@ -5036,7 +5038,7 @@ PrefabInstance:
     - target: {fileID: 8151954492914599796, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 1396217562
+      value: 2133769166
       objectReference: {fileID: 0}
     - target: {fileID: 8151954492914599796, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
@@ -10815,6 +10817,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3425904714228549905}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6793187214073074610 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8200348932809743011, guid: 746b3d83a78304749a1ba17903d2303b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3425904714228549905}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6852152406355926784 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8114640319473194513, guid: 746b3d83a78304749a1ba17903d2303b,

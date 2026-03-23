@@ -2,16 +2,21 @@ using Boy;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using TMPro;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
 namespace PGroup
 {
-    public class GameplayController : MonoBehaviour
+    public class GameplayController : NetworkBehaviour
     {
         [SerializeField] private CheckpointController[] checkpointControllers;
         [SerializeField] private SummaryUI summaryUI;
         [SerializeField] private int scenarioIndex;
+        [SerializeField] private TextMeshProUGUI scoreText;
 
         public Transform player;
 
@@ -63,8 +68,39 @@ namespace PGroup
             onPlaying = false;
             if (scenario) Player.Instance?.Teleport(Vector3.zero, Vector3.zero, scenario.IsOwner);
             summaryUI.gameObject.SetActive(true);
-            summaryUI.ShowSummary(scoreList, SendApi);
+            //summaryUI.ShowSummary(scoreList, SendApi);
             //SendScoreAPI();
+
+            if (!VRNetworkController.Instance.inspector)
+            {
+                summaryUI.ShowSummary(scoreList, SendApi);
+                string listString = string.Join(",", scoreList.Select(b => b ? "1" : "0"));
+                Debug.Log($"Not Inspector Shoot Score : {listString}");
+                ShowScoreServerRpc(listString);
+            }
+        }
+        [ServerRpc]
+        private void ShowScoreServerRpc(string score)
+        {
+            ShowScoreClientRpc(score);
+        }
+
+        [ClientRpc]
+        private void ShowScoreClientRpc(string score)
+        {
+            Debug.Log($"Inspector Get Score : {score}");
+            List<bool> newScoreList = new List<bool>();
+            newScoreList = score.Split(',').Select(s => s == "1").ToList();
+            summaryUI.ShowSummary(newScoreList);
+
+            //Set UI Score
+            /*int count = 0;
+            for (int i = 0; i < newScoreList.Count; i++)
+            {
+                if (newScoreList[i]) count++;
+            }
+
+            scoreText.text = "" + ((count / newScoreList.Count) * 5).ToString("0.0");*/
         }
         private void SendScoreAPI()
         {

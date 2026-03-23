@@ -6885,6 +6885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24910de70648b7540a97c87b014c29d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   checkpointControllers:
   - {fileID: 1868736049474255727}
   - {fileID: 8214134639666455989}
@@ -6892,6 +6893,7 @@ MonoBehaviour:
   - {fileID: 7739943645081058345}
   summaryUI: {fileID: 3005529063616990613}
   scenarioIndex: 3
+  scoreText: {fileID: 3713574017618995392}
   player: {fileID: 0}
   scoreList: 
 --- !u!114 &1436090775088471105
@@ -13443,6 +13445,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3713574017618995392 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8200348932809743011, guid: 746b3d83a78304749a1ba17903d2303b,
+    type: 3}
+  m_PrefabInstance: {fileID: 4775009730226303587}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &4032120237603414583 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8480500142899712084, guid: 746b3d83a78304749a1ba17903d2303b,
@@ -13565,7 +13579,7 @@ PrefabInstance:
     - target: {fileID: 8151954492914599796, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 709565462
+      value: 2196243306
       objectReference: {fileID: 0}
     - target: {fileID: 8151954492914599796, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}

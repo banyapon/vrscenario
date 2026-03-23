@@ -1,36 +1,49 @@
+﻿using System.Globalization;
+using Unity.Netcode;
 using UnityEngine;
 
 namespace PGroup
 {
-    public class ActiveTriggerPlayer : MonoBehaviour
+    public class ActiveTriggerPlayer : NetworkBehaviour
     {
         [SerializeField] private GameObject activeObject;
         [SerializeField] private Transform topPos;
-        private Transform player;
 
-        private void OnEnable()
-        {
-            player = Camera.main.transform;
-        }
+        private bool isPlayer;
+
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log(other);
-            if (other.transform == player)
+            if (!other.CompareTag("Player")) return;
+
+            activeObject.SetActive(true);
+
+            if (IsOwner)
             {
-                activeObject.SetActive(true);
-            }
-            else if (other.CompareTag("Player"))
-            {
-                activeObject.SetActive(true);
-                player.GetComponent<Player>().TeleportNonOwner(topPos, false);
+                isPlayer = true;
+                TeleportServerRpc();
             }
         }
+
         private void OnTriggerExit(Collider other)
         {
-            if (other.transform == player)
+            if (other.CompareTag("Player"))
             {
                 activeObject.SetActive(false);
             }
+        }
+
+        [ServerRpc]
+        private void TeleportServerRpc()
+        {
+            TeleportClientRpc();
+        }
+
+        [ClientRpc]
+        private void TeleportClientRpc()
+        {
+            if (isPlayer) return;
+            GetComponent<Collider>().enabled = false;
+            Player.Instance.Teleport(topPos, false);
         }
     }
 }

@@ -1215,6 +1215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d6c9a7bb458f174c91516718c3d35ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   player: {fileID: 0}
   positionHookLeft: {fileID: 4665503214572130125}
   positionHookRight: {fileID: 1198903948522881612}
@@ -1806,7 +1807,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -3767,6 +3768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5827f2950b3e71440a787f9f17d6d5a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   activeObject: {fileID: 1574554767750260499}
   topPos: {fileID: 5465463542729822655}
 --- !u!1 &3613868349221426909

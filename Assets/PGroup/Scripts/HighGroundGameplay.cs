@@ -1,14 +1,18 @@
-using Boy;
+﻿using Boy;
 using DG.Tweening;
 using Newtonsoft.Json;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 namespace PGroup
 {
-    public class HighGroundGameplay : MonoBehaviour
+    public class HighGroundGameplay : NetworkBehaviour
     {
         [SerializeField] private Transform player;
         [SerializeField] private Transform positionHookLeft;
@@ -209,9 +213,29 @@ namespace PGroup
             scoreList.Add(true);*/
             if (scenario) Player.Instance?.Teleport(positionEndgame.position, Vector3.zero, scenario.IsOwner);
             summaryUI.gameObject.SetActive(true);
-            summaryUI.ShowSummary(scoreList, SendApi);
 
+            if (VRNetworkController.Instance.inspector)
+            {
+                summaryUI.ShowSummary(scoreList, SendApi);
+                string listString = string.Join(",", scoreList.Select(b => b ? "1" : "0"));
+                ShowScoreServerRpc(listString);
+            }
             //SendScoreAPI();
+        }
+
+        [ServerRpc]
+        private void ShowScoreServerRpc(string score)
+        {
+            ShowScoreClientRpc(score);
+        }
+
+        // 👉 ทุก client จะโดนเรียก
+        [ClientRpc]
+        private void ShowScoreClientRpc(string score)
+        {
+            List<bool> newScoreList = new List<bool>();
+            newScoreList = score.Split(',').Select(s => s == "1").ToList();
+            summaryUI.ShowSummary(newScoreList);
         }
         private void PlayAnimation(Animation animation, string clip, bool reversed)
         {
@@ -425,6 +449,8 @@ namespace PGroup
         {
             LoginController loginController = FindAnyObjectByType<LoginController>();
             string role = loginController == null ? "" : loginController.GetPlayerRole();
+
+            Debug.Log($"PlayerRole : {role}");
 
             var body = new
             {
