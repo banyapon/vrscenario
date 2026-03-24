@@ -1754,6 +1754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56c63b93fa752694d94b698e268642ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSelected: 0
   selectedClientId: 18446744073709551615
   players: []
 --- !u!4 &572020269

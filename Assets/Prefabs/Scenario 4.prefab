@@ -4937,6 +4937,11 @@ PrefabInstance:
       objectReference: {fileID: 6852152406355926784}
     - target: {fileID: -2692669736944420306, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
+      propertyPath: gameplayController
+      value: 
+      objectReference: {fileID: 233081554980543404}
+    - target: {fileID: -2692669736944420306, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
+        type: 3}
       propertyPath: allCamera.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -5038,7 +5043,7 @@ PrefabInstance:
     - target: {fileID: 8151954492914599796, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 2133769166
+      value: 3800201784
       objectReference: {fileID: 0}
     - target: {fileID: 8151954492914599796, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
