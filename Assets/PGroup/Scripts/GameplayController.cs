@@ -42,6 +42,17 @@ namespace PGroup
             if (onPlaying)
                 timeUsed += Time.deltaTime;
         }
+        public void RestartCheckpoint()
+        {
+            onPlaying = true;
+            currentCheckpoint = 0;
+            summaryUI.gameObject.SetActive(false);
+            for (int i = 0; i < checkpointControllers.Length; i++)
+            {
+                checkpointControllers[i].RestartStep();
+            }
+            checkpointControllers[currentCheckpoint].StartStep();
+        }
         public void NextCheckpoint()
         {
             currentCheckpoint++;

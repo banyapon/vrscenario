@@ -3771,6 +3771,7 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   activeObject: {fileID: 1574554767750260499}
   topPos: {fileID: 5465463542729822655}
+  scenario: {fileID: 2066049651780364539}
 --- !u!1 &3613868349221426909
 GameObject:
   m_ObjectHideFlags: 0
@@ -19633,6 +19634,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -23
       objectReference: {fileID: 0}
+    - target: {fileID: 4634594714086817787, guid: 746b3d83a78304749a1ba17903d2303b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9194077023457404769}
+    - target: {fileID: 4634594714086817787, guid: 746b3d83a78304749a1ba17903d2303b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonPlayAgain
+      objectReference: {fileID: 0}
+    - target: {fileID: 4634594714086817787, guid: 746b3d83a78304749a1ba17903d2303b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PGroup.HighGroundGameplay, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4933755093515369706, guid: 746b3d83a78304749a1ba17903d2303b,
         type: 3}
       propertyPath: m_Name
@@ -22826,6 +22842,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5047868971673162453}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2066049651780364539 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -2692669736944420306, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 5047868971673162453}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbcf78515f540e540bae316a09472f71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &2695550598684531567 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7162173565207660986, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,

@@ -18,6 +18,10 @@ namespace PGroup
             gameplayController = GetComponentInParent<GameplayController>();
         }
 
+        public void RestartStep()
+        {
+            currentStep = 0;
+        }
         public void StartStep()
         {
             ActiveStep(currentStep);

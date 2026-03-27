@@ -47,6 +47,10 @@ public class Scenario : NetworkBehaviour
         Debug.Log($"Pressing Space - IsServer: {IsServer}, IsClient: {IsClient}, IsOwner: {IsOwner}");
         ShowScoreServerRpc(score);
     }
+    public void SentTeleportToOther(Vector3 pos)
+    {
+        TeleportServerRpc(pos);
+    }
     public void RequestDestroy()
     {
         if (!IsOwner) return;
@@ -263,7 +267,7 @@ public class Scenario : NetworkBehaviour
     [ClientRpc]
     private void ShowScoreClientRpc(string score, ClientRpcParams rpcParams = default)
     {
-        if (IsHost) return;
+        //if (IsOwner) return;
         Debug.Log($"Inspector Get Score : {score}");
         List<bool> newScoreList = new List<bool>();
         newScoreList = score.Split(',').Select(s => s == "1").ToList();
@@ -277,6 +281,19 @@ public class Scenario : NetworkBehaviour
         }
 
         scoreText.text = "" + ((count / newScoreList.Count) * 5).ToString("0.0");*/
+    }
+
+    [ServerRpc]
+    private void TeleportServerRpc(Vector3 pos)
+    {
+        TeleportClientRpc(pos);
+    }
+
+    [ClientRpc]
+    private void TeleportClientRpc(Vector3 pos)
+    {
+        if (IsHost) return;
+        Player.Instance?.TeleportNonOwner(pos, Vector3.zero, IsOwner);
     }
 
 }

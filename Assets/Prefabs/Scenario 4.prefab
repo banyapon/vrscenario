@@ -3011,7 +3011,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24910de70648b7540a97c87b014c29d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShowTopMostFoldoutHeaderGroup: 1
   checkpointControllers:
   - {fileID: 673167061939582396}
   - {fileID: 2120040218209396254}
@@ -3072,6 +3071,33 @@ MonoBehaviour:
   checkActiveFailCheckpoint3: {fileID: 9199942948415783419}
   accidentGuy: {fileID: 6382712013725106014}
   coneArea: {fileID: 3812446151650988209}
+  activeObjRestart:
+  - {fileID: 5548130590777032341}
+  - {fileID: 7457488875860365941}
+  - {fileID: 7832794970419489269}
+  - {fileID: 6744485113171936218}
+  - {fileID: 5373973946358590790}
+  - {fileID: 1950588859687910861}
+  - {fileID: 7117203231349306753}
+  - {fileID: 6275967774406110390}
+  - {fileID: 3722180165861717639}
+  - {fileID: 3281539699142670063}
+  - {fileID: 6382712013725106014}
+  - {fileID: 5623472042223489650}
+  - {fileID: 7282546232365710040}
+  deactiveObjRestart:
+  - {fileID: 5582379845701432318}
+  - {fileID: 8325396276383307680}
+  - {fileID: 4931225298713600833}
+  - {fileID: 54509300042323858}
+  - {fileID: 3026320191220125800}
+  - {fileID: 3812446151650988209}
+  - {fileID: 6131962523657106179}
+  - {fileID: 3056416470202560807}
+  - {fileID: 5291851695545429685}
+  resetPositionObjRestart:
+  - {fileID: 4932557983483377373}
+  - {fileID: 6041616760036369892}
 --- !u!1 &5907011937338270324
 GameObject:
   m_ObjectHideFlags: 0
@@ -7855,6 +7881,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1408749493317375952}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7282546232365710040 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8546757895628647688, guid: b715ac73c6f55fd49b14619b10182739,
+    type: 3}
+  m_PrefabInstance: {fileID: 1408749493317375952}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1466288523155052681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7996,6 +8028,12 @@ PrefabInstance:
 --- !u!4 &3797331135902859754 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2372158026538211683, guid: b715ac73c6f55fd49b14619b10182739,
+    type: 3}
+  m_PrefabInstance: {fileID: 1466288523155052681}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7117203231349306753 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8546757895628647688, guid: b715ac73c6f55fd49b14619b10182739,
     type: 3}
   m_PrefabInstance: {fileID: 1466288523155052681}
   m_PrefabAsset: {fileID: 0}
@@ -10543,6 +10581,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -23
+      objectReference: {fileID: 0}
+    - target: {fileID: 4634594714086817787, guid: 746b3d83a78304749a1ba17903d2303b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4358156520113649307}
+    - target: {fileID: 4634594714086817787, guid: 746b3d83a78304749a1ba17903d2303b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonPlayAgain
+      objectReference: {fileID: 0}
+    - target: {fileID: 4634594714086817787, guid: 746b3d83a78304749a1ba17903d2303b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PGroup.ConstructionSiteCondition, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4933755093515369706, guid: 746b3d83a78304749a1ba17903d2303b,
         type: 3}
@@ -15121,6 +15174,11 @@ PrefabInstance:
         type: 3}
       propertyPath: id
       value: Cone_-17202
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613446566726895815, guid: ed965f9b392bc224a8540e05010734cf,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8232828963272215400, guid: ed965f9b392bc224a8540e05010734cf,
         type: 3}

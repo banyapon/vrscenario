@@ -1,6 +1,7 @@
 using System;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 namespace PGroup
 {
@@ -23,6 +24,11 @@ namespace PGroup
 
         [SerializeField] private GameObject accidentGuy;
         [SerializeField] private GameObject coneArea;
+
+        [Header("Restart")]
+        [SerializeField] private GameObject[] activeObjRestart;
+        [SerializeField] private GameObject[] deactiveObjRestart;
+        [SerializeField] private Transform[] resetPositionObjRestart;
 
         private GameplayController gameplayController;
         private Tween delay = null;
@@ -164,9 +170,27 @@ namespace PGroup
                 accidentGuy.SetActive(false);
             });
         }
-        public void PlayAgain()
+        public void ButtonPlayAgain()
         {
+            currentSafeArea = 0;
+            checkPoint3Done = false;
+            ambulanceDone = false;
 
+            resetPositionObjRestart[0].localPosition = new Vector3(-2.93499994f, 0.280999988f, 11.8439999f);
+            resetPositionObjRestart[0].localEulerAngles = Vector3.zero;
+
+            for (int i = 0; i < activeObjRestart.Length; i++)
+            {
+                activeObjRestart[i].SetActive(true);
+            }
+            for (int i = 0; i < deactiveObjRestart.Length; i++)
+            {
+                deactiveObjRestart[i].SetActive(false);
+            }
+
+            resetPositionObjRestart[1].localPosition = new Vector3(1.38300002f, 0, 12.4779997f);
+            resetPositionObjRestart[1].localEulerAngles = new Vector3(0, 123.181915f, 0);
+            gameplayController.RestartCheckpoint();
         }
     }
 }

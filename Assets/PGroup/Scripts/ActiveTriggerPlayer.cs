@@ -8,20 +8,14 @@ namespace PGroup
     {
         [SerializeField] private GameObject activeObject;
         [SerializeField] private Transform topPos;
-
-        private bool isPlayer;
+        [SerializeField] private Scenario scenario;
 
         private void OnTriggerEnter(Collider other)
         {
             if (!other.CompareTag("Player")) return;
 
             activeObject.SetActive(true);
-
-            if (IsOwner)
-            {
-                isPlayer = true;
-                TeleportServerRpc();
-            }
+            scenario.SentTeleportToOther(topPos.position);
         }
 
         private void OnTriggerExit(Collider other)
@@ -30,20 +24,6 @@ namespace PGroup
             {
                 activeObject.SetActive(false);
             }
-        }
-
-        [ServerRpc]
-        private void TeleportServerRpc()
-        {
-            TeleportClientRpc();
-        }
-
-        [ClientRpc]
-        private void TeleportClientRpc()
-        {
-            if (isPlayer) return;
-            GetComponent<Collider>().enabled = false;
-            Player.Instance.Teleport(topPos, false);
         }
     }
 }

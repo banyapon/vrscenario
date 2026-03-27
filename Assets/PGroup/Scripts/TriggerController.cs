@@ -14,12 +14,13 @@ namespace PGroup
         private Tween delay = null;
 
 
-        private void Start()
+        private void OnEnable()
         {
             SetupTriggers();
         }
         private void SetupTriggers()
         {
+            currentTrigger = 0;
             triggers = new GameObject[transform.childCount];
 
             for (int i = 0; i < triggers.Length; i++)

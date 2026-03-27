@@ -214,28 +214,14 @@ namespace PGroup
             if (scenario) Player.Instance?.Teleport(positionEndgame.position, Vector3.zero, scenario.IsOwner);
             summaryUI.gameObject.SetActive(true);
 
-            if (VRNetworkController.Instance.inspector)
+            if (scenario.IsOwner)
             {
                 summaryUI.ShowSummary(scoreList, SendApi);
                 string listString = string.Join(",", scoreList.Select(b => b ? "1" : "0"));
-                ShowScoreServerRpc(listString);
+                Debug.Log($"Not Inspector Shoot Score : {listString}");
+                scenario.SentScoreToOther(listString);
             }
             //SendScoreAPI();
-        }
-
-        [ServerRpc]
-        private void ShowScoreServerRpc(string score)
-        {
-            ShowScoreClientRpc(score);
-        }
-
-        // 👉 ทุก client จะโดนเรียก
-        [ClientRpc]
-        private void ShowScoreClientRpc(string score)
-        {
-            List<bool> newScoreList = new List<bool>();
-            newScoreList = score.Split(',').Select(s => s == "1").ToList();
-            summaryUI.ShowSummary(newScoreList);
         }
         private void PlayAnimation(Animation animation, string clip, bool reversed)
         {
@@ -251,6 +237,14 @@ namespace PGroup
                 animation[clip].time = animation[clip].length;
                 animation.Play(clip);
             }
+        }
+        public void ButtonPlayAgain()
+        {
+            npcTopLoop.SetActive(true);
+            npcAnim.gameObject.SetActive(false);
+            summaryUI.gameObject.SetActive(false);
+            uiCheckpoint1[0].SetActive(true);
+            Checkpoint1Start();
         }
         #region Checkpoint 1
         private void Checkpoint1Start()

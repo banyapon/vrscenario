@@ -6885,7 +6885,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24910de70648b7540a97c87b014c29d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShowTopMostFoldoutHeaderGroup: 1
   checkpointControllers:
   - {fileID: 1868736049474255727}
   - {fileID: 8214134639666455989}
@@ -13153,6 +13152,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -23
       objectReference: {fileID: 0}
+    - target: {fileID: 4634594714086817787, guid: 746b3d83a78304749a1ba17903d2303b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8246255931132184954}
+    - target: {fileID: 4634594714086817787, guid: 746b3d83a78304749a1ba17903d2303b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonPlayAgain
+      objectReference: {fileID: 0}
+    - target: {fileID: 4634594714086817787, guid: 746b3d83a78304749a1ba17903d2303b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PGroup.ChemicalCondition, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4933755093515369706, guid: 746b3d83a78304749a1ba17903d2303b,
         type: 3}
       propertyPath: m_Name
@@ -13579,7 +13593,7 @@ PrefabInstance:
     - target: {fileID: 8151954492914599796, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 2196243306
+      value: 709565462
       objectReference: {fileID: 0}
     - target: {fileID: 8151954492914599796, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
