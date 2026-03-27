@@ -45,6 +45,8 @@ namespace PGroup
         public void RestartCheckpoint()
         {
             onPlaying = true;
+            timeUsed = 0;
+            scoreList.Clear();
             currentCheckpoint = 0;
             summaryUI.gameObject.SetActive(false);
             for (int i = 0; i < checkpointControllers.Length; i++)

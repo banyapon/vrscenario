@@ -125,14 +125,7 @@ namespace PGroup
             slingTop6.OnEnter += GetTrigger;*/
 
             //SetScore
-            scoreList = new List<bool>(4);
-
-            for (int i = 0; i < 4; i++)
-            {
-                scoreList.Add(false);
-            }
-
-            Debug.Log(scoreList.Count);
+            scoreList = new List<bool>();
         }
 
         private void OnThermalscanEnter(GameObject thermal, GameObject hit)
@@ -244,11 +237,35 @@ namespace PGroup
             npcAnim.gameObject.SetActive(false);
             summaryUI.gameObject.SetActive(false);
             uiCheckpoint1[0].SetActive(true);
+            Player.Instance?.Teleport(positionEndgame.position, Vector3.zero, scenario.IsOwner);
+            scoreList.Clear();
+            timeUsed = 0;
+            currentLadderHook = 0;
+            uiCheckpoint2[1].SetActive(false);
+            ladder.SetActive(true);
+            isClimbDown = false;
+            scanPoint = 0;
+
+            scanArea[0].SetActive(true);
+            scanArea[1].SetActive(true);
+            scanArea[2].SetActive(true);
+            scanCompleted[0].SetActive(false);
+            scanCompleted[1].SetActive(false);
+            scanCompleted[2].SetActive(false);
+
+            hookLeft.transform.localPosition = new Vector3(-0.195600003f, 1.12100005f, 0.433999985f);
+            hookRight.transform.localPosition = new Vector3(0.2315f, 1.12100005f, 0.433999985f);
+            hookLeft.transform.localEulerAngles = Vector3.zero;
+            hookRight.transform.localEulerAngles = Vector3.zero;
+            hookRight.GetComponent<XRGrabInteractable>().enabled = true;
+            hookLeft.GetComponent<XRGrabInteractable>().enabled = true;
+
             Checkpoint1Start();
         }
         #region Checkpoint 1
         private void Checkpoint1Start()
         {
+            onPlaying = true;
             delay?.Kill();
             delay = DOTween.Sequence()
                 .AppendCallback(() => uiCheckpoint1[0].SetActive(true))
@@ -268,6 +285,7 @@ namespace PGroup
 
         private void OnValidated(bool value)
         {
+            if (scoreList.Count == 0) scoreList.Add(value);
             if (!value) return;
             uiCheckpoint1[2].SetActive(false);
             uiCheckpoint1[3].SetActive(true);
@@ -284,7 +302,7 @@ namespace PGroup
             //hlCheckpoint1[0].SetActive(true);
 
             //GetScore
-            scoreList[0] = true;
+            //scoreList.Add(true);
         }
         public void Checkpoint1Success()
         {
@@ -395,7 +413,7 @@ namespace PGroup
             }
 
             //GetScore
-            scoreList[1] = true;
+            if (scoreList.Count < 2) scoreList.Add(true);
         }
         private void SendScoreAPI()
         {
@@ -538,7 +556,7 @@ namespace PGroup
                     isHookOnL = false;
 
                     //GetScore
-                    scoreList[2] = true;
+                    if (scoreList.Count < 3) scoreList.Add(true);
                 }
                 else if (slingTop3.gameObject.activeSelf || slingTop4.gameObject.activeSelf)
                 {
@@ -700,7 +718,7 @@ namespace PGroup
             if (num == 0)
             {
                 //GetScore
-                scoreList[3] = true;
+                if (scoreList.Count < 4) scoreList.Add(true);
 
                 uiCheckpoint5[2].SetActive(false);
                 uiCheckpoint5[3].SetActive(true);
@@ -713,6 +731,8 @@ namespace PGroup
             }
             else
             {
+                if (scoreList.Count < 4) scoreList.Add(false);
+
                 uiCheckpoint5[2].SetActive(false);
                 uiCheckpoint5[4].SetActive(true);
                 delay?.Kill();

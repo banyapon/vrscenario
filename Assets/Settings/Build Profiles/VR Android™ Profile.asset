@@ -37,7 +37,7 @@ MonoBehaviour:
     - line: '|   useOnDemandResources: 0'
     - line: '|   accelerometerFrequency: 60'
     - line: '|   companyName: Daydev'
-    - line: '|   productName: SUT Training Session'
+    - line: '|   productName: GentleWood VR Training'
     - line: '|   defaultCursor: {instanceID: 0}'
     - line: '|   cursorHotspot: {x: 0, y: 0}'
     - line: '|   m_SplashScreenBackgroundColor: {r: 1, g: 1, b: 1, a: 1}'
@@ -171,15 +171,7 @@ MonoBehaviour:
     - line: '|   visionOSBundleVersion: 1.0'
     - line: '|   tvOSBundleVersion: 1.0'
     - line: '|   bundleVersion: 0.0.1'
-    - line: '|   preloadedAssets:'
-    - line: '|   - {fileID: 5269706996647393442, guid: e3aee76b9372917449aef639e2f74814,
-        type: 2}'
-    - line: '|   - {fileID: 3233996788981779080, guid: 87b413c5a910b15498a98200731b1754,
-        type: 2}'
-    - line: '|   - {fileID: 11400000, guid: 788af86f6bb28494ca37fe8cff6fc974, type:
-        2}'
-    - line: '|   - {fileID: 11400000, guid: 33491290b38a6094fbf61d3c24a308a5, type:
-        2}'
+    - line: '|   preloadedAssets: []'
     - line: '|   metroInputSource: 0'
     - line: '|   wsaTransparentSwapchain: 0'
     - line: '|   m_HolographicPauseOnTrackingLoss: 1'
