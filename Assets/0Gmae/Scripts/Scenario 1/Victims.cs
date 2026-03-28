@@ -22,16 +22,22 @@ namespace Boy
         public void Unconscious(Action callback = null)
         {
             npc.SetBool("look", false);
+            npc.SetBool("pull up", false);
             npc.SetBool("unconscious", true);
-            npc.SetForcePosition(true);
-            npc.SetForceRotation(true);
+            //npc.SetForcePosition(true);
+            //npc.SetForceRotation(true);
             DOTween.Kill(model);
-            model.DOLocalRotate(Vector3.zero, 1);
+            //model.DOLocalRotate(Vector3.zero, 1);
             PlayAnimation("unconscious", unconsciousClip.length, callback);
         }
 
         public void Pullup(Action callback = null)
         {
+            npc.SetBool("look", false);
+            npc.SetBool("unconscious", false);
+            npc.SetBool("pull up", true);
+            npc.SetForcePosition(true);
+            npc.SetForceRotation(true);
             safetyHarness.SetActive(true);
             PlayAnimation("pull up", pullupClip.length, callback);
         }
@@ -54,8 +60,12 @@ namespace Boy
         {
             PlayAnimation("reset");
             safetyHarness.SetActive(false);
-            npc.SetBool("look", true);
+            animator.SetBool("reset", false);
+            animator.SetBool("unconscious", false);
+            animator.SetBool("pull up", false);
             npc.SetBool("unconscious", false);
+            npc.SetBool("pull up", false);
+            npc.SetBool("look", true);
             npc.SetForcePosition(false);
             npc.SetForceRotation(false);
         }
