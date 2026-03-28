@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
 
     public void Teleport(Vector3 position, Vector3 rotate, bool isOwner)
     {
+        Debug.Log(position);
         //if (!isOwner) return;
         if (VRNetworkController.Instance != null && VRNetworkController.Instance.inspector)
         {

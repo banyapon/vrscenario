@@ -2,8 +2,10 @@ using Boy;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.InputSystem;
 
 namespace PGroup
 {
@@ -12,6 +14,7 @@ namespace PGroup
         [SerializeField] private CheckpointController[] checkpointControllers;
         [SerializeField] private SummaryUI summaryUI;
         [SerializeField] private int scenarioIndex;
+        [SerializeField] private TextMeshProUGUI scoreText;
 
         public Transform player;
 
@@ -39,6 +42,19 @@ namespace PGroup
             if (onPlaying)
                 timeUsed += Time.deltaTime;
         }
+        public void RestartCheckpoint()
+        {
+            onPlaying = true;
+            timeUsed = 0;
+            scoreList.Clear();
+            currentCheckpoint = 0;
+            summaryUI.gameObject.SetActive(false);
+            for (int i = 0; i < checkpointControllers.Length; i++)
+            {
+                checkpointControllers[i].RestartStep();
+            }
+            checkpointControllers[currentCheckpoint].StartStep();
+        }
         public void NextCheckpoint()
         {
             currentCheckpoint++;
@@ -63,8 +79,18 @@ namespace PGroup
             onPlaying = false;
             if (scenario) Player.Instance?.Teleport(Vector3.zero, Vector3.zero, scenario.IsOwner);
             summaryUI.gameObject.SetActive(true);
-            summaryUI.ShowSummary(scoreList, SendApi);
-            //SendScoreAPI();
+
+            if (scenario.IsOwner)
+            {
+                summaryUI.ShowSummary(scoreList, SendApi);
+                string listString = string.Join(",", scoreList.Select(b => b ? "1" : "0"));
+                Debug.Log($"Not Inspector Shoot Score : {listString}");
+                scenario.SentScoreToOther(listString);
+            }
+        }
+        public void UpdateScoreUI(List<bool> scoreList)
+        {
+            summaryUI.ShowSummary(scoreList);
         }
         private void SendScoreAPI()
         {

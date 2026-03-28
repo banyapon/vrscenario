@@ -1,6 +1,9 @@
+using PGroup;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
@@ -19,6 +22,8 @@ public class Scenario : NetworkBehaviour
     bool defaultActiveInitialize;
     List<DefaultActive> defaultActives = new List<DefaultActive>();
 
+    [SerializeField] private GameplayController gameplayController;
+
     private void Awake()
     {
         if (destroyBtn) destroyBtn.onClick.AddListener(RequestDestroy);
@@ -33,8 +38,19 @@ public class Scenario : NetworkBehaviour
     {
         if (!isCounting) return;
         timeUsed += Time.deltaTime;
+
     }
 
+    public void SentScoreToOther(string score)
+    {
+        Debug.Log($"[Local Log] Space Pressed! IsOwner: {IsOwner}, IsServer: {IsServer}, NetworkObjectId: {NetworkObjectId}");
+        Debug.Log($"Pressing Space - IsServer: {IsServer}, IsClient: {IsClient}, IsOwner: {IsOwner}");
+        ShowScoreServerRpc(score);
+    }
+    public void SentTeleportToOther(Vector3 pos)
+    {
+        TeleportServerRpc(pos);
+    }
     public void RequestDestroy()
     {
         if (!IsOwner) return;
@@ -237,4 +253,47 @@ public class Scenario : NetworkBehaviour
         timeUsed = 0f;
         isCounting = true;
     }
+
+
+    [ServerRpc]
+    private void ShowScoreServerRpc(string score)
+    {
+        Debug.Log(gameplayController);
+        Debug.Log(score);
+        if (gameplayController != null) ShowScoreClientRpc(score);
+        Debug.Log("Pass");
+    }
+
+    [ClientRpc]
+    private void ShowScoreClientRpc(string score, ClientRpcParams rpcParams = default)
+    {
+        //if (IsOwner) return;
+        Debug.Log($"Inspector Get Score : {score}");
+        List<bool> newScoreList = new List<bool>();
+        newScoreList = score.Split(',').Select(s => s == "1").ToList();
+        gameplayController.UpdateScoreUI(newScoreList);
+
+        //Set UI Score
+        /*int count = 0;
+        for (int i = 0; i < newScoreList.Count; i++)
+        {
+            if (newScoreList[i]) count++;
+        }
+
+        scoreText.text = "" + ((count / newScoreList.Count) * 5).ToString("0.0");*/
+    }
+
+    [ServerRpc]
+    private void TeleportServerRpc(Vector3 pos)
+    {
+        TeleportClientRpc(pos);
+    }
+
+    [ClientRpc]
+    private void TeleportClientRpc(Vector3 pos)
+    {
+        if (IsHost) return;
+        Player.Instance?.TeleportNonOwner(pos, Vector3.zero, IsOwner);
+    }
+
 }
