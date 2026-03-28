@@ -30185,7 +30185,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4853814819121125299, guid: 921feb7d04beed54cae472f46679eb48,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3326895986165861704}
   m_SourcePrefab: {fileID: 100100000, guid: 921feb7d04beed54cae472f46679eb48, type: 3}
 --- !u!4 &114552305729568256 stripped
 Transform:
@@ -30199,6 +30203,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4827684581465558590}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3326895986165861704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118034020492597645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: SafetyHarness_Sc1_02_-277150
 --- !u!114 &3816495987486853358 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8505482672359409360, guid: 921feb7d04beed54cae472f46679eb48,
