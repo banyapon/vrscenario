@@ -1340,6 +1340,7 @@ MonoBehaviour:
   cameraViewPrefab: {fileID: 6384726780518558296, guid: 3e37ac90fe539144399da489f18398c4,
     type: 3}
   mainViewPort: {fileID: 700098767}
+  userNameText: {fileID: 1968971089}
   otherCameraParent: {fileID: 104866656}
   backBtn: {fileID: 1596548150}
   categoryNameText: {fileID: 1469313513}

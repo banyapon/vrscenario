@@ -19,6 +19,7 @@ public class PCUIManager : MonoBehaviour
     [SerializeField] private CameraView cameraViewPrefab;
     [Space(20)]
     [SerializeField] private RawImage mainViewPort;
+    [SerializeField] private TMP_Text userNameText;
     [SerializeField] private Transform otherCameraParent;
     [SerializeField] private Button backBtn;
     [SerializeField] private TMP_Text categoryNameText;
@@ -237,6 +238,7 @@ public class PCUIManager : MonoBehaviour
         activeViewer = viewer;
         activeViewer.SetAudio(isMute);
         UpdateOtherCamera();
+        userNameText.text = viewer.userNameText.text;
         viewerUI.SetActive(true);
         activeViewer.SetAudio(isMute);
     }
