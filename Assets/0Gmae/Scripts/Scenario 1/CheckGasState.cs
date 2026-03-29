@@ -26,8 +26,9 @@ public class CheckGasState : State
     public GameObject safeHUD;
     public GameObject notSafeHUD;
 
-    string parameterName = "Blend Pick";
+    string parameterName = "Blend Pick"; //"Blend Pick", "check"
     HUDState hUDState;
+    Tween delay;
     public override void Awake()
     {
         base.Awake();
@@ -38,7 +39,7 @@ public class CheckGasState : State
     {
         base.StateEnter();
         npc.SetFloat(parameterName, 0);
-        ChangeNpcPose(1);
+        ChangeNpcPose();
         hUDState?.HideHUD();
 
         o2.StartNumber(o2Fake, duration);
@@ -46,20 +47,23 @@ public class CheckGasState : State
         co.StartNumber(coFake, duration);
         lel.StartNumber(lelFake, duration);
 
-        DOVirtual.DelayedCall(duration, () =>
+        delay?.Kill();
+        delay = DOVirtual.DelayedCall(duration, () =>
         {
+            ChangeNpcPose(0);
             hUDState.OpenHud(notSafeHUD, () =>
             {
+                ChangeNpcPose();
                 o2.StartNumberWithDuration(duration);
                 h2s.StartNumberWithDuration(duration);
                 co.StartNumberWithDuration(duration);
                 lel.StartNumberWithDuration(duration);
 
-                DOVirtual.DelayedCall(duration, () =>
+                delay = DOVirtual.DelayedCall(duration, () =>
                 {
+                    ChangeNpcPose(0);
                     hUDState.OpenHud(safeHUD, () =>
                     {
-                        ChangeNpcPose(0);
                         controller.NextState();
                     });
                 });
@@ -75,10 +79,14 @@ public class CheckGasState : State
     public override void StateExit()
     {
         base.StateExit();
+        poseTween?.Kill();
+        delay?.Kill();
+        npc.SetFloat(parameterName, 0);
+        ChangeNpcPose(0);
     }
 
     Tween poseTween;
-    void ChangeNpcPose(float value)
+    void ChangeNpcPose(float value = 0.5f)
     {
         float duration = 2f;
 
@@ -95,10 +103,13 @@ public class CheckGasState : State
             value,
             duration
         );
+        npc.SetBool(parameterName, value == 1);
 
         DOTween.Kill(npc.transform);
-        Transform spot = value > 0.95f ? npcSpot2 : npcSpot1;
-        Ease ease = value > 0.95f ? Ease.OutQuart : Ease.InExpo;
+        Transform spot = value > 0.45f ? npcSpot2 : npcSpot1;
+        //duration = value > 0.45f ? 1.75f : 2f;
+        duration = 1f;
+        Ease ease = value > 0.45f ? Ease.Linear : Ease.Linear;
         npc.transform.DORotate(spot.eulerAngles, duration)
             .SetLink(gameObject).SetEase(ease);
         npc.transform.DOMove(spot.position, duration)
