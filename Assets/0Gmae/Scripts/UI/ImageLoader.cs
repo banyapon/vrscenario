@@ -13,6 +13,7 @@ public class ImageLoader : MonoBehaviour
         if (string.IsNullOrEmpty(url) || rawImage == null) return;
         APIManager.Instance.DownloadImage(url, (texture) =>
         {
+            if (rawImage == null) return;
             rawImage.enabled = texture != null;
             if (texture == null) return;
             rawImage.texture = texture;
