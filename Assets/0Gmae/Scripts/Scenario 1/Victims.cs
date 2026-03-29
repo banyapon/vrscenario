@@ -6,6 +6,8 @@ namespace Boy
 {
     public class Victims : MonoBehaviour
     {
+        [SerializeField] GameObject unconsciousCollider;
+        [SerializeField] Collider[] colliders;
         [SerializeField] NPC npc;
         [SerializeField] Transform model;
         [SerializeField] GameObject safetyHarness;
@@ -21,14 +23,15 @@ namespace Boy
 
         public void Unconscious(Action callback = null)
         {
+            npc.SetForcePosition(false, 0);
+            npc.SetForceRotation(false, 0);
             npc.SetBool("look", false);
             npc.SetBool("pull up", false);
             npc.SetBool("unconscious", true);
-            //npc.SetForcePosition(true);
-            //npc.SetForceRotation(true);
             DOTween.Kill(model);
             //model.DOLocalRotate(Vector3.zero, 1);
             PlayAnimation("unconscious", unconsciousClip.length, callback);
+            SwitchCollider(false);
         }
 
         public void Pullup(Action callback = null)
@@ -66,8 +69,19 @@ namespace Boy
             npc.SetBool("unconscious", false);
             npc.SetBool("pull up", false);
             npc.SetBool("look", true);
-            npc.SetForcePosition(false);
-            npc.SetForceRotation(false);
+            npc.SetForcePosition(true);
+            npc.SetForceRotation(true);
+            SwitchCollider(true);
+        }
+
+        public void SwitchCollider(bool value)
+        {
+            foreach (var c in colliders)
+            {
+                c.enabled = value;
+            }
+
+            unconsciousCollider.SetActive(!value);
         }
     }
 }

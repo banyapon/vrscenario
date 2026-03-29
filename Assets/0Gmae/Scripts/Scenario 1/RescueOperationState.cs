@@ -1,10 +1,13 @@
 using Boy;
+using DG.Tweening;
 using UnityEngine;
 
 public class RescueOperationState : State
 {
     [Space(20)]
     public Victims victims;
+    public GameObject victims2;
+    public AnimationClip pullUpClip;
 
     [Header("Trigger Checker")]
     public TriggerChecker liftingSling;
@@ -42,8 +45,18 @@ public class RescueOperationState : State
             ordinaryRope.gameObject.SetActive(false);
             harness.gameObject.SetActive(false);
 
-            victims.Pullup(() => {
-                victims.gameObject.SetActive(false);
+            //victims.Pullup(() => {
+            //    victims.gameObject.SetActive(false);
+            //    hUDState.OpenHud(reachedTopHUD, () =>
+            //    {
+            //        controller.NextState();
+            //    });
+            //});
+            victims2.SetActive(true);
+            victims.gameObject.SetActive(false);
+            DOVirtual.DelayedCall(pullUpClip.length, () =>
+            {
+                victims2.SetActive(false);
                 hUDState.OpenHud(reachedTopHUD, () =>
                 {
                     controller.NextState();
@@ -74,6 +87,7 @@ public class RescueOperationState : State
     {
         base.StateExit();
         victims.ResetAnimation();
+        victims2.SetActive(false);
         victims.gameObject.SetActive(false);
     }
 }

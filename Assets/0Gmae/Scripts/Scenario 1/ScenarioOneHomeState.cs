@@ -14,6 +14,7 @@ public class ScenarioOneHomeState : State
     [Space(10)]
     public HookController hook;
     public Victims victims;
+    public GameObject victims2;
     public GameObject radio;
     public GameObject gasDetector;
     [Space(10)]
@@ -82,6 +83,8 @@ public class ScenarioOneHomeState : State
 
         victims.gameObject.SetActive(true);
         victims.ResetAnimation();
+
+        victims2.SetActive(false);
 
         radio.SetActive(false);
         gasDetector.SetActive(false);
