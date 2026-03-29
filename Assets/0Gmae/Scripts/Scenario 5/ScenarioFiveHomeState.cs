@@ -42,6 +42,7 @@ public class ScenarioFiveHomeState : State
         npc.SetBool("check out", false);
         npcAnimator.SetBool("move", false);
         npc.SetForceRotation(false);
+        npc.SetForcePosition(false);
     }
 
     public override void StateUpdate()
