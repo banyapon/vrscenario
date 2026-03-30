@@ -26,7 +26,7 @@ public class CheckGasState : State
     public GameObject safeHUD;
     public GameObject notSafeHUD;
 
-    string parameterName = "Blend Pick"; //"Blend Pick", "check"
+    string parameterName = "check"; //"Blend Pick", "check"
     HUDState hUDState;
     Tween delay;
     public override void Awake()
@@ -103,7 +103,7 @@ public class CheckGasState : State
             value,
             duration
         );
-        npc.SetBool(parameterName, value == 1);
+        npc.SetBool(parameterName, value > 0.45f);
 
         DOTween.Kill(npc.transform);
         Transform spot = value > 0.45f ? npcSpot2 : npcSpot1;
