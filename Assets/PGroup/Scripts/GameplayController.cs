@@ -29,7 +29,7 @@ namespace PGroup
         private void Awake()
         {
             scenario = GetComponentInParent<Scenario>();
-            player = Camera.main.transform.parent.parent;
+            player = Player.Instance.transform;
         }
 
         private void Start()
@@ -163,6 +163,8 @@ namespace PGroup
         {
             LoginController loginController = FindAnyObjectByType<LoginController>();
             string role = loginController == null ? "" : loginController.GetPlayerRole();
+
+            Debug.Log("Role : " + role);
 
             string json = "";
             switch (scenarioIndex)

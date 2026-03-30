@@ -15,10 +15,15 @@ public class Follower : MonoBehaviour
     public Animator animator;
     public string walkParam = "isWalk"; // bool ใน Animator
 
+    [SerializeField] private Scenario scenario;
+
     private void Start()
     {
-        player = gameplayController.player;
-        if (VRNetworkController.Instance.inspector) gameObject.SetActive(false);
+        if (!VRNetworkController.Instance.inspector && !scenario.IsHost)
+        {
+            player = gameplayController.player;
+            scenario.SetFollower(player);
+        }
     }
     void Update()
     {

@@ -24,6 +24,7 @@ namespace PGroup
 
         [SerializeField] private GameObject accidentGuy;
         [SerializeField] private GameObject coneArea;
+        [SerializeField] private Animator npcTalk;
 
         [Header("Restart")]
         [SerializeField] private GameObject[] activeObjRestart;
@@ -77,6 +78,7 @@ namespace PGroup
             {
                 deactiveBeforeAnimationCheckpoint3.SetActive(false);
                 startAnimationCheckpoint3.SetActive(true);
+                npcTalk.SetTrigger("Accident");
             }
         }
 
@@ -175,6 +177,8 @@ namespace PGroup
             currentSafeArea = 0;
             checkPoint3Done = false;
             ambulanceDone = false;
+
+            npcTalk.Play("Talk");
 
             resetPositionObjRestart[0].localPosition = new Vector3(-2.93499994f, 0.280999988f, 11.8439999f);
             resetPositionObjRestart[0].localEulerAngles = Vector3.zero;

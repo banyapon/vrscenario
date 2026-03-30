@@ -97,7 +97,7 @@ namespace PGroup
         {
             scenario = GetComponentInParent<Scenario>();
             player = Camera.main.transform;
-            endRope.parent = player.parent;
+            endRope.parent = Player.Instance.transform;
             pPESelector.OnSelectionValidated += OnValidated;
             point1.OnEnter += () => Checkpoint2Start();
             startPoint3.OnEnter += () => Checkpoint3Start();
@@ -245,6 +245,7 @@ namespace PGroup
             ladder.SetActive(true);
             isClimbDown = false;
             scanPoint = 0;
+            endRope.localPosition = new Vector3(0, .6f, 0);
 
             scanArea[0].SetActive(true);
             scanArea[1].SetActive(true);
@@ -261,6 +262,10 @@ namespace PGroup
             hookLeft.GetComponent<XRGrabInteractable>().enabled = true;
 
             Checkpoint1Start();
+        }
+        public void UpdateScoreUI(List<bool> scoreList)
+        {
+            summaryUI.ShowSummary(scoreList);
         }
         #region Checkpoint 1
         private void Checkpoint1Start()

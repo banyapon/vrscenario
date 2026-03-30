@@ -23,6 +23,8 @@ public class Scenario : NetworkBehaviour
     List<DefaultActive> defaultActives = new List<DefaultActive>();
 
     [SerializeField] private GameplayController gameplayController;
+    [SerializeField] private HighGroundGameplay highGroundGameplay;
+    [SerializeField] private Follower follower;
 
     private void Awake()
     {
@@ -55,6 +57,11 @@ public class Scenario : NetworkBehaviour
     {
         if (!IsOwner) return;
         RequestDestroyServerRpc();
+    }
+    public void SetFollower(Transform _player)
+    {
+        if (!IsOwner) return;
+        //NPCFollowPlayerServerRpc(_player);
     }
 
     [ServerRpc]
@@ -260,7 +267,7 @@ public class Scenario : NetworkBehaviour
     {
         Debug.Log(gameplayController);
         Debug.Log(score);
-        if (gameplayController != null) ShowScoreClientRpc(score);
+        if (gameplayController != null || highGroundGameplay != null) ShowScoreClientRpc(score);
         Debug.Log("Pass");
     }
 
@@ -271,7 +278,8 @@ public class Scenario : NetworkBehaviour
         Debug.Log($"Inspector Get Score : {score}");
         List<bool> newScoreList = new List<bool>();
         newScoreList = score.Split(',').Select(s => s == "1").ToList();
-        gameplayController.UpdateScoreUI(newScoreList);
+        if (gameplayController != null) gameplayController.UpdateScoreUI(newScoreList);
+        else if (highGroundGameplay != null) highGroundGameplay.UpdateScoreUI(newScoreList);
 
         //Set UI Score
         /*int count = 0;
@@ -294,6 +302,18 @@ public class Scenario : NetworkBehaviour
     {
         if (IsHost) return;
         Player.Instance?.TeleportNonOwner(pos, Vector3.zero, IsOwner);
+    }
+
+    [ServerRpc]
+    private void NPCFollowPlayerServerRpc()
+    {
+        NPCFollowPlayerClientRpc();
+    }
+
+    [ClientRpc]
+    private void NPCFollowPlayerClientRpc()
+    {
+        //if (follower != null) follower.player = player;
     }
 
 }
