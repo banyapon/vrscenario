@@ -15,6 +15,7 @@ public class ScenarioOneHomeState : State
     public HookController hook;
     public Victims victims;
     public GameObject victims2;
+    public Material ropeMaterial;
     public GameObject radio;
     public GameObject gasDetector;
     [Space(10)]
@@ -95,5 +96,9 @@ public class ScenarioOneHomeState : State
 
         radioResetter?.ResetTransform();
         gasDetectorResetter?.ResetTransform();
+
+        Color color = ropeMaterial.color;
+        color.a = 0;
+        ropeMaterial.color = color;
     }
 }
