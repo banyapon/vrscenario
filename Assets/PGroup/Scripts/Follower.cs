@@ -19,15 +19,23 @@ public class Follower : MonoBehaviour
 
     private void Start()
     {
-        if (!VRNetworkController.Instance.inspector && !scenario.IsHost)
-        {
-            player = gameplayController.player;
-            scenario.SetFollower(player);
-        }
+        Debug.Log(VRNetworkController.Instance.inspector);
+        Debug.Log(scenario.IsHost);
+        Debug.Log(scenario.IsClient);
+        Debug.Log(scenario.IsOwner);
+        Debug.Log(scenario.IsServer);
     }
     void Update()
     {
         if (player == null) return;
+        if (!VRNetworkController.Instance.inspector && !scenario.IsHost)
+        {
+            player.position = Player.Instance.transform.position;
+        }
+        else if (scenario.IsHost && scenario.IsOwner && scenario.IsServer && scenario.IsClient)
+        {
+            player.position = Player.Instance.transform.position;
+        }
 
         float distance = Vector3.Distance(transform.position, player.position);
 

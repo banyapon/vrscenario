@@ -19,7 +19,7 @@ namespace PGroup
         [SerializeField] private Transform positionHookRight;
         [SerializeField] private Transform positionEndgame;
         [SerializeField] private SummaryUI summaryUI;
-        [SerializeField] private Transform endRope;
+        [SerializeField] private Transform playerFollower;
         [SerializeField] private GameObject ladder;
         private List<bool> scoreList;
         private int score;
@@ -37,7 +37,8 @@ namespace PGroup
         [SerializeField] private TriggerChecker point1;
         [SerializeField] private Hook hookLeft;
         [SerializeField] private Hook hookRight;
-        [SerializeField] private GameObject rope;
+        [SerializeField] private GameObject ropeLeft;
+        [SerializeField] private GameObject ropeRight;
         [SerializeField] private TriggerChecker[] ladders;
         [SerializeField] private Transform blockUp;
         [SerializeField] private Transform blockDown;
@@ -64,7 +65,10 @@ namespace PGroup
         [SerializeField] private GameObject[] hlCheckpoint4;
         [SerializeField] private TriggerChecker movePoint4;
         [SerializeField] private TriggerChecker movePoint4_2;
-        [SerializeField] private Animation npcAnim;
+        [SerializeField] private GameObject npcDrop;
+        [SerializeField] private GameObject npcDown;
+        [SerializeField] private GameObject npcDropRope;
+        [SerializeField] private GameObject npcDownRope;
         [SerializeField] private GameObject npcTopLoop;
         private bool isClimbDown;
         [Header("CheckPoint 5")]
@@ -97,7 +101,6 @@ namespace PGroup
         {
             scenario = GetComponentInParent<Scenario>();
             player = Camera.main.transform;
-            endRope.parent = Player.Instance.transform;
             pPESelector.OnSelectionValidated += OnValidated;
             point1.OnEnter += () => Checkpoint2Start();
             startPoint3.OnEnter += () => Checkpoint3Start();
@@ -172,8 +175,18 @@ namespace PGroup
         }
         private void Update()
         {
-            if (onPlaying)
-                timeUsed += Time.deltaTime;
+            if (!onPlaying) return;
+
+            timeUsed += Time.deltaTime;
+
+            if (!VRNetworkController.Instance.inspector && !scenario.IsHost)
+            {
+                playerFollower.position = Player.Instance.transform.position;
+            }
+            else if (scenario.IsHost && scenario.IsOwner && scenario.IsServer && scenario.IsClient)
+            {
+                playerFollower.position = Player.Instance.transform.position;
+            }
         }
         private void OnHookHit(GameObject hook,GameObject hitObject)
         {
@@ -197,14 +210,16 @@ namespace PGroup
         {
             onPlaying = false;
             ladder.SetActive(false);
-            rope.SetActive(false);
             hookLeft.gameObject.SetActive(false);
             hookRight.gameObject.SetActive(false);
+            ropeLeft.SetActive(false);
+            ropeRight.SetActive(false);
             /*scoreList.Add(true);
             scoreList.Add(true);
             scoreList.Add(true);
             scoreList.Add(true);*/
             if (scenario) Player.Instance?.Teleport(positionEndgame.position, Vector3.zero, scenario.IsOwner);
+
             summaryUI.gameObject.SetActive(true);
 
             if (scenario.IsOwner)
@@ -234,7 +249,10 @@ namespace PGroup
         public void ButtonPlayAgain()
         {
             npcTopLoop.SetActive(true);
-            npcAnim.gameObject.SetActive(false);
+            npcDrop.SetActive(false);
+            npcDown.SetActive(false);
+            npcDropRope.SetActive(false);
+            npcDownRope.SetActive(false);
             summaryUI.gameObject.SetActive(false);
             uiCheckpoint1[0].SetActive(true);
             Player.Instance?.Teleport(positionEndgame.position, Vector3.zero, scenario.IsOwner);
@@ -245,7 +263,6 @@ namespace PGroup
             ladder.SetActive(true);
             isClimbDown = false;
             scanPoint = 0;
-            endRope.localPosition = new Vector3(0, .6f, 0);
 
             scanArea[0].SetActive(true);
             scanArea[1].SetActive(true);
@@ -299,9 +316,10 @@ namespace PGroup
             //hookLeft.transform.position = player.parent.position + positionHookLeft.position;
             //hookRight.transform.position = player.parent.position + positionHookRight.position;
 
-            rope.gameObject.SetActive(true);
             hookLeft.gameObject.SetActive(true);
             hookRight.gameObject.SetActive(true);
+            ropeLeft.SetActive(true);
+            ropeRight.SetActive(true);
             //hookLeft.GetComponent<Rigidbody>().isKinematic = true;
             //hookRight.GetComponent<Rigidbody>().isKinematic = true;
             //hlCheckpoint1[0].SetActive(true);
@@ -483,7 +501,7 @@ namespace PGroup
                     emergency_call = details[3]
                 },
                 time_used_seconds = (int)timeUsed,
-                remark = role
+                remark = PlayerPrefs.GetString("PlayerRole")
             };
 
             string json = JsonConvert.SerializeObject(body);
@@ -692,8 +710,9 @@ namespace PGroup
             blockDown.position += Vector3.up;
 
             npcTopLoop.SetActive(false);
-            npcAnim.gameObject.SetActive(true);
-            PlayAnimation(npcAnim, "NPCDrop", false);
+            npcDrop.SetActive(true);
+            npcDropRope.SetActive(true);
+            //PlayAnimation(npcAnim, "NPCDrop", false);
             //npcAnim.GetComponent<Animator>().enabled = true;
             uiCheckpoint4[0].SetActive(true);
             delay?.Kill();
@@ -752,7 +771,11 @@ namespace PGroup
         #region Checkpoint 6
         private void Checkpoint6Start()
         {
-            PlayAnimation(npcAnim, "NPCDown", false);
+            npcDrop.SetActive(false);
+            npcDropRope.SetActive(false);
+            npcDown.SetActive(true);
+            npcDownRope.SetActive(true);
+            //PlayAnimation(npcAnim, "NPCDown", false);
             uiCheckpoint6[0].SetActive(true);
             delay?.Kill();
             delay = DOVirtual.DelayedCall(5, () =>

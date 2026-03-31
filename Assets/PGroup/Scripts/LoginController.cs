@@ -195,6 +195,8 @@ namespace PGroup
                     else networkController.StartHostLocal();
                     //Set to Inpector==========================================================================??????
                     APIManager.Instance.userEmail = getUsername;
+
+                    PlayerPrefs.SetString("PlayerRole", GetPlayerRole());
                 }
                 else
                 {

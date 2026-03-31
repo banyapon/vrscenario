@@ -184,7 +184,7 @@ namespace PGroup
                             cleanse = details[3],
                         },
                         time_used_seconds = (int)timeUsed,
-                        remark = role
+                        remark = PlayerPrefs.GetString("PlayerRole")
                     };
                     json = JsonConvert.SerializeObject(body3);
                     break;
@@ -202,7 +202,7 @@ namespace PGroup
                             action_emergency = details[2]
                         },
                         time_used_seconds = (int)timeUsed,
-                        remark = role
+                        remark = PlayerPrefs.GetString("PlayerRole")
                     };
                     json = JsonConvert.SerializeObject(body4);
                     break;
