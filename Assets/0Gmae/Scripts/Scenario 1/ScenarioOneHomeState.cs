@@ -1,5 +1,6 @@
 using Boy;
 using DG.Tweening;
+using Unity.XR.PXR.Debugger;
 using UnityEngine;
 
 public class ScenarioOneHomeState : State
@@ -18,6 +19,7 @@ public class ScenarioOneHomeState : State
     public Material ropeMaterial;
     public GameObject radio;
     public GameObject gasDetector;
+    public GameObject wall;
     [Space(10)]
     public GameObject liftingSling;
     public GameObject ordinaryRope;
@@ -81,6 +83,7 @@ public class ScenarioOneHomeState : State
     void ResetScenario()
     {
         hook.Hide();
+        wall.SetActive(true);
 
         victims.gameObject.SetActive(true);
         victims.ResetAnimation();

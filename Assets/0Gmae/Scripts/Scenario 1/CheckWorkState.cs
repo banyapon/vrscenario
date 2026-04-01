@@ -3,6 +3,7 @@ using Boy;
 public class CheckWorkState : State
 {
     public TriggerChecker checker;
+    public GameObject wall;
     public override void Awake()
     {
         base.Awake();
@@ -14,6 +15,7 @@ public class CheckWorkState : State
     public override void StateEnter()
     {
         base.StateEnter();
+        wall.SetActive(false);
     }
 
     public override void StateUpdate()

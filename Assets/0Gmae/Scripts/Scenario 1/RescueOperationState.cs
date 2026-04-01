@@ -1,14 +1,10 @@
 using Boy;
-using DG.Tweening;
 using UnityEngine;
 
 public class RescueOperationState : State
 {
     [Space(20)]
     public Victims victims;
-    public GameObject victims2;
-    public Material ropeMaterial;
-    public AnimationClip pullUpClip;
 
     [Header("Trigger Checker")]
     public TriggerChecker liftingSling;
@@ -16,19 +12,14 @@ public class RescueOperationState : State
     public TriggerChecker harness;
 
     [Header("HUD")]
-    public GameObject reachedTopHUD;
     public GameObject notDesignedHUD;
     public GameObject liftingThingsHUD;
 
-    Color originalColor;
     HUDState hUDState;
     NetworkOwnershipContext context;
     public override void Awake()
     {
         base.Awake();
-        originalColor = ropeMaterial.color;
-        originalColor.a = 0;
-        ropeMaterial.color = originalColor;
         hUDState = GetComponent<HUDState>();
         context = GetComponentInParent<NetworkOwnershipContext>();
 
@@ -50,27 +41,7 @@ public class RescueOperationState : State
             ordinaryRope.gameObject.SetActive(false);
             harness.gameObject.SetActive(false);
 
-            //victims.Pullup(() => {
-            //    victims.gameObject.SetActive(false);
-            //    hUDState.OpenHud(reachedTopHUD, () =>
-            //    {
-            //        controller.NextState();
-            //    });
-            //});
-            victims2.SetActive(true);
-            originalColor.a = 1;
-            ropeMaterial.color = originalColor;
-            victims.gameObject.SetActive(false);
-            DOVirtual.DelayedCall(pullUpClip.length, () =>
-            {
-                victims2.SetActive(false);
-                originalColor.a = 0;
-                ropeMaterial.color = originalColor;
-                hUDState.OpenHud(reachedTopHUD, () =>
-                {
-                    controller.NextState();
-                });
-            });
+            controller.NextState();
         };
     }
 
@@ -96,9 +67,6 @@ public class RescueOperationState : State
     {
         base.StateExit();
         victims.ResetAnimation();
-        victims2.SetActive(false);
         victims.gameObject.SetActive(false);
-        originalColor.a = 0;
-        ropeMaterial.color = originalColor;
     }
 }

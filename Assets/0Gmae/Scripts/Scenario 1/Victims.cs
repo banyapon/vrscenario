@@ -24,7 +24,7 @@ namespace Boy
         public void Unconscious(Action callback = null)
         {
             npc.SetForcePosition(false, 0);
-            npc.SetForceRotation(false, 0);
+            npc.SetForceRotation(true, 0);
             npc.SetBool("look", false);
             npc.SetBool("pull up", false);
             npc.SetBool("unconscious", true);
