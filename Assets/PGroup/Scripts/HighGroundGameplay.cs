@@ -485,7 +485,13 @@ namespace PGroup
             LoginController loginController = FindAnyObjectByType<LoginController>();
             string role = loginController == null ? "" : loginController.GetPlayerRole();
 
-            Debug.Log($"PlayerRole : {role}");
+            if (string.IsNullOrEmpty(role))
+            {
+                role = PlayerPrefs.GetString("PlayerRole");
+            }
+            Debug.Log("Role : " + role);
+
+            if (role == "Joiner Mode") return;
 
             var body = new
             {
@@ -501,7 +507,7 @@ namespace PGroup
                     emergency_call = details[3]
                 },
                 time_used_seconds = (int)timeUsed,
-                remark = PlayerPrefs.GetString("PlayerRole")
+                remark = role
             };
 
             string json = JsonConvert.SerializeObject(body);

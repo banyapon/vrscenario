@@ -122,6 +122,7 @@ namespace PGroup
         }
         public void ButtonPlayAgain()
         {
+            checkPoint3Done = false;
             gameplayController.RestartCheckpoint();
 
 

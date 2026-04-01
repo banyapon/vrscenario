@@ -45,8 +45,9 @@ public class Scenario : NetworkBehaviour
 
     public void SentScoreToOther(string score)
     {
-        Debug.Log($"[Local Log] Space Pressed! IsOwner: {IsOwner}, IsServer: {IsServer}, NetworkObjectId: {NetworkObjectId}");
-        Debug.Log($"Pressing Space - IsServer: {IsServer}, IsClient: {IsClient}, IsOwner: {IsOwner}");
+        Debug.Log(score);
+        //Debug.Log($"[Local Log] Space Pressed! IsOwner: {IsOwner}, IsServer: {IsServer}, NetworkObjectId: {NetworkObjectId}");
+        //Debug.Log($"Pressing Space - IsServer: {IsServer}, IsClient: {IsClient}, IsOwner: {IsOwner}");
         ShowScoreServerRpc(score);
     }
     public void SentTeleportToOther(Vector3 pos)
@@ -265,10 +266,10 @@ public class Scenario : NetworkBehaviour
     [ServerRpc]
     private void ShowScoreServerRpc(string score)
     {
-        Debug.Log(gameplayController);
+        //Debug.Log(gameplayController);
         Debug.Log(score);
         if (gameplayController != null || highGroundGameplay != null) ShowScoreClientRpc(score);
-        Debug.Log("Pass");
+        //Debug.Log("Pass");
     }
 
     [ClientRpc]
@@ -278,6 +279,10 @@ public class Scenario : NetworkBehaviour
         Debug.Log($"Inspector Get Score : {score}");
         List<bool> newScoreList = new List<bool>();
         newScoreList = score.Split(',').Select(s => s == "1").ToList();
+        foreach (var item in newScoreList)
+        {
+            Debug.Log(item);
+        }
         if (gameplayController != null) gameplayController.UpdateScoreUI(newScoreList);
         else if (highGroundGameplay != null) highGroundGameplay.UpdateScoreUI(newScoreList);
 
