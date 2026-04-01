@@ -80,6 +80,12 @@ namespace PGroup
             if (scenario) Player.Instance?.Teleport(Vector3.zero, Vector3.zero, scenario.IsOwner);
             summaryUI.gameObject.SetActive(true);
 
+            Debug.Log(scoreList.Count);
+            foreach (var item in scoreList)
+            {
+                Debug.Log($"{item}");
+            }
+
             if (scenario.IsOwner)
             {
                 summaryUI.ShowSummary(scoreList, SendApi);
@@ -164,7 +170,13 @@ namespace PGroup
             LoginController loginController = FindAnyObjectByType<LoginController>();
             string role = loginController == null ? "" : loginController.GetPlayerRole();
 
+            if (string.IsNullOrEmpty(role))
+            {
+                role = PlayerPrefs.GetString("PlayerRole");
+            }
             Debug.Log("Role : " + role);
+
+            if (role == "Joiner Mode") return;
 
             string json = "";
             switch (scenarioIndex)
@@ -184,7 +196,7 @@ namespace PGroup
                             cleanse = details[3],
                         },
                         time_used_seconds = (int)timeUsed,
-                        remark = PlayerPrefs.GetString("PlayerRole")
+                        remark = role
                     };
                     json = JsonConvert.SerializeObject(body3);
                     break;
@@ -202,7 +214,7 @@ namespace PGroup
                             action_emergency = details[2]
                         },
                         time_used_seconds = (int)timeUsed,
-                        remark = PlayerPrefs.GetString("PlayerRole")
+                        remark = role
                     };
                     json = JsonConvert.SerializeObject(body4);
                     break;
