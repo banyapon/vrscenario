@@ -1,4 +1,5 @@
 using PGroup;
+using Pico.Platform.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Netcode;
@@ -25,6 +26,7 @@ public class Scenario : NetworkBehaviour
     [SerializeField] private GameplayController gameplayController;
     [SerializeField] private HighGroundGameplay highGroundGameplay;
     [SerializeField] private Follower follower;
+    public NetworkVariable<int> RoomId = new NetworkVariable<int>();
 
     private void Awake()
     {
@@ -48,11 +50,13 @@ public class Scenario : NetworkBehaviour
         Debug.Log(score);
         //Debug.Log($"[Local Log] Space Pressed! IsOwner: {IsOwner}, IsServer: {IsServer}, NetworkObjectId: {NetworkObjectId}");
         //Debug.Log($"Pressing Space - IsServer: {IsServer}, IsClient: {IsClient}, IsOwner: {IsOwner}");
-        ShowScoreServerRpc(score);
+        string roomID = RoomId.Value.ToString();
+        ShowScoreServerRpc(score, roomID);
     }
     public void SentTeleportToOther(Vector3 pos)
     {
-        TeleportServerRpc(pos);
+        string roomID = RoomId.Value.ToString();
+        TeleportServerRpc(pos, roomID);
     }
     public void RequestDestroy()
     {
@@ -264,18 +268,21 @@ public class Scenario : NetworkBehaviour
 
 
     [ServerRpc]
-    private void ShowScoreServerRpc(string score)
+    private void ShowScoreServerRpc(string score, string roomID)
     {
         //Debug.Log(gameplayController);
         Debug.Log(score);
-        if (gameplayController != null || highGroundGameplay != null) ShowScoreClientRpc(score);
+        if (gameplayController != null || highGroundGameplay != null) ShowScoreClientRpc(score, roomID);
         //Debug.Log("Pass");
     }
 
     [ClientRpc]
-    private void ShowScoreClientRpc(string score, ClientRpcParams rpcParams = default)
+    private void ShowScoreClientRpc(string score, string roomID, ClientRpcParams rpcParams = default)
     {
         //if (IsOwner) return;
+        Debug.Log(roomID);
+        Debug.Log(RoomId.Value.ToString());
+        if (roomID != RoomId.Value.ToString()) return;
         Debug.Log($"Inspector Get Score : {score}");
         List<bool> newScoreList = new List<bool>();
         newScoreList = score.Split(',').Select(s => s == "1").ToList();
@@ -297,15 +304,18 @@ public class Scenario : NetworkBehaviour
     }
 
     [ServerRpc]
-    private void TeleportServerRpc(Vector3 pos)
+    private void TeleportServerRpc(Vector3 pos,string roomID)
     {
-        TeleportClientRpc(pos);
+        TeleportClientRpc(pos, roomID);
     }
 
     [ClientRpc]
-    private void TeleportClientRpc(Vector3 pos)
+    private void TeleportClientRpc(Vector3 pos, string roomID)
     {
+        Debug.Log(roomID);
+        Debug.Log(RoomId.Value.ToString());
         if (IsHost) return;
+        if (roomID != RoomId.Value.ToString()) return;
         Player.Instance?.TeleportNonOwner(pos, Vector3.zero, IsOwner);
     }
 

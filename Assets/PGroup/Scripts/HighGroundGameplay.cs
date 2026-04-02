@@ -258,7 +258,7 @@ namespace PGroup
             summaryUI.gameObject.SetActive(false);
             uiCheckpoint1[0].SetActive(true);
             Player.Instance?.Teleport(positionEndgame.position, Vector3.zero, scenario.IsOwner);
-            scenario.SentTeleportToOther(Vector3.zero);
+            //scenario.SentTeleportToOther(Vector3.zero);
             scoreList.Clear();
             timeUsed = 0;
             currentLadderHook = 0;
