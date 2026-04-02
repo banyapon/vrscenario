@@ -309,16 +309,4 @@ public class Scenario : NetworkBehaviour
         Player.Instance?.TeleportNonOwner(pos, Vector3.zero, IsOwner);
     }
 
-    [ServerRpc]
-    private void NPCFollowPlayerServerRpc()
-    {
-        NPCFollowPlayerClientRpc();
-    }
-
-    [ClientRpc]
-    private void NPCFollowPlayerClientRpc()
-    {
-        //if (follower != null) follower.player = player;
-    }
-
 }
