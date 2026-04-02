@@ -32,7 +32,7 @@ public class Follower : MonoBehaviour
         {
             player.position = Player.Instance.transform.position;
         }
-        else if (scenario.IsHost && scenario.IsOwner && scenario.IsServer && scenario.IsClient)
+        else if (PlayerPrefs.GetString("PlayerRole") == "Single mode")
         {
             player.position = Player.Instance.transform.position;
         }

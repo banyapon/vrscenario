@@ -94,6 +94,8 @@ namespace PGroup
         [SerializeField] private Transform followerSecondLeft;
         [SerializeField] private Transform followerSecondRight;
 
+        [SerializeField] private GameObject npcGuide;
+        [SerializeField] private Transform topPos;
 
         private Tween delay = null;
         Scenario scenario;
@@ -256,6 +258,7 @@ namespace PGroup
             summaryUI.gameObject.SetActive(false);
             uiCheckpoint1[0].SetActive(true);
             Player.Instance?.Teleport(positionEndgame.position, Vector3.zero, scenario.IsOwner);
+            scenario.SentTeleportToOther(Vector3.zero);
             scoreList.Clear();
             timeUsed = 0;
             currentLadderHook = 0;
@@ -263,6 +266,8 @@ namespace PGroup
             ladder.SetActive(true);
             isClimbDown = false;
             scanPoint = 0;
+            npcGuide.SetActive(false);
+            npcGuide.SetActive(true);
 
             scanArea[0].SetActive(true);
             scanArea[1].SetActive(true);
@@ -524,6 +529,7 @@ namespace PGroup
         #region Checkpoint 3
         private void Checkpoint3Start()
         {
+            scenario.SentTeleportToOther(topPos.position);
             startPoint3.gameObject.SetActive(false);
             uiCheckpoint3[1].SetActive(true);
             delay?.Kill();
@@ -688,6 +694,7 @@ namespace PGroup
         #region Checkpoint 4
         private void Checkpoint4Start()
         {
+            scenario.SentTeleportToOther(Vector3.zero);
             movePoint4.gameObject.SetActive(false);
             ladders[16].transform.GetChild(0).gameObject.SetActive(true);
             hookLeft.SetFollower(null);
