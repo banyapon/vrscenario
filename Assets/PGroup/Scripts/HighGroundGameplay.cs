@@ -229,6 +229,7 @@ namespace PGroup
                 summaryUI.ShowSummary(scoreList, SendApi);
                 string listString = string.Join(",", scoreList.Select(b => b ? "1" : "0"));
                 Debug.Log($"Not Inspector Shoot Score : {listString}");
+                scenario.isScoreCall = true;
                 scenario.SentScoreToOther(listString);
             }
             //SendScoreAPI();
@@ -529,6 +530,7 @@ namespace PGroup
         #region Checkpoint 3
         private void Checkpoint3Start()
         {
+            scenario.isTeleportCall = true;
             scenario.SentTeleportToOther(topPos.position);
             startPoint3.gameObject.SetActive(false);
             uiCheckpoint3[1].SetActive(true);
@@ -694,6 +696,7 @@ namespace PGroup
         #region Checkpoint 4
         private void Checkpoint4Start()
         {
+            scenario.isTeleportCall = true;
             scenario.SentTeleportToOther(Vector3.zero);
             movePoint4.gameObject.SetActive(false);
             ladders[16].transform.GetChild(0).gameObject.SetActive(true);

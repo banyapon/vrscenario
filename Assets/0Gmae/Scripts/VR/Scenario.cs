@@ -26,7 +26,8 @@ public class Scenario : NetworkBehaviour
     [SerializeField] private GameplayController gameplayController;
     [SerializeField] private HighGroundGameplay highGroundGameplay;
     [SerializeField] private Follower follower;
-    public NetworkVariable<int> RoomId = new NetworkVariable<int>();
+    public bool isTeleportCall = false;
+    public bool isScoreCall = false;
 
     private void Awake()
     {
@@ -47,16 +48,13 @@ public class Scenario : NetworkBehaviour
 
     public void SentScoreToOther(string score)
     {
-        Debug.Log(score);
-        //Debug.Log($"[Local Log] Space Pressed! IsOwner: {IsOwner}, IsServer: {IsServer}, NetworkObjectId: {NetworkObjectId}");
-        //Debug.Log($"Pressing Space - IsServer: {IsServer}, IsClient: {IsClient}, IsOwner: {IsOwner}");
-        string roomID = RoomId.Value.ToString();
-        ShowScoreServerRpc(score, roomID);
+        if (!isScoreCall) return;
+        ShowScoreServerRpc(score);
     }
     public void SentTeleportToOther(Vector3 pos)
     {
-        string roomID = RoomId.Value.ToString();
-        TeleportServerRpc(pos, roomID);
+        if (!isTeleportCall) return;
+        TeleportServerRpc(pos);
     }
     public void RequestDestroy()
     {
@@ -268,55 +266,37 @@ public class Scenario : NetworkBehaviour
 
 
     [ServerRpc]
-    private void ShowScoreServerRpc(string score, string roomID)
+    private void ShowScoreServerRpc(string score)
     {
-        //Debug.Log(gameplayController);
-        Debug.Log(score);
-        if (gameplayController != null || highGroundGameplay != null) ShowScoreClientRpc(score, roomID);
-        //Debug.Log("Pass");
+        if (gameplayController != null || highGroundGameplay != null) ShowScoreClientRpc(score);
     }
 
     [ClientRpc]
-    private void ShowScoreClientRpc(string score, string roomID, ClientRpcParams rpcParams = default)
+    private void ShowScoreClientRpc(string score, ClientRpcParams rpcParams = default)
     {
-        //if (IsOwner) return;
-        Debug.Log(roomID);
-        Debug.Log(RoomId.Value.ToString());
-        if (roomID != RoomId.Value.ToString()) return;
+        Debug.Log("IsScoreCall" + isScoreCall);
         Debug.Log($"Inspector Get Score : {score}");
         List<bool> newScoreList = new List<bool>();
         newScoreList = score.Split(',').Select(s => s == "1").ToList();
-        foreach (var item in newScoreList)
-        {
-            Debug.Log(item);
-        }
         if (gameplayController != null) gameplayController.UpdateScoreUI(newScoreList);
         else if (highGroundGameplay != null) highGroundGameplay.UpdateScoreUI(newScoreList);
-
-        //Set UI Score
-        /*int count = 0;
-        for (int i = 0; i < newScoreList.Count; i++)
-        {
-            if (newScoreList[i]) count++;
-        }
-
-        scoreText.text = "" + ((count / newScoreList.Count) * 5).ToString("0.0");*/
+        isScoreCall = false;
     }
 
     [ServerRpc]
-    private void TeleportServerRpc(Vector3 pos,string roomID)
+    private void TeleportServerRpc(Vector3 pos)
     {
-        TeleportClientRpc(pos, roomID);
+        TeleportClientRpc(pos);
     }
 
     [ClientRpc]
-    private void TeleportClientRpc(Vector3 pos, string roomID)
+    private void TeleportClientRpc(Vector3 pos)
     {
-        Debug.Log(roomID);
-        Debug.Log(RoomId.Value.ToString());
+        Debug.Log("IsTeleportCall" + isTeleportCall);
         if (IsHost) return;
-        if (roomID != RoomId.Value.ToString()) return;
+        if (!isTeleportCall) return;
         Player.Instance?.TeleportNonOwner(pos, Vector3.zero, IsOwner);
+        isTeleportCall = false;
     }
 
 }
