@@ -15,7 +15,7 @@ namespace PGroup
             if (!other.CompareTag("Player")) return;
 
             activeObject.SetActive(true);
-            scenario.SentTeleportToOther(topPos.position);
+            //scenario.SentTeleportToOther(topPos.position);
         }
 
         private void OnTriggerExit(Collider other)
