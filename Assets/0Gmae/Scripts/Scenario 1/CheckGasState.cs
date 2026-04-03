@@ -9,6 +9,8 @@ public class CheckGasState : State
     public NPC npc;
     public Transform npcSpot1;
     public Transform npcSpot2;
+    public Ease easeDown = Ease.InCubic;
+    public Ease easeUp = Ease.OutSine;
 
     [Header("Fake Value")]
     public float o2Fake;
@@ -109,7 +111,7 @@ public class CheckGasState : State
         Transform spot = value > 0.45f ? npcSpot2 : npcSpot1;
         //duration = value > 0.45f ? 1.75f : 2f;
         duration = 1f;
-        Ease ease = value > 0.45f ? Ease.Linear : Ease.Linear;
+        Ease ease = value > 0.45f ? easeDown : easeUp;
         npc.transform.DORotate(spot.eulerAngles, duration)
             .SetLink(gameObject).SetEase(ease);
         npc.transform.DOMove(spot.position, duration)
