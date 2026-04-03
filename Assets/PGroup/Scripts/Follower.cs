@@ -18,14 +18,6 @@ public class Follower : MonoBehaviour
     [SerializeField] private Scenario scenario;
     [SerializeField] private GameObject walkingSound;
 
-    private void Start()
-    {
-        Debug.Log(VRNetworkController.Instance.inspector);
-        Debug.Log(scenario.IsHost);
-        Debug.Log(scenario.IsClient);
-        Debug.Log(scenario.IsOwner);
-        Debug.Log(scenario.IsServer);
-    }
     void Update()
     {
         if (player == null) return;

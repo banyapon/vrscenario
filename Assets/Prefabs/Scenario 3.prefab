@@ -12153,6 +12153,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BG Sound
       objectReference: {fileID: 0}
+    - target: {fileID: 3548375579160481027, guid: 4aec579fa36718440b96ac69b0ff0ec4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4641099031391653505, guid: 4aec579fa36718440b96ac69b0ff0ec4,
         type: 3}
       propertyPath: m_LocalPosition.x
