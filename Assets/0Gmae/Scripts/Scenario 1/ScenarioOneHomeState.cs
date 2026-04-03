@@ -109,6 +109,7 @@ public class ScenarioOneHomeState : State
 
     public void SetRopeAlpha(float alpha)
     {
+        if (ropeMatInstance == null) return;
         Color color = ropeMatInstance.color;
         color.a = alpha;
         ropeMatInstance.color = color;
