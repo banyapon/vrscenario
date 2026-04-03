@@ -37,13 +37,13 @@ public class Player : MonoBehaviour
         defaultEnableGravityOnClimbEnd = climbProvider.enableGravityOnClimbEnd;
     }
 
-    public void Teleport(Transform transform, bool isOwner)
+    public void Teleport(Transform transform)
     {
         if (transform == null) return;
-        Teleport(transform.localPosition, transform.localEulerAngles, isOwner);
+        Teleport(transform.localPosition, transform.localEulerAngles);
     }
 
-    public void Teleport(Vector3 position, Vector3 rotate, bool isOwner)
+    public void Teleport(Vector3 position, Vector3 rotate)
     {
         Debug.Log(position);
         //if (!isOwner) return;
@@ -63,12 +63,18 @@ public class Player : MonoBehaviour
     public void TeleportNonOwner(Vector3 position, Vector3 rotate, bool isOwner)
     {
         if (isOwner) return;
-        if (VRNetworkController.Instance != null && VRNetworkController.Instance.inspector)
-        {
-            position += Vector3.back * 0.5f;
-        }
-        transform.position = position;
-        transform.eulerAngles = rotate;
+        Teleport(position, rotate);
+    }
+    public void TeleportOwner(Transform transform, bool isOwner)
+    {
+        if (transform == null) return;
+        TeleportOwner(transform.localPosition, transform.localEulerAngles, isOwner);
+    }
+
+    public void TeleportOwner(Vector3 position, Vector3 rotate, bool isOwner)
+    {
+        if (!isOwner) return;
+        Teleport(position, rotate);
     }
     public void SetInspector(bool value)
     {

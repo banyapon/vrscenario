@@ -1,6 +1,6 @@
 using Boy;
 using DG.Tweening;
-using Unity.XR.PXR.Debugger;
+using Obi;
 using UnityEngine;
 
 public class ScenarioOneHomeState : State
@@ -17,6 +17,7 @@ public class ScenarioOneHomeState : State
     public Victims victims;
     public GameObject victims2;
     public Material ropeMaterial;
+    public ObiRopeExtrudedRenderer ropeExtrudedRenderer;
     public GameObject radio;
     public GameObject gasDetector;
     public GameObject wall;
@@ -25,12 +26,15 @@ public class ScenarioOneHomeState : State
     public GameObject ordinaryRope;
     public GameObject harness;
 
+    [HideInInspector] public Material ropeMatInstance;
     Tween delay;
     ResetToDefault radioResetter;
     ResetToDefault gasDetectorResetter;
     public override void Awake()
     {
         base.Awake();
+        ropeMatInstance = new Material(ropeMaterial);
+        ropeExtrudedRenderer.material = ropeMatInstance;
         radioResetter = radio.GetComponent<ResetToDefault>();
         gasDetectorResetter = gasDetector.GetComponent<ResetToDefault>();
     }
@@ -41,7 +45,7 @@ public class ScenarioOneHomeState : State
         Player player = Player.Instance;
         if (controller?.scenario)
         {
-            player?.Teleport(teleportTarget, controller.scenario.IsOwner);
+            player?.Teleport(teleportTarget);
             controller.scenario.RestartCount();
         }
 
@@ -100,8 +104,18 @@ public class ScenarioOneHomeState : State
         radioResetter?.ResetTransform();
         gasDetectorResetter?.ResetTransform();
 
-        Color color = ropeMaterial.color;
-        color.a = 0;
-        ropeMaterial.color = color;
+        SetRopeAlpha(0);
+    }
+
+    public void SetRopeAlpha(float alpha)
+    {
+        Color color = ropeMatInstance.color;
+        color.a = alpha;
+        ropeMatInstance.color = color;
+    }
+
+    private void OnDestroy()
+    {
+        if (ropeMatInstance != null) Destroy(ropeMatInstance);
     }
 }

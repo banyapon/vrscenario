@@ -221,7 +221,7 @@ namespace PGroup
             scoreList.Add(true);
             scoreList.Add(true);
             scoreList.Add(true);*/
-            if (scenario) Player.Instance?.Teleport(positionEndgame.position, Vector3.zero, scenario.IsOwner);
+            if (scenario) Player.Instance?.Teleport(positionEndgame.position, Vector3.zero);
             stateController.GotoState(0);
 
             summaryUI.gameObject.SetActive(true);
@@ -259,7 +259,7 @@ namespace PGroup
             npcDownRope.SetActive(false);
             summaryUI.gameObject.SetActive(false);
             uiCheckpoint1[0].SetActive(true);
-            Player.Instance?.Teleport(positionEndgame.position, Vector3.zero, scenario.IsOwner);
+            Player.Instance?.Teleport(positionEndgame.position, Vector3.zero);
             stateController.GotoState(0);
             //scenario.SentTeleportToOther(Vector3.zero);
             scoreList.Clear();

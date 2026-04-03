@@ -17,7 +17,7 @@ public class TeleportState : State
         Player player = Player.Instance;
         if (controller?.scenario)
         {
-            player?.Teleport(teleportTarget, controller.scenario.IsOwner);
+            player?.Teleport(teleportTarget);
         }
     }
 

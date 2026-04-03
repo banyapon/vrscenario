@@ -281,7 +281,7 @@ public class VRManager : NetworkBehaviour
         boardUI.SetActive(true);
         environment.SetActive(true);
         CurrentConfig = null;
-        Player.Instance?.Teleport(Vector3.zero, Vector3.zero, IsOwner);
+        Player.Instance?.TeleportOwner(Vector3.zero, Vector3.zero, IsOwner);
     }
 
     public void OpenMock() {

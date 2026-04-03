@@ -20,7 +20,7 @@ namespace Boy
             player = Player.Instance;
             if(player) playerTrans = player.transform;
 
-            SetRopeMaterials();
+            InitRopeMaterials();
         }
 
         private void OnEnable()
@@ -42,7 +42,7 @@ namespace Boy
 
         public void Show()
         {
-            SetRopeMaterials();
+            InitRopeMaterials();
             foreach (var hook in hooks)
             {
                 if (hook == null) continue;
@@ -57,7 +57,7 @@ namespace Boy
         }
         public void Hide()
         {
-            SetRopeMaterials();
+            InitRopeMaterials();
             foreach (var hook in hooks)
             {
                 if (hook == null) continue;
@@ -71,13 +71,22 @@ namespace Boy
             }
         }
 
-        public void SetRopeMaterials()
+        void InitRopeMaterials()
         {
             if (ropeMaterials.Count != 0) return;
+            ropeMaterials.Clear();
+
             foreach (var r in ropeRenderers)
             {
-                ropeMaterials.Add(r.material);
-                originalColor = r.material.color;
+                if (r == null) continue;
+
+                Material matInstance = new Material(r.material);
+
+                r.material = matInstance;
+
+                ropeMaterials.Add(matInstance);
+
+                originalColor = matInstance.color;
             }
         }
 
@@ -111,6 +120,15 @@ namespace Boy
             }
 
             return true;
+        }
+        private void OnDestroy()
+        {
+            foreach (var mat in ropeMaterials)
+            {
+                if (mat != null) Destroy(mat);
+            }
+
+            ropeMaterials.Clear();
         }
     }
 }

@@ -121,7 +121,7 @@ public class Scenario : NetworkBehaviour
             player?.SetJump(false);
             player?.SetGravity(true);
             //player?.SetTeleportation(false);
-            if (resetPlayerTransform) player?.Teleport(Vector3.zero, Vector3.zero, IsOwner);
+            if (resetPlayerTransform) player?.Teleport(Vector3.zero, Vector3.zero);
             StartCount();
         }
 

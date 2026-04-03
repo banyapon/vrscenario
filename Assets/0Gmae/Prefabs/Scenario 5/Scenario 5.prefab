@@ -1722,7 +1722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc485f4ca270272448956e01b7fafe2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: machine-sound_-859152
+  id: machine-sound_1130900
   playOnEnable: 1
 --- !u!82 &6295998783397321775
 AudioSource:
@@ -8373,7 +8373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc485f4ca270272448956e01b7fafe2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Bg Audio_-865560
+  id: Bg Audio_1131420
   playOnEnable: 1
 --- !u!82 &8354350662153873915
 AudioSource:
