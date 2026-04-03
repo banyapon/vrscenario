@@ -8,6 +8,8 @@ public class SecurityVerificationState : State
     public float delayChangeState = 2;
 
     [Header("Reference")]
+    public GameObject machineSound;
+    [Space(10)]
     public TriggerChecker startBtn;
     public TriggerChecker door;
     [Space(10)]
@@ -27,6 +29,7 @@ public class SecurityVerificationState : State
     {
         base.StateEnter();
         CloseHud();
+        machineSound.SetActive(false);
         door.enabled = true;
     }
 
@@ -59,6 +62,7 @@ public class SecurityVerificationState : State
     {
         SetEnableHandTrigger(false);
         correctHud.SetActive(true);
+        //machineSound.SetActive(true);
         isPass = true;
         controller.NextState(delayChangeState);
     }
