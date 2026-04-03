@@ -277,11 +277,22 @@ public class VRManager : NetworkBehaviour
 
     public void OpenBoardUI()
     {
-        //if (!IsOwner) return;
-        boardUI.SetActive(true);
-        environment.SetActive(true);
-        CurrentConfig = null;
-        Player.Instance?.TeleportOwner(Vector3.zero, Vector3.zero, IsOwner);
+        if (IsOwner)
+        {
+            boardUI.SetActive(true);
+            environment.SetActive(true);
+            CurrentConfig = null;
+            Player.Instance?.Teleport(Vector3.zero, Vector3.zero);
+        }
+
+        PlayerData[] playerDatas = FindObjectsByType<PlayerData>(FindObjectsSortMode.None);
+        foreach (var playerData in playerDatas)
+        {
+            if (playerData.IsInspector)
+            {
+                Player.Instance?.Teleport(Vector3.zero, Vector3.zero);
+            }
+        }
     }
 
     public void OpenMock() {

@@ -33,8 +33,8 @@ public class ScenarioOneHomeState : State
     public override void Awake()
     {
         base.Awake();
-        ropeMatInstance = new Material(ropeMaterial);
-        ropeExtrudedRenderer.material = ropeMatInstance;
+        //ropeMatInstance = new Material(ropeMaterial);
+        //ropeExtrudedRenderer.material = ropeMatInstance;
         radioResetter = radio.GetComponent<ResetToDefault>();
         gasDetectorResetter = gasDetector.GetComponent<ResetToDefault>();
     }
@@ -109,10 +109,55 @@ public class ScenarioOneHomeState : State
 
     public void SetRopeAlpha(float alpha)
     {
-        if (ropeMatInstance == null) return;
-        Color color = ropeMatInstance.color;
-        color.a = alpha;
-        ropeMatInstance.color = color;
+        print($"SetRopeAlpha: {ropeMaterial}");
+        bool codition = false;
+        PlayerData[] playerDatas = FindObjectsByType<PlayerData>(FindObjectsSortMode.None);
+        if (controller != null)
+        {
+            if (controller.IsOwner)
+            {
+                codition = true;
+            }
+            else if (controller.IsHost)
+            {
+                foreach (var playerData in playerDatas)
+                {
+                    if (playerData == null) continue;
+                    if (controller.OwnerClientId == playerData.OwnerClientId)
+                    {
+                        codition = true;
+                        break;
+                    }
+                }
+            }
+        }
+
+        foreach (var playerData in playerDatas)
+        {
+            if (playerData == null) continue;
+            if (playerData.IsInspector && playerData.IsOwner)
+            {
+                codition = true;
+                break;
+            }
+        }
+        if (codition)
+        {
+            print($"alpha: {alpha}");
+            if (ropeMaterial == null) return;
+            Color color = ropeMaterial.color;
+            color.a = alpha;
+            ropeMaterial.color = color;
+            print($"color: {ropeMaterial.color}");
+        }
+
+        //print($"SetRopeAlpha: {ropeMatInstance}");
+        //print($"alpha: {alpha}");
+        //if (ropeMatInstance == null) return;
+        //Color color = ropeMatInstance.color;
+        //color.a = alpha;
+        //ropeMatInstance.color = color;
+        //print($"color: {ropeMatInstance.color}");
     }
 
     private void OnDestroy()
