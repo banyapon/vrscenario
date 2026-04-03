@@ -26,8 +26,6 @@ public class Scenario : NetworkBehaviour
     [SerializeField] private GameplayController gameplayController;
     [SerializeField] private HighGroundGameplay highGroundGameplay;
     [SerializeField] private Follower follower;
-    public bool isTeleportCall = false;
-    public bool isScoreCall = false;
 
     private void Awake()
     {
@@ -48,23 +46,16 @@ public class Scenario : NetworkBehaviour
 
     public void SentScoreToOther(string score)
     {
-        if (!isScoreCall) return;
         ShowScoreServerRpc(score);
     }
     public void SentTeleportToOther(Vector3 pos)
     {
-        if (!isTeleportCall) return;
         TeleportServerRpc(pos);
     }
     public void RequestDestroy()
     {
         if (!IsOwner) return;
         RequestDestroyServerRpc();
-    }
-    public void SetFollower(Transform _player)
-    {
-        if (!IsOwner) return;
-        //NPCFollowPlayerServerRpc(_player);
     }
 
     [ServerRpc]
@@ -274,13 +265,11 @@ public class Scenario : NetworkBehaviour
     [ClientRpc]
     private void ShowScoreClientRpc(string score, ClientRpcParams rpcParams = default)
     {
-        Debug.Log("IsScoreCall" + isScoreCall);
         Debug.Log($"Inspector Get Score : {score}");
         List<bool> newScoreList = new List<bool>();
         newScoreList = score.Split(',').Select(s => s == "1").ToList();
         if (gameplayController != null) gameplayController.UpdateScoreUI(newScoreList);
         else if (highGroundGameplay != null) highGroundGameplay.UpdateScoreUI(newScoreList);
-        isScoreCall = false;
     }
 
     [ServerRpc]
@@ -290,13 +279,10 @@ public class Scenario : NetworkBehaviour
     }
 
     [ClientRpc]
-    private void TeleportClientRpc(Vector3 pos)
+    private void TeleportClientRpc(Vector3 pos, ClientRpcParams rpcParams = default)
     {
-        Debug.Log("IsTeleportCall" + isTeleportCall);
         if (IsHost) return;
-        if (!isTeleportCall) return;
         Player.Instance?.TeleportNonOwner(pos, Vector3.zero, IsOwner);
-        isTeleportCall = false;
     }
 
 }

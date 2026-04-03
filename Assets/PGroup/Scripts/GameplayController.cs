@@ -91,7 +91,6 @@ namespace PGroup
                 summaryUI.ShowSummary(scoreList, SendApi);
                 string listString = string.Join(",", scoreList.Select(b => b ? "1" : "0"));
                 Debug.Log($"Not Inspector Shoot Score : {listString}");
-                scenario.isScoreCall = true;
                 scenario.SentScoreToOther(listString);
             }
         }
