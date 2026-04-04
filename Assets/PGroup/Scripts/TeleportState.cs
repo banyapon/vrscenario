@@ -14,6 +14,11 @@ public class TeleportState : State
     public override void StateEnter()
     {
         base.StateEnter();
+        //if (!VRNetworkController.Instance.inspector) return;
+        Debug.Log(VRNetworkController.Instance.playerId);
+        Debug.Log(controller?.scenario.OwnerClientId);
+        Debug.Log(controller?.scenario.NetworkObjectId);
+        Debug.Log(controller?.scenario.NetworkBehaviourId);
         Player player = Player.Instance;
         if (controller?.scenario)
         {

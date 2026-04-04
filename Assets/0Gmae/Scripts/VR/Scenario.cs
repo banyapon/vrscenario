@@ -285,4 +285,5 @@ public class Scenario : NetworkBehaviour
         Player.Instance?.TeleportNonOwner(pos, Vector3.zero, IsOwner);
     }
 
+
 }

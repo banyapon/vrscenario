@@ -98,6 +98,8 @@ namespace PGroup
         [SerializeField] private Transform topPos;
         public StateController stateController;
 
+        [SerializeField] private GameObject TeleportForInspector;
+
         private Tween delay = null;
         Scenario scenario;
         private void Awake()
@@ -175,6 +177,8 @@ namespace PGroup
             //=================================================================Test======================================================================
 
             Checkpoint1Start();
+
+            if (VRNetworkController.Instance.inspector) TeleportForInspector.SetActive(true);
         }
         private void Update()
         {
@@ -222,7 +226,7 @@ namespace PGroup
             scoreList.Add(true);
             scoreList.Add(true);*/
             if (scenario) Player.Instance?.Teleport(positionEndgame.position, Vector3.zero, scenario.IsOwner);
-            stateController.GotoState(0);
+            //stateController.GotoState(0);
 
             summaryUI.gameObject.SetActive(true);
 
@@ -260,7 +264,7 @@ namespace PGroup
             summaryUI.gameObject.SetActive(false);
             uiCheckpoint1[0].SetActive(true);
             Player.Instance?.Teleport(positionEndgame.position, Vector3.zero, scenario.IsOwner);
-            stateController.GotoState(0);
+            //stateController.GotoState(0);
             //scenario.SentTeleportToOther(Vector3.zero);
             scoreList.Clear();
             timeUsed = 0;
@@ -317,6 +321,9 @@ namespace PGroup
         {
             if (scoreList.Count == 0) scoreList.Add(value);
             if (!value) return;
+
+            //stateController.GotoState(1);
+
             uiCheckpoint1[2].SetActive(false);
             uiCheckpoint1[3].SetActive(true);
             uiCheckpoint1[4].SetActive(true);
@@ -534,7 +541,7 @@ namespace PGroup
         {
             //scenario.isTeleportCall = true;
             //scenario.SentTeleportToOther(topPos.position);
-            stateController.GotoState(1);
+            //stateController.GotoState(1);
             startPoint3.gameObject.SetActive(false);
             uiCheckpoint3[1].SetActive(true);
             delay?.Kill();
@@ -701,7 +708,7 @@ namespace PGroup
         {
             //scenario.isTeleportCall = true;
             //scenario.SentTeleportToOther(Vector3.zero);
-            stateController.GotoState(0);
+            //stateController.GotoState(0);
             movePoint4.gameObject.SetActive(false);
             ladders[16].transform.GetChild(0).gameObject.SetActive(true);
             hookLeft.SetFollower(null);
