@@ -84,6 +84,7 @@ namespace PGroup
 
         public void ButtonSafeArea(int num)
         {
+            wrongSafeArea.SetActive(false);
             if (currentSafeArea >= 3) return;
             switch (num)
             {
