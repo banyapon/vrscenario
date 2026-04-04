@@ -290,8 +290,11 @@ public class VRManager : NetworkBehaviour
             return;
         }
 
-        if (VRNetworkController.Instance.inspector &&
-            TrainingPlayerList.Instance.selectedClientId == id)
+        VRNetworkController vRNetworkController = VRNetworkController.Instance;
+        TrainingPlayerList trainingPlayerList = TrainingPlayerList.Instance;
+        if (!vRNetworkController || !trainingPlayerList) return;
+        if (vRNetworkController.inspector &&
+            trainingPlayerList.selectedClientId == id)
         {
             Player.Instance?.Teleport(Vector3.zero, Vector3.zero);
         }
