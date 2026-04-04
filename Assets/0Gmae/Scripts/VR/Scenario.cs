@@ -143,7 +143,7 @@ public class Scenario : NetworkBehaviour
     void OnDespawn()
     {
         ClearGrabObject();
-        GetVRManager()?.OpenBoardUI();
+        GetVRManager()?.OpenBoardUI(OwnerClientId);
         player?.SetJump(true);
         StopCount();
         //player?.SetTeleportation(true);

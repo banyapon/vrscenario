@@ -275,7 +275,7 @@ public class VRManager : NetworkBehaviour
         }
     }
 
-    public void OpenBoardUI()
+    public void OpenBoardUI(ulong id)
     {
         if (IsOwner)
         {
@@ -283,15 +283,13 @@ public class VRManager : NetworkBehaviour
             environment.SetActive(true);
             CurrentConfig = null;
             Player.Instance?.Teleport(Vector3.zero, Vector3.zero);
+            return;
         }
 
-        PlayerData[] playerDatas = FindObjectsByType<PlayerData>(FindObjectsSortMode.None);
-        foreach (var playerData in playerDatas)
+        if (VRNetworkController.Instance.inspector &&
+            TrainingPlayerList.Instance.selectedClientId == id)
         {
-            if (playerData.IsInspector)
-            {
-                Player.Instance?.Teleport(Vector3.zero, Vector3.zero);
-            }
+            Player.Instance?.Teleport(Vector3.zero, Vector3.zero);
         }
     }
 
