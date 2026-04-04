@@ -9,6 +9,7 @@ using UnityEngine.XR.Interaction.Toolkit.UI;
 
 public class VRManager : NetworkBehaviour
 {
+    public bool isMute = true;
     //[Header("Camera")]
     [SerializeField] private GameObject playerMock;
     [SerializeField] private GameObject headMock;
@@ -18,6 +19,7 @@ public class VRManager : NetworkBehaviour
     [Header("Scenario")]
     public GameObject boardUI;
     public GameObject environment;
+    public GameObject lobbyRoom;
     public Button startBtn;
     public Button disconnectBtn;
     [SerializeField] private ScenarioConfig[] scenarioConfigs;
@@ -65,7 +67,7 @@ public class VRManager : NetworkBehaviour
         startBtn.onClick.AddListener(() => {
             if (currentConfig.scenarioPrefab == null) return;
             boardUI.SetActive(false);
-            environment.SetActive(false);
+            lobbyRoom.SetActive(false);
             int index = scenarioConfigs.ToList().IndexOf(currentConfig);
             SpawnScenarioServerRpc(index);
         });
@@ -91,7 +93,7 @@ public class VRManager : NetworkBehaviour
         netObj.SpawnAsPlayerObject(OwnerClientId, true);
 
         boardUI.SetActive(false);
-        environment.SetActive(false);
+        lobbyRoom.SetActive(false);
 
         CCTVController cctv = CCTVController.Instance;
         if ((IsServer || IsHost) && cctv != null)
@@ -137,6 +139,7 @@ public class VRManager : NetworkBehaviour
                 if (IsOwner)
                 {
                     boardUI.SetActive(false);
+                    lobbyRoom.SetActive(true);
                     environment.SetActive(true);
 
                     //bool openEnvironment = true;
@@ -255,6 +258,7 @@ public class VRManager : NetworkBehaviour
 
     public void SetMute(bool value)
     {
+        isMute = value;
         RemoveNullSyncAudio();
         foreach (var item in syncAudioList)
         {
@@ -275,13 +279,25 @@ public class VRManager : NetworkBehaviour
         }
     }
 
-    public void OpenBoardUI()
+    public void OpenBoardUI(ulong id)
     {
-        //if (!IsOwner) return;
-        boardUI.SetActive(true);
-        environment.SetActive(true);
-        CurrentConfig = null;
-        Player.Instance?.Teleport(Vector3.zero, Vector3.zero, IsOwner);
+        if (IsOwner)
+        {
+            boardUI.SetActive(true);
+            lobbyRoom.SetActive(true);
+            CurrentConfig = null;
+            Player.Instance?.Teleport(Vector3.zero, Vector3.zero);
+            return;
+        }
+
+        VRNetworkController vRNetworkController = VRNetworkController.Instance;
+        TrainingPlayerList trainingPlayerList = TrainingPlayerList.Instance;
+        if (!vRNetworkController || !trainingPlayerList) return;
+        if (vRNetworkController.inspector &&
+            trainingPlayerList.selectedClientId == id)
+        {
+            Player.Instance?.Teleport(Vector3.zero, Vector3.zero);
+        }
     }
 
     public void OpenMock() {

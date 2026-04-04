@@ -173,7 +173,8 @@ public class Viewer : MonoBehaviour
 
     public void SetAudio(bool value)
     {
-        GetVRManager()?.SetMute(value);
+        VRManager vRManager = GetVRManager();
+        vRManager?.SetMute(value);
     }
 
     VRManager GetVRManager()

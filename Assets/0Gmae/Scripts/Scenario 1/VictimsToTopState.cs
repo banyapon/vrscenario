@@ -6,17 +6,15 @@ public class VictimsToTopState : State
 {
     [Space(20)]
     public GameObject victims2;
-    public Material ropeMaterial;
+    public ScenarioOneHomeState homeStat;
     public AnimationClip pullUpClip;
     public GameObject reachedTopHUD;
 
-    Color originalColor;
     HUDState hUDState;
 
     public override void Awake()
     {
         base.Awake();
-        originalColor = ropeMaterial.color;
         hUDState = GetComponent<HUDState>();
     }
 
@@ -24,13 +22,18 @@ public class VictimsToTopState : State
     {
         base.StateEnter();
         victims2.SetActive(true);
-        originalColor.a = 1;
-        ropeMaterial.color = originalColor;
+        if (controller)
+        {
+            print($"CurrentState: {controller.GetCurrentState().name}");
+            if (controller.GetCurrentState() == this)
+            {
+                homeStat.SetRopeAlpha(1);
+            }
+        }
         DOVirtual.DelayedCall(pullUpClip.length, () =>
         {
             victims2.SetActive(false);
-            originalColor.a = 0;
-            ropeMaterial.color = originalColor;
+            homeStat.SetRopeAlpha(0);
             hUDState.OpenHud(reachedTopHUD, () =>
             {
                 controller.NextState();
@@ -46,7 +49,6 @@ public class VictimsToTopState : State
     {
         base.StateExit();
         victims2.SetActive(false);
-        originalColor.a = 0;
-        ropeMaterial.color = originalColor;
+        homeStat.SetRopeAlpha(0);
     }
 }

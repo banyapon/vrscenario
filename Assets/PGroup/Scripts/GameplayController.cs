@@ -77,7 +77,7 @@ namespace PGroup
         private void EndScenario()
         {
             onPlaying = false;
-            if (scenario) Player.Instance?.Teleport(Vector3.zero, Vector3.zero, scenario.IsOwner);
+            if (scenario) Player.Instance?.Teleport(Vector3.zero, Vector3.zero);
             summaryUI.gameObject.SetActive(true);
 
             Debug.Log(scoreList.Count);

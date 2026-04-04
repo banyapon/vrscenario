@@ -68,8 +68,7 @@ public class SyncAudioController : NetworkBehaviour
     void RegisterAllMarkers()
     {
         var all = GetComponentsInChildren<AudioSyncMarker>(true);
-        foreach (var m in all)
-            RegisterMarker(m);
+        foreach (var m in all) RegisterMarker(m);
     }
 
     #endregion
@@ -85,6 +84,7 @@ public class SyncAudioController : NetworkBehaviour
                 id = marker.Id,
                 marker = marker
             };
+            marker.SetMute(isMuted);
         }
     }
 
@@ -104,7 +104,7 @@ public class SyncAudioController : NetworkBehaviour
 
     public void SetMute(bool value)
     {
-        if (isMuted == value) return;
+        //if (isMuted == value) return;
 
         isMuted = value;
 

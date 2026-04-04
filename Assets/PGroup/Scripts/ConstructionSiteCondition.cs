@@ -1,4 +1,5 @@
 using System;
+using Boy;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
@@ -36,7 +37,6 @@ namespace PGroup
         private int currentSafeArea;
         private bool checkPoint3Done;
         private bool ambulanceDone;
-
 
         private void Awake()
         {
@@ -84,6 +84,7 @@ namespace PGroup
 
         public void ButtonSafeArea(int num)
         {
+            wrongSafeArea.SetActive(false);
             if (currentSafeArea >= 3) return;
             switch (num)
             {

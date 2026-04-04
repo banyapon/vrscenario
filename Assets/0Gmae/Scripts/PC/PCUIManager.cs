@@ -240,7 +240,6 @@ public class PCUIManager : MonoBehaviour
         UpdateOtherCamera();
         userNameText.text = viewer.userNameText.text;
         viewerUI.SetActive(true);
-        activeViewer.SetAudio(isMute);
     }
 
     public void CloseViewer()

@@ -1,4 +1,5 @@
 using PGroup;
+using Pico.Platform.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Netcode;
@@ -45,9 +46,6 @@ public class Scenario : NetworkBehaviour
 
     public void SentScoreToOther(string score)
     {
-        Debug.Log(score);
-        //Debug.Log($"[Local Log] Space Pressed! IsOwner: {IsOwner}, IsServer: {IsServer}, NetworkObjectId: {NetworkObjectId}");
-        //Debug.Log($"Pressing Space - IsServer: {IsServer}, IsClient: {IsClient}, IsOwner: {IsOwner}");
         ShowScoreServerRpc(score);
     }
     public void SentTeleportToOther(Vector3 pos)
@@ -58,11 +56,6 @@ public class Scenario : NetworkBehaviour
     {
         if (!IsOwner) return;
         RequestDestroyServerRpc();
-    }
-    public void SetFollower(Transform _player)
-    {
-        if (!IsOwner) return;
-        //NPCFollowPlayerServerRpc(_player);
     }
 
     [ServerRpc]
@@ -128,7 +121,7 @@ public class Scenario : NetworkBehaviour
             player?.SetJump(false);
             player?.SetGravity(true);
             //player?.SetTeleportation(false);
-            if (resetPlayerTransform) player?.Teleport(Vector3.zero, Vector3.zero, IsOwner);
+            if (resetPlayerTransform) player?.Teleport(Vector3.zero, Vector3.zero);
             StartCount();
         }
 
@@ -138,7 +131,9 @@ public class Scenario : NetworkBehaviour
             if (manager != null)
             {
                 manager.AppendAndSyncCameras(allCamera);
-                manager.syncAudioList.Add(GetComponent<SyncAudioController>());
+                SyncAudioController syncAudioController = GetComponent<SyncAudioController>();
+                syncAudioController.SetMute(manager.isMute);
+                manager.syncAudioList.Add(syncAudioController);
             }
         }
     }
@@ -150,7 +145,7 @@ public class Scenario : NetworkBehaviour
     void OnDespawn()
     {
         ClearGrabObject();
-        GetVRManager()?.OpenBoardUI();
+        GetVRManager()?.OpenBoardUI(OwnerClientId);
         player?.SetJump(true);
         StopCount();
         //player?.SetTeleportation(true);
@@ -266,34 +261,17 @@ public class Scenario : NetworkBehaviour
     [ServerRpc]
     private void ShowScoreServerRpc(string score)
     {
-        //Debug.Log(gameplayController);
-        Debug.Log(score);
         if (gameplayController != null || highGroundGameplay != null) ShowScoreClientRpc(score);
-        //Debug.Log("Pass");
     }
 
     [ClientRpc]
     private void ShowScoreClientRpc(string score, ClientRpcParams rpcParams = default)
     {
-        //if (IsOwner) return;
         Debug.Log($"Inspector Get Score : {score}");
         List<bool> newScoreList = new List<bool>();
         newScoreList = score.Split(',').Select(s => s == "1").ToList();
-        foreach (var item in newScoreList)
-        {
-            Debug.Log(item);
-        }
         if (gameplayController != null) gameplayController.UpdateScoreUI(newScoreList);
         else if (highGroundGameplay != null) highGroundGameplay.UpdateScoreUI(newScoreList);
-
-        //Set UI Score
-        /*int count = 0;
-        for (int i = 0; i < newScoreList.Count; i++)
-        {
-            if (newScoreList[i]) count++;
-        }
-
-        scoreText.text = "" + ((count / newScoreList.Count) * 5).ToString("0.0");*/
     }
 
     [ServerRpc]
@@ -303,10 +281,11 @@ public class Scenario : NetworkBehaviour
     }
 
     [ClientRpc]
-    private void TeleportClientRpc(Vector3 pos)
+    private void TeleportClientRpc(Vector3 pos, ClientRpcParams rpcParams = default)
     {
         if (IsHost) return;
         Player.Instance?.TeleportNonOwner(pos, Vector3.zero, IsOwner);
     }
+
 
 }

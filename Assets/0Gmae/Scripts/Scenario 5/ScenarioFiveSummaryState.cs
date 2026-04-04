@@ -25,7 +25,7 @@ public class ScenarioFiveSummaryState : State
 
         if (controller?.scenario)
         {
-            Player.Instance?.Teleport(teleportTarget, controller.scenario.IsOwner);
+            Player.Instance?.Teleport(teleportTarget);
             controller.scenario.StopCount();
         }
 

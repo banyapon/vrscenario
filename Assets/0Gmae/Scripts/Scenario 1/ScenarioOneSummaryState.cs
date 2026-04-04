@@ -57,7 +57,7 @@ public class ScenarioOneSummaryState : State
         lid.layer = 0;
         if (controller?.scenario)
         {
-            player?.Teleport(teleportTarget, controller.scenario.IsOwner);
+            player?.Teleport(teleportTarget);
             controller.scenario.StopCount();
         }
 

@@ -21,6 +21,8 @@ public class LOTOState : State
     };
 
     [Header("Reference")]
+    public GameObject machineSound;
+    [Space(10)]
     public Transform mainSwitchTrans;
     public Transform mainSwitchTrans2;
     [Space(10)]
@@ -91,6 +93,8 @@ public class LOTOState : State
 
     public void ResetSequence()
     {
+        machineSound.SetActive(true);
+
         pressedSequence.Clear();
         pressedSteps.Clear();
 
@@ -176,6 +180,7 @@ public class LOTOState : State
     void OnStopBtn()
     {
         stopBtn.enabled = false;
+        machineSound.SetActive(false);
         PressStep(LOTOStep.StopButton);
     }
     void OnEmergencyBtn()

@@ -1,6 +1,6 @@
 using Boy;
 using DG.Tweening;
-using Unity.XR.PXR.Debugger;
+using Obi;
 using UnityEngine;
 
 public class ScenarioOneHomeState : State
@@ -17,6 +17,7 @@ public class ScenarioOneHomeState : State
     public Victims victims;
     public GameObject victims2;
     public Material ropeMaterial;
+    public ObiRopeExtrudedRenderer ropeExtrudedRenderer;
     public GameObject radio;
     public GameObject gasDetector;
     public GameObject wall;
@@ -25,12 +26,15 @@ public class ScenarioOneHomeState : State
     public GameObject ordinaryRope;
     public GameObject harness;
 
+    [HideInInspector] public Material ropeMatInstance;
     Tween delay;
     ResetToDefault radioResetter;
     ResetToDefault gasDetectorResetter;
     public override void Awake()
     {
         base.Awake();
+        //ropeMatInstance = new Material(ropeMaterial);
+        //ropeExtrudedRenderer.material = ropeMatInstance;
         radioResetter = radio.GetComponent<ResetToDefault>();
         gasDetectorResetter = gasDetector.GetComponent<ResetToDefault>();
     }
@@ -41,7 +45,7 @@ public class ScenarioOneHomeState : State
         Player player = Player.Instance;
         if (controller?.scenario)
         {
-            player?.Teleport(teleportTarget, controller.scenario.IsOwner);
+            player?.Teleport(teleportTarget);
             controller.scenario.RestartCount();
         }
 
@@ -100,8 +104,66 @@ public class ScenarioOneHomeState : State
         radioResetter?.ResetTransform();
         gasDetectorResetter?.ResetTransform();
 
-        Color color = ropeMaterial.color;
-        color.a = 0;
-        ropeMaterial.color = color;
+        SetRopeAlpha(0);
+    }
+
+    public void SetRopeAlpha(float alpha)
+    {
+        print($"SetRopeAlpha: {ropeMaterial}");
+        bool codition = false;
+        PlayerData[] playerDatas = FindObjectsByType<PlayerData>(FindObjectsSortMode.None);
+        if (controller != null)
+        {
+            if (controller.IsOwner)
+            {
+                codition = true;
+            }
+            else if (controller.IsHost)
+            {
+                foreach (var playerData in playerDatas)
+                {
+                    if (playerData == null) continue;
+                    if (controller.OwnerClientId == playerData.OwnerClientId)
+                    {
+                        codition = true;
+                        break;
+                    }
+                }
+            }
+        }
+
+        foreach (var playerData in playerDatas)
+        {
+            if (playerData == null) continue;
+            if (playerData.IsInspector && playerData.IsOwner)
+            {
+                codition = true;
+                break;
+            }
+        }
+        if (codition)
+        {
+            //print($"alpha: {alpha}");
+            //if (ropeMaterial == null) return;
+            //Color color = ropeMaterial.color;
+            //color.a = alpha;
+            //ropeMaterial.color = color;
+            //print($"color: {ropeMaterial.color}");
+            if (ropeExtrudedRenderer == null) return;
+            ropeExtrudedRenderer.enabled = alpha > 0.9f;
+        }
+
+        //print($"SetRopeAlpha: {ropeMatInstance}");
+        //print($"alpha: {alpha}");
+        //if (ropeMatInstance == null) return;
+        //Color color = ropeMatInstance.color;
+        //color.a = alpha;
+        //ropeMatInstance.color = color;
+        //print($"color: {ropeMatInstance.color}");
+    }
+
+    private void OnDestroy()
+    {
+        if (ropeMatInstance != null) Destroy(ropeMatInstance);
     }
 }

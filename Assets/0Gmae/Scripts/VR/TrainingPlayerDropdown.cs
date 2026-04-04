@@ -251,11 +251,12 @@ public class TrainingPlayerDropdown : MonoBehaviour
             FindObjectsSortMode.None
         );
 
+        print($"targetId: {targetId}, foundScenario: {foundScenario}");
         foreach (VRManager manager in managers)
         {
             if (manager.IsOwner)
             {
-                manager.environment.SetActive(false);
+                manager.lobbyRoom.SetActive(false);
             }
 
             if (manager.OwnerClientId == targetId)

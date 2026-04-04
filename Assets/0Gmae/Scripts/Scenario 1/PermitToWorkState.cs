@@ -77,7 +77,7 @@ public class PermitToWorkState : State
     public override void StateEnter()
     {
         base.StateEnter();
-        if (controller?.scenario) player?.Teleport(teleportTarget, controller.scenario.IsOwner);
+        if (controller?.scenario) player?.Teleport(teleportTarget);
         workPermitPaper.SetActive(false);
         ShowButtonGroup();
 
