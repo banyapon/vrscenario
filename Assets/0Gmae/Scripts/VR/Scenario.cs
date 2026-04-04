@@ -131,7 +131,9 @@ public class Scenario : NetworkBehaviour
             if (manager != null)
             {
                 manager.AppendAndSyncCameras(allCamera);
-                manager.syncAudioList.Add(GetComponent<SyncAudioController>());
+                SyncAudioController syncAudioController = GetComponent<SyncAudioController>();
+                syncAudioController.SetMute(manager.isMute);
+                manager.syncAudioList.Add(syncAudioController);
             }
         }
     }

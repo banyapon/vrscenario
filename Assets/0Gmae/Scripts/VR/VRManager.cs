@@ -9,6 +9,7 @@ using UnityEngine.XR.Interaction.Toolkit.UI;
 
 public class VRManager : NetworkBehaviour
 {
+    public bool isMute = true;
     //[Header("Camera")]
     [SerializeField] private GameObject playerMock;
     [SerializeField] private GameObject headMock;
@@ -257,6 +258,7 @@ public class VRManager : NetworkBehaviour
 
     public void SetMute(bool value)
     {
+        isMute = value;
         RemoveNullSyncAudio();
         foreach (var item in syncAudioList)
         {

@@ -13,9 +13,7 @@ public class AudioSyncMarker : SyncMarker
     {
         base.Awake();
 
-        source = GetComponent<AudioSource>();
-        if (!source)
-            source = gameObject.AddComponent<AudioSource>();
+        SetAudioSource();
 
         source.playOnAwake = false;
         controller = GetComponentInParent<SyncAudioController>();
@@ -60,10 +58,8 @@ public class AudioSyncMarker : SyncMarker
     {
         if (source == null)
         {
+            SetAudioSource();
             Debug.LogWarning($"AudioSource NULL on {name}");
-            source = GetComponent<AudioSource>();
-            if (source == null)
-                source = gameObject.AddComponent<AudioSource>();
         }
 
         switch (state)
@@ -77,8 +73,15 @@ public class AudioSyncMarker : SyncMarker
 
     public void SetMute(bool value)
     {
+        SetAudioSource();
         if (source) source.mute = value;
     }
 
     #endregion
+
+    void SetAudioSource()
+    {
+        if (!source) source = GetComponent<AudioSource>();
+        if (!source) source = gameObject.AddComponent<AudioSource>();
+    }
 }
