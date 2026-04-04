@@ -88,6 +88,10 @@ namespace Boy
         {
             return states[index];
         }
+        public State GetCurrentState()
+        {
+            return states[currentState];
+        }
 
         public bool CheckIndexValid(int index)
         {
