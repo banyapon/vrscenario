@@ -143,12 +143,14 @@ public class ScenarioOneHomeState : State
         }
         if (codition)
         {
-            print($"alpha: {alpha}");
-            if (ropeMaterial == null) return;
-            Color color = ropeMaterial.color;
-            color.a = alpha;
-            ropeMaterial.color = color;
-            print($"color: {ropeMaterial.color}");
+            //print($"alpha: {alpha}");
+            //if (ropeMaterial == null) return;
+            //Color color = ropeMaterial.color;
+            //color.a = alpha;
+            //ropeMaterial.color = color;
+            //print($"color: {ropeMaterial.color}");
+            if (ropeExtrudedRenderer == null) return;
+            ropeExtrudedRenderer.enabled = alpha > 0.9f;
         }
 
         //print($"SetRopeAlpha: {ropeMatInstance}");

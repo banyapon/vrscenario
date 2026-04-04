@@ -17705,7 +17705,6 @@ MonoBehaviour:
   stateCanvas: {fileID: 0}
   nextButton: {fileID: 0}
   nextState: {fileID: 0}
-  clip: {fileID: 7400000, guid: 3128c6cb374b16745bcdf4ac8df58042, type: 2}
   animator: {fileID: 6003218574414155557}
   duration: 7.5
   npcSpot1: {fileID: 501022405603386543}
@@ -24107,9 +24106,9 @@ MonoBehaviour:
   currentState: -1
   states:
   - {fileID: 8090793036042892391}
-  - {fileID: 7273970885493650675}
   - {fileID: 383547106271905676}
   - {fileID: 3289389565417894654}
+  - {fileID: 7273970885493650675}
   - {fileID: 3372842046130766986}
   - {fileID: 5554893299716269950}
   - {fileID: 1444154394875421048}

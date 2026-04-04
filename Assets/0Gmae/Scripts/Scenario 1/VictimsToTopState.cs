@@ -22,7 +22,14 @@ public class VictimsToTopState : State
     {
         base.StateEnter();
         victims2.SetActive(true);
-        homeStat.SetRopeAlpha(1);
+        if (controller)
+        {
+            print($"CurrentState: {controller.GetCurrentState().name}");
+            if (controller.GetCurrentState() == this)
+            {
+                homeStat.SetRopeAlpha(1);
+            }
+        }
         DOVirtual.DelayedCall(pullUpClip.length, () =>
         {
             victims2.SetActive(false);
