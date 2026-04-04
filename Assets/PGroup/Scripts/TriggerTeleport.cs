@@ -9,7 +9,7 @@ namespace PGroup
         {
             if (other.GetComponent<Player>())
             {
-                Player.Instance.Teleport(toPos, true);
+                Player.Instance.Teleport(toPos);
             }
         }
     }
