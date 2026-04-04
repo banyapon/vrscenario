@@ -18,6 +18,7 @@ public class VRManager : NetworkBehaviour
     [Header("Scenario")]
     public GameObject boardUI;
     public GameObject environment;
+    public GameObject lobbyRoom;
     public Button startBtn;
     public Button disconnectBtn;
     [SerializeField] private ScenarioConfig[] scenarioConfigs;
@@ -65,7 +66,7 @@ public class VRManager : NetworkBehaviour
         startBtn.onClick.AddListener(() => {
             if (currentConfig.scenarioPrefab == null) return;
             boardUI.SetActive(false);
-            environment.SetActive(false);
+            lobbyRoom.SetActive(false);
             int index = scenarioConfigs.ToList().IndexOf(currentConfig);
             SpawnScenarioServerRpc(index);
         });
@@ -91,7 +92,7 @@ public class VRManager : NetworkBehaviour
         netObj.SpawnAsPlayerObject(OwnerClientId, true);
 
         boardUI.SetActive(false);
-        environment.SetActive(false);
+        lobbyRoom.SetActive(false);
 
         CCTVController cctv = CCTVController.Instance;
         if ((IsServer || IsHost) && cctv != null)
@@ -137,6 +138,7 @@ public class VRManager : NetworkBehaviour
                 if (IsOwner)
                 {
                     boardUI.SetActive(false);
+                    lobbyRoom.SetActive(true);
                     environment.SetActive(true);
 
                     //bool openEnvironment = true;
@@ -280,7 +282,7 @@ public class VRManager : NetworkBehaviour
         if (IsOwner)
         {
             boardUI.SetActive(true);
-            environment.SetActive(true);
+            lobbyRoom.SetActive(true);
             CurrentConfig = null;
             Player.Instance?.Teleport(Vector3.zero, Vector3.zero);
             return;

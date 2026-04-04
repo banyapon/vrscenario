@@ -6616,7 +6616,8 @@ MonoBehaviour:
   - {fileID: 7786528779758276497}
   syncAudioList: []
   boardUI: {fileID: 7854619892190634570}
-  environment: {fileID: 8529559483202961412}
+  environment: {fileID: 4038763931929538905}
+  lobbyRoom: {fileID: 8529559483202961412}
   startBtn: {fileID: 4721085512698885604}
   disconnectBtn: {fileID: 6843310078882841109}
   scenarioConfigs:
