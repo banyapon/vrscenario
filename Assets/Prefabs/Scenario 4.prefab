@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5487447250857607218}
   - component: {fileID: 6395044284647715822}
+  - component: {fileID: 6803933780901934933}
   m_Layer: 0
   m_Name: Audio Source
   m_TagString: Untagged
@@ -129,6 +130,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6803933780901934933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37981800651702716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc485f4ca270272448956e01b7fafe2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Audio Source_-884408
+  playOnEnable: 1
 --- !u!1 &54509300042323858
 GameObject:
   m_ObjectHideFlags: 0
@@ -4036,6 +4051,7 @@ GameObject:
   - component: {fileID: 7175547850184679848}
   - component: {fileID: 5058912543924541608}
   - component: {fileID: 2436089807272265255}
+  - component: {fileID: 8326185632640132918}
   m_Layer: 0
   m_Name: WalkingSound
   m_TagString: Untagged
@@ -4070,7 +4086,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 46606fbb4ee67d5478869a75d8867a64, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -4168,6 +4184,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: WalkingSound_-611904
+--- !u!114 &8326185632640132918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7198147492372768146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc485f4ca270272448956e01b7fafe2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: WalkingSound_-808944
+  playOnEnable: 0
 --- !u!1 &7268871932875489256
 GameObject:
   m_ObjectHideFlags: 0
@@ -11117,6 +11147,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1778043449549669063}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e2a37ef25f1fc6d4cb6a13f9975f051a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2934890181963116244}
   m_SourcePrefab: {fileID: 100100000, guid: e2a37ef25f1fc6d4cb6a13f9975f051a, type: 3}
 --- !u!1 &2465757009139294396 stripped
 GameObject:
@@ -11251,6 +11285,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2934890181963116244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2465757009139294396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc485f4ca270272448956e01b7fafe2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: ambulance_car_-733382
+  playOnEnable: 1
 --- !u!4 &2986995148742539782 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e2a37ef25f1fc6d4cb6a13f9975f051a,
