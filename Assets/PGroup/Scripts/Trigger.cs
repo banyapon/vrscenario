@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 
@@ -16,11 +17,24 @@ namespace PGroup
         private Tween delay = null;
         private Collider _collider;
 
+        private void Awake()
+        {
+            GameplayController.OnRestartTrigger += HandleRestartTrigger;
+        }
+        private void OnDestroy()
+        {
+            GameplayController.OnRestartTrigger -= HandleRestartTrigger;
+        }
+
+        private void HandleRestartTrigger()
+        {
+            _collider.enabled = true;
+        }
+
         private void Start()
         {
             _collider = GetComponent<Collider>();
             triggerController = GetComponentInParent<TriggerController>();
-
             if (triggerTarget != null) triggerTarget.GetComponent<Collider>().enabled = true;
         }
         private void OnTriggerEnter(Collider other)

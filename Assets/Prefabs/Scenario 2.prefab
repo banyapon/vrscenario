@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 7303605505661126193}
   - component: {fileID: 995803953732947226}
   - component: {fileID: 8702847461453788663}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BlockTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,8 +128,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 20}
-  m_Center: {x: -4.08, y: 0, z: 0}
+  m_Size: {x: 2, y: 2, z: 20}
+  m_Center: {x: -4.5, y: 0, z: 0}
 --- !u!65 &6510493240023872796
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -149,8 +149,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 20}
-  m_Center: {x: 4.18, y: 0, z: 0}
+  m_Size: {x: 2, y: 2, z: 20}
+  m_Center: {x: 4.5, y: 0, z: 0}
 --- !u!65 &7553892518184105259
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -170,8 +170,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 9.282959, y: 2, z: 1.2643967}
-  m_Center: {x: 0.036088705, y: 0, z: 10.582198}
+  m_Size: {x: 9.282959, y: 2, z: 2}
+  m_Center: {x: 0.036088705, y: 0, z: 10.9}
 --- !u!65 &6673789812954045733
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -191,8 +191,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5.632521, y: 2, z: 1.1642227}
-  m_Center: {x: 1.8662603, y: 0, z: -10.53211}
+  m_Size: {x: 5.632521, y: 2, z: 2}
+  m_Center: {x: 1.8662603, y: 0, z: -10.96}
 --- !u!65 &7303605505661126193
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -212,8 +212,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.38342, y: 2, z: 1.0358448}
-  m_Center: {x: -3.3917103, y: 0, z: -10.467921}
+  m_Size: {x: 2.38342, y: 2, z: 2}
+  m_Center: {x: -3.3917103, y: 0, z: -10.96}
 --- !u!65 &995803953732947226
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1853,7 +1853,6 @@ MonoBehaviour:
   followerSecondRight: {fileID: 2377607830269044087}
   npcGuide: {fileID: 7598779367635680987}
   topPos: {fileID: 5465463542729822655}
-  stateController: {fileID: 0}
   TeleportForInspector: {fileID: 7383687927947990464}
 --- !u!1 &809991590313057193
 GameObject:
@@ -1921,7 +1920,7 @@ Transform:
   m_GameObject: {fileID: 1014208758649369236}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.019, y: 7.35, z: 5.099}
+  m_LocalPosition: {x: 1.093, y: 7.35, z: 5.099}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

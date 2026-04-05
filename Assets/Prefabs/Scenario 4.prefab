@@ -4197,7 +4197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: WalkingSound_-808944
-  playOnEnable: 0
+  playOnEnable: 1
 --- !u!1 &7268871932875489256
 GameObject:
   m_ObjectHideFlags: 0

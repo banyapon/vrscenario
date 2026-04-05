@@ -25,6 +25,7 @@ namespace PGroup
         private bool onPlaying;
 
         public static Action<int> OnCheckpointEnd = delegate { };
+        public static Action OnRestartTrigger = delegate { };
 
         private void Awake()
         {
@@ -50,6 +51,7 @@ namespace PGroup
         public void RestartCheckpoint()
         {
             onPlaying = true;
+            OnRestartTrigger?.Invoke();
             timeUsed = 0;
             scoreList.Clear();
             currentCheckpoint = 0;
