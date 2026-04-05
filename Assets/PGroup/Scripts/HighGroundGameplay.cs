@@ -177,7 +177,7 @@ namespace PGroup
 
             Checkpoint1Start();
 
-            if (VRNetworkController.Instance.inspector)
+            if (VRNetworkController.Instance.inspector && TrainingPlayerList.Instance.selectedClientId == scenario.OwnerClientId)
             {
                 TeleportForInspector.SetActive(true);
                 Player.Instance?.Teleport(Vector3.zero, Vector3.zero);

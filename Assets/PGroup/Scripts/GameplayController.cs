@@ -36,6 +36,11 @@ namespace PGroup
         {
             onPlaying = true;
             checkpointControllers[currentCheckpoint].StartStep();
+
+            if (VRNetworkController.Instance.inspector && TrainingPlayerList.Instance.selectedClientId == scenario.OwnerClientId)
+            {
+                Player.Instance?.Teleport(Vector3.zero, Vector3.zero);
+            }
         }
         private void Update()
         {
