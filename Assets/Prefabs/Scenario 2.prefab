@@ -2816,7 +2816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc485f4ca270272448956e01b7fafe2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Wind_-3986494
+  id: Wind_199766
   playOnEnable: 1
 --- !u!114 &4806539319175103190
 MonoBehaviour:
@@ -9414,7 +9414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc485f4ca270272448956e01b7fafe2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Bg Audio_-2712542
+  id: Bg Audio_199614
   playOnEnable: 1
 --- !u!82 &4219864113115478844
 AudioSource:
@@ -15079,6 +15079,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: CheckmarkThermalscan (1)_-42438
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15507,6 +15512,11 @@ PrefabInstance:
       propertyPath: m_FollowInLocalSpace
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Warning Checkpoint 3_-43896
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15907,6 +15917,11 @@ PrefabInstance:
       propertyPath: m_FollowInLocalSpace
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Guide Checkpoint 1_-41612
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16074,6 +16089,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FollowInLocalSpace
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Correct Checkpoint 3.2_-43270
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24455,6 +24475,11 @@ PrefabInstance:
       propertyPath: m_FollowInLocalSpace
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Warning Checkpoint 4_-43976
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24630,6 +24655,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FollowInLocalSpace
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Warning Checkpoint 5_-40196
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25364,6 +25394,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -23
       objectReference: {fileID: 0}
+    - target: {fileID: 6630176241693338395, guid: 746b3d83a78304749a1ba17903d2303b,
+        type: 3}
+      propertyPath: id
+      value: Back To Lobby Button_-42092
+      objectReference: {fileID: 0}
     - target: {fileID: 7153765746163743041, guid: 746b3d83a78304749a1ba17903d2303b,
         type: 3}
       propertyPath: m_text
@@ -25373,6 +25408,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: "\u0E01\u0E32\u0E23\u0E1B\u0E35\u0E19\u0E2A\u0E39\u0E48\u0E17\u0E35\u0E48\u0E2A\u0E39\u0E07"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840348171087807217, guid: 746b3d83a78304749a1ba17903d2303b,
+        type: 3}
+      propertyPath: id
+      value: Play Again Button_-42042
       objectReference: {fileID: 0}
     - target: {fileID: 8200348932809743011, guid: 746b3d83a78304749a1ba17903d2303b,
         type: 3}
@@ -25739,6 +25779,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Warning HUD_-43934
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26077,6 +26122,11 @@ PrefabInstance:
       propertyPath: m_FollowInLocalSpace
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Guide Checkpoint 6_-44832
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26254,6 +26304,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FollowInLocalSpace
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Guide Checkpoint 5.2_-44284
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26498,6 +26553,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FollowInLocalSpace
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Warning Checkpoint 2.2_-44796
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27040,12 +27100,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: SignPaper_-6149064
-      objectReference: {fileID: 0}
-    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
-        type: 3}
-      propertyPath: playOnEnable
-      value: 1
+      value: SignPaper_-40232
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27470,6 +27525,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: CheckmarkThermalscan_-41578
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27642,6 +27702,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FollowInLocalSpace
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Guide Checkpoint 3_-44104
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27907,6 +27972,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FollowInLocalSpace
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Guide Checkpoint 4.1_-43070
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28776,6 +28846,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7299316246934370364, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+        type: 3}
+      propertyPath: id
+      value: Button 1_-44430
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017208004284855245, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+        type: 3}
+      propertyPath: id
+      value: Button 2_-44480
+      objectReference: {fileID: 0}
     - target: {fileID: 8309902865433484020, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
       propertyPath: id
@@ -28876,6 +28956,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -126.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1700392709672429863, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: Incorrect HUD_-51636
       objectReference: {fileID: 0}
     - target: {fileID: 1734091455613244666, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
@@ -29322,6 +29407,11 @@ PrefabInstance:
       propertyPath: m_ConstraintCount
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6607050024987594501, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: Correct HUD_-51596
+      objectReference: {fileID: 0}
     - target: {fileID: 6646303378180406546, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
       propertyPath: isCorrectOption
@@ -29403,6 +29493,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 4be1d38f2110f8146ace7b0f934f31b8,
         type: 3}
+    - target: {fileID: 8536160882785509736, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: Warning HUD_-51556
+      objectReference: {fileID: 0}
     - target: {fileID: 8598299354233847853, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
       propertyPath: m_Name
@@ -30358,6 +30453,11 @@ PrefabInstance:
       propertyPath: m_FollowInLocalSpace
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Guide Checkpoint 5.1_-44320
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -30387,6 +30487,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2098499962848457522}
     m_Modifications:
+    - target: {fileID: 437923473953816951, guid: d66f38f033df54741a9e187829282ceb,
+        type: 3}
+      propertyPath: id
+      value: Button 1_-43216
+      objectReference: {fileID: 0}
     - target: {fileID: 1430480257286858772, guid: d66f38f033df54741a9e187829282ceb,
         type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.size
@@ -32122,12 +32227,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Warning Checkpoint 2.1_-6156720
-      objectReference: {fileID: 0}
-    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
-        type: 3}
-      propertyPath: playOnEnable
-      value: 1
+      value: Warning Checkpoint 2.1_-42160
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -34096,6 +34196,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2695550598684531567}
     m_Modifications:
+    - target: {fileID: 437923473953816951, guid: d66f38f033df54741a9e187829282ceb,
+        type: 3}
+      propertyPath: id
+      value: Button_-44006
+      objectReference: {fileID: 0}
     - target: {fileID: 3065879722669653117, guid: d66f38f033df54741a9e187829282ceb,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -34387,6 +34492,11 @@ PrefabInstance:
       propertyPath: m_FollowInLocalSpace
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Correct Checkpoint 3.1_-50852
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -34547,6 +34657,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FollowInLocalSpace
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Correct Checkpoint 7_-44868
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -35060,6 +35175,11 @@ PrefabInstance:
       propertyPath: m_FollowInLocalSpace
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Correct Checkpoint 5_-44546
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -35370,6 +35490,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: CheckmarkThermalscan (2)_-51744
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -35620,6 +35745,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FollowInLocalSpace
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Guide Checkpoint 4.2_-42244
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -37898,6 +38028,11 @@ PrefabInstance:
       propertyPath: m_FollowInLocalSpace
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Correct Checkpoint 1_-43860
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -38884,6 +39019,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7299316246934370364, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+        type: 3}
+      propertyPath: id
+      value: Button 1_-50564
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017208004284855245, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+        type: 3}
+      propertyPath: id
+      value: Button 2_-50614
       objectReference: {fileID: 0}
     - target: {fileID: 8309902865433484020, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}

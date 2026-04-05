@@ -7892,6 +7892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: Bg Audio_-2794222
+  id: Bg Audio_206134
   playOnEnable: 1
 --- !u!82 &4178676719173207750
 AudioSource:
@@ -9180,6 +9181,16 @@ PrefabInstance:
       propertyPath: m_PositionFollowMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Guide Checkpoint 3_1_-135574
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: playOnEnable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9831,6 +9842,16 @@ PrefabInstance:
       propertyPath: m_PositionFollowMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Guide Checkpoint 1_1_-136778
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: playOnEnable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10005,6 +10026,16 @@ PrefabInstance:
       propertyPath: m_PositionFollowMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Guide Checkpoint 1_3_-135902
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: playOnEnable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -10168,6 +10199,16 @@ PrefabInstance:
     - target: {fileID: 7452267920749269977, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_PositionFollowMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Correct Checkpoint 4_2_-136036
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: playOnEnable
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -10485,6 +10526,16 @@ PrefabInstance:
     - target: {fileID: 7452267920749269977, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_PositionFollowMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Guide Checkpoint 1_2_-135710
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: playOnEnable
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -10828,6 +10879,16 @@ PrefabInstance:
       propertyPath: m_PositionFollowMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Correct Checkpoint 3_1_-135846
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: playOnEnable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11070,7 +11131,11 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
+<<<<<<< Updated upstream
       value: Warning_-1638074
+=======
+      value: Warning_-136930
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -12642,6 +12707,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7299316246934370364, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+        type: 3}
+      propertyPath: id
+      value: Button 1_-134224
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017208004284855245, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+        type: 3}
+      propertyPath: id
+      value: Button 2_-134274
+      objectReference: {fileID: 0}
     - target: {fileID: 8309902865433484020, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
       propertyPath: id
@@ -12815,6 +12890,16 @@ PrefabInstance:
       propertyPath: m_PositionFollowMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Warning Checkpoint 3_1_-135974
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: playOnEnable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12975,6 +13060,16 @@ PrefabInstance:
     - target: {fileID: 7452267920749269977, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_PositionFollowMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Warning Checkpoint 1_1_-135938
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: playOnEnable
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -13367,6 +13462,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7299316246934370364, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+        type: 3}
+      propertyPath: id
+      value: Button 1_-134668
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017208004284855245, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+        type: 3}
+      propertyPath: id
+      value: Button 2_-134718
       objectReference: {fileID: 0}
     - target: {fileID: 8309902865433484020, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
@@ -13763,6 +13868,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -23
       objectReference: {fileID: 0}
+    - target: {fileID: 6630176241693338395, guid: 746b3d83a78304749a1ba17903d2303b,
+        type: 3}
+      propertyPath: id
+      value: Back To Lobby Button_-136710
+      objectReference: {fileID: 0}
     - target: {fileID: 7153765746163743041, guid: 746b3d83a78304749a1ba17903d2303b,
         type: 3}
       propertyPath: m_text
@@ -13772,6 +13882,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: PPE
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840348171087807217, guid: 746b3d83a78304749a1ba17903d2303b,
+        type: 3}
+      propertyPath: id
+      value: Play Again Button_-136660
       objectReference: {fileID: 0}
     - target: {fileID: 8200348932809743011, guid: 746b3d83a78304749a1ba17903d2303b,
         type: 3}
@@ -14514,6 +14629,16 @@ PrefabInstance:
       propertyPath: isCorrectOption
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1700392709672429863, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: Incorrect HUD_-135538
+      objectReference: {fileID: 0}
+    - target: {fileID: 1700392709672429863, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: playOnEnable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1734091455613244666, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
       propertyPath: maxSelectionCount
@@ -14675,6 +14800,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: e38052d274699b24cb76bb554af809a7,
         type: 3}
+    - target: {fileID: 2295515808547033848, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: Button_-135392
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295515808547033848, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: playOnEnable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2424530390892772752, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -14999,6 +15134,16 @@ PrefabInstance:
       propertyPath: isCorrectOption
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6607050024987594501, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: Correct HUD_-135498
+      objectReference: {fileID: 0}
+    - target: {fileID: 6607050024987594501, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: playOnEnable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6646303378180406546, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
       propertyPath: isCorrectOption
@@ -15112,6 +15257,16 @@ PrefabInstance:
         type: 3}
       propertyPath: isCorrectOption
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536160882785509736, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: Warning HUD_-135458
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536160882785509736, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: playOnEnable
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8598299354233847853, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
@@ -15716,6 +15871,16 @@ PrefabInstance:
       propertyPath: m_PositionFollowMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Correct Checkpoint 1_2_-135782
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: playOnEnable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15978,6 +16143,16 @@ PrefabInstance:
       propertyPath: m_PositionFollowMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Correct Checkpoint 4_3_-134558
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: playOnEnable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16144,6 +16319,16 @@ PrefabInstance:
     - target: {fileID: 7452267920749269977, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_PositionFollowMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Guide Checkpoint 4_1_-133680
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: playOnEnable
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -16785,6 +16970,16 @@ PrefabInstance:
     - target: {fileID: 7452267920749269977, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_PositionFollowMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Warning Checkpoint 4_2_-135746
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: playOnEnable
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

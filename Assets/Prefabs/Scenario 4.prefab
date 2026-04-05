@@ -4749,7 +4749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc485f4ca270272448956e01b7fafe2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Bg Audio_-2852762
+  id: Bg Audio_214970
   playOnEnable: 1
 --- !u!82 &8099604686765609109
 AudioSource:
@@ -5296,6 +5296,16 @@ PrefabInstance:
       propertyPath: m_PositionFollowMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Warning Checkpoint 1_4_-252284
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: playOnEnable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5492,7 +5502,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Guide Checkpoint 1_2_-5174172
+      value: Guide Checkpoint 1_2_-252166
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -6334,7 +6344,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Guide Checkpoint 1_6_-5157744
+      value: Guide Checkpoint 1_6_-252248
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -9083,6 +9093,16 @@ PrefabInstance:
       propertyPath: isCorrectOption
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1700392709672429863, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: Incorrect HUD_-252000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1700392709672429863, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: playOnEnable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1734091455613244666, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
       propertyPath: maxSelectionCount
@@ -9568,6 +9588,16 @@ PrefabInstance:
       propertyPath: isCorrectOption
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6607050024987594501, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: Correct HUD_-251960
+      objectReference: {fileID: 0}
+    - target: {fileID: 6607050024987594501, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: playOnEnable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6646303378180406546, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
       propertyPath: isCorrectOption
@@ -9681,6 +9711,16 @@ PrefabInstance:
         type: 3}
       propertyPath: isCorrectOption
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536160882785509736, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: id
+      value: Warning HUD_-251920
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536160882785509736, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
+        type: 3}
+      propertyPath: playOnEnable
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8598299354233847853, guid: 99a5c2e1ecc983b4ca5f43abe8a1290c,
         type: 3}
@@ -9994,7 +10034,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Guide Checkpoint 1_5_-5157646
+      value: Guide Checkpoint 1_5_-252082
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -10169,6 +10209,16 @@ PrefabInstance:
     - target: {fileID: 7452267920749269977, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_PositionFollowMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Guide Checkpoint 2_5_-251094
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: playOnEnable
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -10530,7 +10580,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Guide Checkpoint 1_3_-5158664
+      value: Guide Checkpoint 1_3_-235758
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -10741,7 +10791,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-      value: Guide Checkpoint 1_4_-5159602
+      value: Guide Checkpoint 1_4_-234472
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
@@ -10946,6 +10996,16 @@ PrefabInstance:
     - target: {fileID: 7452267920749269977, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_PositionFollowMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Guide Checkpoint 2_1_-252118
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: playOnEnable
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -11465,6 +11525,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -23
       objectReference: {fileID: 0}
+    - target: {fileID: 6630176241693338395, guid: 746b3d83a78304749a1ba17903d2303b,
+        type: 3}
+      propertyPath: id
+      value: Back To Lobby Button_-235304
+      objectReference: {fileID: 0}
     - target: {fileID: 7153765746163743041, guid: 746b3d83a78304749a1ba17903d2303b,
         type: 3}
       propertyPath: m_text
@@ -11479,6 +11544,11 @@ PrefabInstance:
         type: 3}
       propertyPath: stateUIs.Array.size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840348171087807217, guid: 746b3d83a78304749a1ba17903d2303b,
+        type: 3}
+      propertyPath: id
+      value: Play Again Button_-235254
       objectReference: {fileID: 0}
     - target: {fileID: 8200348932809743011, guid: 746b3d83a78304749a1ba17903d2303b,
         type: 3}
@@ -11814,6 +11884,16 @@ PrefabInstance:
     - target: {fileID: 7452267920749269977, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_PositionFollowMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Correct Checkpoint 3_4_-236174
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: playOnEnable
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -12345,6 +12425,16 @@ PrefabInstance:
       propertyPath: m_PositionFollowMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Warning Checkpoint 3_2_-234910
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: playOnEnable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12504,6 +12594,16 @@ PrefabInstance:
     - target: {fileID: 7452267920749269977, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_PositionFollowMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Warning Checkpoint 3_1_-251194
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: playOnEnable
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -15437,6 +15537,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7299316246934370364, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+        type: 3}
+      propertyPath: id
+      value: Button 1_-235468
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017208004284855245, guid: 0fcaae2dfa87dd247b49be6d166b863a,
+        type: 3}
+      propertyPath: id
+      value: Button 2_-235518
+      objectReference: {fileID: 0}
     - target: {fileID: 8309902865433484020, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
       propertyPath: id
@@ -16601,6 +16711,16 @@ PrefabInstance:
       propertyPath: m_PositionFollowMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Guide Checkpoint 3_3_-251158
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: playOnEnable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -16765,6 +16885,16 @@ PrefabInstance:
     - target: {fileID: 7452267920749269977, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_PositionFollowMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Guide Checkpoint 1_1_-235676
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: playOnEnable
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -19051,6 +19181,16 @@ PrefabInstance:
       propertyPath: m_PositionFollowMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Warning Checkpoint 2_2_-234874
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: playOnEnable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19290,6 +19430,16 @@ PrefabInstance:
     - target: {fileID: 7452267920749269977, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: m_PositionFollowMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: id
+      value: Correct Checkpoint 1_3_-234330
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
+        type: 3}
+      propertyPath: playOnEnable
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
