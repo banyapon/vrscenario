@@ -177,7 +177,11 @@ namespace PGroup
 
             Checkpoint1Start();
 
-            if (VRNetworkController.Instance.inspector) TeleportForInspector.SetActive(true);
+            if (VRNetworkController.Instance.inspector)
+            {
+                TeleportForInspector.SetActive(true);
+                Player.Instance?.Teleport(Vector3.zero, Vector3.zero);
+            }
         }
         private void Update()
         {

@@ -14,9 +14,11 @@ namespace PGroup
 
         private TriggerController triggerController;
         private Tween delay = null;
+        private Collider _collider;
 
         private void Start()
         {
+            _collider = GetComponent<Collider>();
             triggerController = GetComponentInParent<TriggerController>();
 
             if (triggerTarget != null) triggerTarget.GetComponent<Collider>().enabled = true;
@@ -30,6 +32,7 @@ namespace PGroup
                 {
                     if (other.gameObject == triggerTarget)
                     {
+                        _collider.enabled = false;
                         if (deactiveObject != null) deactiveObject.SetActive(false);
                         if (deactiveTarget) other.gameObject.SetActive(false);
                         if (correctTrigger != null) correctTrigger.SetActive(true);
@@ -37,6 +40,7 @@ namespace PGroup
                     }
                     else
                     {
+                        _collider.enabled = true;
                         WrongTrigger(other.gameObject);
                     }
                 }
@@ -45,6 +49,7 @@ namespace PGroup
             {
                 if (other.gameObject == triggerTarget)
                 {
+                    _collider.enabled = false;
                     if (deactiveObject != null) deactiveObject.SetActive(false);
                     if (deactiveTarget) other.gameObject.SetActive(false);
                     if (correctTrigger != null) correctTrigger.SetActive(true);
@@ -55,6 +60,7 @@ namespace PGroup
             {
                 if (other.CompareTag(triggerTag))
                 {
+                    _collider.enabled = false;
                     if (deactiveObject != null) deactiveObject.SetActive(false);
                     if (deactiveTarget) other.gameObject.SetActive(false);
                     if (correctTrigger != null) correctTrigger.SetActive(true);
