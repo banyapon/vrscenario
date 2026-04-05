@@ -1853,7 +1853,7 @@ MonoBehaviour:
   followerSecondRight: {fileID: 2377607830269044087}
   npcGuide: {fileID: 7598779367635680987}
   topPos: {fileID: 5465463542729822655}
-  stateController: {fileID: 32214284274741085}
+  stateController: {fileID: 0}
   TeleportForInspector: {fileID: 7383687927947990464}
 --- !u!1 &809991590313057193
 GameObject:
@@ -9771,54 +9771,6 @@ Transform:
   - {fileID: 2377607830269044087}
   m_Father: {fileID: 6512547475071577316}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6600174410819332094
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1778863316947306768}
-  - component: {fileID: 235149530092644222}
-  m_Layer: 0
-  m_Name: TeleportTopState
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1778863316947306768
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6600174410819332094}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.012, y: 7.261, z: 5.38}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5378381090450682477}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &235149530092644222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6600174410819332094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd0723456abc7e04c869e14dfce7150a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateCanvas: {fileID: 0}
-  nextButton: {fileID: 0}
-  nextState: {fileID: 0}
-  teleportTarget: {fileID: 1778863316947306768}
 --- !u!1 &6654012316031804421
 GameObject:
   m_ObjectHideFlags: 0
@@ -13137,54 +13089,6 @@ MonoBehaviour:
   m_Projection: 0
   m_Compliance: 0
   breakThreshold: Infinity
---- !u!1 &8471249424160047581
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7339192229793506766}
-  - component: {fileID: 6000046607538934035}
-  m_Layer: 0
-  m_Name: TeleportStartState
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &7339192229793506766
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8471249424160047581}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5378381090450682477}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6000046607538934035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8471249424160047581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd0723456abc7e04c869e14dfce7150a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateCanvas: {fileID: 0}
-  nextButton: {fileID: 0}
-  nextState: {fileID: 0}
-  teleportTarget: {fileID: 7339192229793506766}
 --- !u!1 &8473032765828719177
 GameObject:
   m_ObjectHideFlags: 0
@@ -28305,14 +28209,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 913803078148694200, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7339192229793506766}
-    - targetCorrespondingSourceObject: {fileID: 913803078148694200, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1778863316947306768}
-    - targetCorrespondingSourceObject: {fileID: 913803078148694200, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 7731399359264240957}
     - targetCorrespondingSourceObject: {fileID: 7517564914022015284, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
         type: 3}
@@ -28578,11 +28474,7 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4675970966880052832}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8686919214326522056, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
-        type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 32214284274741085}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef, type: 3}
 --- !u!224 &429831040431376739 stripped
 RectTransform:
@@ -28596,7 +28488,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 5047868971673162453}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4504585982904447517}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbcf78515f540e540bae316a09472f71, type: 3}
@@ -28614,30 +28506,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5047868971673162453}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4504585982904447517 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8686919214326522056, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,
-    type: 3}
-  m_PrefabInstance: {fileID: 5047868971673162453}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &32214284274741085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4504585982904447517}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be70d21d1cc7a6d49981e633d0c10e6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowTopMostFoldoutHeaderGroup: 1
-  currentState: -1
-  states:
-  - {fileID: 6000046607538934035}
-  - {fileID: 235149530092644222}
-  scenario: {fileID: 0}
 --- !u!4 &5281792728599510269 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1099178017871212072, guid: 9ca9efbaf7c5bee44a8c152b4fa083ef,

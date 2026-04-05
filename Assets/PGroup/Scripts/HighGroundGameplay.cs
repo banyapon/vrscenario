@@ -96,7 +96,6 @@ namespace PGroup
 
         [SerializeField] private GameObject npcGuide;
         [SerializeField] private Transform topPos;
-        public StateController stateController;
 
         [SerializeField] private GameObject TeleportForInspector;
 
