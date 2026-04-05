@@ -7891,7 +7891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc485f4ca270272448956e01b7fafe2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Bg Audio_206134
+  id: Bg Audio_228554
   playOnEnable: 1
 --- !u!82 &4178676719173207750
 AudioSource:
@@ -11130,11 +11130,7 @@ PrefabInstance:
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
       propertyPath: id
-<<<<<<< Updated upstream
       value: Warning_-1638074
-=======
-      value: Warning_-136930
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 9200573589525014449, guid: 498fc9b29cd70204dab3af42a6dbc5c9,
         type: 3}
