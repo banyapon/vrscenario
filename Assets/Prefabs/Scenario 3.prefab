@@ -7891,7 +7891,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc485f4ca270272448956e01b7fafe2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Bg Audio_-2794222
   id: Bg Audio_206134
   playOnEnable: 1
 --- !u!82 &4178676719173207750
