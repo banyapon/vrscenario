@@ -294,7 +294,8 @@ public class VRManager : NetworkBehaviour
         TrainingPlayerList trainingPlayerList = TrainingPlayerList.Instance;
         if (!vRNetworkController || !trainingPlayerList) return;
         if (vRNetworkController.inspector &&
-            trainingPlayerList.selectedClientId == id)
+            trainingPlayerList.selectedClientId == id
+            && trainingPlayerList.isSelected)
         {
             Player.Instance?.Teleport(Vector3.zero, Vector3.zero);
         }

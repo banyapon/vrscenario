@@ -25,6 +25,7 @@ namespace PGroup
         private bool onPlaying;
 
         public static Action<int> OnCheckpointEnd = delegate { };
+        public static Action OnRestartTrigger = delegate { };
 
         private void Awake()
         {
@@ -36,6 +37,11 @@ namespace PGroup
         {
             onPlaying = true;
             checkpointControllers[currentCheckpoint].StartStep();
+
+            if (VRNetworkController.Instance.inspector && TrainingPlayerList.Instance.selectedClientId == scenario.OwnerClientId)
+            {
+                Player.Instance?.Teleport(Vector3.zero, Vector3.zero);
+            }
         }
         private void Update()
         {
@@ -45,6 +51,7 @@ namespace PGroup
         public void RestartCheckpoint()
         {
             onPlaying = true;
+            OnRestartTrigger?.Invoke();
             timeUsed = 0;
             scoreList.Clear();
             currentCheckpoint = 0;

@@ -96,7 +96,6 @@ namespace PGroup
 
         [SerializeField] private GameObject npcGuide;
         [SerializeField] private Transform topPos;
-        public StateController stateController;
 
         [SerializeField] private GameObject TeleportForInspector;
 
@@ -178,7 +177,11 @@ namespace PGroup
 
             Checkpoint1Start();
 
-            if (VRNetworkController.Instance.inspector) TeleportForInspector.SetActive(true);
+            if (VRNetworkController.Instance.inspector && TrainingPlayerList.Instance.selectedClientId == scenario.OwnerClientId)
+            {
+                TeleportForInspector.SetActive(true);
+                Player.Instance?.Teleport(Vector3.zero, Vector3.zero);
+            }
         }
         private void Update()
         {
