@@ -81,7 +81,7 @@ public class PCNetworkBootstrap : MonoBehaviour
     {
         var options = new SessionOptions
         {
-            Name = "SUT Training Session",
+            Name = $"SUT Training Session {PlayerPrefs.GetString("roomCode")}",
             MaxPlayers = maxPlayer,
             IsPrivate = false,
             IsLocked = false
