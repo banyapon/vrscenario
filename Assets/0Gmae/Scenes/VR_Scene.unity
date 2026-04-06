@@ -3680,6 +3680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFinish: 0
+  roomCode: 
   deleteCode: 1
   roomCodeUI: {fileID: 1914507826}
   roomCodeInputField: {fileID: 338465454}
