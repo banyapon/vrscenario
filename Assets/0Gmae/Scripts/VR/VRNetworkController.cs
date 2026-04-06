@@ -51,6 +51,8 @@ public class VRNetworkController : MonoBehaviour
         }
 
         Instance = this;
+
+        ShowDisconnectedUI("Welcome");
         logOutUI.SetActive(false);
         playerDropdown.SetActive(false);
 
@@ -82,8 +84,6 @@ public class VRNetworkController : MonoBehaviour
         nm = NetworkManager.Singleton;
         nm.OnClientConnectedCallback += OnClientConnected;
         nm.OnClientDisconnectCallback += OnClientDisconnected;
-
-        ShowDisconnectedUI("Welcome");
     }
 
     void OnDestroy()

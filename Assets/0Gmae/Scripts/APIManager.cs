@@ -1,7 +1,6 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections;
-using System.Net;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Networking;
@@ -14,7 +13,6 @@ namespace Boy
         public string baseUrl;
         [SerializeField] private string vrstApiKey = "";
         public string userEmail = "test@gmail.com";
-        public string roomCode = "1";
 
         private void Awake()
         {
@@ -33,20 +31,34 @@ namespace Boy
         }
         public void SaveJoinCode<T>(string code, UnityAction<bool, string, T> callback = null)
         {
+            if (!PlayerPrefs.HasKey("roomCode"))
+            {
+                Debug.LogWarning("Room code not found.");
+                return;
+            }
+
             var body = new
             {
-                room_code = roomCode,
+                room_code = PlayerPrefs.GetString("roomCode"),
                 key_join_multiplayer = code,
                 overwrite = true,
             };
 
             string json = JsonConvert.SerializeObject(body);
             string url = $"{baseUrl}/api/save-key-join-multiplayer";
+            print(json);
             StartCoroutine(PostJson(url, json, callback));
         }
         public void GetJoinCode<T>(UnityAction<bool, string, T> callback = null)
         {
-            string url = $"{baseUrl}/api/get-key-join-multiplayer?room_code={roomCode}";
+            if (!PlayerPrefs.HasKey("roomCode"))
+            {
+                Debug.LogWarning("Room code not found.");
+                return;
+            }
+
+            string url = $"{baseUrl}/api/get-key-join-multiplayer?room_code={PlayerPrefs.GetString("roomCode")}";
+            print(url);
             StartCoroutine(GetRequest(url, callback));
         }
         #region PGroup

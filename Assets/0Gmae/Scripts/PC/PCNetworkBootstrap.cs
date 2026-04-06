@@ -46,11 +46,20 @@ public class PCNetworkBootstrap : MonoBehaviour
         nm.OnClientDisconnectCallback += OnClientDisconnected;
 
         await RelayAuthen();
-        await StartHost();
+        RoomCodeController roomCodeController = RoomCodeController.Instance;
+        if (roomCodeController.isFinish) HandleRoomCodeFinished();
+        else roomCodeController.OnFinish.AddListener(HandleRoomCodeFinished);
+    }
+
+    void HandleRoomCodeFinished()
+    {
+        _ = StartHost();
     }
 
     async Task StartHost()
     {
+        GameObject loading = PCUIManager.Instance.loading;
+        loading.SetActive(true);
         var code = await CreateSession();
 
         if (string.IsNullOrEmpty(code))
@@ -60,7 +69,10 @@ public class PCNetworkBootstrap : MonoBehaviour
         }
 
         header.text = $"PC Host: {code}";
-        APIManager.Instance.SaveJoinCode<string>(code);
+        APIManager.Instance.SaveJoinCode<string>(code, (status, msg, res) =>
+        {
+            loading.SetActive(false);
+        });
         print(code);
         nm.StartHost();
     }

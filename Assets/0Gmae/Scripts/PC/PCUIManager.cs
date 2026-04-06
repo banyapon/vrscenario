@@ -11,6 +11,7 @@ public class PCUIManager : MonoBehaviour
     public bool isMute = true;
     [SerializeField] private TMP_Text playerCountText;
     public GameObject noPlayerText;
+    public GameObject loading;
 
     [Header("Viewer")]
     public Viewer activeViewer;

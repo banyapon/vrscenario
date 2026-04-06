@@ -186,7 +186,7 @@ namespace PGroup
             {
                 if (success)
                 {
-                    loginPanel.SetActive(false);
+                    //loginPanel.SetActive(false);
                     //Debug.Log("Login success");
 
                     nonNativeKeyboard.Close();
