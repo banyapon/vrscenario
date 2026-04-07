@@ -27,6 +27,7 @@ namespace PGroup
         [HideInInspector][SerializeField] private GameObject notCorrectPasswordPanel;
         [HideInInspector][SerializeField] private GameObject soloModePanel;
         [HideInInspector][SerializeField] private GameObject multiplayerModePanel;
+        [HideInInspector][SerializeField] private GameObject failPanel;
 
         [Header("Button")]
         [HideInInspector][SerializeField] private Button soloModeButton;
@@ -68,6 +69,9 @@ namespace PGroup
         [Header("Scripts")]
         [SerializeField] private VRNetworkController networkController;
         [SerializeField] private NonNativeKeyboard nonNativeKeyboard;
+
+        [Header("TextMeshPro")]
+        [HideInInspector][SerializeField] private TextMeshProUGUI failText;
         #endregion
         #region Public Fuction Button
         private void Awake()
@@ -201,7 +205,9 @@ namespace PGroup
                 else
                 {
                     //Debug.Log(msg);
-                    notCorrectPasswordPanel.SetActive(true);
+                    //notCorrectPasswordPanel.SetActive(true);
+                    failPanel.SetActive(true);
+                    failText.text = $"Login Fail";
                     //Debug.LogError(msg);
                 }
                 loginButton.interactable = true;
@@ -261,7 +267,9 @@ namespace PGroup
                 else
                 {
                     registerButton.interactable = true;
-                    Debug.LogError(msg);
+                    failPanel.SetActive(true);
+                    failText.text = $"Register Fail";
+                    //Debug.LogError(msg);
                 }
             });
         }
@@ -296,7 +304,9 @@ namespace PGroup
                 }
                 else
                 {
-                    Debug.LogError(msg);
+                    failPanel.SetActive(true);
+                    failText.text = $"Reset Password Fail";
+                    //Debug.LogError(msg);
                 }
             });
         }
@@ -321,7 +331,9 @@ namespace PGroup
                 }
                 else
                 {
-                    Debug.LogError(msg);
+                    failPanel.SetActive(true);
+                    failText.text = $"Sent Email Fail";
+                    //Debug.LogError(msg);
                 }
                 sendEmailPasswordButton.interactable = true;
             });
