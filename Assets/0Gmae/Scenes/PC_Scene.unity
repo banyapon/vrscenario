@@ -434,9 +434,9 @@ RectTransform:
   - {fileID: 1808519285}
   - {fileID: 99136556}
   - {fileID: 204663810}
-  - {fileID: 616861586}
   - {fileID: 559662057}
   - {fileID: 1808440606}
+  - {fileID: 616861586}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -501,7 +501,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Loading...
+  m_text: Connecting...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 47d1e2b1bfbfb8d468b9a1a023e8de92, type: 2}
   m_sharedMaterial: {fileID: -8482379417340022250, guid: 47d1e2b1bfbfb8d468b9a1a023e8de92,
@@ -529,8 +529,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1580,7 +1580,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Loading.
+  m_text: Connecting.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 47d1e2b1bfbfb8d468b9a1a023e8de92, type: 2}
   m_sharedMaterial: {fileID: -8482379417340022250, guid: 47d1e2b1bfbfb8d468b9a1a023e8de92,
@@ -1608,8 +1608,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4876,7 +4876,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Loading..
+  m_text: Connecting..
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 47d1e2b1bfbfb8d468b9a1a023e8de92, type: 2}
   m_sharedMaterial: {fileID: -8482379417340022250, guid: 47d1e2b1bfbfb8d468b9a1a023e8de92,
@@ -4904,8 +4904,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7940,7 +7940,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Loading
+  m_text: Connecting
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 47d1e2b1bfbfb8d468b9a1a023e8de92, type: 2}
   m_sharedMaterial: {fileID: -8482379417340022250, guid: 47d1e2b1bfbfb8d468b9a1a023e8de92,
@@ -7968,8 +7968,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9252,7 +9252,7 @@ GameObject:
   - component: {fileID: 1808440607}
   - component: {fileID: 1808440609}
   m_Layer: 5
-  m_Name: Loading
+  m_Name: Connecting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
