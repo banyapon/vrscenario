@@ -102,4 +102,8 @@ public class RoomCodeController : MonoBehaviour
         NonNativeKeyboard.Instance.InputField = _input;
         NonNativeKeyboard.Instance.PresentKeyboard(_input.text);
     }
+    public void ResetRoomCode()
+    {
+        PlayerPrefs.DeleteKey("roomCode");
+    }
 }
