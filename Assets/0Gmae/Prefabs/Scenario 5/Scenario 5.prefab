@@ -7527,6 +7527,7 @@ MonoBehaviour:
   nextButton: {fileID: 0}
   nextState: {fileID: 0}
   delayChangeState: 3
+  wrongDuration: 10
   correctSequence: 050000000200000001000000030000000400000000000000
   machineSound: {fileID: 827255030847719542}
   mainSwitchTrans: {fileID: 4384528081305324595}
