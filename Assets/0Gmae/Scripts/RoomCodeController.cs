@@ -15,6 +15,7 @@ public class RoomCodeController : MonoBehaviour
 
     [Header("Setting")]
     [SerializeField] private bool deleteCode;
+    [SerializeField] private TextMeshProUGUI roomCodeText;
 
     [Header("Reference")]
     [SerializeField] private GameObject roomCodeUI;
@@ -89,6 +90,7 @@ public class RoomCodeController : MonoBehaviour
 
     void CompleteRoomCodeFlow()
     {
+        roomCodeText.text = "CODE : " + roomCode;
         hudState?.HideHUD();
         roomCodeUI.SetActive(false);
         nonNativeKeyboard?.Close();
@@ -104,6 +106,8 @@ public class RoomCodeController : MonoBehaviour
     }
     public void ResetRoomCode()
     {
+        roomCodeText.text = "CODE : -";
         PlayerPrefs.DeleteKey("roomCode");
+        Initialize();
     }
 }
