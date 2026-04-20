@@ -48,7 +48,7 @@ public class PCNetworkBootstrap : MonoBehaviour
         await RelayAuthen();
         RoomCodeController roomCodeController = RoomCodeController.Instance;
         if (roomCodeController.isFinish) HandleRoomCodeFinished();
-        else roomCodeController.OnFinish.AddListener(HandleRoomCodeFinished);
+        roomCodeController.OnFinish.AddListener(HandleRoomCodeFinished);
     }
 
     void HandleRoomCodeFinished()
@@ -104,6 +104,37 @@ public class PCNetworkBootstrap : MonoBehaviour
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
     }
 
+    public async void StopHost()
+    {
+        Debug.Log("Stopping Host...");
+
+        if (nm != null && nm.IsListening)
+        {
+            nm.Shutdown();
+        }
+
+        if (currentSession != null)
+        {
+            try
+            {
+                await currentSession.LeaveAsync();
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning($"Leave session failed: {e.Message}");
+            }
+
+            currentSession = null;
+        }
+
+        spawnIndex = 0;
+        clientPayloads.Clear();
+
+        if (header != null)
+            header.text = "PC Host: stopped";
+
+        Debug.Log("Host stopped completely");
+    }
     void OnClientConnected(ulong clientId)
     {
         if (clientId == nm.LocalClientId)

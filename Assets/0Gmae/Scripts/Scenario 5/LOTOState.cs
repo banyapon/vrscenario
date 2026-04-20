@@ -8,6 +8,7 @@ public class LOTOState : State
 {
     [Header("Setting")]
     public float delayChangeState = 3;
+    public float wrongDuration = 10;
 
     [SerializeField]
     private LOTOStep[] correctSequence =
@@ -161,7 +162,14 @@ public class LOTOState : State
             }
         }
 
-        hUDState.OpenHud(isCorrect? correctHud : wrongHud);
+        if (isCorrect)
+        {
+            hUDState.OpenHud(correctHud);
+        }
+        else
+        {
+            hUDState.OpenHud(wrongHud, wrongDuration);
+        }
 
         DOVirtual.DelayedCall(delayChangeState, () =>
         {

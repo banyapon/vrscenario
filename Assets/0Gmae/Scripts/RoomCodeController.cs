@@ -20,6 +20,8 @@ public class RoomCodeController : MonoBehaviour
     [Header("Reference")]
     [SerializeField] private GameObject roomCodeUI;
     [SerializeField] private TMP_InputField roomCodeInputField;
+    [SerializeField] private TMP_Text codeText;
+    [SerializeField] private Button resetButton;
     [SerializeField] private Button confirmButton;
     [SerializeField] private GameObject enterCodeWarningHUD;
 
@@ -50,10 +52,13 @@ public class RoomCodeController : MonoBehaviour
 
     private void Start()
     {
+        resetButton.onClick.AddListener(ResetCode);
+
         if (PlayerPrefs.HasKey("roomCode"))
         {
             CompleteRoomCodeFlow();
             roomCode = PlayerPrefs.GetString("roomCode");
+            SetCodeText();
             print($"Room code is {roomCode}");
             return;
         }
@@ -83,6 +88,7 @@ public class RoomCodeController : MonoBehaviour
             }
 
             roomCode = roomCodeInputField.text;
+            SetCodeText();
             PlayerPrefs.SetString("roomCode", roomCode);
             CompleteRoomCodeFlow();
         });
@@ -96,6 +102,23 @@ public class RoomCodeController : MonoBehaviour
         nonNativeKeyboard?.Close();
         OnFinish?.Invoke();
         isFinish = true;
+    }
+
+    public void ResetCode()
+    {
+        PlayerPrefs.DeleteKey("roomCode");
+        roomCode = "";
+        SetCodeText();
+        if (PCNetworkBootstrap.Instance != null)
+        {
+            PCNetworkBootstrap.Instance.StopHost();
+        }
+        Initialize();
+    }
+
+    void SetCodeText()
+    {
+        codeText.text = $"CODE : {roomCode}".ToUpper();
     }
 
     public void ShowKeyboard(TMP_InputField _input)

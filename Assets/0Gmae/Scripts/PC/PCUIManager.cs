@@ -71,6 +71,8 @@ public class PCUIManager : MonoBehaviour
             muteBtn.transform.GetChild(1).gameObject.SetActive(isMute);
             activeViewer?.SetAudio(isMute);
         });
+
+        Rebuild();
     }
 
     private void Update()
@@ -173,7 +175,7 @@ public class PCUIManager : MonoBehaviour
             }
         }
 
-        Rebuild();
+        //Rebuild();
     }
     void UpdateCategoryButton()
     {
@@ -230,7 +232,7 @@ public class PCUIManager : MonoBehaviour
     {
         Category category = FindCategory(viewer.Category);
         viewer.transform.SetParent(category.rootGrid);
-        Rebuild();
+        //Rebuild();
     }
 
     public void ExpandViewer(Viewer viewer)
@@ -250,7 +252,7 @@ public class PCUIManager : MonoBehaviour
         activeViewer = null;
         ClearOtherCamera();
         viewerUI.SetActive(false);
-        Rebuild();
+        //Rebuild();
     }
 
     public void UpdateOtherCamera()
@@ -288,6 +290,17 @@ public class PCUIManager : MonoBehaviour
         yield return null;
         Canvas.ForceUpdateCanvases();
         LayoutRebuilder.ForceRebuildLayoutImmediate(target);
+
+        ContentSizeFitter contentSizeFitter = target.GetComponent<ContentSizeFitter>();
+        float delayDuration = 0.25f;
+
+        yield return new WaitForSeconds(delayDuration);
+        contentSizeFitter.enabled = false;
+
+        yield return new WaitForSeconds(delayDuration);
+        contentSizeFitter.enabled = true;
+        
+        Rebuild();
     }
 
     #endregion

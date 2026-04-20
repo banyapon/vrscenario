@@ -9,6 +9,8 @@ public class ImageLoader : MonoBehaviour
 
     private void OnEnable()
     {
+        if (RoomCodeController.Instance == null) return;
+        print(RoomCodeController.Instance.roomCode);
         if (rawImage == null) rawImage = GetComponent<RawImage>();
         if (string.IsNullOrEmpty(url) || rawImage == null) return;
         APIManager.Instance.DownloadImage(url, (texture) =>
