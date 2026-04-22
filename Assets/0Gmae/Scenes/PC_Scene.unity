@@ -3991,6 +3991,8 @@ MonoBehaviour:
   baseUrl: https://wt-vr-st.th1.proen.cloud
   vrstApiKey: fastfishapi2026
   userEmail: test@gmail.com
+  urlMain: 
+  urlSecondary: 
 --- !u!1 &805483217
 GameObject:
   m_ObjectHideFlags: 0
@@ -4023,7 +4025,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFinish: 0
   roomCode: 
-  deleteCode: 0
+  deleteCode: 1
   roomCodeText: {fileID: 487759701}
   roomCodeUI: {fileID: 683110190}
   roomCodeInputField: {fileID: 537209886}
@@ -7485,6 +7487,7 @@ PrefabInstance:
     - {fileID: -3168549017430149945, guid: 498fc9b29cd70204dab3af42a6dbc5c9, type: 3}
     - {fileID: -8704571413553364726, guid: 498fc9b29cd70204dab3af42a6dbc5c9, type: 3}
     - {fileID: 7452267920749269977, guid: 498fc9b29cd70204dab3af42a6dbc5c9, type: 3}
+    - {fileID: -2377035255845622415, guid: 498fc9b29cd70204dab3af42a6dbc5c9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
