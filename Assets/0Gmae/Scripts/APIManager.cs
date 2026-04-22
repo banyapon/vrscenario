@@ -14,6 +14,10 @@ namespace Boy
         [SerializeField] private string vrstApiKey = "";
         public string userEmail = "test@gmail.com";
 
+        [Header("Logo")]
+        public string urlMain;
+        public string urlSecondary;
+
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -118,6 +122,56 @@ namespace Boy
         }
         #endregion
 
+        #region Logo
+        public void GetLogoByRoomCode(UnityAction callback = null)
+        {
+            if (!PlayerPrefs.HasKey("roomCode"))
+            {
+                Debug.LogWarning("Room code not found.");
+                return;
+            }
+
+            string url = $"{baseUrl}/api/public/room-code/{PlayerPrefs.GetString("roomCode")}";
+            print(url);
+            StartCoroutine(GetRequest<LogoResponse>(url, (status, msg,  res) =>
+            {
+                print($"GetLogoByRoomCode: {status}, {msg}, {res}");
+                if (!status) return;
+                urlMain = res.data.url_main.Replace("..", "api");
+                urlSecondary = res.data.url_secondary.Replace("..", "api");
+                callback?.Invoke();
+            }));
+        }
+
+        public void GetMainLogo(Action<Texture2D> callback = null)
+        {
+            if (string.IsNullOrEmpty(urlMain))
+            {
+                GetLogoByRoomCode(() =>
+                {
+                    DownloadImage($"{baseUrl}/{urlMain}", callback);
+                });
+            }
+            else
+            {
+                DownloadImage($"{baseUrl}/{urlMain}", callback);
+            }
+        }
+        public void GetSecondaryLogo(Action<Texture2D> callback = null)
+        {
+            if (string.IsNullOrEmpty(urlSecondary))
+            {
+                GetLogoByRoomCode(() =>
+                {
+                    DownloadImage($"{baseUrl}/{urlSecondary}", callback);
+                });
+            }
+            else
+            {
+                DownloadImage($"{baseUrl}/{urlSecondary}", callback);
+            }
+        }
+        #endregion
         public IEnumerator GetRequest<T>(string url,
             UnityAction<bool, string, T> callback = null)
         {
@@ -243,4 +297,19 @@ public class LoginResponse
     public string message;
     public string code;
     public string desc;
+}
+[Serializable]
+public class LogoResponse
+{
+    public bool status;
+    public string message;
+    public string code;
+    public string desc;
+    public LogoData data;
+}
+[Serializable]
+public class LogoData
+{
+    public string url_main;
+    public string url_secondary;
 }

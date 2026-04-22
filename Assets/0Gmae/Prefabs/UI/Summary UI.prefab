@@ -1724,6 +1724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772f39104271ede468c5a28b6f414c41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMain: 1
   url: https://wt-vr-st.th1.proen.cloud/api/public/logo/main
 --- !u!1 &7924343549051177642
 GameObject:
@@ -1886,6 +1887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772f39104271ede468c5a28b6f414c41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMain: 0
   url: https://wt-vr-st.th1.proen.cloud/api/public/logo/secondary
 --- !u!1 &8317622425028555519
 GameObject:

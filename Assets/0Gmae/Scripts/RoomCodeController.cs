@@ -109,6 +109,8 @@ public class RoomCodeController : MonoBehaviour
         PlayerPrefs.DeleteKey("roomCode");
         roomCode = "";
         SetCodeText();
+        APIManager.Instance.urlMain = "";
+        APIManager.Instance.urlSecondary = "";
         if (PCNetworkBootstrap.Instance != null)
         {
             PCNetworkBootstrap.Instance.StopHost();

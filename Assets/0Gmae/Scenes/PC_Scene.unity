@@ -4027,6 +4027,8 @@ MonoBehaviour:
   roomCodeText: {fileID: 487759701}
   roomCodeUI: {fileID: 683110190}
   roomCodeInputField: {fileID: 537209886}
+  codeText: {fileID: 487759701}
+  resetButton: {fileID: 1220113066}
   confirmButton: {fileID: 480174402}
   enterCodeWarningHUD: {fileID: 1471114064}
   OnStart:
