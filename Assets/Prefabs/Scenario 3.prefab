@@ -12484,7 +12484,7 @@ PrefabInstance:
     - target: {fileID: 1331153923586568210, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
       propertyPath: id
-      value: Quiz Checkpoint 1_1_-1237646
+      value: Quiz Checkpoint 4_2_-40960
       objectReference: {fileID: 0}
     - target: {fileID: 1911858061382050677, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
@@ -12730,7 +12730,7 @@ PrefabInstance:
     - target: {fileID: 8309902865433484020, guid: 0fcaae2dfa87dd247b49be6d166b863a,
         type: 3}
       propertyPath: id
-      value: Quiz Checkpoint 1_1_-1237644
+      value: Quiz Checkpoint 4_2_-40962
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
