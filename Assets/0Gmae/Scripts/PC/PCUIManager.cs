@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PCUIManager : MonoBehaviour
@@ -51,6 +52,12 @@ public class PCUIManager : MonoBehaviour
     public Button exitConfirmBtn;
     public Button exitCancelBtn;
 
+    [Header("Restart")]
+    public Button restartBtn;
+    public GameObject restartPopup;
+    public Button restartConfirmBtn;
+    public Button restartCancelBtn;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -61,6 +68,7 @@ public class PCUIManager : MonoBehaviour
 
         Instance = this;
         InitializeExit();
+        InitializeRestart();
         InitializeCategory();
         InitializeViewer();
 
@@ -152,6 +160,23 @@ public class PCUIManager : MonoBehaviour
 #else
             Application.Quit();
 #endif
+        });
+    }
+    public void InitializeRestart()
+    {
+        restartBtn.onClick.AddListener(() =>
+        {
+            restartPopup.SetActive(true);
+        });
+
+        restartCancelBtn.onClick.AddListener(() =>
+        {
+            restartPopup.SetActive(false);
+        });
+        restartConfirmBtn.onClick.AddListener(() =>
+        {
+            Destroy(PCNetworkBootstrap.Instance);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         });
     }
 

@@ -33,11 +33,17 @@ public class PCNetworkBootstrap : MonoBehaviour
 
     void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Instance = this;
         nm = NetworkManager.Singleton;
         transport = GetComponent<UnityTransport>();
 
-        nm.ConnectionApprovalCallback += ApprovalCheck;
+        nm.ConnectionApprovalCallback = ApprovalCheck;
     }
 
     async void Start()
@@ -222,6 +228,11 @@ public class PCNetworkBootstrap : MonoBehaviour
         }
 
         return payload.isInspector;
+    }
+
+    private void OnDestroy()
+    {
+        if (nm) nm.ConnectionApprovalCallback = null;
     }
 }
 
