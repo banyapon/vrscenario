@@ -2525,7 +2525,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'CODE : AAAA'
+  m_text: 'CODE : '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aac66d758dcd33641a04a90c99ede8db, type: 2}
   m_sharedMaterial: {fileID: 60487761080919492, guid: aac66d758dcd33641a04a90c99ede8db,
