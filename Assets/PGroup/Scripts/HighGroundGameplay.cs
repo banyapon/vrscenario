@@ -104,7 +104,7 @@ namespace PGroup
         private void Awake()
         {
             scenario = GetComponentInParent<Scenario>();
-            player = Camera.main.transform;
+            if(Camera.main != null) player = Camera.main.transform;
             pPESelector.OnSelectionValidated += OnValidated;
             point1.OnEnter += () => Checkpoint2Start();
             startPoint3.OnEnter += () => Checkpoint3Start();
