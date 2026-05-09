@@ -85,7 +85,10 @@ public class PCUIManager : MonoBehaviour
 
     private void Update()
     {
-        playerCountText.text = $"{CCTVController.Instance.viewers.Count}";
+        if (CCTVController.Instance != null && CCTVController.Instance.viewers != null)
+        {
+            playerCountText.text = $"{CCTVController.Instance.viewers.Count}";
+        }
         disconnectText.SetActive(!IsOpen);
         SetActiveNoPlayerText();
         ViewerUpdate();

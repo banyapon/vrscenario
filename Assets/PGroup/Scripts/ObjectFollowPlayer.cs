@@ -12,11 +12,12 @@ namespace PGroup
 
         private void Start()
         {
-            player = Camera.main.transform.parent.parent;
+            if (Camera.main != null && Camera.main.transform.parent != null && Camera.main.transform.parent.parent != null) player = Camera.main.transform.parent.parent;
         }
         private void LateUpdate()
         {
             if (isFollowPlayer == Vector3.zero) return;
+            if (player == null) return;
 
             Vector3 current = transform.position;
             Vector3 target = player.position + offset;

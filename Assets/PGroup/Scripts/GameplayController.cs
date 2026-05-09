@@ -30,17 +30,19 @@ namespace PGroup
         private void Awake()
         {
             scenario = GetComponentInParent<Scenario>();
-            player = Player.Instance.transform;
+            if (Player.Instance != null) player = Player.Instance.transform;
         }
 
         private void Start()
         {
             onPlaying = true;
             checkpointControllers[currentCheckpoint].StartStep();
-
-            if (VRNetworkController.Instance.inspector && TrainingPlayerList.Instance.selectedClientId == scenario.OwnerClientId)
+            if (VRNetworkController.Instance != null && TrainingPlayerList.Instance != null && scenario != null)
             {
-                Player.Instance?.Teleport(Vector3.zero, Vector3.zero);
+                if (VRNetworkController.Instance.inspector && TrainingPlayerList.Instance.selectedClientId == scenario.OwnerClientId)
+                {
+                    Player.Instance?.Teleport(Vector3.zero, Vector3.zero);
+                }
             }
         }
         private void Update()

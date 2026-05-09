@@ -104,7 +104,7 @@ namespace PGroup
         private void Awake()
         {
             scenario = GetComponentInParent<Scenario>();
-            player = Camera.main.transform;
+            if (Camera.main != null) player = Camera.main.transform;
             pPESelector.OnSelectionValidated += OnValidated;
             point1.OnEnter += () => Checkpoint2Start();
             startPoint3.OnEnter += () => Checkpoint3Start();
@@ -177,10 +177,13 @@ namespace PGroup
 
             Checkpoint1Start();
 
-            if (VRNetworkController.Instance.inspector && TrainingPlayerList.Instance.selectedClientId == scenario.OwnerClientId)
+            if (VRNetworkController.Instance != null && TrainingPlayerList.Instance != null && scenario != null)
             {
-                TeleportForInspector.SetActive(true);
-                Player.Instance?.Teleport(Vector3.zero, Vector3.zero);
+                if (VRNetworkController.Instance.inspector && TrainingPlayerList.Instance.selectedClientId == scenario.OwnerClientId)
+                {
+                    TeleportForInspector.SetActive(true);
+                    Player.Instance?.Teleport(Vector3.zero, Vector3.zero);
+                }
             }
         }
         private void Update()
