@@ -1,5 +1,5 @@
 using PGroup;
-using Pico.Platform.Models;
+//using Pico.Platform.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Netcode;
@@ -25,7 +25,7 @@ public class Scenario : NetworkBehaviour
 
     [SerializeField] private GameplayController gameplayController;
     [SerializeField] private HighGroundGameplay highGroundGameplay;
-    [SerializeField] private Follower follower;
+    //[SerializeField] private Follower follower;
 
     private void Awake()
     {

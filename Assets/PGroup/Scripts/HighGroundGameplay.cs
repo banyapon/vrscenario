@@ -189,6 +189,8 @@ namespace PGroup
 
             timeUsed += Time.deltaTime;
 
+            if (Player.Instance == null) return;
+
             if (!VRNetworkController.Instance.inspector && !scenario.IsHost)
             {
                 playerFollower.position = Player.Instance.transform.position;
