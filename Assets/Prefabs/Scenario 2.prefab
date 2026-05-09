@@ -266,6 +266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1710882922565683249}
   - component: {fileID: 1536864637059398906}
+  - component: {fileID: 6620644378346328085}
   m_Layer: 2
   m_Name: FollowPlayerL
   m_TagString: Untagged
@@ -304,6 +305,19 @@ MonoBehaviour:
   isFollowPlayer: {x: 1, y: 0, z: 0}
   smoothTime: 0.2
   offset: {x: 0, y: 0, z: 0}
+--- !u!114 &6620644378346328085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193801755240921780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1fcbb83794c883408b8a14492fb2d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: FollowPlayerL_-320838
 --- !u!1 &215641023964742853
 GameObject:
   m_ObjectHideFlags: 0
@@ -3353,6 +3367,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8099725887266166110}
   - component: {fileID: 7922292225034440686}
+  - component: {fileID: 4936157487126013794}
   m_Layer: 2
   m_Name: FollowPlayerL
   m_TagString: Untagged
@@ -3391,6 +3406,19 @@ MonoBehaviour:
   isFollowPlayer: {x: 0, y: 0, z: 1}
   smoothTime: 0.2
   offset: {x: 0, y: 0, z: 0}
+--- !u!114 &4936157487126013794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055394567920056461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1fcbb83794c883408b8a14492fb2d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: FollowPlayerL_-320842
 --- !u!1 &2218008581206168696
 GameObject:
   m_ObjectHideFlags: 0
@@ -7274,6 +7302,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2230191216861653776}
   - component: {fileID: 1785316376982690564}
+  - component: {fileID: 2610496354073471083}
   m_Layer: 2
   m_Name: FollowPlayerR
   m_TagString: Untagged
@@ -7312,6 +7341,19 @@ MonoBehaviour:
   isFollowPlayer: {x: 1, y: 0, z: 0}
   smoothTime: 0.2
   offset: {x: -0.05, y: 0, z: 0}
+--- !u!114 &2610496354073471083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4802111610493845940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1fcbb83794c883408b8a14492fb2d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: FollowPlayerR_-320846
 --- !u!1 &4807101996519493626
 GameObject:
   m_ObjectHideFlags: 0
@@ -7719,6 +7761,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2377607830269044087}
   - component: {fileID: 2462782504375922463}
+  - component: {fileID: 5646714242446637740}
   m_Layer: 2
   m_Name: FollowPlayerR
   m_TagString: Untagged
@@ -7757,6 +7800,19 @@ MonoBehaviour:
   isFollowPlayer: {x: 0, y: 0, z: 1}
   smoothTime: 0.2
   offset: {x: 0, y: 0, z: 0.05}
+--- !u!114 &5646714242446637740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5247273080463147185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1fcbb83794c883408b8a14492fb2d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: FollowPlayerR_-320850
 --- !u!1 &5271932837785783069
 GameObject:
   m_ObjectHideFlags: 0
