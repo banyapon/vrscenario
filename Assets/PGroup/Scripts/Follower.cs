@@ -21,6 +21,8 @@ public class Follower : MonoBehaviour
     void Update()
     {
         if (player == null) return;
+        if (Player.Instance == null) return;
+
         if (!VRNetworkController.Instance.inspector && !scenario.IsHost)
         {
             player.position = Player.Instance.transform.position;
