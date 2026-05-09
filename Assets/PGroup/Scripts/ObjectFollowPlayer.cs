@@ -12,7 +12,7 @@ namespace PGroup
 
         private void Start()
         {
-            if (Camera.main != null) player = Camera.main.transform.parent.parent;
+            if (Camera.main.transform.parent.parent != null) player = Camera.main.transform.parent.parent;
         }
         private void LateUpdate()
         {
