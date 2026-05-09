@@ -30,7 +30,7 @@ namespace PGroup
         private void Awake()
         {
             scenario = GetComponentInParent<Scenario>();
-            player = Player.Instance.transform;
+            if (Player.Instance != null) player = Player.Instance.transform;
         }
 
         private void Start()
