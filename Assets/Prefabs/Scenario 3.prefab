@@ -8869,6 +8869,7 @@ GameObject:
   - component: {fileID: 754523006817932972}
   - component: {fileID: 8638727228548956480}
   - component: {fileID: 3860941560334845154}
+  - component: {fileID: 187228832922190864}
   m_Layer: 0
   m_Name: pad_Yellow
   m_TagString: Untagged
@@ -8965,6 +8966,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.40691063, y: 0.44406015, z: 0.009496343}
   m_Center: {x: -0.0000000745058, y: -0.0000014081597, z: -0.0000000053551044}
+--- !u!114 &187228832922190864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8742428695617232203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aff4182d02cd5544b94f6372490ef1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: pad_Yellow_-96766
 --- !u!1 &8869984193003046180
 GameObject:
   m_ObjectHideFlags: 0
@@ -9293,12 +9307,12 @@ PrefabInstance:
     - target: {fileID: 3156890646322589362, guid: ed965f9b392bc224a8540e05010734cf,
         type: 3}
       propertyPath: id
-      value: Cone (1)_-4968604
+      value: Cone (1)_-80966
       objectReference: {fileID: 0}
     - target: {fileID: 8232828963272215400, guid: ed965f9b392bc224a8540e05010734cf,
         type: 3}
       propertyPath: id
-      value: Cone (1)_-4968606
+      value: Cone (1)_-80968
       objectReference: {fileID: 0}
     - target: {fileID: 8515002059885945819, guid: ed965f9b392bc224a8540e05010734cf,
         type: 3}
@@ -10640,12 +10654,12 @@ PrefabInstance:
     - target: {fileID: 3156890646322589362, guid: ed965f9b392bc224a8540e05010734cf,
         type: 3}
       propertyPath: id
-      value: Cone_-4966408
+      value: Cone_-80050
       objectReference: {fileID: 0}
     - target: {fileID: 8232828963272215400, guid: ed965f9b392bc224a8540e05010734cf,
         type: 3}
       propertyPath: id
-      value: Cone_-4966410
+      value: Cone_-80052
       objectReference: {fileID: 0}
     - target: {fileID: 8515002059885945819, guid: ed965f9b392bc224a8540e05010734cf,
         type: 3}
@@ -13576,12 +13590,12 @@ PrefabInstance:
     - target: {fileID: 3156890646322589362, guid: ed965f9b392bc224a8540e05010734cf,
         type: 3}
       propertyPath: id
-      value: Cone (2)_-4968578
+      value: Cone (2)_-80076
       objectReference: {fileID: 0}
     - target: {fileID: 8232828963272215400, guid: ed965f9b392bc224a8540e05010734cf,
         type: 3}
       propertyPath: id
-      value: Cone (2)_-4968580
+      value: Cone (2)_-80078
       objectReference: {fileID: 0}
     - target: {fileID: 8515002059885945819, guid: ed965f9b392bc224a8540e05010734cf,
         type: 3}
