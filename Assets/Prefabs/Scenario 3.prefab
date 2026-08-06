@@ -9465,7 +9465,7 @@ PrefabInstance:
         type: 3}
       propertyPath: triggerTarget
       value: 
-      objectReference: {fileID: 8448564818983587287}
+      objectReference: {fileID: 8742428695617232203}
     - target: {fileID: 1134142636041089813, guid: b715ac73c6f55fd49b14619b10182739,
         type: 3}
       propertyPath: correctTrigger
@@ -9475,7 +9475,7 @@ PrefabInstance:
         type: 3}
       propertyPath: deactiveObject
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8448564818983587287}
     - target: {fileID: 1134142636041089813, guid: b715ac73c6f55fd49b14619b10182739,
         type: 3}
       propertyPath: deactiveTarget
